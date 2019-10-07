@@ -1,0 +1,190 @@
+@import url(https://fonts.googleapis.com/css?family=Lato|Muli|Open+Sans&display=swap);@charset "UTF-8";
+
+/*General styles*/
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Muli", sans-serif;
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  color: #000;
+  background-color: #fff;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.8rem;
+}
+
+p {
+  font-size: 1.8rem;
+}
+
+/*Header and Navigation styles*/
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 100px;
+  background: #fff;
+  width: 100%;
+}
+
+header .logo {
+  color: #000;
+  height: 50px;
+  line-height: 50px;
+  font-size: 2.4rem;
+  float: left;
+}
+
+header nav {
+  float: right;
+}
+
+header nav ul {
+  margin: 0%;
+  padding: 0%;
+  display: flex;
+}
+
+header nav ul li {
+  list-style: none;
+  position: relative;
+}
+
+header nav ul li a {
+  line-height: 50px;
+  height: 50px;
+  padding: 0 20px;
+  color: #000;
+  text-decoration: none;
+  display: block;
+}
+
+header nav ul li ul {
+  position: absolute;
+  left: 0;
+  background: #333;
+  display: none;
+}
+
+header nav ul li ul li {
+  display: block;
+  width: 200px;
+}
+
+.menu-toggle {
+  display: none;
+  color: #000;
+  cursor: pointer;
+  line-height: 50px;
+  font-size: 2.4rem;
+  float: right;
+}
+
+header nav ul li.sub-menu:before {
+  position: absolute;
+  line-height: 50px;
+  content: "\25BE";
+  color: #000;
+  right: 5px;
+}
+
+header nav ul li.active.sub-menu:before {
+  content: "\25B4";
+}
+
+header nav ul li.active ul {
+  display: block;
+}
+
+@media (max-width: 991px) {
+  header {
+    padding: 0 20px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  header nav {
+    position: absolute;
+    width: 100%;
+    height: calc(100vh - 50px);
+    background: #333;
+    top: 50px;
+    left: -100%;
+    transition: 0.5s;
+  }
+
+  header nav.active {
+    left: 0;
+  }
+
+  header nav ul {
+    display: block;
+    text-align: center;
+  }
+
+  header nav ul li a {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+  header nav ul li.active ul {
+    position: relative;
+    background: #003e6f;
+  }
+
+  header nav ul li ul li {
+    width: 100%;
+  }
+}
+
+/*Register page styles*/
+
+.register {
+  width: 100%;
+  height: auto;
+}
+
+.register .register-wrapper {
+  width: 85%;
+  margin: 80px auto;
+  text-align: center;
+}
+
+.register .register-wrapper .form-holder {
+  border: 1px solid #f5f8fa;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  display: inline-block;
+  width: 25%;
+  margin: auto;
+}
+
+.register .register-wrapper .form-holder .form-layout {
+  width: 80%;
+  margin: auto;
+  text-align: left;
+}
+
+.register .register-wrapper .form-holder .form-layout h2 {
+  text-transform: uppercase;
+  text-align: left;
+  letter-spacing: 2px;
+}
+
+.register .register-wrapper .form-holder .form-layout p a {
+  margin-left: 4px;
+}
+
