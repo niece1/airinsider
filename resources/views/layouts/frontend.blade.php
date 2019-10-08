@@ -23,62 +23,63 @@
 <body>
     <div id="app">
         <header>
+            <div class="menu-wrapper">
+                <div class="logo">
+                    <a href="{{ url('/') }}">авиа<span>инсайдер</span></a>
+                </div>
+                <nav>
 
-            <div class="logo">
-                <a href="{{ url('/') }}">{{ config('app.name', 'Laravel') }}</a>
-            </div>
-            <nav>
 
 
+                    <ul>
+                        <li>
+                            <a href="#">About</a>
+                        </li>
+                        <li>
+                            <a href="#">Contact</a>
 
-                <ul>
-                    <li>
-                        <a href="#">About</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-
-                    </li>
-                    <li class="sub-menu">
-                        <a href="#">Categories</a>
-                        <ul>
-                            <li>
-                                <a href="#">History</a>
-                            </li>
-                            <li>
-                                <a href="#">Incidents</a>
-                            </li>
-                            <li>
-                                <a href="#">Discounts</a>
-                            </li>
-                        </ul>
-                    </li>
-                    @guest
-                    <li>
-                        <a href="{{ route('login') }}">{{ __('Login') }}</a>
-                    </li>
-                    @endguest
-                    @auth
-                    <li class="sub-menu">
-                        <a href="#">{{ Auth::user()->name }}</a>
-                        <ul>
-                            <li>
-                                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                        </li>
+                        <li class="sub-menu">
+                            <a href="#">Categories</a>
+                            <ul>
+                                <li>
+                                    <a class="sub-item" href="#">History</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item" href="#">Incidents</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item" href="#">Discounts</a>
+                                </li>
+                            </ul>
+                        </li>
+                        @guest
+                        <li>
+                            <a href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        @endguest
+                        @auth
+                        <li class="sub-menu">
+                            <a href="#">{{ Auth::user()->name }}</a>
+                            <ul>
+                                <li>
+                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+                                        {{ __('Logout') }}
+                                    </a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
-                    @endauth
-                </ul>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </li>
+                            </ul>
+                        </li>
+                        @endauth
+                    </ul>
 
-            </nav>
-            <div class="menu-toggle">menu</div>
+                </nav>
+                <div class="menu-toggle">menu</div>
+            </div>
         </header>
         <!--<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">

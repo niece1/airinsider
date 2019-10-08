@@ -34,6 +34,7 @@ const app = new Vue({
     el: "#app"
 });
 
+//Navigation
 $(document).ready(function() {
     $(".menu-toggle").click(function() {
         $("nav").toggleClass("active");
