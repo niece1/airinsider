@@ -17,12 +17,14 @@ class CreatePostsTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->longText('body');
-            $table->string('slug');
+            $table->string('slug')->unique();
             $table->boolean('published')->default(false);
             $table->integer('viewed')->default(0);
             $table->integer('time_to_read');
-            $table->integer('user_id')->nullable();
-            $table->integer('category_id')->nullable();
+            $table->unsignedBigInteger('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('set null');
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
             $table->timestamps();
         });
     }
