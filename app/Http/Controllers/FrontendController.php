@@ -10,7 +10,7 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $news = Post::with(['photo'])->orderBy('id', 'desc')->paginate(12);
+        $news = Post::with(['photo'])->orderBy('id', 'desc')->get();
         return view('frontend.index', compact('news'));
     }
 }

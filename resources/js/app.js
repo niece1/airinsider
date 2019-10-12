@@ -45,4 +45,24 @@ $(document).ready(function() {
             .removeClass("active");
         $(this).toggleClass("active");
     });
+    // Load more button
+
+    $(".item")
+        .slice(0, 12)
+        .show();
+    $("#loadMore").on("click", function(e) {
+        e.preventDefault();
+        $(".item:hidden")
+            .slice(0, 8)
+            .slideDown();
+        if ($(".item:hidden").length == 0) {
+            $("#loadMore")
+                .text("No Content")
+                .addClass("noContent");
+        }
+    });
+
+    $("#menu-toggle").click(function() {
+        $(this).toggleClass("open");
+    });
 });

@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -79,7 +80,19 @@
                     </ul>
 
                 </nav>
-                <div class="menu-toggle">menu</div>
+
+                <div id="menu-toggle" class="menu-toggle">
+                    <div id="hamburger">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div id="cross">
+                        <span></span>
+                        <span></span>
+                    </div>
+                </div>
+
             </div>
         </header>
         <!--<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
@@ -135,6 +148,73 @@
         <main class="py-4">
             @yield('content')
         </main>
+
+        <!--Footer-->
+
+        <footer>
+            <div class="footer_wrapper_upper">
+                <div class="footer_about">
+                    <a href="{{ url('/') }}" class="footer_logo">Авиаинсайдер</a>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis veniam unde tenetur ullam. Amet, reprehenderit ea nam voluptatibus quisquam harum!</p>
+                    <a href="#"><span>Read more</span></a>
+                </div>
+
+                <div class="footer_contact">
+                    <h6>Contact me</h6>
+                    <p><i class="fab fa-viber"></i>+380 63 257 1046</p>
+                    <p><i class="far fa-envelope"></i>gael@gmail.com</p>
+                    <p><i class="fab fa-skype"></i>vladimir.zhonchuk</p>
+                    <a href="#"><span>Contact me</span></a>
+                </div>
+
+                <div class="footer_links">
+                    <h6>Useful links</h6>
+                    <ul>
+                        <li><a href="index.html"><span>Home</span></a></li>
+                        <li><a href="about.html"><span>About</span></a></li>
+                        <li><a href="contact.html"><span>Contact</span></a></li>
+                        <li><a href="albums.html"><span>Sign in</span></a></li>
+                        <li><a href="blog.html"><span>Sign up</span></a></li>
+
+                    </ul>
+                </div>
+
+                <div class="footer_twitter">
+                    <h6>Twitter Feed</h6>
+                    <p><i class="fab fa-twitter"></i>@gael</p>
+                    <div class="footer_slider">
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="footer_wrapper_down">
+                <div class="footer_copyright">
+
+
+                    <p> &#169; Copyright 2019 Gael. Powered by NoaSoft.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, repellendus.</p>
+                </div>
+
+                <div class="footer_newsletter">
+                    <h6>Newsletter Subscribe</h6>
+                    <div class="input-wrapper" data-text="">
+                        <input id="newsletter" type="email" placeholder="Your email">
+                        <button type="submit" class="button_footer button_footer-swap_footer">Send<span>Send</span></button>
+                    </div>
+                    <p>Don't forget to folow me on:</p>
+                    <a href="#">facebook</a>
+                    <a href="#">twitter</a>
+                    <a href="#">pinterest</a>
+
+                </div>
+            </div>
+        </footer>
+        <!--/.Footer-->
+
     </div>
 </body>
 
