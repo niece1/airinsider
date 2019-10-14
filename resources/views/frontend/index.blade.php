@@ -45,10 +45,10 @@
         </div>
         @endforeach
     </div>
-    <button type="submit" id="loadMore" class="load-more">Больше новостей</button>
+
 </section>
 
-<div>
-
-</div>
+<section class="news-pagination">
+    {{ $news->links() }}
+</section>
 @endsection

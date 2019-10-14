@@ -44922,20 +44922,17 @@ $(document).ready(function () {
   $("ul li").click(function () {
     $(this).siblings().removeClass("active");
     $(this).toggleClass("active");
-  }); // Load more button
+  }); // Hamburger icon animation
 
-  $(".item").slice(0, 12).show();
-  $("#loadMore").on("click", function (e) {
-    e.preventDefault();
-    $(".item:hidden").slice(0, 8).slideDown();
+  $(".menu-toggle").on("click", function () {
+    $(".hamburger-menu").toggleClass("animate");
+  });
+}); //Input footer newsletter underline animation
 
-    if ($(".item:hidden").length == 0) {
-      $("#loadMore").text("No Content").addClass("noContent");
-    }
-  });
-  $("#menu-toggle").click(function () {
-    $(this).toggleClass("open");
-  });
+var wrapper = document.querySelector(".input-wrapper"),
+    textInput = document.querySelector("input#newsletter");
+textInput.addEventListener("keyup", function (event) {
+  wrapper.setAttribute("data-text", event.target.value);
 });
 
 /***/ }),

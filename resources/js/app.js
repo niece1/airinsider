@@ -39,30 +39,23 @@ $(document).ready(function() {
     $(".menu-toggle").click(function() {
         $("nav").toggleClass("active");
     });
+
     $("ul li").click(function() {
         $(this)
             .siblings()
             .removeClass("active");
         $(this).toggleClass("active");
     });
-    // Load more button
 
-    $(".item")
-        .slice(0, 12)
-        .show();
-    $("#loadMore").on("click", function(e) {
-        e.preventDefault();
-        $(".item:hidden")
-            .slice(0, 8)
-            .slideDown();
-        if ($(".item:hidden").length == 0) {
-            $("#loadMore")
-                .text("No Content")
-                .addClass("noContent");
-        }
+    // Hamburger icon animation
+    $(".menu-toggle").on("click", function() {
+        $(".hamburger-menu").toggleClass("animate");
     });
+});
 
-    $("#menu-toggle").click(function() {
-        $(this).toggleClass("open");
-    });
+//Input footer newsletter underline animation
+const wrapper = document.querySelector(".input-wrapper"),
+    textInput = document.querySelector("input#newsletter");
+textInput.addEventListener("keyup", event => {
+    wrapper.setAttribute("data-text", event.target.value);
 });

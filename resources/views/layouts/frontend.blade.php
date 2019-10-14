@@ -27,15 +27,26 @@
         <header>
             <div class="menu-wrapper">
                 <div class="logo">
-                    <a href="{{ url('/') }}">авиа<span>инсайдер</span></a>
+                    <a href="{{ url('/') }}">авиа<span class="logo-span">инсайдер</span></a>
                 </div>
                 <nav>
 
 
 
                     <ul>
-                        <li>
+                        <li class="sub-menu">
                             <a href="#">About</a>
+                            <ul>
+                                <li>
+                                    <a class="sub-item" href="#">History</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item" href="#">Incidents</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item" href="#">Discounts</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="#">Contact</a>
@@ -81,16 +92,11 @@
 
                 </nav>
 
-                <div id="menu-toggle" class="menu-toggle">
-                    <div id="hamburger">
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                <div class="menu-toggle">
+                    <div class="hamburger-menu">
+
                     </div>
-                    <div id="cross">
-                        <span></span>
-                        <span></span>
-                    </div>
+
                 </div>
 
             </div>
@@ -154,21 +160,13 @@
         <footer>
             <div class="footer_wrapper_upper">
                 <div class="footer_about">
-                    <a href="{{ url('/') }}" class="footer_logo">Авиаинсайдер</a>
+                    <a href="#" class="logo-footer">Airinsider</a>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis veniam unde tenetur ullam. Amet, reprehenderit ea nam voluptatibus quisquam harum!</p>
                     <a href="#"><span>Read more</span></a>
                 </div>
 
-                <div class="footer_contact">
-                    <h6>Contact me</h6>
-                    <p><i class="fab fa-viber"></i>+380 63 257 1046</p>
-                    <p><i class="far fa-envelope"></i>gael@gmail.com</p>
-                    <p><i class="fab fa-skype"></i>vladimir.zhonchuk</p>
-                    <a href="#"><span>Contact me</span></a>
-                </div>
-
                 <div class="footer_links">
-                    <h6>Useful links</h6>
+                    <h5>Categories</h5>
                     <ul>
                         <li><a href="index.html"><span>Home</span></a></li>
                         <li><a href="about.html"><span>About</span></a></li>
@@ -179,9 +177,21 @@
                     </ul>
                 </div>
 
-                <div class="footer_twitter">
-                    <h6>Twitter Feed</h6>
-                    <p><i class="fab fa-twitter"></i>@gael</p>
+                <div class="footer_links">
+                    <h5>Useful links</h5>
+                    <ul>
+                        <li><a href="index.html"><span>Home</span></a></li>
+                        <li><a href="about.html"><span>About</span></a></li>
+                        <li><a href="contact.html"><span>Contact</span></a></li>
+                        <li><a href="albums.html"><span>Sign in</span></a></li>
+                        <li><a href="blog.html"><span>Sign up</span></a></li>
+
+                    </ul>
+                </div>
+
+                <div class="footer_tags">
+                    <h5>Popular posts</h5>
+                    <p>@gael</p>
                     <div class="footer_slider">
 
                     </div>
@@ -195,16 +205,16 @@
                 <div class="footer_copyright">
 
 
-                    <p> &#169; Copyright 2019 Gael. Powered by NoaSoft.</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, repellendus.</p>
+                    <p> &#169; Copyright 2019 Airinsider. All rights reserved.</p>
+                    <p>Made with love fore a better web.</p>
                 </div>
 
                 <div class="footer_newsletter">
-                    <h6>Newsletter Subscribe</h6>
-                    <div class="input-wrapper" data-text="">
-                        <input id="newsletter" type="email" placeholder="Your email">
-                        <button type="submit" class="button_footer button_footer-swap_footer">Send<span>Send</span></button>
-                    </div>
+                    <h5>Newsletter Subscribe</h5>
+                    <form class="input-wrapper" data-text="">
+                        <input id="newsletter" type="email" placeholder="Get newsletter">
+                        <button type="submit"><i class="fa fa-envelope-o"></i></button>
+                    </form>
                     <p>Don't forget to folow me on:</p>
                     <a href="#">facebook</a>
                     <a href="#">twitter</a>
