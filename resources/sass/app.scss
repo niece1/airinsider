@@ -131,34 +131,42 @@ header .menu-wrapper nav ul li.active ul {
     float: right;    
     width: $bar-width;
     margin-top: 34px;
-	height: $bar-height + $bar-spacing*2;
+	  height: $bar-height + $bar-spacing*2;
     cursor: pointer;
+    &:hover {
+      .hamburger-menu {
+        width: $bar-width;
+        transition: all 0.25s;
+      }
+      
+    }
     .hamburger-menu {
         width: 33px;
         height: $bar-height;
         position: relative;
-	    transform: translateY($bar-spacing);
-	    background: #000;
-	    transition: all 0ms 300ms;
+	      transform: translateY($bar-spacing);
+	      background: #000;
+        transition: all 0ms 300ms;
+        
         &:after {
             width: $bar-width;
             height: $bar-height;
             content: "";
-	        position: absolute;
-	        left: 0;
-	        top: $bar-spacing;
-	        background :#000;
-	        transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+	          position: absolute;
+	          left: 0;
+	          top: $bar-spacing;
+	          background :#000;
+	          transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
         }
         &:before {
             width: $bar-width;
             height: $bar-height;
             content: "";
-	        position: absolute;
-	        left: 0;
-	        bottom: $bar-spacing;
-	        background :#000;
-	        transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+	          position: absolute;
+	          left: 0;
+	          bottom: $bar-spacing;
+	          background :#000;
+	          transition: bottom 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
         }
         &.animate {
             background: rgba(255, 255, 255, 0); 
@@ -261,24 +269,58 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
         margin: 80px auto;
         text-align: center;
         .form-holder {
-            border: 1px solid #f5f8fa;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+            
             display: inline-block;
-            width: 30%;
+            width: 40%;
             margin: auto;
             .form-layout {
                 width: 80%;
                 margin: auto;
-                text-align: left;
-                h2 {
-                    text-transform: uppercase;
-                    text-align: left;
-                    letter-spacing: 2px;
+                text-align: center;
+                h1 {
+                    font-size: 4.5rem;
+                    text-align: center;
+                    letter-spacing: 1px;
+                    margin: 0;
+                    font-weight: normal;
                 }
                 p {
+                  color: #4e4e4e;
+                  font-size: 1.8rem;
+                  margin: 15px auto 20px auto;
                     a {
                         margin-left: 5px;
+                        color: #e71d43;
                     }
+                }
+                form {
+                  #name {
+                    width: 100%;
+                    margin: 0 0 30px 0;
+                    input {
+                      width: 100%;          
+                      padding: 15px 20px;
+                      border: none;
+                      border-bottom: 2px solid #000;
+                      font-size: 1.6rem;
+                      display: inline-block;
+                      &::placeholder {
+                        font-size: 1.6rem;
+                        color: #000;
+                      }
+                      &:focus {
+                        outline: none;
+                      }
+                      &:focus ~ label, &:valid ~ label {
+                        top: -1.4rem;
+                        font-size: 1.2rem;
+                        color: #ffcc00;
+                      }
+                      &:focus ~ .bar:before {
+                        width: 100%;
+                      }
+                    }
+                  }
                 }
             }
         }
@@ -483,7 +525,8 @@ footer {
       margin: 20px auto 0 auto;
       display: grid;
       grid-template-columns: 35% 15% 15% 25%;
-      grid-column-gap: 50px;
+      grid-column-gap: 40px;
+      justify-content: space-between;
       @media only screen and (max-width: 1267px) {
         grid-template-columns: 50% 50%;
       }
@@ -574,7 +617,36 @@ footer {
           color: #e71d43;
         }
       }
-      
+      .popular_posts {
+        padding: 30px 0 0 0;
+        
+        h5 {
+          font-weight: normal;
+          margin: 0 0 20px 0 !important;
+          color: #e71d43;
+        }
+        ul {
+          padding-left: 0;
+          li {
+            margin: 3px 0;
+            a {
+              color: #000;
+              img {
+                float: left;
+                margin: 0 10px 0 0;
+              }
+            }
+            small {
+              font-size: 1rem;
+              text-transform: uppercase;
+            }
+            p {
+              
+              margin-top: 3px;
+            }
+          }
+        }
+      }
     }
     .footer_wrapper_down {
       width: 85%;
@@ -598,15 +670,17 @@ footer {
         
       }
       .footer_newsletter {
-        padding: 30px 0;
+        
        
         h5 {
           font-weight: normal;
-          color: #e71d43;
+          color: #0633ff;
+          margin-bottom: 10px;
+         
         }
         .input-wrapper {
           width: 100%;
-          margin: 10px auto;
+          margin: 5px auto;
           position: relative;
           &:after {
             content: attr(data-text);
@@ -646,20 +720,33 @@ footer {
             outline: none;
             font-size: 1.8rem;
             color: #000;
+            cursor: pointer;
+            padding: 0 3px;
           }
         }
         p {
-          margin: 15px 0 5px 0;
+          margin: 15px 0;
         }
         a {
-          color: #9c9c9c;
-          font-size: 1.6rem;
-          i {
-            margin: 0 10px 0 0;
-          }
+          color: #000000;
+          font-size: 1.8rem;
+          position: relative;
+          margin: 0 45px 0 0;
+          
           &:hover {
-            color: #ffcc00;
+            color: #e71d43;
             transition: all .5s ease-in-out;
+          }
+        }
+        a#facebook, a#twitter {
+          &:after {
+            content: '';
+            background: #000;
+            position: absolute;
+            top: 55%;
+            right: -33px;
+            height: 1px;
+            width: 26px;
           }
         }
       } 

@@ -189,12 +189,39 @@
                     </ul>
                 </div>
 
-                <div class="footer_tags">
+                <div class="popular_posts">
                     <h5>Popular posts</h5>
-                    <p>@gael</p>
-                    <div class="footer_slider">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="{{ asset('images/qatar.jpg') }}" height="60" width="90" alt="Photo">
+                            </a>
+                            <a href="#"><small>14 May, 2014</small></a>
+                            <a href="#">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum.</p>
+                            </a>
+                        </li>
 
-                    </div>
+                        <li>
+                            <a href="#">
+                                <img src="{{ asset('images/qatar.jpg') }}" height="60" width="90" alt="Photo">
+                            </a>
+                            <a href="#"><small>14 May, 2014</small></a>
+                            <a href="#">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum.</p>
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <img src="{{ asset('images/qatar.jpg') }}" height="60" width="90" alt="Photo">
+                            </a>
+                            <a href="#"><small>14 May, 2014</small></a>
+                            <a href="#">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum.</p>
+                            </a>
+                        </li>
+                    </ul>
 
 
 
@@ -216,9 +243,9 @@
                         <button type="submit"><i class="fa fa-envelope-o"></i></button>
                     </form>
                     <p>Don't forget to folow me on:</p>
-                    <a href="#">facebook</a>
-                    <a href="#">twitter</a>
-                    <a href="#">pinterest</a>
+                    <a href="#" id="facebook">fb</a>
+                    <a href="#" id="twitter">tw</a>
+                    <a href="#">pt</a>
 
                 </div>
             </div>

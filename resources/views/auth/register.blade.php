@@ -5,24 +5,25 @@
     <div class="register-wrapper">
         <div class="form-holder">
             <div class="form-layout">
-                <h2>{{ __('Register') }}</h2>
+                <h1>{{ __('Register') }}</h1>
                 <p>If you already have an account<a href="{{ route('login') }}">login here</a></p>
 
                 <form method="POST" action="{{ route('register') }}">
                     @csrf
 
-                    <div class="form-group row">
+                    <div class="group" id="name">
 
 
-                        <div class="col-md-6">
-                            <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Name" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
-                            @error('name')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
+                        <input id="name" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required="required">
+                        <span class="highlight"></span><span class="bar"></span>
+                        <label>Name</label>
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+
                     </div>
 
                     <div class="form-group row">
