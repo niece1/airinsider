@@ -27,26 +27,16 @@
         <header>
             <div class="menu-wrapper">
                 <div class="logo">
-                    <a href="{{ url('/') }}">авиа<span class="logo-span">инсайдер</span></a>
+                    <a href="{{ url('/') }}">air<span class="logo-span">insider</span></a>
                 </div>
                 <nav>
 
 
 
                     <ul>
-                        <li class="sub-menu">
+                        <li>
                             <a href="#">About</a>
-                            <ul>
-                                <li>
-                                    <a class="sub-item" href="#">History</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item" href="#">Incidents</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item" href="#">Discounts</a>
-                                </li>
-                            </ul>
+
                         </li>
                         <li>
                             <a href="#">Contact</a>

@@ -34,7 +34,6 @@
                 <p class="item-blog-date">October5, 2019</p>
                 <p class="item-blog-comment">Comments: 4</p>
                 <div class="blog-line">
-                    <span></span>
                 </div>
 
                 <div class="item-blog-bottom">

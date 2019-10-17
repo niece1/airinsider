@@ -63,6 +63,7 @@ header {
   width: 100%;
   height: 85px;
   z-index: 99;
+  box-shadow: 0 0 12.48px 0.52px rgba(48, 178, 32, 0.04);
 }
 
 header .menu-wrapper {
@@ -281,19 +282,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
   text-align: center;
 }
 
-.register .register-wrapper .form-holder {
-  display: inline-block;
-  width: 40%;
-  margin: auto;
-}
-
-.register .register-wrapper .form-holder .form-layout {
-  width: 80%;
-  margin: auto;
-  text-align: center;
-}
-
-.register .register-wrapper .form-holder .form-layout h1 {
+.register .register-wrapper h1 {
   font-size: 4.5rem;
   text-align: center;
   letter-spacing: 1px;
@@ -301,69 +290,118 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
   font-weight: normal;
 }
 
-.register .register-wrapper .form-holder .form-layout p {
+.register .register-wrapper p {
   color: #4e4e4e;
   font-size: 1.8rem;
   margin: 15px auto 20px auto;
 }
 
-.register .register-wrapper .form-holder .form-layout p a {
+.register .register-wrapper p a {
   margin-left: 5px;
   color: #e71d43;
 }
 
-.register .register-wrapper .form-holder .form-layout form #name {
-  width: 100%;
-  margin: 0 0 30px 0;
+.register .register-wrapper form {
+  width: 45%;
+  margin: auto;
 }
 
-.register .register-wrapper .form-holder .form-layout form #name input {
-  width: 100%;
-  padding: 15px 20px;
+.register .register-wrapper form .form-group {
+  margin: 40px 0;
+}
+
+.register .register-wrapper form .form-group .group-holder input {
   border: none;
-  border-bottom: 2px solid #000;
-  font-size: 1.6rem;
-  display: inline-block;
-}
-
-.register .register-wrapper .form-holder .form-layout form #name input::-webkit-input-placeholder {
-  font-size: 1.6rem;
-  color: #000;
-}
-
-.register .register-wrapper .form-holder .form-layout form #name input::-moz-placeholder {
-  font-size: 1.6rem;
-  color: #000;
-}
-
-.register .register-wrapper .form-holder .form-layout form #name input:-ms-input-placeholder {
-  font-size: 1.6rem;
-  color: #000;
-}
-
-.register .register-wrapper .form-holder .form-layout form #name input::-ms-input-placeholder {
-  font-size: 1.6rem;
-  color: #000;
-}
-
-.register .register-wrapper .form-holder .form-layout form #name input::placeholder {
-  font-size: 1.6rem;
-  color: #000;
-}
-
-.register .register-wrapper .form-holder .form-layout form #name input:focus {
-  outline: none;
-}
-
-.register .register-wrapper .form-holder .form-layout form #name input:focus ~ label,
-.register .register-wrapper .form-holder .form-layout form #name input:valid ~ label {
-  top: -1.4rem;
-  font-size: 1.2rem;
-  color: #ffcc00;
-}
-
-.register .register-wrapper .form-holder .form-layout form #name input:focus ~ .bar:before {
+  font-size: 1.8rem;
+  border-bottom: 1px solid #cccccc;
+  padding: 10px 0 10px 0;
   width: 100%;
+}
+
+.register .register-wrapper form .form-group .group-holder input::-webkit-input-placeholder {
+  font-size: 1.8rem;
+  color: #4e4e4e;
+  opacity: 1;
+}
+
+.register .register-wrapper form .form-group .group-holder input::-moz-placeholder {
+  font-size: 1.8rem;
+  color: #4e4e4e;
+  opacity: 1;
+}
+
+.register .register-wrapper form .form-group .group-holder input:-ms-input-placeholder {
+  font-size: 1.8rem;
+  color: #4e4e4e;
+  opacity: 1;
+}
+
+.register .register-wrapper form .form-group .group-holder input::-ms-input-placeholder {
+  font-size: 1.8rem;
+  color: #4e4e4e;
+  opacity: 1;
+}
+
+.register .register-wrapper form .form-group .group-holder input::placeholder {
+  font-size: 1.8rem;
+  color: #4e4e4e;
+  opacity: 1;
+}
+
+.register .register-wrapper form .form-group .group-holder input:focus {
+  outline: none;
+  border-bottom: 1px solid #000;
+  transition: all 0.2s ease-in-out;
+}
+
+.register .register-wrapper form .form-group .group-holder input:focus::-webkit-input-placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.register .register-wrapper form .form-group .group-holder input:focus::-moz-placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.register .register-wrapper form .form-group .group-holder input:focus:-ms-input-placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.register .register-wrapper form .form-group .group-holder input:focus::-ms-input-placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.register .register-wrapper form .form-group .group-holder input:focus::placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.register .register-wrapper form button.button {
+  border: 2px solid #e71d43;
+  padding: 14px 30px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  background-color: transparent;
+  color: #000;
+}
+
+.register .register-wrapper form button.button:hover {
+  background-color: #e71d43;
+  color: #fff;
+  border: 2px solid #e71d43;
+  transition: all 0.3s ease-in-out;
+}
+
+.register .register-wrapper form button.button:not(:hover) {
+  background-color: transparent;
+  color: #000;
+  transition: all 0.3s ease-in-out;
 }
 
 /*Index page*/
@@ -466,7 +504,9 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
 .news .news-wrapper .item {
   width: 100%;
   border-radius: 0 0 5px 5px;
-  box-shadow: 2px 2px #f5f8fa;
+  border: 1px solid #f5f8fa;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.12);
 }
 
 .news .news-wrapper .item .image-holder {
@@ -536,13 +576,6 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
   background-color: #dedede;
   width: 100%;
   height: 2px;
-}
-
-.news .news-wrapper .item .item-content .blog-line span {
-  width: 130px;
-  height: 2px;
-  background-color: #0633ff;
-  float: left;
 }
 
 .news .news-wrapper .item .item-content .item-blog-bottom a.button {
@@ -630,7 +663,7 @@ footer .footer_wrapper_upper .footer_about {
 footer .footer_wrapper_upper .footer_about a.logo-footer {
   margin: 0 0 10px 0;
   font-weight: normal;
-  color: #e71d43;
+  color: #000;
   font-size: 2.2rem;
   text-transform: none;
 }
@@ -679,7 +712,7 @@ footer .footer_wrapper_upper .footer_links {
 
 footer .footer_wrapper_upper .footer_links h5 {
   margin: 0 0 10px 12px;
-  color: #e71d43;
+  color: #000;
   font-weight: normal;
 }
 
@@ -692,7 +725,7 @@ footer .footer_wrapper_upper .footer_links ul li {
 }
 
 footer .footer_wrapper_upper .footer_links ul li a {
-  color: #000;
+  color: #4e4e4e;
   font-size: 1.8rem;
 }
 
@@ -728,7 +761,7 @@ footer .footer_wrapper_upper .popular_posts {
 footer .footer_wrapper_upper .popular_posts h5 {
   font-weight: normal;
   margin: 0 0 20px 0 !important;
-  color: #e71d43;
+  color: #000;
 }
 
 footer .footer_wrapper_upper .popular_posts ul {
@@ -751,6 +784,7 @@ footer .footer_wrapper_upper .popular_posts ul li a img {
 footer .footer_wrapper_upper .popular_posts ul li small {
   font-size: 1rem;
   text-transform: uppercase;
+  color: #e71d43;
 }
 
 footer .footer_wrapper_upper .popular_posts ul li p {
@@ -789,7 +823,7 @@ footer .footer_wrapper_down .footer_copyright {
 
 footer .footer_wrapper_down .footer_newsletter h5 {
   font-weight: normal;
-  color: #0633ff;
+  color: #000;
   margin-bottom: 10px;
 }
 

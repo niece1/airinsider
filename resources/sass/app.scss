@@ -65,6 +65,8 @@ header {
     width: 100%;
     height: 85px;
     z-index: 99;
+   
+    box-shadow: 0 0 12.48px .52px rgba(48, 178, 32, 0.04);
     .menu-wrapper {
         width: 85%;
         margin: auto;
@@ -268,15 +270,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
         width: 85%;
         margin: 80px auto;
         text-align: center;
-        .form-holder {
-            
-            display: inline-block;
-            width: 40%;
-            margin: auto;
-            .form-layout {
-                width: 80%;
-                margin: auto;
-                text-align: center;
+        
                 h1 {
                     font-size: 4.5rem;
                     text-align: center;
@@ -294,36 +288,59 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
                     }
                 }
                 form {
-                  #name {
-                    width: 100%;
-                    margin: 0 0 30px 0;
-                    input {
-                      width: 100%;          
-                      padding: 15px 20px;
-                      border: none;
-                      border-bottom: 2px solid #000;
-                      font-size: 1.6rem;
-                      display: inline-block;
-                      &::placeholder {
-                        font-size: 1.6rem;
-                        color: #000;
-                      }
-                      &:focus {
-                        outline: none;
-                      }
-                      &:focus ~ label, &:valid ~ label {
-                        top: -1.4rem;
-                        font-size: 1.2rem;
-                        color: #ffcc00;
-                      }
-                      &:focus ~ .bar:before {
+                  width: 45%;
+                  margin: auto;
+                  .form-group {
+                    margin: 40px 0;
+                   
+                    .group-holder {
+                      input {
+                        border: none;
+                        font-size: 1.8rem;
+                        border-bottom: 1px solid #cccccc;
+                        padding: 10px 0 10px 0;
                         width: 100%;
+                        &::placeholder {
+                          font-size: 1.8rem;
+                          color: #4e4e4e;
+                          opacity: 1;
+                        }
+                        &:focus {
+                          outline: none;
+                          border-bottom: 1px solid #000;
+                          transition: all .2s ease-in-out;
+                          &::placeholder {
+                            color: #000;
+                            opacity: 1;
+                          }
+                        }
                       }
                     }
                   }
+                  button.button {
+                    border: 2px solid #e71d43;
+                    padding: 14px 30px;
+                    cursor: pointer;                
+                    font-size: 1.5rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    border-radius: 3px; 
+                    background-color: transparent;
+                    color: #000;
+                    &:hover {
+                      background-color: #e71d43;
+                      color: #fff;
+                      border: 2px solid #e71d43;
+                      transition: all 0.3s ease-in-out;
+                    }
+                    &:not(:hover) {
+                      background-color: transparent;
+                      color: #000;
+                      transition: all 0.3s ease-in-out;
+                    }
+                  }                
                 }
-            }
-        }
+        
     }
 }
 
@@ -403,7 +420,9 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
         .item {
             width: 100%;
             border-radius: 0 0 5px 5px;
-            box-shadow: 2px 2px hsl(204, 33%, 97%);
+            border: 1px solid #f5f8fa;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.12);
             .image-holder {
                 overflow: hidden;
                 border-radius: 5px 5px 0 0;
@@ -412,6 +431,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
                         width: 100%;
                         display: inline-block;
                         vertical-align: middle;
+                        
                     }
                 }
             }
@@ -458,13 +478,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
                     margin: 20px 20px 20px 0;
                     background-color: #dedede;
                     width: 100%;
-                    height: 2px;
-                    span {
-                        width: 130px;
-                        height: 2px;
-                        background-color: #0633ff;
-                        float: left;
-                    }
+                    height: 2px;                   
                 }
                 .item-blog-bottom {
                     a.button {
@@ -539,7 +553,7 @@ footer {
         a.logo-footer {
           margin: 0 0 10px 0;
           font-weight: normal;
-          color: #e71d43;
+          color: #000;
           font-size: 2.2rem;
           text-transform: none;
         }
@@ -581,7 +595,7 @@ footer {
         padding: 30px 0 0 0;
         h5 {
           margin: 0 0 10px 12px;
-          color: #e71d43;
+          color: #000;
           font-weight: normal;
         }
         ul {
@@ -590,7 +604,7 @@ footer {
           li {
             padding: 2px 0;
             a {
-              color: #000;
+              color: #4e4e4e;
               font-size: 1.8rem;
               span {
                 position: relative;
@@ -623,7 +637,7 @@ footer {
         h5 {
           font-weight: normal;
           margin: 0 0 20px 0 !important;
-          color: #e71d43;
+          color: #000;
         }
         ul {
           padding-left: 0;
@@ -639,6 +653,7 @@ footer {
             small {
               font-size: 1rem;
               text-transform: uppercase;
+              color: #e71d43;
             }
             p {
               
@@ -674,7 +689,7 @@ footer {
        
         h5 {
           font-weight: normal;
-          color: #0633ff;
+          color: #000;
           margin-bottom: 10px;
          
         }
@@ -752,3 +767,6 @@ footer {
       } 
     }
   }
+
+ 
+ 
