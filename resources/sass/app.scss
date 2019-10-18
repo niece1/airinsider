@@ -288,11 +288,14 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
                     }
                 }
                 form {
-                  width: 45%;
+                  width: 35%;
                   margin: auto;
+                  @media (max-width: 1200px) {
+                    width: 80%;
+                  }
                   .form-group {
                     margin: 40px 0;
-                   
+                    text-align: left;
                     .group-holder {
                       input {
                         border: none;
@@ -315,6 +318,58 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
                           }
                         }
                       }
+                      span.invalid-feedback {
+                        color: #e71d43;
+                        font-size: 1.4rem;                       
+                      }
+                    }
+                    .checkbox-container {
+                      display: inline-block;
+                      position: relative;
+                      padding-left: 35px;
+                      font-size: 1.6rem;
+                      cursor: pointer;
+                      user-select: none;
+                      -webkit-user-select: none;
+                      -moz-user-select: none;
+                      -ms-user-select: none;
+                      input {
+                        position: absolute;
+                        opacity: 0;
+                        cursor: pointer;
+                        height: 0;
+                        width: 0;
+                        &:checked ~ .checkmark {
+                          background-color: #e71d43;
+                          &:after {
+                            display: block;
+                          }
+                        }
+                      }
+                      .checkmark {
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        height: 2rem;
+                        width: 2rem;
+                        background-color: #cccccc;
+                        &:after {
+                          content: "";
+                          position: absolute;
+                          display: none;
+                        }
+                      }                   
+                    }
+                    .checkbox-container .checkmark:after {
+                      left: 6px;
+                      top: 2px;
+                      width: 5px;
+                      height: 10px;
+                      border: solid white;
+                      border-width: 0 3px 3px 0;
+                      -webkit-transform: rotate(45deg);
+                      -ms-transform: rotate(45deg);
+                      transform: rotate(45deg);
                     }
                   }
                   button.button {
@@ -340,7 +395,17 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
                     }
                   }                
                 }
-        
+    a.reset-link {
+      font-size: 1.8rem;
+      color: #e71d43;
+      margin: 0 0 0 10px;
+      &:hover {
+        color: #0633ff;
+        transition: all .3s ease-in-out;
+        -webkit-transition: all .3s ease-in-out;
+        -o-transition: all .3s ease-in-out;
+      }
+    }   
     }
 }
 
@@ -403,6 +468,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
     width: 100%;
     h1 {
         text-align: center;
+        font-weight: normal;
     }
     .news-wrapper {
         width: 85%;
@@ -454,13 +520,13 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
                 p.item-blog-author {
                     margin: 15px 0;
                     a {
-                        color: #e71d43;
+                        color: #0633ff;
                         &:hover {
-                            color: #0633ff;
+                            color: #e71d43;
                             transition: all 0.3s ease-in-out;
                         }
                         &:not(:hover) {
-                            color: #e71d43;
+                            color: #0633ff;
                             transition: all 0.3s ease-in-out;
                         }
                     }
@@ -560,6 +626,7 @@ footer {
         p {
           margin: 10px 0 10px 0;
           font-size: 1.8rem;
+          color: #4e4e4e;
         }
         a {
           color: #0633ff;
@@ -653,10 +720,10 @@ footer {
             small {
               font-size: 1rem;
               text-transform: uppercase;
-              color: #e71d43;
+              color: #0633ff;
             }
             p {
-              
+              color: #4e4e4e;
               margin-top: 3px;
             }
           }
@@ -666,7 +733,7 @@ footer {
     .footer_wrapper_down {
       width: 85%;
       margin: 30px auto;
-      border-top: 1px solid #0633ff;
+      border-top: 1px solid #000;
       display: grid;
       grid-template-columns: 75% 20%;
       @media only screen and (max-width: 1267px) {
@@ -679,14 +746,10 @@ footer {
         padding: 15px 0;
         @media only screen and (max-width: 1267px) {
           padding: 30px 50px 30px 0;
-        }
-         
-       
-        
+        }                       
       }
       .footer_newsletter {
-        
-       
+        margin-bottom: 20px;      
         h5 {
           font-weight: normal;
           color: #000;
@@ -743,11 +806,10 @@ footer {
           margin: 15px 0;
         }
         a {
-          color: #000000;
+          color: #0633ff;
           font-size: 1.8rem;
           position: relative;
-          margin: 0 45px 0 0;
-          
+          margin: 0 45px 0 0;          
           &:hover {
             color: #e71d43;
             transition: all .5s ease-in-out;

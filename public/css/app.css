@@ -302,12 +302,19 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
 }
 
 .register .register-wrapper form {
-  width: 45%;
+  width: 35%;
   margin: auto;
+}
+
+@media (max-width: 1200px) {
+  .register .register-wrapper form {
+    width: 80%;
+  }
 }
 
 .register .register-wrapper form .form-group {
   margin: 40px 0;
+  text-align: left;
 }
 
 .register .register-wrapper form .form-group .group-holder input {
@@ -379,6 +386,64 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
   opacity: 1;
 }
 
+.register .register-wrapper form .form-group .group-holder span.invalid-feedback {
+  color: #e71d43;
+  font-size: 1.4rem;
+}
+
+.register .register-wrapper form .form-group .checkbox-container {
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.register .register-wrapper form .form-group .checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.register .register-wrapper form .form-group .checkbox-container input:checked ~ .checkmark {
+  background-color: #e71d43;
+}
+
+.register .register-wrapper form .form-group .checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.register .register-wrapper form .form-group .checkbox-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  width: 2rem;
+  background-color: #cccccc;
+}
+
+.register .register-wrapper form .form-group .checkbox-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.register .register-wrapper form .form-group .checkbox-container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
 .register .register-wrapper form button.button {
   border: 2px solid #e71d43;
   padding: 14px 30px;
@@ -402,6 +467,19 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
   background-color: transparent;
   color: #000;
   transition: all 0.3s ease-in-out;
+}
+
+.register .register-wrapper a.reset-link {
+  font-size: 1.8rem;
+  color: #e71d43;
+  margin: 0 0 0 10px;
+}
+
+.register .register-wrapper a.reset-link:hover {
+  color: #0633ff;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
 }
 
 /*Index page*/
@@ -478,6 +556,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
 
 .news h1 {
   text-align: center;
+  font-weight: normal;
 }
 
 .news .news-wrapper {
@@ -546,16 +625,16 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
 }
 
 .news .news-wrapper .item .item-content p.item-blog-author a {
-  color: #e71d43;
+  color: #0633ff;
 }
 
 .news .news-wrapper .item .item-content p.item-blog-author a:hover {
-  color: #0633ff;
+  color: #e71d43;
   transition: all 0.3s ease-in-out;
 }
 
 .news .news-wrapper .item .item-content p.item-blog-author a:not(:hover) {
-  color: #e71d43;
+  color: #0633ff;
   transition: all 0.3s ease-in-out;
 }
 
@@ -671,6 +750,7 @@ footer .footer_wrapper_upper .footer_about a.logo-footer {
 footer .footer_wrapper_upper .footer_about p {
   margin: 10px 0 10px 0;
   font-size: 1.8rem;
+  color: #4e4e4e;
 }
 
 footer .footer_wrapper_upper .footer_about a {
@@ -784,17 +864,18 @@ footer .footer_wrapper_upper .popular_posts ul li a img {
 footer .footer_wrapper_upper .popular_posts ul li small {
   font-size: 1rem;
   text-transform: uppercase;
-  color: #e71d43;
+  color: #0633ff;
 }
 
 footer .footer_wrapper_upper .popular_posts ul li p {
+  color: #4e4e4e;
   margin-top: 3px;
 }
 
 footer .footer_wrapper_down {
   width: 85%;
   margin: 30px auto;
-  border-top: 1px solid #0633ff;
+  border-top: 1px solid #000;
   display: grid;
   grid-template-columns: 75% 20%;
 }
@@ -819,6 +900,10 @@ footer .footer_wrapper_down .footer_copyright {
   footer .footer_wrapper_down .footer_copyright {
     padding: 30px 50px 30px 0;
   }
+}
+
+footer .footer_wrapper_down .footer_newsletter {
+  margin-bottom: 20px;
 }
 
 footer .footer_wrapper_down .footer_newsletter h5 {
@@ -885,7 +970,7 @@ footer .footer_wrapper_down .footer_newsletter p {
 }
 
 footer .footer_wrapper_down .footer_newsletter a {
-  color: #000000;
+  color: #0633ff;
   font-size: 1.8rem;
   position: relative;
   margin: 0 45px 0 0;
