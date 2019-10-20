@@ -39,7 +39,7 @@
 
                         </li>
                         <li>
-                            <a href="#">Contact</a>
+                            <a href="{{ route('contact') }}">Contact</a>
 
                         </li>
                         <li class="sub-menu">

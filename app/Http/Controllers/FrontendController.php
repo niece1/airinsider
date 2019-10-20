@@ -14,4 +14,11 @@ class FrontendController extends Controller
 
         return view('frontend.index', compact('news'));
     }
+
+    public function contact()
+    {
+        $random_news = Post::with(['photo'])->take(5)->inRandomOrder()->get();
+
+        return view('frontend.contact', compact('random_news'));
+    }
 }

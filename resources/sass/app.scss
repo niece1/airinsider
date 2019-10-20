@@ -49,7 +49,7 @@ h6 {
 }
 
 p {
-    font-size: 1.6rem;
+    font-size: 1.8rem;
 }
 
 ul {
@@ -280,7 +280,6 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
                 }
                 p {
                   color: #4e4e4e;
-                  font-size: 1.8rem;
                   margin: 15px auto 20px auto;
                     a {
                         margin-left: 5px;
@@ -290,7 +289,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
                 form {
                   width: 35%;
                   margin: auto;
-                  @media (max-width: 1200px) {
+                  @media (max-width: 1600px) {
                     width: 80%;
                   }
                   .form-group {
@@ -829,6 +828,149 @@ footer {
       } 
     }
   }
+/*Contact page styles*/ 
+
+.contact-jumbotron {
+  width: 100%;
+  min-height: 160px;
+  background-color: #f5f8fa;
+  height: 160px;
+  overflow: hidden;
+  position: relative;
+  .parallax-text {
+    position: absolute;
+
+    top: 50px;
+    width: 100%;
+    text-align: center;
+    h1 {
+      font-weight: normal;
+      font-size: 4.5rem;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.contact-page {
+    width: 100%;
+    height: auto;
+    .contact-page-wrapper {
+        width: 85%;
+        margin: 80px auto;
+        display: grid;
+        grid-template-columns: 20% 40% 20%;
+        grid-gap: 35px 30px;
+        justify-content: space-between;
+        text-align: center;
+        @media only screen and (max-width: 1267px) {
+            grid-template-columns: auto;
+        }
+        .contact-us {
+            overflow: hidden;
+            h2 {
+                font-weight: normal;
+                margin: 0;
+            }
+            p {
+                color: #4e4e4e;
+            }
+            h5 {
+                margin: 40px 0;
+                font-weight: normal;
+            }
+            a {
+                color: #000;
+                font-size: 1.8rem;
+                position: relative;
+                margin: 0 45px 0 0;
+
+                &:hover {
+                color: #e71d43;
+                transition: all .5s ease-in-out;
+              }
+            }
+            p.contact-social {
+                margin-left: 35px;
+            }
+            a#facebook, a#twitter {
+            &:after {
+                content: '';
+                background: #000;
+                position: absolute;
+                top: 55%;
+                right: -33px;
+                height: 1px;
+                width: 26px;
+                }
+            }
+        }
+        .contact-form {
+            overflow: hidden;
+            h2 {
+                font-weight: normal;
+                margin: 0;            
+            }
+            form {
+                width: 70%;
+                margin: auto;
+                .contact-form-group {
+                    margin: 30px 0;
+                    input {
+                        border: none;
+                        font-size: 1.8rem;
+                        border-bottom: 1px solid #cccccc;
+                        padding: 10px 0 10px 0;
+                        width: 100%;
+                        &::placeholder {
+                            font-size: 1.8rem;
+                            color: #4e4e4e;
+                            opacity: 1;
+                        }
+                        &:focus {
+                            outline: none;
+                            border-bottom: 1px solid #000;
+                            transition: all .2s ease-in-out;
+                            &::placeholder {
+                                color: #000;
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+                button.button {
+                    border: 2px solid #e71d43;
+                    padding: 14px 30px;
+                    cursor: pointer;                
+                    font-size: 1.5rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    border-radius: 3px; 
+                    background-color: transparent;
+                    color: #000;
+                    &:hover {
+                      background-color: #e71d43;
+                      color: #fff;
+                      border: 2px solid #e71d43;
+                      transition: all 0.3s ease-in-out;
+                    }
+                    &:not(:hover) {
+                      background-color: transparent;
+                      color: #000;
+                      transition: all 0.3s ease-in-out;
+                    }
+                }
+            }
+        }
+        .right-column {
+            overflow: hidden;
+            h2 {
+                margin: 0;
+                font-weight: normal;
+            }
+        }
+    }
+}
 
  
  

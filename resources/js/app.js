@@ -51,6 +51,14 @@ $(document).ready(function() {
     $(".menu-toggle").on("click", function() {
         $(".hamburger-menu").toggleClass("animate");
     });
+
+    //Parallax
+$(window).scroll(function() {
+    var st = $(this).scrollTop();
+    $('.parallax-text').css({
+        'transform' : 'translate(0%, ' + st + '%'
+    });
+});
 });
 
 //Input footer newsletter underline animation

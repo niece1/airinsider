@@ -46,7 +46,7 @@ h6 {
 }
 
 p {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
 }
 
 ul {
@@ -292,7 +292,6 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
 
 .register .register-wrapper p {
   color: #4e4e4e;
-  font-size: 1.8rem;
   margin: 15px auto 20px auto;
 }
 
@@ -306,7 +305,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
   margin: auto;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1600px) {
   .register .register-wrapper form {
     width: 80%;
   }
@@ -990,5 +989,217 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   right: -33px;
   height: 1px;
   width: 26px;
+}
+
+/*Contact page styles*/
+
+.contact-jumbotron {
+  width: 100%;
+  min-height: 160px;
+  background-color: #f5f8fa;
+  height: 160px;
+  overflow: hidden;
+  position: relative;
+}
+
+.contact-jumbotron .parallax-text {
+  position: absolute;
+  top: 50px;
+  width: 100%;
+  text-align: center;
+}
+
+.contact-jumbotron .parallax-text h1 {
+  font-weight: normal;
+  font-size: 4.5rem;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-page {
+  width: 100%;
+  height: auto;
+}
+
+.contact-page .contact-page-wrapper {
+  width: 85%;
+  margin: 80px auto;
+  display: grid;
+  grid-template-columns: 20% 40% 20%;
+  grid-gap: 35px 30px;
+  justify-content: space-between;
+  text-align: center;
+}
+
+@media only screen and (max-width: 1267px) {
+  .contact-page .contact-page-wrapper {
+    grid-template-columns: auto;
+  }
+}
+
+.contact-page .contact-page-wrapper .contact-us {
+  overflow: hidden;
+}
+
+.contact-page .contact-page-wrapper .contact-us h2 {
+  font-weight: normal;
+  margin: 0;
+}
+
+.contact-page .contact-page-wrapper .contact-us p {
+  color: #4e4e4e;
+}
+
+.contact-page .contact-page-wrapper .contact-us h5 {
+  margin: 40px 0;
+  font-weight: normal;
+}
+
+.contact-page .contact-page-wrapper .contact-us a {
+  color: #000;
+  font-size: 1.8rem;
+  position: relative;
+  margin: 0 45px 0 0;
+}
+
+.contact-page .contact-page-wrapper .contact-us a:hover {
+  color: #e71d43;
+  transition: all 0.5s ease-in-out;
+}
+
+.contact-page .contact-page-wrapper .contact-us p.contact-social {
+  margin-left: 35px;
+}
+
+.contact-page .contact-page-wrapper .contact-us a#facebook:after,
+.contact-page .contact-page-wrapper .contact-us a#twitter:after {
+  content: "";
+  background: #000;
+  position: absolute;
+  top: 55%;
+  right: -33px;
+  height: 1px;
+  width: 26px;
+}
+
+.contact-page .contact-page-wrapper .contact-form {
+  overflow: hidden;
+}
+
+.contact-page .contact-page-wrapper .contact-form h2 {
+  font-weight: normal;
+  margin: 0;
+}
+
+.contact-page .contact-page-wrapper .contact-form form {
+  width: 70%;
+  margin: auto;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group {
+  margin: 30px 0;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group input {
+  border: none;
+  font-size: 1.8rem;
+  border-bottom: 1px solid #cccccc;
+  padding: 10px 0 10px 0;
+  width: 100%;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group input::-webkit-input-placeholder {
+  font-size: 1.8rem;
+  color: #4e4e4e;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group input::-moz-placeholder {
+  font-size: 1.8rem;
+  color: #4e4e4e;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group input:-ms-input-placeholder {
+  font-size: 1.8rem;
+  color: #4e4e4e;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group input::-ms-input-placeholder {
+  font-size: 1.8rem;
+  color: #4e4e4e;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group input::placeholder {
+  font-size: 1.8rem;
+  color: #4e4e4e;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group input:focus {
+  outline: none;
+  border-bottom: 1px solid #000;
+  transition: all 0.2s ease-in-out;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group input:focus::-webkit-input-placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group input:focus::-moz-placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group input:focus:-ms-input-placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group input:focus::-ms-input-placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group input:focus::placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form button.button {
+  border: 2px solid #e71d43;
+  padding: 14px 30px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  background-color: transparent;
+  color: #000;
+}
+
+.contact-page .contact-page-wrapper .contact-form form button.button:hover {
+  background-color: #e71d43;
+  color: #fff;
+  border: 2px solid #e71d43;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-page .contact-page-wrapper .contact-form form button.button:not(:hover) {
+  background-color: transparent;
+  color: #000;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-page .contact-page-wrapper .right-column {
+  overflow: hidden;
+}
+
+.contact-page .contact-page-wrapper .right-column h2 {
+  margin: 0;
+  font-weight: normal;
 }
 
