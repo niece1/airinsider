@@ -10,7 +10,7 @@
 
     <title>{{ config('app.name', 'Airinsider') }}</title>
 
-    <!-- Scripts -->
+    <!-- Scripts -->    
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="https://kit.fontawesome.com/0f7f320048.js" crossorigin="anonymous"></script>
 
@@ -19,6 +19,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    
 
 </head>
 
@@ -243,6 +244,7 @@
         <!--/.Footer-->
 
     </div>
+
 </body>
 
 </html>

@@ -119,6 +119,7 @@ header .menu-wrapper nav ul li ul {
   background: #fff;
   box-shadow: 2px 2px #f5f8fa;
   display: none;
+  z-index: 99;
 }
 
 header .menu-wrapper nav ul li ul li {
@@ -1169,6 +1170,81 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   opacity: 1;
 }
 
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea {
+  border: none;
+  font-size: 1.8rem;
+  border-bottom: 1px solid #cccccc;
+  padding: 10px 0 60px 0;
+  width: 100%;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea::-webkit-input-placeholder {
+  font-size: 1.8rem;
+  color: #4e4e4e;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea::-moz-placeholder {
+  font-size: 1.8rem;
+  color: #4e4e4e;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea:-ms-input-placeholder {
+  font-size: 1.8rem;
+  color: #4e4e4e;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea::-ms-input-placeholder {
+  font-size: 1.8rem;
+  color: #4e4e4e;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea::placeholder {
+  font-size: 1.8rem;
+  color: #4e4e4e;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea:focus {
+  outline: none;
+  border-bottom: 1px solid #000;
+  transition: all 0.2s ease-in-out;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea:focus::-webkit-input-placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea:focus::-moz-placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea:focus:-ms-input-placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea:focus::-ms-input-placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea:focus::placeholder {
+  color: #000;
+  opacity: 1;
+}
+
+.contact-page .contact-page-wrapper .contact-form form .contact-form-group .invalid-feedback {
+  color: #e71d43;
+  font-size: 1.4rem;
+  text-align: left;
+}
+
 .contact-page .contact-page-wrapper .contact-form form button.button {
   border: 2px solid #e71d43;
   padding: 14px 30px;
@@ -1201,5 +1277,15 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
 .contact-page .contact-page-wrapper .right-column h2 {
   margin: 0;
   font-weight: normal;
+}
+
+.news-slider {
+  width: 100%;
+  height: auto;
+}
+
+.news-slider .news-slider-wrapper {
+  width: 85%;
+  margin: 80px auto;
 }
 

@@ -47,10 +47,13 @@ $(document).ready(function() {
         $(this).toggleClass("active");
     });
 
+     
+
     // Hamburger icon animation
     $(".menu-toggle").on("click", function() {
         $(".hamburger-menu").toggleClass("animate");
     });
+
 
     //Parallax
 $(window).scroll(function() {
