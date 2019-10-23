@@ -36,6 +36,7 @@ const app = new Vue({
 
 //Navigation
 $(document).ready(function() {
+
     $(".menu-toggle").click(function() {
         $("nav").toggleClass("active");
     });
@@ -46,8 +47,6 @@ $(document).ready(function() {
             .removeClass("active");
         $(this).toggleClass("active");
     });
-
-     
 
     // Hamburger icon animation
     $(".menu-toggle").on("click", function() {
@@ -62,6 +61,47 @@ $(window).scroll(function() {
         'transform' : 'translate(0%, ' + st + '%'
     });
 });
+//Sticky Navigation
+$(window).scroll(function(event) {
+  if($(this).scrollTop() > 300) {
+    $("header").fadeIn();
+    $("header").addClass('fixed');
+  }
+  else {
+    $("header").removeClass('fixed')
+  }
+});
+
+$(".contact-slider").slick({
+      infinite:true,
+      draggable: true,
+      dots: false,
+      autoplay: true,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      speed: 1000,
+      autoplaySpeed: 2000,
+      pauseOnDotsHover:true,
+      pauseOnHover:false,
+      responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 1,
+      }
+    },   
+    {
+      breakpoint: 600,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
+      
+    });
+
 });
 
 //Input footer newsletter underline animation
@@ -70,3 +110,7 @@ const wrapper = document.querySelector(".input-wrapper"),
 textInput.addEventListener("keyup", event => {
     wrapper.setAttribute("data-text", event.target.value);
 });
+
+
+
+

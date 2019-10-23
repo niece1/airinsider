@@ -5,13 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\ContactMail;
+use App\Post;
+use App\Photo;
 
 class ContactController extends Controller
 {
     public function create()
     {
-        
-        return view('contact.create');
+        $random_news = Post::with(['photo'])->inRandomOrder()->limit(5)->get();
+        return view('contact.create', compact('random_news'));
     }
 
     public function store()

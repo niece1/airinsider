@@ -1,12 +1,14 @@
 @extends('layouts.frontend')
 
 @section('content')
+<section class="contact-jumbotron">
+    <div class="parallax-text">
+     <h1>{{ __('Reset Password') }}</h1>
+    </div>
+</section>
+
 <div class="register">
     <div class="register-wrapper">
-
-
-        <h1>{{ __('Reset Password') }}</h1>
-
 
         @if (session('status'))
         <div class="alert alert-success" role="alert">

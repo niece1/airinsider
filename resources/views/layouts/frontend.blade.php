@@ -10,16 +10,15 @@
 
     <title>{{ config('app.name', 'Airinsider') }}</title>
 
-    <!-- Scripts -->    
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <!-- Fontawesome -->      
     <script src="https://kit.fontawesome.com/0f7f320048.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lato|Muli|Open+Sans&display=swap" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">   
 
 </head>
 
@@ -68,30 +67,30 @@
                             <ul>
                                 <li>
                                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
+                                    document.getElementById('logout-form').submit();">
+                                    {{ __('Logout') }}
+                                </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                        @endauth
-                    </ul>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                    @endauth
+                </ul>
 
-                </nav>
+            </nav>
 
-                <div class="menu-toggle">
-                    <div class="hamburger-menu">
-
-                    </div>
+            <div class="menu-toggle">
+                <div class="hamburger-menu">
 
                 </div>
 
             </div>
-        </header>
+
+        </div>
+    </header>
         <!--<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -109,7 +108,7 @@
 
                     <!-- Right Side Of Navbar -->
         <!--<ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
+            <!-- Authentication Links -->
         <!--   @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -244,7 +243,10 @@
         <!--/.Footer-->
 
     </div>
-
+    <!-- Scripts -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    @stack('scripts')
 </body>
 
 </html>

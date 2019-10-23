@@ -1,11 +1,17 @@
 @extends('layouts.frontend')
 
 @section('content')
+<section class="contact-jumbotron">
+    <div class="parallax-text">
+       <h1>{{ __('Register') }}</h1>
+    </div>
+</section>
+
 <div class="register">
     <div class="register-wrapper">
 
-        <h1>{{ __('Register') }}</h1>
-        <p>If you already have an account<a href="{{ route('login') }}">login here</a></p>
+        
+        <h2>If you already have an account<a href="{{ route('login') }}">login here</a></h2>
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
