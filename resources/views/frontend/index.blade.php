@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="item-blog-bottom">
-                    <a href="#" class="button">Читать</a>
+                    <a href="{{ route('post.show', [$news_item->slug]) }}" class="button">Читать</a>
                     <p><i class="fas fa-tags"></i><a href="#">History</a></p>
                 </div>
             </div>

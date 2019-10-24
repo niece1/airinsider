@@ -24,7 +24,7 @@ class PostsTableSeeder extends Seeder
                 'viewed' => $faker->numberBetween(1, 1000),
                 'time_to_read' => $faker->numberBetween(1, 10),
                 'user_id' => $faker->numberBetween(1, 7),
-                'category_id' => $faker->numberBetween(1, 15),
+                'category_id' => $faker->numberBetween(1, 7),
             ]);
         }
     }

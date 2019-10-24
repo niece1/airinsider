@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CategoriesTableSeeder extends Seeder
+class TagsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -13,9 +13,9 @@ class CategoriesTableSeeder extends Seeder
     {
         $faker = Faker\Factory::create();
 
-        for ($i = 1; $i <= 7; $i++) {
+        for ($i = 1; $i <= 15; $i++) {
 
-            DB::table('categories')->insert([
+            DB::table('tags')->insert([
                 'title' => $faker->unique()->word,
             ]);
         }

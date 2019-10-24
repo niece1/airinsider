@@ -41,7 +41,7 @@
 				</div>
 
 				<div class="contact-form-group">              
-					<textarea type="text" name="message" placeholder="Message" value="{{ old('message') }}" autocomplete="message"></textarea>
+					<textarea type="text" name="message" placeholder="Message" autocomplete="message">{{ old('message') }}</textarea>
 					<div class="invalid-feedback">{{ $errors->first('message') }}</div>                                
 				</div>
 				@csrf

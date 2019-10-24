@@ -732,7 +732,7 @@ footer {
     .footer_wrapper_down {
       width: 85%;
       margin: 30px auto;
-      border-top: 1px solid #000;
+      border-top: 1px solid #4e4e4e;
       display: grid;
       grid-template-columns: 75% 20%;
       @media only screen and (max-width: 1267px) {
@@ -1120,6 +1120,19 @@ footer {
                 }
             }
         }
+    }
+}
+
+/*Show page styles*/
+.news-show {
+    width: 100%;
+    height: auto;
+    .news-show-wrapper {
+        width: 85%;
+        margin: 80px auto;
+        display: grid;
+        grid-template-columns: 65% 25%;
+        justify-content: space-between;
     }
 }
 
