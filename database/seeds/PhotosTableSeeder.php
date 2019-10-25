@@ -16,14 +16,14 @@ class PhotosTableSeeder extends Seeder
             DB::table('photos')->insert([
                 'photoable_type' => 'App\Post',
                 'photoable_id' => $faker->numberBetween(1, 100),
-                'path' => $faker->imageUrl(760, 500, 'city')
+                'path' => $faker->imageUrl(1000, 700, 'city')
             ]);
         }
         for ($i = 1; $i <= 7; $i++) {
             DB::table('photos')->insert([
                 'photoable_type' => 'App\User',
                 'photoable_id' => $faker->numberBetween(1, 7),
-                'path' => $faker->imageUrl(100, 100, 'people')
+                'path' => $faker->imageUrl(200, 200, 'people')
             ]);
         }
     }

@@ -14,7 +14,7 @@
     <script src="https://kit.fontawesome.com/0f7f320048.js" crossorigin="anonymous"></script>
 
     <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lato|Muli|Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
@@ -27,7 +27,7 @@
         <header>
             <div class="menu-wrapper">
                 <div class="logo">
-                    <a href="{{ url('/') }}">air<span class="logo-span">insider</span></a>
+                    <a href="{{ url('/') }}">авиа<span class="logo-span">инсайдер</span></a>
                 </div>
                 <nav>
 
@@ -35,24 +35,24 @@
 
                     <ul>
                         <li>
-                            <a href="#">About</a>
+                            <a href="#">О нас</a>
 
                         </li>
                         <li>
-                            <a href="{{ route('contact') }}">Contact</a>
+                            <a href="{{ route('contact') }}">Контакты</a>
 
                         </li>
                         <li class="sub-menu">
-                            <a href="#">Categories</a>
+                            <a href="#">Категории</a>
                             <ul>
                                 <li>
-                                    <a class="sub-item" href="#">History</a>
+                                    <a class="sub-item" href="#">История</a>
                                 </li>
                                 <li>
-                                    <a class="sub-item" href="#">Incidents</a>
+                                    <a class="sub-item" href="#">Проишествия</a>
                                 </li>
                                 <li>
-                                    <a class="sub-item" href="#">Discounts</a>
+                                    <a class="sub-item" href="#">Скидки</a>
                                 </li>
                             </ul>
                         </li>
@@ -150,37 +150,37 @@
         <footer>
             <div class="footer_wrapper_upper">
                 <div class="footer_about">
-                    <a href="#" class="logo-footer">Airinsider</a>
+                    <a href="#" class="logo-footer">Авиаинсайдер</a>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis veniam unde tenetur ullam. Amet, reprehenderit ea nam voluptatibus quisquam harum!</p>
                     <a href="#"><span>Read more</span></a>
                 </div>
 
                 <div class="footer_links">
-                    <h5>Categories</h5>
+                    <h5>Категории</h5>
                     <ul>
-                        <li><a href="index.html"><span>Home</span></a></li>
-                        <li><a href="about.html"><span>About</span></a></li>
-                        <li><a href="contact.html"><span>Contact</span></a></li>
-                        <li><a href="albums.html"><span>Sign in</span></a></li>
-                        <li><a href="blog.html"><span>Sign up</span></a></li>
+                        <li><a href="index.html"><span>Проишествия</span></a></li>
+                        <li><a href="about.html"><span>Скидки</span></a></li>
+                        <li><a href="contact.html"><span>Эрбас</span></a></li>
+                        <li><a href="albums.html"><span>Боинг</span></a></li>
+                        <li><a href="blog.html"><span>Авиасалон</span></a></li>
 
                     </ul>
                 </div>
 
                 <div class="footer_links">
-                    <h5>Useful links</h5>
+                    <h5>Полезные ссылки</h5>
                     <ul>
-                        <li><a href="index.html"><span>Home</span></a></li>
-                        <li><a href="about.html"><span>About</span></a></li>
-                        <li><a href="contact.html"><span>Contact</span></a></li>
-                        <li><a href="albums.html"><span>Sign in</span></a></li>
-                        <li><a href="blog.html"><span>Sign up</span></a></li>
+                        <li><a href="index.html"><span>На главную</span></a></li>
+                        <li><a href="about.html"><span>О нас</span></a></li>
+                        <li><a href="contact.html"><span>Контакты</span></a></li>
+                        <li><a href="albums.html"><span>Войти</span></a></li>
+                        <li><a href="blog.html"><span>Зарегистрироваться</span></a></li>
 
                     </ul>
                 </div>
 
                 <div class="popular_posts">
-                    <h5>Popular posts</h5>
+                    <h5>Популярные новости</h5>
                     <ul>
                         <li>
                             <a href="#">

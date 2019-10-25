@@ -13,7 +13,7 @@
 			<div class="thumbnail">
 			<img src="{{ $news_item->photo->path ?? ''  }}" alt="Photo">
 			</div>
-			<p>September 7, 2019 / <a href="#">Airbus</a> / by<a href="#">Volodymyr Zhonchuk</a> </p>
+			<p>September 7, 2019 / <a href="#">{{ $news_item->category->title }}</a> / by<a href="#">Volodymyr Zhonchuk</a> </p>
 			<h1>{{ $news_item->title }}</h1>
 			<p>{{ $news_item->body }}</p>
 			
@@ -23,42 +23,45 @@
 			<div class="search-widget">
 				<form action="#">
 					<input type="text" name="search" placeholder="Search">
+					<button class="submit">Send</button>
 				</form>
 			</div>
 
 			<div class="related-posts-widget">
 				<h2>Related posts</h2>
+				@foreach ($related as $post)
 				<ul class="related">
 					<li>
 						<a href="#">
-							<img src="#" alt="Photo">
+							<img src="{{ $post->photo->path ?? '' }}" alt="Photo">
 						</a>
 						<div class="post-content">
 							<p>
-								<a href="#"></a>
+								<a href="#">{{ $post->title }}</a>
 							</p>
 							<small>September 7, 2019</small>
 						</div>
 					</li>
 				</ul>
+				@endforeach
 			</div>
 
 			<div class="category-widget">
 				<h2>Categories</h2>
 				@foreach ($categories as $category)
 				<ul class="category-list">
-					<li><a href="">{{ $category->title }}</a></li>
+					<li><a href="#">{{ $category->title }}</a></li>
 				</ul>
 				@endforeach
 			</div>
 
 			<div class="tag-widget">
-				<h2>Our tags</h2>
-				@foreach ($tags as $tag)
+				<h2>Our tags</h2>				
 				<div class="tag-cloud">
+					@foreach ($tags as $tag)
 					<a href="#">{{ $tag->title }}</a>
-				</div>
-				@endforeach
+					@endforeach
+				</div>				
 			</div>
 
 		</aside>

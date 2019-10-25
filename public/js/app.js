@@ -31686,13 +31686,15 @@ $(document).ready(function () {
     infinite: true,
     draggable: true,
     dots: false,
-    autoplay: true,
+    arrows: true,
+    autoplay: false,
     slidesToShow: 4,
     slidesToScroll: 1,
     speed: 1000,
     autoplaySpeed: 2000,
     pauseOnDotsHover: true,
     pauseOnHover: false,
+    cssEase: 'ease',
     responsive: [{
       breakpoint: 1024,
       settings: {

@@ -1,8 +1,4 @@
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Lato|Muli|Open+Sans&display=swap");
-
 @import 'variables';
-
 
 /*General styles*/
 * {
@@ -12,7 +8,7 @@
 }
 
 html {
-    font-family: "Muli", sans-serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 10px;
 }
 
@@ -102,7 +98,7 @@ header {
                         color: #000;
                         display: inline-block;
                         outline: none;
-                        letter-spacing: 2px;                       
+                        letter-spacing: 1px;                       
                     }
                     ul {
                         position: absolute;
@@ -141,7 +137,7 @@ header .menu-wrapper nav ul li.active ul {
     float: right;    
     width: $bar-width;
     margin-top: 34px;
-	  height: $bar-height + $bar-spacing*2;
+	height: $bar-height + $bar-spacing*2;
     cursor: pointer;
     &:hover {
       .hamburger-menu {
@@ -236,8 +232,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
     }
 
     header .menu-wrapper nav ul li a {
-        line-height: 60px;
-        
+        line-height: 60px;       
         height: 60px;
         display: block;      
     }
@@ -742,13 +737,13 @@ footer {
         grid-template-columns: 100%;
       }
       .footer_copyright {
-        padding: 15px 0;
+        margin: 30px 0;
         @media only screen and (max-width: 1267px) {
           padding: 30px 50px 30px 0;
         }                       
       }
       .footer_newsletter {
-        margin-bottom: 20px;      
+        margin: 30px 0 20px 0;      
         h5 {
           font-weight: normal;
           color: #000;
@@ -775,13 +770,11 @@ footer {
             color: transparent;
           }
           input {
-            color: #000;         
-            padding: 0;
+            color: #000;                     
             border-radius: 0;
             outline: none;
             width: 100%;
-            border: none;
-            font-size: 1.6rem;
+            border: none;          
             padding: 10px 0;
             border-bottom: 2px solid #000;
             background-color: transparent;
@@ -839,7 +832,6 @@ footer {
   position: relative;
   .parallax-text {
     position: absolute;
-
     top: 50px;
     width: 100%;
     text-align: center;
@@ -1131,8 +1123,127 @@ footer {
         width: 85%;
         margin: 80px auto;
         display: grid;
-        grid-template-columns: 65% 25%;
+        grid-template-columns: 65% 20%;
         justify-content: space-between;
+        .item-itself {
+            overflow: hidden;
+        }
+        aside.sidebar {
+            .search-widget {
+                form {
+                    position: relative;
+                    input {
+                        border: 0;
+                        border-bottom: 2px solid #000;
+                        width: 100%;
+                        color: #000;
+                        font-size: 1.8rem;
+                        outline: none;
+                        padding: 10px 0;
+                        &:placeholdr {
+                            color: #4e4e4e;
+                        } 
+                    }
+                    button {
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        right: 0;
+                        border: none;
+                        background: transparent;
+                        outline: none;
+                        font-size: 1.8rem;
+                        color: #000;
+                        cursor: pointer;
+                        padding: 0 3px;
+                    }
+                }
+            }
+            .related-posts-widget {
+                margin: 20px 0;
+                h2 {
+                    font-weight: normal;
+                    margin-bottom: 20px;
+                }
+                ul.related {
+                    li {
+                        clear: left;
+                        
+                        a {                           
+                            img {
+                                width: 80px;
+                                height: 80px;
+                                float: left;
+                                display: block;
+                                object-fit: cover;
+                                overflow: hidden;
+                                margin: 0 15px 15px 0;
+                            }
+                        }
+                        .post-content {
+                            p {
+                                display: block;
+                                font-size: 1.6rem;
+                                margin-bottom: 5px;
+                                a {
+                                    color: #000;
+                                }
+                            }
+                            small {
+                                color: #4e4e4e;
+                                font-size: 1.4rem;
+                            }
+                        }
+                    }
+                }
+            }
+            .category-widget {
+                h2 {
+                    font-weight: normal;
+                    margin-bottom: 20px;
+                    clear: left;
+                }
+                ul.category-list {
+                    font-size: 1.8rem;
+                    li {
+                        margin: 10px 0;
+                        a {
+                            display: inline-block;
+                            color: #000;
+                        }
+                    }
+                }
+            }
+            .tag-widget {
+                h2 {
+                   font-weight: normal;
+                   margin-bottom: 20px; 
+                }
+                .tag-cloud {
+                    font-size: 1.8rem;
+                    a {
+                        display: inline-block;
+                        margin: 0 5px 5px 0;
+                        border: 1px solid #e71d43;
+                        padding: 4px 15px 3px 15px;
+                        &:hover {
+                            color: #fff;
+                            background-color: #e71d43;
+                            transition: all 0.4s ease-in-out;
+                            -webkit-transition: all 0.4s ease-in-out;
+                            -o-transition: all 0.4s ease-in-out;
+                        }
+                        &:not(:hover) {
+                            background-color: transparent;
+                            color: #000;
+                            transition: all 0.4s ease-in-out;
+                            -webkit-transition: all 0.4s ease-in-out;
+                            -o-transition: all 0.4s ease-in-out;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

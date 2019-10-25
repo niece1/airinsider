@@ -21,11 +21,11 @@ class FrontendController extends Controller
     {
         $news_item = Post::with(['photo'])->where('slug', $slug)->firstOrFail();
         $news_item->viewedCounter();
+        $related = Post::with(['photo'])->where('category_id', $news_item->category_id)->limit(4)->get();
         $categories = Category::with('posts')->get();
         $tags = Tag::all();
-        
-        return view('frontend.show', compact('news_item', 'categories', 'tags'));
-    }
 
+        return view('frontend.show', compact('news_item', 'categories', 'tags', 'related'));
+    }
     
 }
