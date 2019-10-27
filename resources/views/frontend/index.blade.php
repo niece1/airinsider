@@ -48,6 +48,8 @@
 </section>
 
 <section class="news-pagination">
+    <div class="news-pagination-wrapper">
     {{ $news->links() }}
+    </div>
 </section>
 @endsection

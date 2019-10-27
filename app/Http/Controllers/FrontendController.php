@@ -12,7 +12,7 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $news = Post::with(['photo'])->orderBy('id', 'desc')->simplePaginate(12);
+        $news = Post::with(['photo'])->orderBy('id', 'desc')->paginate(8);
 
         return view('frontend.index', compact('news'));
     }
@@ -21,7 +21,7 @@ class FrontendController extends Controller
     {
         $news_item = Post::with(['photo'])->where('slug', $slug)->firstOrFail();
         $news_item->viewedCounter();
-        $related = Post::with(['photo'])->where('category_id', $news_item->category_id)->limit(4)->get();
+        $related = Post::with(['photo'])->where('category_id', $news_item->category_id)->limit(5)->get();
         $categories = Category::with('posts')->get();
         $tags = Tag::all();
 

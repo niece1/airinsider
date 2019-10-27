@@ -72,7 +72,7 @@ $(window).scroll(function(event) {
   }
 });
 
-$(".contact-slider").slick({
+$(".contact-slider-wrapper").slick({
       infinite:true,
       draggable: true,
       dots: false,
@@ -85,6 +85,8 @@ $(".contact-slider").slick({
       pauseOnDotsHover:true,
       pauseOnHover:false,
       cssEase: 'ease',
+      prevArrow: $('#left-arrow'),
+      nextArrow: $('#right-arrow'),
       responsive: [
     {
       breakpoint: 1024,
@@ -104,7 +106,11 @@ $(".contact-slider").slick({
       
     });
 
+
 });
+
+//Sticky sidebar
+$(".sidebar").stick_in_parent({offset_top: 120});
 
 //Input footer newsletter underline animation
 const wrapper = document.querySelector(".input-wrapper"),

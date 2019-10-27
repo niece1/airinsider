@@ -31682,7 +31682,7 @@ $(document).ready(function () {
       $("header").removeClass('fixed');
     }
   });
-  $(".contact-slider").slick({
+  $(".contact-slider-wrapper").slick({
     infinite: true,
     draggable: true,
     dots: false,
@@ -31695,6 +31695,8 @@ $(document).ready(function () {
     pauseOnDotsHover: true,
     pauseOnHover: false,
     cssEase: 'ease',
+    prevArrow: $('#left-arrow'),
+    nextArrow: $('#right-arrow'),
     responsive: [{
       breakpoint: 1024,
       settings: {
@@ -31709,6 +31711,10 @@ $(document).ready(function () {
       }
     }]
   });
+}); //Sticky sidebar
+
+$(".sidebar").stick_in_parent({
+  offset_top: 120
 }); //Input footer newsletter underline animation
 
 var wrapper = document.querySelector(".input-wrapper"),

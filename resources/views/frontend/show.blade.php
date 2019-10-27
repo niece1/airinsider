@@ -65,6 +65,11 @@
 			</div>
 
 		</aside>
+		<div class="clear"></div>
 	</div>
 </section>
 @endsection
+
+@push('scripts')
+    <script type="text/javascript" src="{{ asset('js/sticky-kit.js') }}"></script>
+@endpush

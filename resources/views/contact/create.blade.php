@@ -61,6 +61,7 @@
 <section class="slider">
 	<h2>Explore our random articles</h2>
 <div class="contact-slider">
+	<div class="contact-slider-wrapper">
   @foreach ($random_news as $news_item)
         <div class="item ">
             <div class="image-holder">
@@ -85,15 +86,18 @@
             </div>
         </div>
         @endforeach
-</div>
-<div class="slider-arrows">
-				<div id="left-arrow" class="arrow-left">
+    </div>
+    <div id="left-arrow" class="arrow-left">
 					<i class="fas fa-chevron-left"></i>
 				</div>
+
 				<div id="right-arrow" class="arrow-right">
 					<i class="fas fa-chevron-right"></i>
 				</div>
-			</div>
+</div>
+
+				
+			
 </section>
 @endsection
 
