@@ -13,17 +13,21 @@
 			<div class="thumbnail">
 			<img src="{{ $news_item->photo->path ?? ''  }}" alt="Photo">
 			</div>
-			<p>September 7, 2019 / <a href="#">{{ $news_item->category->title }}</a> / by<a href="#">Volodymyr Zhonchuk</a> </p>
+			<p>September 7, 2019 <span class="dot"></span> <a href="#">{{ $news_item->category->title }}</a> <span class="dot"></span> by <a href="#">Volodymyr Zhonchuk</a> </p>
 			<h1>{{ $news_item->title }}</h1>
 			<p>{{ $news_item->body }}</p>
-			
+			<div class="item-line"></div>
+			<a href="#" class="share" id="facebook">fb</a>
+            <a href="#" class="share" id="twitter">tw</a>
+            <a href="#" class="share">vk</a>
+            <p class="meta-right"><i class="far fa-comment"></i><span>3</span> <i class="far fa-heart"></i><span>12</span></p>
 		</div>
 		<aside class="sidebar">
 
 			<div class="search-widget">
 				<form action="#">
 					<input type="text" name="search" placeholder="Search">
-					<button class="submit">Send</button>
+					<button class="submit"><i class="fas fa-search"></i></button>
 				</form>
 			</div>
 

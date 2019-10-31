@@ -1576,6 +1576,80 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   float: left;
 }
 
+.news-show .news-show-wrapper .item-itself .thumbnail {
+  display: block;
+  overflow: hidden;
+}
+
+.news-show .news-show-wrapper .item-itself .thumbnail img {
+  width: 100%;
+}
+
+.news-show .news-show-wrapper .item-itself h1 {
+  font-weight: normal;
+  margin: 20px 0;
+  font-size: 4rem;
+}
+
+.news-show .news-show-wrapper .item-itself p {
+  line-height: 30px;
+  color: #4e4e4e;
+  position: relative;
+}
+
+.news-show .news-show-wrapper .item-itself p span.dot {
+  height: 5px;
+  width: 5px;
+  background-color: #000;
+  border-radius: 50%;
+  margin: 0 10px 3px 10px;
+  display: inline-block;
+}
+
+.news-show .news-show-wrapper .item-itself p a {
+  color: #4e4e4e;
+}
+
+.news-show .news-show-wrapper .item-itself p a:hover {
+  color: #e71d43;
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+}
+
+.news-show .news-show-wrapper .item-itself .item-line {
+  width: 100%;
+  height: 1px;
+  background-color: #4e4e4e;
+  margin: 30px 0;
+}
+
+.news-show .news-show-wrapper .item-itself a.share {
+  color: #000;
+  font-size: 1.8rem;
+  position: relative;
+  margin: 0 45px 0 0;
+}
+
+.news-show .news-show-wrapper .item-itself a#facebook:after,
+.news-show .news-show-wrapper .item-itself a#twitter:after {
+  content: "";
+  background: #000;
+  position: absolute;
+  top: 55%;
+  right: -33px;
+  height: 1px;
+  width: 26px;
+}
+
+.news-show .news-show-wrapper .item-itself .meta-right {
+  float: right;
+}
+
+.news-show .news-show-wrapper .item-itself .meta-right i {
+  margin: 0 5px 0 15px;
+}
+
 @media only screen and (max-width: 1000px) {
   .news-show .news-show-wrapper .item-itself {
     width: 100%;
@@ -1602,7 +1676,7 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
 
 .news-show .news-show-wrapper aside.sidebar .search-widget form input {
   border: 0;
-  border-bottom: 2px solid #000;
+  border-bottom: 2px solid #cccccc;
   width: 100%;
   color: #000;
   font-size: 1.8rem;
@@ -1610,8 +1684,13 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   padding: 10px 0;
 }
 
-.news-show .news-show-wrapper aside.sidebar .search-widget form input:placeholdr {
-  color: #4e4e4e;
+.news-show .news-show-wrapper aside.sidebar .search-widget form input::placeholdr {
+  color: #000;
+  opacity: 1;
+}
+
+.news-show .news-show-wrapper aside.sidebar .search-widget form input::-webkit-input-placeholder {
+  color: #000;
 }
 
 .news-show .news-show-wrapper aside.sidebar .search-widget form button {
@@ -1629,12 +1708,12 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
 }
 
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget {
-  margin: 20px 0;
+  margin: 30px 0;
 }
 
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget h2 {
   font-weight: normal;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li {
@@ -1663,14 +1742,25 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   color: #000;
 }
 
+.news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .post-content p a:hover {
+  color: #e71d43;
+  transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+}
+
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .post-content small {
   color: #4e4e4e;
   font-size: 1.4rem;
 }
 
+.news-show .news-show-wrapper aside.sidebar .category-widget {
+  margin: 30px 0;
+}
+
 .news-show .news-show-wrapper aside.sidebar .category-widget h2 {
   font-weight: normal;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   clear: left;
 }
 
@@ -1687,9 +1777,17 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   color: #000;
 }
 
+.news-show .news-show-wrapper aside.sidebar .category-widget ul.category-list li a:hover {
+  color: #e71d43;
+}
+
+.news-show .news-show-wrapper aside.sidebar .tag-widget {
+  margin: 30px 0;
+}
+
 .news-show .news-show-wrapper aside.sidebar .tag-widget h2 {
   font-weight: normal;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .news-show .news-show-wrapper aside.sidebar .tag-widget .tag-cloud {
@@ -1700,7 +1798,7 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   display: inline-block;
   margin: 0 5px 5px 0;
   border: 1px solid #e71d43;
-  padding: 4px 15px 3px 15px;
+  padding: 4px 16px 3px 16px;
 }
 
 .news-show .news-show-wrapper aside.sidebar .tag-widget .tag-cloud a:hover {
