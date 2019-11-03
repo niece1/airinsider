@@ -8,15 +8,13 @@
 </section>
 <div class="register">
     <div class="register-wrapper">        
-        <h2>Don't have an account?<a href="{{ route('register') }}">sign up here</a></h2>
+        <p>Don't have an account?<a href="{{ route('register') }}">sign up here</a></p>
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
             <div class="form-group">
                 <div class="group-holder">
-
-
                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email" autocomplete="email" autofocus>
 
                     @error('email')
@@ -45,13 +43,10 @@
                     <input class="checkbox" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
                     <span class="checkmark"></span>
                 </label>
-
-
             </div>
 
 
             <div class="form-group">
-
                 <button type="submit" class="button">
                     {{ __('Login') }}
                 </button>
@@ -64,6 +59,8 @@
 
             </div>
         </form>
+        <p class="social-proceed">Proceed with your social network</p>
+        <p><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-google"></i></a><a href="{{ url('login/github') }}"><i class="fab fa-github"></i></a></p>
     </div>
 </div>
 @endsection

@@ -21,3 +21,10 @@ Route::get('/', 'FrontendController@index')->name('home');
 Route::get('/post/{post}', 'FrontendController@show')->name('post.show');
 Route::get('/contact', 'ContactController@create')->name('contact');
 Route::post('contact', 'ContactController@store');
+
+//Laravel Socialite Facebook
+//Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
+//Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
+//Laravel Socialite Github
+Route::get('login/github', 'Auth\LoginController@redirectToProvider');
+Route::get('login/github/callback', 'Auth\LoginController@handleProviderCallback');

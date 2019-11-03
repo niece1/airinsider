@@ -11,7 +11,7 @@
     <div class="register-wrapper">
 
         
-        <h2>If you already have an account<a href="{{ route('login') }}">login here</a></h2>
+        <p>If you already have an account<a href="{{ route('login') }}">login here</a></p>
 
         <form method="POST" action="{{ route('register') }}">
             @csrf
@@ -71,7 +71,6 @@
             </button>
 
         </form>
-
     </div>
 </div>
 @endsection

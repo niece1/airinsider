@@ -293,13 +293,13 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
   text-align: center;
 }
 
-.register .register-wrapper h2 {
+.register .register-wrapper p {
   color: #000;
   margin: 15px auto 20px auto;
   font-weight: normal;
 }
 
-.register .register-wrapper h2 a {
+.register .register-wrapper p a {
   margin-left: 5px;
   color: #e71d43;
 }
@@ -483,6 +483,15 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
   transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
+}
+
+.register .register-wrapper p.social-proceed {
+  margin: 50px 0 10px 0;
+}
+
+.register .register-wrapper i {
+  margin: 0 15px;
+  color: #000;
 }
 
 /*Index page*/

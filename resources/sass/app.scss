@@ -272,7 +272,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
         width: 85%;
         margin: 60px auto;
         text-align: center;
-                h2 {
+                p {
                   color: #000;
                   margin: 15px auto 20px auto;
                   font-weight: normal;
@@ -399,7 +399,14 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
         -webkit-transition: all .3s ease-in-out;
         -o-transition: all .3s ease-in-out;
       }
-    }   
+    }
+    p.social-proceed {
+        margin: 50px 0 10px 0;
+    }
+  i {
+    margin: 0 15px;
+    color: #000;
+  }
     }
 }
 
