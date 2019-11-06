@@ -60,7 +60,7 @@
             </div>
         </form>
         <p class="social-proceed">Proceed with your social network</p>
-        <p><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-google"></i></a><a href="{{ url('login/github') }}"><i class="fab fa-github"></i></a></p>
+        <p><a href="{{ url('login/facebook') }}"><i class="fab fa-facebook-f"></i></a><a href="{{ url('login/google') }}"><i class="fab fa-google"></i></a><a href="{{ url('login/github') }}"><i class="fab fa-github"></i></a></p>
     </div>
 </div>
 @endsection
