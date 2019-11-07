@@ -57,7 +57,11 @@ class LoginController extends Controller
      */
     public function handleProviderCallback($provider)
     {
+        if ($provider == 'google') {
+            $socialUser = Socialite::driver($provider)->stateless()->user();
+        }else {
         $socialUser = Socialite::driver($provider)->user();
+    }
         $user = User::where('email', $socialUser->getEmail())->first();
         //dd($socialUser);
         
