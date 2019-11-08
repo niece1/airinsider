@@ -22,9 +22,6 @@ Route::get('/post/{post}', 'FrontendController@show')->name('post.show');
 Route::get('/contact', 'ContactController@create')->name('contact');
 Route::post('contact', 'ContactController@store');
 
-//Laravel Socialite Facebook
-//Route::get('login/facebook', 'Auth\LoginController@redirectToProvider');
-//Route::get('login/facebook/callback', 'Auth\LoginController@handleProviderCallback');
-//Laravel Socialite Github
+//Laravel Socialite Facebook Google Github
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
