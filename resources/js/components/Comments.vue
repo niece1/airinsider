@@ -1,9 +1,16 @@
 <template>
     <div class="comments">
-    	<div class="comments-form">
-    		<input type="text">
-    		<button class="button">Добавить комментарий</button>
+    	<div v-if="auth" class="comments-form">
+    		<input v-model="newComment" type="text">
+    		<button class="button" @click="addComment">Добавить комментарий</button>
     	</div>
+
+    	<div class="text-center">
+            <button v-if="comments.next_page_url" @click="fetchComments" class="button">
+                Load More
+            </button>
+            <span v-else>No comments to show</span>
+        </div>
     	
     </div>
 

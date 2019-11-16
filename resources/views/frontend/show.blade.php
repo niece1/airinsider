@@ -21,7 +21,7 @@
             <a href="#" class="share" id="twitter">tw</a>
             <a href="#" class="share">vk</a>
             <p class="meta-right"><i class="far fa-comment"></i><span>3</span> <i class="far fa-heart"></i><span>12</span></p>
-            <example-component></example-component>
+            <comments></comments>
 		</div>
 		<aside class="sidebar">
 

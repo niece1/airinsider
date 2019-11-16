@@ -26,4 +26,9 @@ class Post extends Model
         $this->viewed += 1;
         return $this->save();
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)->whereNull('comment_id')->orderBy('created_at', 'DESC');
+    }
 }

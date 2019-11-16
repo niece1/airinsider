@@ -25,3 +25,6 @@ Route::post('contact', 'ContactController@store');
 //Laravel Socialite Facebook Google Github
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+
+//Comments
+Route::get('post/{post}/comments', 'CommentController@index');
