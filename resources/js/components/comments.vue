@@ -5,11 +5,13 @@
     		<button class="button" @click="addComment">Добавить комментарий</button>
     	</div>
 
+        <Comment v-for='comment in comments.data' :key="comment.id" :comment="comment" :news_item="news_item" />
+
     	<div class="text-center">
-            <button v-if="comments.next_page_url" @click="fetchComments" class="button">
+            <button @click="fetchComments" class="button">
                 Load More
             </button>
-            <span v-else>No comments to show</span>
+            <span >No comments to show</span>
         </div>
     	
     </div>
@@ -19,11 +21,26 @@
 
 <script>
  
+    import Comment from './comment.vue'
     export default {
-  
-        mounted() {
-            console.log('Component mounted.')
+        props: ['news_item'],
+        components: {
+            Comment
         },
+        mounted() {
+            this.fetchComments()
+        },
+        computed: {
+            auth() {
+                return __auth()
+            }
+        },
+        data: () => ({
+            comments: {
+                data: []
+            },
+            newComment: ''
+        }),
 
     }
     
