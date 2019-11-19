@@ -1,14 +1,27 @@
 <template>
 	<div class="comment">
-<div class="comment-itself">
-<h6>Volodymyr Kozak</h6>
-<p></p>
-</div>
+		<avatar :username="comment.user.name" :size="35"></avatar>
+		<div class="comment-itself">
+			<h6>{{ comment.user.name }}</h6>
+			<p>{{ comment.body }}</p>
+		</div>
+
+		<div class="replies">
+			<button @click="addingReply = !addingReply" class="button">Add reply</button>
+		</div>
+		<replies ref='replies' :comment="comment"></replies>
 	</div>
 </template>
 
 <script>
+	import Avatar from 'vue-avatar'
+	import Replies from './replies.vue'
+
 	export default {
+		components: {
+			Avatar,
+			Replies
+		},
 		data() {
 			return {
 				body: '',
@@ -20,11 +33,12 @@
 				required: true,
 				default: () => ({})
 			},
-			video: {
+			post: {
 				required: true,
 				default: () => ({})
 			}
 		},
+
 	}
 </script>
 

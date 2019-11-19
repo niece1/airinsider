@@ -3,7 +3,7 @@
 @section('content')
 <section class="contact-jumbotron">
 	<div class="parallax-text">
-		<h1>{{ $news_item->title }}</h1>
+		<h1>{{ $post->title }}</h1>
 	</div>
 </section>
 
@@ -11,17 +11,17 @@
 	<div class="news-show-wrapper">
 		<div class="item-itself">
 			<div class="thumbnail">
-			<img src="{{ $news_item->photo->path ?? ''  }}" alt="Photo">
+			<img src="{{ $post->photo->path ?? ''  }}" alt="Photo">
 			</div>
-			<p>September 7, 2019 <span class="dot"></span> <a href="#">{{ $news_item->category->title }}</a> <span class="dot"></span> by <a href="#">Volodymyr Zhonchuk</a> </p>
-			<h1>{{ $news_item->title }}</h1>
-			<p>{{ $news_item->body }}</p>
+			<p>September 7, 2019 <span class="dot"></span> <a href="#">{{ $post->category->title }}</a> <span class="dot"></span> by <a href="#">Volodymyr Zhonchuk</a> </p>
+			<h1>{{ $post->title }}</h1>
+			<p>{{ $post->body }}</p>
 			<div class="item-line"></div>
 			<a href="#" class="share" id="facebook">fb</a>
             <a href="#" class="share" id="twitter">tw</a>
             <a href="#" class="share">vk</a>
             <p class="meta-right"><i class="far fa-comment"></i><span>3</span> <i class="far fa-heart"></i><span>12</span></p>
-            <comments :news_item="{{ $news_item }}"></comments>
+            <comments :post="{{ $post }}"></comments>
 		</div>
 		<aside class="sidebar">
 

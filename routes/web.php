@@ -27,4 +27,9 @@ Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
 //Comments
-Route::get('post/{post}/comments', 'CommentController@index');
+Route::get('posts/{post}/comments', 'CommentController@index');
+Route::get('comments/{comment}/replies', 'CommentController@show');
+
+Route::middleware(['auth'])->group(function () {
+Route::post('comments/{post}', 'CommentController@store');
+});

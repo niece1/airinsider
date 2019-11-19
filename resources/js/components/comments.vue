@@ -1,17 +1,17 @@
 <template>
     <div class="comments">
-    	<div v-if="auth" class="comments-form">
+    	<div  class="comments-form">
     		<input v-model="newComment" type="text">
     		<button class="button" @click="addComment">Добавить комментарий</button>
     	</div>
 
-        <Comment v-for='comment in comments.data' :key="comment.id" :comment="comment" :news_item="news_item" />
+        <Comment v-for='comment in comments.data' :key="comment.id" :comment="comment" :post="post" />
 
     	<div class="text-center">
-            <button @click="fetchComments" class="button">
+            <button v-if="comments.next_page_url" @click="fetchComments" class="button">
                 Load More
             </button>
-            <span >No comments to show</span>
+            <span v-else>No comments to show</span>
         </div>
     	
     </div>
@@ -23,7 +23,7 @@
  
     import Comment from './comment.vue'
     export default {
-        props: ['news_item'],
+        props: ['post'],
         components: {
             Comment
         },
@@ -41,7 +41,34 @@
             },
             newComment: ''
         }),
-
+        methods: {
+            fetchComments() {
+                const url = this.comments.next_page_url ? this.comments.next_page_url : `/posts/${this.post.id}/comments`
+                axios.get(url).then(({ data }) => {
+                    this.comments = {
+                        ...data,
+                        data: [
+                            ...this.comments.data,
+                            ...data.data
+                        ]
+                    }
+                })
+            },
+            addComment() {
+                if (! this.newComment) return
+                axios.post(`/comments/${this.post.id}`, {
+                    body: this.newComment
+                }).then(({ data }) => {
+                    this.comments = {
+                        ...this.comments,
+                        data: [
+                            data,
+                            ...this.comments.data
+                        ]
+                    }
+                })
+            }
+        }
     }
     
 </script>

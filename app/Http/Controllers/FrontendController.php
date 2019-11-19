@@ -19,13 +19,13 @@ class FrontendController extends Controller
 
     public function show($slug)
     {
-        $news_item = Post::with(['photo'])->where('slug', $slug)->firstOrFail();
-        $news_item->viewedCounter();
-        $related = Post::with(['photo'])->where('category_id', $news_item->category_id)->limit(5)->get();
+        $post = Post::with(['photo'])->where('slug', $slug)->firstOrFail();
+        $post->viewedCounter();
+        $related = Post::with(['photo'])->where('category_id', $post->category_id)->limit(5)->get();
         $categories = Category::with('posts')->get();
         $tags = Tag::all();
 
-        return view('frontend.show', compact('news_item', 'categories', 'tags', 'related'));
+        return view('frontend.show', compact('post', 'categories', 'tags', 'related'));
     }
     
 }
