@@ -20401,32 +20401,36 @@ var render = function() {
     "div",
     { staticClass: "comments" },
     [
-      _c("div", { staticClass: "comments-form" }, [
-        _c("input", {
-          directives: [
-            {
-              name: "model",
-              rawName: "v-model",
-              value: _vm.newComment,
-              expression: "newComment"
-            }
-          ],
-          attrs: { type: "text" },
-          domProps: { value: _vm.newComment },
-          on: {
-            input: function($event) {
-              if ($event.target.composing) {
-                return
+      _vm.auth
+        ? _c("div", { staticClass: "comments-form" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.newComment,
+                  expression: "newComment"
+                }
+              ],
+              attrs: { type: "text" },
+              domProps: { value: _vm.newComment },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.newComment = $event.target.value
+                }
               }
-              _vm.newComment = $event.target.value
-            }
-          }
-        }),
-        _vm._v(" "),
-        _c("button", { staticClass: "button", on: { click: _vm.addComment } }, [
-          _vm._v("Добавить комментарий")
-        ])
-      ]),
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              { staticClass: "button", on: { click: _vm.addComment } },
+              [_vm._v("Добавить комментарий")]
+            )
+          ])
+        : _vm._e(),
       _vm._v(" "),
       _vm._l(_vm.comments.data, function(comment) {
         return _c("Comment", {

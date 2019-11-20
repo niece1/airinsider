@@ -244,6 +244,16 @@
 
     </div>
     <!-- Scripts -->
+    <script>    
+        window.AuthUser = '{!! auth()->user() !!}'
+        window.__auth = function () {
+            try {
+                return JSON.parse(AuthUser)
+            } catch (error) {
+                return null
+            }
+        } 
+    </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     @stack('scripts')
     <script src="{{ asset('js/app.js') }}" defer></script>   

@@ -1,6 +1,6 @@
 <template>
     <div class="comments">
-    	<div  class="comments-form">
+    	<div v-if="auth" class="comments-form">
     		<input v-model="newComment" type="text">
     		<button class="button" @click="addComment">Добавить комментарий</button>
     	</div>
