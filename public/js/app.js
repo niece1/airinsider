@@ -1856,6 +1856,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1881,6 +1887,23 @@ __webpack_require__.r(__webpack_exports__);
       "default": function _default() {
         return {};
       }
+    }
+  },
+  methods: {
+    addReply: function addReply() {
+      var _this = this;
+
+      if (!this.body) return;
+      axios.post("/comments/".concat(this.post.id), {
+        comment_id: this.comment.id,
+        body: this.body
+      }).then(function (_ref) {
+        var data = _ref.data;
+        _this.body = '';
+        _this.addingReply = false;
+
+        _this.$refs.replies.addReply(data);
+      });
     }
   }
 });
@@ -1977,6 +2000,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         _this2.comments = _objectSpread({}, _this2.comments, {
           data: [data].concat(_toConsumableArray(_this2.comments.data))
         });
+        _this2.newComment = "";
       });
     }
   }
@@ -20367,7 +20391,39 @@ var render = function() {
             }
           },
           [_vm._v("Add reply")]
-        )
+        ),
+        _vm._v(" "),
+        _vm.addingReply
+          ? _c("div", { staticClass: "form-inline my-4 w-full" }, [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.body,
+                    expression: "body"
+                  }
+                ],
+                staticClass: "form-control form-control-sm w-80",
+                attrs: { type: "text" },
+                domProps: { value: _vm.body },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.body = $event.target.value
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c(
+                "button",
+                { staticClass: "button", on: { click: _vm.addReply } },
+                [_c("small", [_vm._v("Add reply")])]
+              )
+            ])
+          : _vm._e()
       ]),
       _vm._v(" "),
       _c("replies", { ref: "replies", attrs: { comment: _vm.comment } })
@@ -20433,7 +20489,7 @@ var render = function() {
         : _vm._e(),
       _vm._v(" "),
       _vm._l(_vm.comments.data, function(comment) {
-        return _c("Comment", {
+        return _c("comment", {
           key: comment.id,
           attrs: { comment: comment, post: _vm.post }
         })

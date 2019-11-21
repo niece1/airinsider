@@ -25,7 +25,7 @@
     export default {
         props: ['comment'],
         components: {
-            Avatar
+            Avatar,
         },
         data() {
             return {

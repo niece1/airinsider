@@ -5,7 +5,7 @@
     		<button class="button" @click="addComment">Добавить комментарий</button>
     	</div>
 
-        <Comment v-for='comment in comments.data' :key="comment.id" :comment="comment" :post="post" />
+        <comment v-for='comment in comments.data' :key="comment.id" :comment="comment" :post="post" ></comment>
 
     	<div class="text-center">
             <button v-if="comments.next_page_url" @click="fetchComments" class="button">
@@ -65,7 +65,8 @@
                             data,
                             ...this.comments.data
                         ]
-                    }
+                    };
+                    this.newComment= "";
                 })
             }
         }
