@@ -1,20 +1,17 @@
 <template>
-    <div>
-        <div class="media my-3" v-for="reply in replies.data">
-            <a class="mr-3" href="#">
-                <avatar :username="reply.user.name" class='mr-3' :size="30"></avatar>
-            </a>
-            <div class="media-body">
+    <div class="reply">
+        <div class="reply-itself" v-for="reply in replies.data">
+        <div class="avatar-label">
+                <avatar :username="reply.user.name" class='mr-3' :size="35"></avatar>
+          </div>
+            <div class="reply-body">
                 <h6>{{ reply.user.name }}</h6>
-                <small >
-                    {{ reply.body }}
-                </small>
-
+                <p>{{ reply.body }}</p>
                 
             </div>
         </div>
 
-        <div v-if="comment.repliesCount > 0 && replies.next_page_url" class="text-center">
+        <div v-if="comment.repliesCount > 0 && replies.next_page_url" class="load-replies">
             <button @click="fetchReplies" class="button">Load Replies</button>
         </div>
     </div>
@@ -59,3 +56,38 @@
         }
     }
 </script>
+
+<style scoped>
+
+.reply .reply-itself {
+    margin: 10px 0 10px 65px;
+}
+
+.reply .reply-itself .avatar-label {
+    float: left;
+    margin-right: 10px;
+}
+
+.reply .reply-itself .reply-body h6 {
+    font-weight: normal;
+}
+
+.reply .load-replies button.button {
+    cursor: pointer;
+    color: #0633ff;                
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+    border: none;
+    background-color: transparent;
+    margin: 10px 0 0 0;
+    outline: none;
+}
+
+.reply .load-replies button.button:hover {
+    color: #e71d43;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+</style>
