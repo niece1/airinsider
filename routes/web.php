@@ -29,7 +29,8 @@ Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCall
 //Comments
 Route::get('posts/{post}/comments', 'CommentController@index');
 Route::get('comments/{comment}/replies', 'CommentController@show');
+Route::post('comments/{post}', 'CommentController@store')->middleware(['auth']);
 
-Route::middleware(['auth'])->group(function () {
-Route::post('comments/{post}', 'CommentController@store');
-});
+//Likes
+Route::post('likes/{entityId}/{type}', 'LikeController@store')->middleware(['auth']);
+

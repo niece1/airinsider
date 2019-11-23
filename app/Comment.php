@@ -31,4 +31,9 @@ class Comment extends Model
     {
         return $this->replies->count();
     }
+
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
+    }
 }

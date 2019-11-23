@@ -23,6 +23,10 @@ Vue.component(
     "comments",
     require("./components/comments.vue").default
 );
+Vue.component(
+    "likes",
+    require("./components/likes.vue").default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

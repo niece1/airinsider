@@ -8,7 +8,7 @@ class Post extends Model
 {
     public function photo()
     {
-        return $this->morphOne('App\Photo', 'photoable');
+        return $this->morphOne(Photo::class, 'photoable');
     }
 
     public function category()
@@ -30,5 +30,10 @@ class Post extends Model
     public function comments()
     {
         return $this->hasMany(Comment::class)->whereNull('comment_id')->orderBy('created_at', 'DESC');
+    }
+
+    public function likes()
+    {
+        return $this->morphMany(Like::class, 'likeable');
     }
 }

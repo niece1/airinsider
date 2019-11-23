@@ -20,7 +20,9 @@
 			<a href="#" class="share" id="facebook">fb</a>
             <a href="#" class="share" id="twitter">tw</a>
             <a href="#" class="share">vk</a>
-            <p class="meta-right"><i class="far fa-comment"></i><span>3</span> <i class="far fa-heart"></i><span>12</span></p>
+            <p class="meta-right">
+            	<likes :default_likes="{{ $post->likes }}" :entity_id="{{ $post->id }}" :entity_owner="{{ $post->user_id }}"></likes>
+            </p>
             <comments :post="{{ $post }}"></comments>
 		</div>
 		<aside class="sidebar">
