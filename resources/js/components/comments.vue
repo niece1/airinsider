@@ -8,7 +8,7 @@
 
         <comment v-for='comment in comments.data' :key="comment.id" :comment="comment" :post="post" ></comment>
 
-    	<div class="more-comment">
+    	<div class="more-comments">
             <button v-if="comments.next_page_url" @click="fetchComments" class="button">
                 Load More
             </button>         
@@ -124,7 +124,7 @@
         transition: all 0.3s ease-in-out;
 	}
 
-    .comments .more-comment button.button {
+    .comments .more-comments button.button {
         cursor: pointer;
         border: 2px solid #e71d43;
         padding: 14px 30px;
@@ -137,7 +137,7 @@
         margin: 5px 0;
     }
 
-    .comments .more-comment button.button:hover {
+    .comments .more-comments button.button:hover {
         background-color: #e71d43;
         color: #fff;
         border: 2px solid #e71d43;

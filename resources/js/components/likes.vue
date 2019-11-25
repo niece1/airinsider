@@ -1,6 +1,6 @@
 <template>
     <div>
-        <svg @click="vote('up')" class="thumbs-up" :class="{ 'thumbs-up-active': upvoted }" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        <svg @click="like('up')" class="thumbs-up" :class="{ 'thumbs-up-active': upliked }" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
         viewBox="0 0 478.2 478.2" style="enable-background:new 0 0 478.2 478.2;" xml:space="preserve">
             <g>
                 <path d="M457.575,325.1c9.8-12.5,14.5-25.9,13.9-39.7c-0.6-15.2-7.4-27.1-13-34.4c6.5-16.2,9-41.7-12.7-61.5
@@ -21,8 +21,8 @@
             </g>
             </svg>
 
-            {{ upvotes_count }}
-            <svg @click="vote('down')" class="thumbs-down" :class="{ 'thumbs-down-active': downvoted }" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+            {{ uplikes_count }}
+            <svg @click="like('down')" class="thumbs-down" :class="{ 'thumbs-down-active': downliked }" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                     width="475.092px" height="475.092px" viewBox="0 0 475.092 475.092" style="enable-background:new 0 0 475.092 475.092;"
                     xml:space="preserve">
                 <g>
@@ -54,6 +54,92 @@
                 </g>
         </svg>
 
-        {{ downvotes_count }}
+        {{ downlikes_count }}
 </div>
 </template>
+
+<script>
+    import numeral from 'numeral'
+    export default {
+        props: {
+            default_likes: {
+                required: true,
+                default: () => []
+            },
+            entity_owner: {
+                required: true,
+                default: ''
+            },
+            entity_id: {
+                required: true,
+                default: ''
+            }
+        },
+        data() {
+            return {
+                likes: this.default_likes
+            }
+        },
+        computed: {
+            uplikes() {
+                return this.likes.filter(v => v.type === 'up')
+            },
+            downlikes() {
+                return this.likes.filter(v => v.type === 'down')
+            },
+            uplikes_count() {
+                return numeral(this.uplikes.length).format('0a')
+            },
+            downlikes_count() {
+                return numeral(this.downlikes.length).format('0a')
+            },
+            upliked() {
+                if (! __auth()) return false
+                return !!this.uplikes.find(v => v.user_id === __auth().id)
+            },
+            downliked() {
+                if (! __auth()) return false
+                
+                return !!this.downlikes.find(v => v.user_id === __auth().id)
+            }
+        },
+        methods: {
+            like(type) {
+                if (! __auth()) {
+                    return alert('Please login to like.')
+                }
+                if (__auth().id === this.entity_owner) {
+                    return alert('You cannot like this item.')
+                }
+                if (type === 'up' && this.upliked) return
+                if (type === 'down' && this.downliked) return
+                axios.post(`/likes/${this.entity_id}/${type}`)
+                    .then(({ data }) => {
+                        if (this.upliked || this.downliked) {
+                            this.likes = this.likes.map(v => {
+                                if (v.user_id === __auth().id) {
+                                    return data
+                                }
+                                return v
+                            })
+                        } else {
+                            this.likes = [
+                                ...this.likes,
+                                data
+                            ]
+                        }
+                    })
+            }
+        }
+    }
+</script>
+
+<style scoped>
+
+.thumbs-up, .thumbs-down {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+</style>

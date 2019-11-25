@@ -32,5 +32,5 @@ Route::get('comments/{comment}/replies', 'CommentController@show');
 Route::post('comments/{post}', 'CommentController@store')->middleware(['auth']);
 
 //Likes
-Route::post('likes/{entityId}/{type}', 'LikeController@store')->middleware(['auth']);
+Route::post('likes/{entityId}/{type}', 'LikeController@like')->middleware(['auth']);
 

@@ -9,6 +9,7 @@
                 <p>{{ reply.body }}</p>
                 
             </div>
+            <likes :default_likes="reply.likes" :entity_id="reply.id" :entity_owner="reply.user.id"></likes>
         </div>
 
         <div v-if="comment.repliesCount > 0 && replies.next_page_url" class="load-replies">

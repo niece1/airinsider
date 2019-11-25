@@ -51,4 +51,23 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+
+    public function toggleLike($entity, $type)
+    {
+        $like = $entity->likes->where('user_id', $this->id)->first();
+
+        if ($like) {
+            $like->update([
+                'type' => $type
+            ]);
+
+            return $like->refresh();
+
+        } else {
+            return $entity->likes()->create([
+                'type' => $type,
+                'user_id' => $this->id
+            ]);
+        }
+    }
 }

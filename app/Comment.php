@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-	protected $with = ['user'];
+	protected $with = ['user', 'likes'];
 
 	protected $appends = ['repliesCount'];
 
@@ -34,6 +34,6 @@ class Comment extends Model
 
     public function likes()
     {
-        return $this->morphMany(Like::class, 'likeable');
+        return $this->morphMany('App\Like', 'likeable');
     }
 }

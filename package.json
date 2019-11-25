@@ -21,6 +21,7 @@
         "vue-template-compiler": "^2.6.10"
     },
     "dependencies": {
+        "numeral": "^2.0.6",
         "vue-avatar": "^2.1.8"
     }
 }

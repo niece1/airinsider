@@ -9,6 +9,7 @@
 		</div>
 
 		<div class="replies">
+			<likes :default_likes="comment.likes" :entity_id="comment.id" :entity_owner="comment.user.id"></likes>
 			<button @click="addingReply = !addingReply" class="button">Добавить ответ</button>
 			<div v-if="addingReply" class="add-reply">
                 <textarea v-model='body' type="text" placeholder="Ваш ответ"></textarea>
@@ -46,19 +47,19 @@
 		},
 		methods: {
          addReply() {
-             if (! this.body) return
+            if (! this.body) return
              axios.post(`/comments/${this.post.id}`, {
-                 comment_id: this.comment.id,
-                 body: this.body
-             }).then(({ data }) => {
-                 this.body = ''
-                 this.addingReply = false
-                 this.$refs.replies.addReply(data)
-             })
-         }
-     }
+                comment_id: this.comment.id,
+                body: this.body
+            }).then(({ data }) => {
+                this.body = ''
+                this.addingReply = false
+                this.$refs.replies.addReply(data)
+            })
+        }
+    }
 
-	}
+}
 </script>
 
 <style scoped>
