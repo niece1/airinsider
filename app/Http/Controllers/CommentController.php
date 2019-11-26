@@ -15,6 +15,7 @@ class CommentController extends Controller
 
     public function store(Request $request, Post $post)
     {
+    	
         return auth()->user()->comments()->create([
             'body' => $request->body,
             'post_id' => $post->id,
@@ -26,4 +27,5 @@ class CommentController extends Controller
     {
     	return $comment->replies()->paginate(10);
     }
+
 }

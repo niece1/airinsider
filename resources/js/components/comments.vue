@@ -5,6 +5,9 @@
     		<textarea v-model="newComment" type="text" placeholder="Ваш комментарий"></textarea>
     		<button class="button" @click="addComment">Добавить комментарий</button>
     	</div>
+        <div v-else>
+            <p>Авторизируйтесь, чтобы оставить комментарий</p>
+        </div>
 
         <comment v-for='comment in comments.data' :key="comment.id" :comment="comment" :post="post" ></comment>
 

@@ -140,6 +140,15 @@
     width: 20px;
     height: 20px;
     cursor: pointer;
+    fill: currentColor;
+}
+
+.thumbs-down {
+    margin-left: 10px;
+}
+
+.thumbs-up-active, .thumbs-down-active {
+    color: blue;
 }
 
 </style>

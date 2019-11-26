@@ -9,8 +9,11 @@
 		</div>
 
 		<div class="replies">
+			<div class="comment-likes">
 			<likes :default_likes="comment.likes" :entity_id="comment.id" :entity_owner="comment.user.id"></likes>
-			<button @click="addingReply = !addingReply" class="button">Добавить ответ</button>
+			</div>
+			<button v-if="auth" @click="addingReply = !addingReply" class="add-reply-button">Добавить ответ</button>
+			<p v-else class="login-to-answer">Авторизируйтесь, чтобы ответить</p>
 			<div v-if="addingReply" class="add-reply">
                 <textarea v-model='body' type="text" placeholder="Ваш ответ"></textarea>
                 <button @click="addReply" class="button">Ответить</button>
@@ -45,6 +48,11 @@
 				default: () => ({})
 			}
 		},
+		computed: {
+            auth() {
+                return __auth()
+            }
+        },
 		methods: {
          addReply() {
             if (! this.body) return
@@ -73,7 +81,11 @@
 	font-weight: normal;
 }
 
-.comment .replies button.button {	
+.comment .replies {
+	margin-top: 7px;
+}
+
+.comment .replies button.add-reply-button {	
     cursor: pointer;                
     font-size: 1.5rem;
     text-transform: uppercase;
@@ -81,6 +93,22 @@
     border: none;
     background-color: transparent;
     outline: none;
+    color: #e71d43;
+}
+
+.comment .replies button.add-reply-button:hover {
+	color: #0633ff;
+	transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+}
+
+.comment .replies .add-reply {
+	margin: 40px 0 0 0;
+}
+
+.comment .replies .login-to-answer {
+	color: #e71d43;
 }
 
 .comment .replies .add-reply textarea {
@@ -90,6 +118,11 @@
     outline: none; 
     width: 100%; 
     font-size: 1.8rem;
+}
+
+.comment .replies .comment-likes {
+	margin: 0 10px 0 0;
+	float: left;
 }
 
 .comment .replies .add-reply button.button {

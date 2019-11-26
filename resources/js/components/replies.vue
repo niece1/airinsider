@@ -13,7 +13,7 @@
         </div>
 
         <div v-if="comment.repliesCount > 0 && replies.next_page_url" class="load-replies">
-            <button @click="fetchReplies" class="button">Load Replies</button>
+            <button @click="fetchReplies" class="button">Загрузить ответы</button>
         </div>
     </div>
 </template>
@@ -61,7 +61,7 @@
 <style scoped>
 
 .reply .reply-itself {
-    margin: 10px 0 10px 65px;
+    margin: 20px 0 10px 65px;
 }
 
 .reply .reply-itself .avatar-label {
