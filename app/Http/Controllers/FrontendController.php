@@ -27,5 +27,21 @@ class FrontendController extends Controller
 
         return view('frontend.show', compact('post', 'categories', 'tags', 'related'));
     }
+
+    public function postsByCategory($category)
+    {            
+        $news_by_category = Post::with(['photo', 'category'])->where('category_id', $category)->orderBy('id', 'desc')->paginate(12);
+        $category = Category::find($category);
+
+        return view('frontend.category', compact('news_by_category', 'category'));
+    }
+
+    public function postsByTag($tag)
+    {            
+        $news_by_tag = Tag::find($tag)->posts()->orderBy('id', 'desc')->paginate(12);
+        $tag = Tag::find($tag);
+
+        return view('frontend.tag', compact('news_by_tag', 'tag'));
+    }
     
 }

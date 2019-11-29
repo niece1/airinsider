@@ -13,7 +13,7 @@
 			<div class="thumbnail">
 			<img src="{{ $post->photo->path ?? ''  }}" alt="Photo">
 			</div>
-			<p>September 7, 2019 <span class="dot"></span> <a href="#">{{ $post->category->title }}</a> <span class="dot"></span> by <a href="#">Volodymyr Zhonchuk</a> </p>
+			<p>September 7, 2019 <span class="dot"></span> <a href="{{ route('category', [$post->category->id]) }}">{{ $post->category->title }}</a> <span class="dot"></span> by <a href="#">Volodymyr Zhonchuk</a> </p>
 			<h1>{{ $post->title }}</h1>
 			<p>{{ $post->body }}</p>
 			<div class="item-line"></div>
@@ -57,7 +57,7 @@
 				<h2>Categories</h2>
 				@foreach ($categories as $category)
 				<ul class="category-list">
-					<li><a href="#">{{ $category->title }}</a></li>
+					<li><a href="{{ route('category', [$category->id]) }}">{{ $category->title }}</a></li>
 				</ul>
 				@endforeach
 			</div>
@@ -66,7 +66,7 @@
 				<h2>Our tags</h2>				
 				<div class="tag-cloud">
 					@foreach ($tags as $tag)
-					<a href="#">{{ $tag->title }}</a>
+					<a href="{{ route('tag', [$tag->id]) }}">{{ $tag->title }}</a>
 					@endforeach
 				</div>				
 			</div>

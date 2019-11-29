@@ -36,4 +36,9 @@ class Post extends Model
     {
         return $this->morphMany('App\Like', 'likeable');
     }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class);
+    }
 }

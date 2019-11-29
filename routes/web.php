@@ -34,3 +34,9 @@ Route::post('comments/{post}', 'CommentController@store')->middleware(['auth']);
 //Likes
 Route::post('likes/{entityId}/{type}', 'LikeController@like')->middleware(['auth']);
 
+//Posts by category
+Route::get('categories/{category}', 'FrontendController@postsByCategory')->name('category');
+
+//Posts by tag
+Route::get('tags/{tag}', 'FrontendController@postsByTag')->name('tag');
+
