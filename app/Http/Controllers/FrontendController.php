@@ -7,6 +7,7 @@ use App\Post;
 use App\Photo;
 use App\Category;
 use App\Tag;
+use App\User;
 
 class FrontendController extends Controller
 {
@@ -42,6 +43,14 @@ class FrontendController extends Controller
         $tag = Tag::find($tag);
 
         return view('frontend.tag', compact('news_by_tag', 'tag'));
+    }
+
+    public function postsByUser($user)
+    {            
+        $news_by_user = Post::with(['photo', 'user'])->where('user_id', $user)->orderBy('id', 'desc')->paginate(12);
+        $user = User::find($user);
+
+        return view('frontend.user', compact('news_by_user', 'user'));
     }
     
 }

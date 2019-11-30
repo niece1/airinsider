@@ -40,3 +40,6 @@ Route::get('categories/{category}', 'FrontendController@postsByCategory')->name(
 //Posts by tag
 Route::get('tags/{tag}', 'FrontendController@postsByTag')->name('tag');
 
+//Posts by user
+Route::get('users/{user}', 'FrontendController@postsByUser')->name('user');
+
