@@ -75,7 +75,7 @@
 
 .reply .load-replies button.button {
     cursor: pointer;
-    color: #0633ff;                
+    color: #e71d43;                
     font-size: 1.5rem;
     letter-spacing: 1px;
     border: none;
@@ -85,7 +85,7 @@
 }
 
 .reply .load-replies button.button:hover {
-    color: #e71d43;
+    color: #0633ff;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;

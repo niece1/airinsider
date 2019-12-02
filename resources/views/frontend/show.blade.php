@@ -17,9 +17,10 @@
 			<h1>{{ $post->title }}</h1>
 			<p>{{ $post->body }}</p>
 			<div class="item-line"></div>
-			<a href="#" class="share" id="facebook">fb</a>
-            <a href="#" class="share" id="twitter">tw</a>
-            <a href="#" class="share">vk</a>
+			
+                <!-- Go to www.addthis.com/dashboard to customize your tools -->
+                <div class="addthis_inline_share_toolbox add-this-position"></div>
+            
             <p class="meta-right">
             	<likes :default_likes="{{ $post->likes }}" :entity_id="{{ $post->id }}" :entity_owner="{{ $post->user_id }}"></likes>
             </p>
@@ -78,5 +79,8 @@
 @endsection
 
 @push('scripts')
-    <script type="text/javascript" src="{{ asset('js/sticky-kit.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/sticky-kit.js') }}"></script>
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5de3d2128881893a"></script>
+
 @endpush

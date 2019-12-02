@@ -1291,28 +1291,13 @@ footer {
                 background-color: #4e4e4e;
                 margin: 30px 0;
             }
-            a.share {
-                color: #000;
-                font-size: 1.8rem;
-                position: relative;
-                margin: 0 45px 0 0;
-            }
-            a#facebook, a#twitter {
-                &:after {
-                    content: '';
-                    background: #000;
-                    position: absolute;
-                    top: 55%;
-                    right: -33px;
-                    height: 1px;
-                    width: 26px;
-                }
+            
+            .add-this-position {
+                display: inline-block;
             }
             .meta-right {
                 float: right;
-                i {
-                    margin: 0 5px 0 15px;
-                }
+                color: #000;
             }
             @media only screen and (max-width:1000px) {
                 width: 100%;
