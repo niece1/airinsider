@@ -43,3 +43,9 @@ Route::get('tags/{tag}', 'FrontendController@postsByTag')->name('tag');
 //Posts by user
 Route::get('users/{user}', 'FrontendController@postsByUser')->name('user');
 
+//Dashboard
+Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
+	Route::resource('posts', 'PostController');
+
+});
+
