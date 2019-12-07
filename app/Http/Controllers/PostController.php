@@ -14,7 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('post.index');
+        return view('backend.post.index');
     }
 
     /**

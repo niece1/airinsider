@@ -66,7 +66,7 @@
                             <a href="#">{{ Auth::user()->name }}</a>
                             <ul>
                                 <li>
-                                    <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                    <a href="{{ route('logout') }}" class="sub-item" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     {{ __('Logout') }}
                                 </a>
@@ -74,6 +74,9 @@
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
+                            </li>
+                            <li>
+                                <a class="sub-item" href="/dashboard/posts">Dashboard</a>
                             </li>
                         </ul>
                     </li>
@@ -141,7 +144,7 @@
             </div>
         </nav>-->
 
-        <main class="py-4">
+        <main>
             @yield('content')
         </main>
 

@@ -1813,3 +1813,15 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   clear: both;
 }
 
+/*Dashboard styles*/
+
+.dashboard {
+  width: 100%;
+  height: auto;
+}
+
+.dashboard .dashboard-wrapper {
+  width: 85%;
+  margin: 50px auto;
+}
+
