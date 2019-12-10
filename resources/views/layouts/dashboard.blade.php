@@ -36,7 +36,7 @@
 
                         </li>
                         <li class="sub-menu">
-                            <a href="#">User management</a>
+                            <a href="#">User manageer</a>
 <ul>
                                 <li>
                                     <a class="sub-item" href="#">Users</a>
@@ -53,7 +53,7 @@
                             </ul>
                         </li>
                         <li class="sub-menu">
-                            <a href="#">Post managment</a>
+                            <a href="#">Post manager</a>
                             <ul>
                                 <li>
                                     <a class="sub-item" href="#">Posts</a>

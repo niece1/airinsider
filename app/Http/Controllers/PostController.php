@@ -14,7 +14,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('backend.post.index');
+        $posts = Post::with(['photo'])->orderBy('id', 'desc')->paginate(50);
+
+        return view('backend.post.index', compact('posts'));
     }
 
     /**

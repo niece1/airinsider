@@ -1825,3 +1825,107 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   margin: 50px auto;
 }
 
+.dashboard .dashboard-wrapper a.button {
+  border: 2px solid #e71d43;
+  padding: 14px 30px;
+  display: inline-block;
+  margin: 0 0 20px 0;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  background-color: transparent;
+  color: #000;
+}
+
+.dashboard .dashboard-wrapper a.button:hover {
+  background-color: #e71d43;
+  color: #fff;
+  border: 2px solid #e71d43;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.dashboard .dashboard-wrapper a.button:not(:hover) {
+  background-color: transparent;
+  color: #000;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.dashboard .dashboard-wrapper .well {
+  border: 1px solid #e3e6f0;
+  border-radius: 5px;
+}
+
+.dashboard .dashboard-wrapper .well .well-title {
+  background: #f5f8fa;
+  border-bottom: 1px solid #e3e6f0;
+}
+
+.dashboard .dashboard-wrapper .well .well-title h5 {
+  font-weight: normal;
+  padding: 15px 0 15px 40px;
+}
+
+.dashboard .dashboard-wrapper .well .well-table {
+  width: 95%;
+  margin: 50px auto 20px auto;
+}
+
+.dashboard .dashboard-wrapper .well .well-table table {
+  font-size: 1.8rem;
+  color: #858796;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.dashboard .dashboard-wrapper .well .well-table table th {
+  border: 1px solid #e3e6f0;
+  border-top: 2px solid #e3e6f0;
+  border-bottom: 3px solid #e3e6f0;
+  text-align: left;
+  padding: 15px;
+}
+
+.dashboard .dashboard-wrapper .well .well-table table td {
+  border: 1px solid #e3e6f0;
+  text-align: left;
+  padding: 15px;
+}
+
+.dashboard .action-button-blue {
+  color: #fff;
+  background-color: #20a8d8;
+  padding: 2px 5px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.dashboard .action-button-green {
+  color: #fff;
+  background-color: #4dbd74;
+  padding: 2px 5px;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.dashboard .action-button-red {
+  color: #fff;
+  background-color: #e71d43;
+  padding: 2px 5px;
+  border-radius: 5px;
+  border: 1px solid #e71d43;
+  margin-right: 5px;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  font-size: 1.8rem;
+}
+
+.dashboard form {
+  display: inline-block;
+}
+

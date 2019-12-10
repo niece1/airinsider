@@ -1457,6 +1457,96 @@ footer {
     .dashboard-wrapper {
         width: 85%;
         margin: 50px auto;
+        a.button {
+            border: 2px solid #e71d43;
+            padding: 14px 30px;
+            display: inline-block;
+            margin: 0 0 20px 0;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 3px;                              
+            background-color: transparent;
+            color: #000;
+            &:hover {
+                background-color: #e71d43;
+                color: #fff;
+                border: 2px solid #e71d43;
+                transition: all .3s ease-in-out;
+                -webkit-transition: all .3s ease-in-out;
+                -o-transition: all .3s ease-in-out;
+            }
+            &:not(:hover) {
+                background-color: transparent;
+                color: #000;
+                transition: all .3s ease-in-out;
+                -webkit-transition: all .3s ease-in-out;
+                -o-transition: all .3s ease-in-out;
+            }
+        }
+        .well {
+            border: 1px solid #e3e6f0;
+            border-radius: 5px;
+            .well-title {
+                background: #f5f8fa;
+                border-bottom: 1px solid #e3e6f0;
+                h5 {
+                    font-weight: normal;
+                    padding: 15px 0 15px 40px;
+                }
+            }
+            .well-table {
+                width: 95%;
+                margin: 50px auto 20px auto;
+                table {
+                    font-size: 1.8rem;
+                    color: #858796;
+                    border-collapse: collapse;
+                    width: 100%;
+                    th {
+                        border: 1px solid #e3e6f0;
+                        border-top: 2px solid #e3e6f0;
+                        border-bottom: 3px solid #e3e6f0;
+                        text-align: left;
+                        padding: 15px;
+                    }    
+                    td {
+                        border: 1px solid #e3e6f0;
+                        text-align: left;
+                        padding: 15px;
+                    }                    
+                }
+            }
+        }
+    }
+    .action-button-blue {
+        color: #fff;
+        background-color: #20a8d8;
+        padding: 2px 5px;
+        border-radius: 5px;
+        margin-right: 5px;
+    }
+    .action-button-green {
+        color: #fff;
+        background-color: #4dbd74;
+        padding: 2px 5px;
+        border-radius: 5px;
+        margin-right: 5px;
+    }
+    .action-button-red {
+        color: #fff;
+        background-color: #e71d43;
+        padding: 2px 5px;
+        border-radius: 5px;
+        border: 1px solid #e71d43;
+        margin-right: 5px;
+        display: inline-block;
+        cursor: pointer;
+        outline: none;
+        font-size: 1.8rem;
+    }
+    form {
+        display: inline-block;
     }
 }
 
