@@ -17,87 +17,89 @@
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
 	<!-- Styles -->
-	<link href="{{ asset('css/app.css') }}" rel="stylesheet">   
+	<link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
+
+	@stack('scripts')  
 
 </head>
 
 <header>
-            <div class="menu-wrapper">
-                <div class="logo">
-                    <a href="{{ url('/') }}">авиа<span class="logo-span">инсайдер</span></a>
-                </div>
-                <nav>
+	<div class="menu-wrapper">
+		<div class="logo">
+			<a href="{{ url('/') }}">авиа<span class="logo-span">инсайдер</span></a>
+		</div>
+		<nav>
 
 
 
-                    <ul>
-                        <li>
-                            <a href="#">Recycle Bin</a>
+			<ul>
+				<li>
+					<a href="#">Recycle Bin</a>
 
-                        </li>
-                        <li class="sub-menu">
-                            <a href="#">User manageer</a>
-<ul>
-                                <li>
-                                    <a class="sub-item" href="#">Users</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item" href="#">Roles</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item" href="#">Permissions</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item" href="#">Subscriptions</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="sub-menu">
-                            <a href="#">Post manager</a>
-                            <ul>
-                                <li>
-                                    <a class="sub-item" href="#">Posts</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item" href="#">Tags</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item" href="#">Categories</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
-                        @auth
-                        <li class="sub-menu">
-                            <a href="#">{{ Auth::user()->name }}</a>
-                            <ul>
-                                <li>
-                                    <a href="{{ route('logout') }}" class="sub-item" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
+				</li>
+				<li class="sub-menu">
+					<a href="#">User manager</a>
+					<ul>
+						<li>
+							<a class="sub-item" href="#">Users</a>
+						</li>
+						<li>
+							<a class="sub-item" href="#">Roles</a>
+						</li>
+						<li>
+							<a class="sub-item" href="#">Permissions</a>
+						</li>
+						<li>
+							<a class="sub-item" href="#">Subscriptions</a>
+						</li>
+					</ul>
+				</li>
+				<li class="sub-menu">
+					<a href="#">Post manager</a>
+					<ul>
+						<li>
+							<a class="sub-item" href="/dashboard/posts">Posts</a>
+						</li>
+						<li>
+							<a class="sub-item" href="#">Tags</a>
+						</li>
+						<li>
+							<a class="sub-item" href="#">Categories</a>
+						</li>
+					</ul>
+				</li>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                    @csrf
-                                </form>
-                            </li>
-                          
-                        </ul>
-                    </li>
-                    @endauth
-                </ul>
+				@auth
+				<li class="sub-menu">
+					<a href="#">{{ Auth::user()->name }}</a>
+					<ul>
+						<li>
+							<a href="{{ route('logout') }}" class="sub-item" onclick="event.preventDefault();
+							document.getElementById('logout-form').submit();">
+							{{ __('Logout') }}
+						</a>
 
-            </nav>
+						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+							@csrf
+						</form>
+					</li>
 
-            <div class="menu-toggle">
-                <div class="hamburger-menu">
+				</ul>
+			</li>
+			@endauth
+		</ul>
 
-                </div>
+	</nav>
 
-            </div>
+	<div class="menu-toggle">
+		<div class="hamburger-menu">
 
-        </div>
-    </header>
+		</div>
+
+	</div>
+
+</div>
+</header>
 
 <body>
 

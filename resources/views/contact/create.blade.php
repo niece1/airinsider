@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="contact-jumbotron">
+<section class="title-jumbotron">
 	<div class="parallax-text">
 		<h1>Contact us</h1>
 	</div>

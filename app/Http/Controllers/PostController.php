@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Post;
+use App\Category;
+use App\Tag;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -26,7 +28,11 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::all();
+        $tags = Tag::all();
+        $post = new Post();
+
+        return view('backend.post.create', compact('categories', 'tags', 'post'));
     }
 
     /**
@@ -82,6 +88,19 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->delete();
+        return redirect('posts');
+    }
+
+    private function validateRequest()
+    {
+        return request()->validate([
+          'title' => 'required|min:3',
+          'body' => 'required',
+          'time_to_read' => 'required',
+          'published' => 'required',
+          'category_id' => 'required',
+          'image' => 'sometimes|file|image|max:5000',
+      ]); 
     }
 }

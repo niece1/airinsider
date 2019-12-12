@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="contact-jumbotron">
+<section class="title-jumbotron">
 	<div class="parallax-text">
 		<h1>Новости по тэгу: {{ $tag->title }}</h1>
 	</div>
