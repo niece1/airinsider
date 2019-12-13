@@ -16,10 +16,10 @@
 	<!-- Fonts -->
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
+	@stack('styles')
+
 	<!-- Styles -->
 	<link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
-
-	@stack('scripts')  
 
 </head>
 
@@ -108,6 +108,7 @@
 	</main>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<script src="{{ asset('js/app.js') }}" defer></script>   
+	<script src="{{ asset('js/app.js') }}" defer></script> 
+	@stack('scripts')  
 </body>
 </html>

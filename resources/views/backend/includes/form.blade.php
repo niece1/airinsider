@@ -43,4 +43,13 @@
 	<div>{{ $errors->first('time_to_read') }}</div>
 </div>
 
+<div class="form-wrapper">
+	<label for="tag_id">Choose tags</label>
+<select class="js-example-basic-multiple" name="tag_id[]" multiple="multiple">
+	@foreach ($tags as $tag)
+  <option value="{{ $tag->id }}" {{ in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'selected' : '' }}>{{ $tag->title }}</option>
+@endforeach
+</select>
+</div>
+
 @csrf
