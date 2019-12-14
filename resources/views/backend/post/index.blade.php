@@ -36,7 +36,7 @@
 						<td>{{ $post->viewed }}</td>
 						<td>{{ $post->category_id }}</td>
 						<td><a href="/posts/{{ $post->id }}/edit" class="action-button-green">Edit</a>
-							<form action="/posts/{{ $post->id }}" method="post">
+							<form action="{{ route('posts.destroy', $post->id) }}" method="post">
 								@method('DELETE')
 								@csrf
 								<button type="submit" class="action-button-red">Delete</button>

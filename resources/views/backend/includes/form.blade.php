@@ -5,8 +5,8 @@
 </div>
 
 <div class="form-wrapper">
-	<label for="title">Body</label>
-	<textarea id="mytextarea"></textarea>
+	<label for="body">Body</label>
+	<textarea id="mytextarea" name="body"></textarea>
 </div>
 
 <div class="form-wrapper">

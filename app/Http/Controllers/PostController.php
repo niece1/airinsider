@@ -6,6 +6,8 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -43,7 +45,29 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+        $this->validate($request, [
+          'title' => 'required|min:3',
+          'body' => 'required',
+          'time_to_read' => 'required',
+          'published' => 'required',
+          'category_id' => 'required',
+        ]);
+
+        $post = Post::create([
+           'title' => $request->title,
+           'body' => $request->body,
+           'category_id' => $request->category_id,
+           'slug'=> Str::slug($request->title, '-'),
+           'published' => $request->published,
+           'time_to_read' => $request->time_to_read,
+           'user_id' => Auth::id()
+        ]);
+      //  $this->storeImage($post);
+      
+        $this->syncTags($post);
+        
+        return redirect('dashboard/posts');
     }
 
     /**
@@ -89,7 +113,9 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
-        return redirect('posts');
+        $this->detachTags($post);
+
+        return redirect('dashboard/posts');
     }
 
     private function validateRequest()
@@ -100,7 +126,20 @@ class PostController extends Controller
           'time_to_read' => 'required',
           'published' => 'required',
           'category_id' => 'required',
-          'image' => 'sometimes|file|image|max:5000',
-      ]); 
+          'slug' => '',
+       
+        //  'image' => 'sometimes|file|image|max:5000',
+        ]); 
     }
+
+    private function syncTags($post)
+    {
+       $post->tags()->sync(request('tag_id'));
+    }
+
+    private function detachTags($post)
+    {
+       $post->tags()->detach(request('tag_id'));
+    }
+
 }

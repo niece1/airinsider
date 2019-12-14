@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+    protected $guarded = [];
+    
     public function photo()
     {
         return $this->morphOne(Photo::class, 'photoable');
