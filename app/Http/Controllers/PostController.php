@@ -52,6 +52,7 @@ class PostController extends Controller
           'time_to_read' => 'required',
           'published' => 'required',
           'category_id' => 'required',
+          'post-photo' => 'sometimes|file|image|max:5000',
         ]);
 
         $post = Post::create([
@@ -140,6 +141,52 @@ class PostController extends Controller
     private function detachTags($post)
     {
        $post->tags()->detach(request('tag_id'));
+    }
+
+     private function storeImage(Request $request)
+    {
+        if($request->hasFile('postPhoto')) {
+       /* $article->update([
+            'image' => request()->image->store('uploads', 'public'),
+        ]);
+     
+        $image->save();*/
+        $path = $request->file('postPhoto')->store('uploads', 'public');
+        if(count($post->photos) != 0);
+        {
+            $photo = $this->getPhoto($post->photos->first()->id);
+            Storage::disk('public')->delete($photo->storagepath);
+            $photo->path = $path;
+            $this->updatePostPhoto($post $photo);
+        }else{
+            $this->createPostPhoto($post $path);
+        }
+
+        }
+    }
+
+    public function getPhoto($id)
+    {
+        return Photo::find($id);
+    }
+
+    public function createPostPhoto($post $path)
+    {
+        $photo = new Photo;
+        $photo->path = $path;
+        $post->photos->save($photo);
+    }
+
+    public function updatePostPhoto(Post $post, Photo $photo)
+    {
+        return $post->photos->save($photo);
+    }
+
+    public function deletePhoto(Photo $photo)
+    {
+        $path = $photo->storagepath;
+        $photo->delete();
+        return $path;
     }
 
 }

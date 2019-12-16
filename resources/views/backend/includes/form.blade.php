@@ -19,9 +19,9 @@
 </div>
 
 <div class="form-wrapper">
-	<label for="image">Set image</label>
-	<input type="file" name="image" value="" class="form-image">
-	<div>{{ $errors->first('image') }}</div>
+	<label for="postPhoto">Set image</label>
+	<input type="file" name="postPhoto" value="" class="form-image">
+	<div>{{ $errors->first('postPhoto') }}</div>
 </div>
 
 <div class="form-wrapper">
