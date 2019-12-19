@@ -1604,7 +1604,38 @@ footer {
             }
             input.form-image {
                 display: block;
-
+            }
+            .post-image {
+                overflow: hidden;
+                height: 150px;
+                width: auto;
+                position: relative;
+                display: inline-block;
+                img {
+                    vertical-align: bottom;
+                    width: auto;
+                    height: 150px;
+                    display: inline-block;
+                }
+                .post-image-overlay {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    width: 100%;
+                    height: 100%;
+                    button.action-button-red {
+                        margin: 10px 0 0 10px;
+                        color: #fff;
+                        background-color: #e71d43;
+                        padding: 2px 5px;
+                        border-radius: 5px;
+                        border: 1px solid #e71d43;
+                        display: inline-block;
+                        cursor: pointer;
+                        outline: none;
+                        font-size: 1.8rem;
+                    }
+                }
             }
             label.radio-container {
                 display: block;

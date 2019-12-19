@@ -1998,6 +1998,42 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   display: block;
 }
 
+.dashboard form.create-update-post .form-wrapper .post-image {
+  overflow: hidden;
+  height: 150px;
+  width: auto;
+  position: relative;
+  display: inline-block;
+}
+
+.dashboard form.create-update-post .form-wrapper .post-image img {
+  vertical-align: bottom;
+  width: auto;
+  height: 150px;
+  display: inline-block;
+}
+
+.dashboard form.create-update-post .form-wrapper .post-image .post-image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.dashboard form.create-update-post .form-wrapper .post-image .post-image-overlay button.action-button-red {
+  margin: 10px 0 0 10px;
+  color: #fff;
+  background-color: #e71d43;
+  padding: 2px 5px;
+  border-radius: 5px;
+  border: 1px solid #e71d43;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  font-size: 1.8rem;
+}
+
 .dashboard form.create-update-post .form-wrapper label.radio-container {
   display: block;
   position: relative;

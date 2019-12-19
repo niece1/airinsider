@@ -7,7 +7,12 @@
     <script>
       tinymce.init({
         selector: '#mytextarea',
-        plugins: "link image"
+        plugins: "link image",
+        setup: function (editor) {
+        editor.on('change', function () {
+            tinymce.triggerSave();
+        });
+    }
       });
     </script>
     <link href="{{ asset('css/select2.css') }}" rel="stylesheet">

@@ -46,6 +46,6 @@ Route::get('users/{user}', 'FrontendController@postsByUser')->name('user');
 //Dashboard
 Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
 	Route::resource('posts', 'PostController');
-
+    Route::delete('deletePhoto/{photo}', 'BackendController@deletePhoto')->name('deletePhoto');
 });
 

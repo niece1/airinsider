@@ -6,7 +6,7 @@
 
 <div class="form-wrapper">
 	<label for="body">Body</label>
-	<textarea id="mytextarea" name="body"></textarea>
+	<textarea id="mytextarea" name="body">{{ old('body') ?? $post->body }}</textarea>
 </div>
 
 <div class="form-wrapper">
@@ -19,37 +19,52 @@
 </div>
 
 <div class="form-wrapper">
-	<label for="postPhoto">Set image</label>
-	<input type="file" name="postPhoto" value="" class="form-image">
-	<div>{{ $errors->first('postPhoto') }}</div>
+	<label for="image">Set image</label>
+	<input type="file" name="image" value="" class="form-image">
+	<div>{{ $errors->first('image') }}</div>
 </div>
+
+@if($post->photo)
+<div class="form-wrapper">
+	<div class="post-image">	
+		<img src="{{ asset('storage/'.$post->photo->path) }}"  alt="Photo">
+		<div class="post-image-overlay">
+			<form action="{{ route('deletePhoto', ['id' => $post->photo->id]) }}" method="post">
+				@method('DELETE')
+				@csrf
+			<button type="submit" class="action-button-red">Delete</button>
+		</form>
+		</div>	
+	</div>
+</div>
+@endif
 
 <div class="form-wrapper">
 	<label>Select status</label>
 	<label class="radio-container">Unpublished
-	<input type="radio" name="published" value="0" checked class="form-radio">
-	<span class="radio-checkmark"></span>
-    </label>
+		<input type="radio" name="published" class="form-radio" value="0"@if(old('published',$post->published)=="0") checked @endif>
+		<span class="radio-checkmark"></span>
+	</label>
 
-    <label class="radio-container">Published
-	<input type="radio" name="published" value="1" class="form-radio">
-	<span class="radio-checkmark"></span>
+	<label class="radio-container">Published
+		<input type="radio" name="published" class="form-radio" value="1"@if(old('published',$post->published)=="1") checked @endif>
+		<span class="radio-checkmark"></span>
 	</label>
 </div>
 
 <div class="form-wrapper">
 	<label for="time_to_read">Time to read</label>
-	<input type="number" name="time_to_read" value="" min="1" max="10" class="form-input">
+	<input type="number" name="time_to_read" value="{{ old('time_to_read') ?? $post->time_to_read }}" min="1" max="10" class="form-input">
 	<div>{{ $errors->first('time_to_read') }}</div>
 </div>
 
 <div class="form-wrapper">
 	<label for="tag_id">Choose tags</label>
-<select class="js-example-basic-multiple" name="tag_id[]" multiple="multiple">
-	@foreach ($tags as $tag)
-  <option value="{{ $tag->id }}" {{ in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'selected' : '' }}>{{ $tag->title }}</option>
-@endforeach
-</select>
+	<select class="js-example-basic-multiple" name="tag_id[]" multiple="multiple">
+		@foreach ($tags as $tag)
+		<option value="{{ $tag->id }}" {{ in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'selected' : '' }}>{{ $tag->title }}</option>
+		@endforeach
+	</select>
 </div>
 
 @csrf

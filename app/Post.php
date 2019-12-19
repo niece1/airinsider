@@ -10,7 +10,7 @@ class Post extends Model
     
     public function photo()
     {
-        return $this->morphOne(Photo::class, 'photoable');
+        return $this->morphOne('App\Photo', 'photoable');
     }
 
     public function category()
