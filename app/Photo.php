@@ -11,13 +11,8 @@ class Photo extends Model
         return $this->morphTo();
     }
 
-    public function getPublicpathAttribute($value)
-    {
-        return asset('storage/{$value}');
-    }
-
     public function getStoragepathAttribute($value)
     {
-        return $this->original['path'];
+        return $this->getOriginal('path');
     }
 }

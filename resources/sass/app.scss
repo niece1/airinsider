@@ -1623,15 +1623,13 @@ footer {
                     right: 0;
                     width: 100%;
                     height: 100%;
-                    button.action-button-red {
+                    a.action-button-delete {
                         margin: 10px 0 0 10px;
                         color: #fff;
                         background-color: #e71d43;
                         padding: 2px 5px;
-                        border-radius: 5px;
-                        border: 1px solid #e71d43;
-                        display: inline-block;
-                        cursor: pointer;
+                        border-radius: 5px;                       
+                        display: inline-block;                        
                         outline: none;
                         font-size: 1.8rem;
                     }

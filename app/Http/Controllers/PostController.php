@@ -59,14 +59,14 @@ class PostController extends Controller
       ]);
 
         $post = Post::create([
-         'title' => $request->title,
-         'body' => $request->body,
-         'category_id' => $request->category_id,
-         'slug'=> Str::slug($request->title, '-'),
-         'published' => $request->published,
-         'time_to_read' => $request->time_to_read,
-         'user_id' => Auth::id()
-     ]);
+           'title' => $request->title,
+           'body' => $request->body,
+           'category_id' => $request->category_id,
+           'slug'=> Str::slug($request->title, '-'),
+           'published' => $request->published,
+           'time_to_read' => $request->time_to_read,
+           'user_id' => Auth::id()
+       ]);
         $this->storeImage($request, $post);
 
         $this->syncTags($post);
@@ -118,14 +118,14 @@ class PostController extends Controller
       ]);
 
         $post->update([
-         'title' => $request->title,
-         'body' => $request->body,
-         'category_id' => $request->category_id,
-         'slug'=> Str::slug($request->title, '-'),
-         'published' => $request->published,
-         'time_to_read' => $request->time_to_read,
-         'user_id' => Auth::id()
-     ]);
+           'title' => $request->title,
+           'body' => $request->body,
+           'category_id' => $request->category_id,
+           'slug'=> Str::slug($request->title, '-'),
+           'published' => $request->published,
+           'time_to_read' => $request->time_to_read,
+           'user_id' => Auth::id()
+       ]);
 
         $this->storeImage($request, $post);
 
@@ -145,6 +145,7 @@ class PostController extends Controller
     {
         $post->delete();
         $this->detachTags($post);
+        $this->deletePhoto($post->photo->id);
 
         return redirect('dashboard/posts');
     }
@@ -164,56 +165,60 @@ class PostController extends Controller
 
     private function syncTags($post)
     {
-     $post->tags()->sync(request('tag_id'));
- }
-
- private function detachTags($post)
- {
-     $post->tags()->detach(request('tag_id'));
- }
-
- private function storeImage(Request $request, Post $post)
- {
-    if($request->hasFile('image')) {
-    
-        $path = $request->file('image')->store('posts', 'public');
-        if($post->photo)
-        {
-            $photo = $this->getPhoto($post->photo->first()->id);
-            Storage::disk('public')->delete($photo->storagepath);
-            $photo->path = $path;
-            $this->updatePostPhoto($post, $photo);
-        }
-        else
-        {
-            $this->createPostPhoto($post, $path);
-        }
-
+       $post->tags()->sync(request('tag_id'));
     }
-}
 
-public function getPhoto($id)
-{
-    return Photo::find($id);
-}
+   private function detachTags($post)
+   {
+       $post->tags()->detach(request('tag_id'));
+   }
 
-public function createPostPhoto($post, $path)
-{
-    $photo = new Photo;
-    $photo->path = $path;
-    $post->photo()->save($photo);
-}
+   private function storeImage(Request $request, Post $post)
+   {
+        if($request->hasFile('image'))
+        {
+            $path = $request->file('image')->store('posts', 'public');
+                if($post->photo)
+                {
+                $photo = $this->getPhoto($post->photo->id);
+                Storage::disk('public')->delete($photo->storagepath);
+                $photo->path = $path;
+                $this->updatePostPhoto($post, $photo);
+            }
+            else
+            {
+                $this->createPostPhoto($post, $path);
+            }
+        }
+    }
 
-public function updatePostPhoto(Post $post, Photo $photo)
-{
-    return $post->photo()->save($photo);
-}
+    public function getPhoto($id)
+    {
+        return Photo::find($id);
+    }
 
-public function deletePhoto(Photo $photo)
-{
-    $path = $photo->storagepath;
-    $photo->delete();
-    return $path;
-}
+    public function createPostPhoto($post, $path)
+    {
+        $photo = new Photo;
+        $photo->path = $path;
+        $post->photo()->save($photo);
+    }
+
+    public function updatePostPhoto(Post $post, Photo $photo)
+    {
+        return $post->photo()->save($photo);
+    }
+
+    public function deletePhoto($id)
+    {
+        $photo = $this->getPhoto($id);       
+      // $path = $this->deletePhotopath($photo);
+    //  $path = $photo->storagepath;
+               
+        Storage::disk('public')->delete($photo->storagepath); 
+        $photo->delete($id);
+
+        return redirect()->back();
+    }
 
 }

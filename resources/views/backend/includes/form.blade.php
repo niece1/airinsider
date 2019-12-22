@@ -29,11 +29,7 @@
 	<div class="post-image">	
 		<img src="{{ asset('storage/'.$post->photo->path) }}"  alt="Photo">
 		<div class="post-image-overlay">
-			<form action="{{ route('deletePhoto', ['id' => $post->photo->id]) }}" method="post">
-				@method('DELETE')
-				@csrf
-			<button type="submit" class="action-button-red">Delete</button>
-		</form>
+			<a href="{{ route('deletePhoto', ['id' => $post->photo->id]) }}" class="action-button-delete">Delete</a>
 		</div>	
 	</div>
 </div>
