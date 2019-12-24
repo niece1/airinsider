@@ -64,7 +64,7 @@
 							<a class="sub-item" href="/dashboard/categories">Categories</a>
 						</li>
 						<li>
-							<a class="sub-item" href="#">Tags</a>
+							<a class="sub-item" href="/dashboard/tags">Tags</a>
 						</li>						
 					</ul>
 				</li>

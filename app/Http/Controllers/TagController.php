@@ -14,7 +14,9 @@ class TagController extends Controller
      */
     public function index()
     {
-        //
+        $tags = Tag::all();
+        
+        return view('backend.tag.index', compact('tags'));
     }
 
     /**
@@ -24,7 +26,9 @@ class TagController extends Controller
      */
     public function create()
     {
-        //
+        $tags = new Tag();
+
+        return view('backend.tag.create', compact('tags'));
     }
 
     /**
@@ -35,18 +39,9 @@ class TagController extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $tag = Tag::create($this->validateRequest());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Tag  $tag
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Tag $tag)
-    {
-        //
+        return redirect('dashboard/tags');
     }
 
     /**
@@ -57,7 +52,7 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
-        //
+        return view('backend.tag.edit', compact('tag'));
     }
 
     /**
@@ -69,7 +64,9 @@ class TagController extends Controller
      */
     public function update(Request $request, Tag $tag)
     {
-        //
+        $tag->update($this->validateRequest());
+
+        return redirect('dashboard/tags');
     }
 
     /**
@@ -80,6 +77,15 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $tag->delete();
+
+        return redirect('dashboard/tags');
+    }
+
+    private function validateRequest()
+    {
+        return request()->validate([
+          'title' => 'required|min:2|max:30',          
+      ]); 
     }
 }
