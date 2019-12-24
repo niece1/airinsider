@@ -37,7 +37,7 @@
 
       <div class="well-content">
 
-      <form action="{{ route('posts.update', $post->id) }}" class="create-update-post" method="post" enctype="multipart/form-data">
+      <form action="{{ route('posts.update', $post->id) }}" class="create-update" method="post" enctype="multipart/form-data">
         @method('PATCH')
         @include('/backend/includes.form')
         <button type="submit" class="button">Submit</button>        

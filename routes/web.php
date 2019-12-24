@@ -46,6 +46,8 @@ Route::get('users/{user}', 'FrontendController@postsByUser')->name('user');
 //Dashboard
 Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
 	Route::resource('posts', 'PostController');
+	Route::resource('categories', 'CategoryController');
+	Route::resource('tags', 'TagController');
     Route::get('deletePhoto/{id}', 'PostController@deletePhoto')->name('deletePhoto');
 });
 

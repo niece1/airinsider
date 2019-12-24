@@ -1563,11 +1563,15 @@ footer {
             transition: all 0.3s ease-in-out;
         }
     }
-    form.create-update-post {
+    form.create-update {
         width: 100%;
         .form-wrapper {
             margin: 10px 0;
             width: 100%;
+            .form-error {
+                color: #e71d43;
+                font-size: 1.4rem;
+            }
             label {
                 display: inline-block;
                 font-size: 1.8rem;

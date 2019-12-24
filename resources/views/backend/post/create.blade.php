@@ -37,7 +37,7 @@
 
 			<div class="well-content">
 
-			<form action="{{ route('posts.store') }}" class="create-update-post" method="post" enctype="multipart/form-data">
+			<form action="{{ route('posts.store') }}" class="create-update" method="post" enctype="multipart/form-data">
 				@include('/backend/includes.form')
 				<button type="submit" class="button">Submit</button>				
 			</form>	

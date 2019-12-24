@@ -61,11 +61,11 @@
 							<a class="sub-item" href="/dashboard/posts">Posts</a>
 						</li>
 						<li>
-							<a class="sub-item" href="#">Tags</a>
+							<a class="sub-item" href="/dashboard/categories">Categories</a>
 						</li>
 						<li>
-							<a class="sub-item" href="#">Categories</a>
-						</li>
+							<a class="sub-item" href="#">Tags</a>
+						</li>						
 					</ul>
 				</li>
 

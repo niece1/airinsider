@@ -1946,22 +1946,27 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   transition: all 0.3s ease-in-out;
 }
 
-.dashboard form.create-update-post {
+.dashboard form.create-update {
   width: 100%;
 }
 
-.dashboard form.create-update-post .form-wrapper {
+.dashboard form.create-update .form-wrapper {
   margin: 10px 0;
   width: 100%;
 }
 
-.dashboard form.create-update-post .form-wrapper label {
+.dashboard form.create-update .form-wrapper .form-error {
+  color: #e71d43;
+  font-size: 1.4rem;
+}
+
+.dashboard form.create-update .form-wrapper label {
   display: inline-block;
   font-size: 1.8rem;
   margin: 10px 0;
 }
 
-.dashboard form.create-update-post .form-wrapper input.form-input {
+.dashboard form.create-update .form-wrapper input.form-input {
   display: block;
   font-size: 1.8rem;
   width: 100%;
@@ -1971,13 +1976,13 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   outline: 0;
 }
 
-.dashboard form.create-update-post .form-wrapper input.form-input:focus {
+.dashboard form.create-update .form-wrapper input.form-input:focus {
   border-color: #bac8f3;
   box-shadow: 0 0 0 0.3rem rgba(78, 115, 223, 0.25);
   outline: 0;
 }
 
-.dashboard form.create-update-post .form-wrapper select {
+.dashboard form.create-update .form-wrapper select {
   width: 100%;
   outline: none;
   display: block;
@@ -1988,17 +1993,17 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   background: #fff;
 }
 
-.dashboard form.create-update-post .form-wrapper select:focus {
+.dashboard form.create-update .form-wrapper select:focus {
   border-color: #bac8f3;
   box-shadow: 0 0 0 0.3rem rgba(78, 115, 223, 0.25);
   outline: 0;
 }
 
-.dashboard form.create-update-post .form-wrapper input.form-image {
+.dashboard form.create-update .form-wrapper input.form-image {
   display: block;
 }
 
-.dashboard form.create-update-post .form-wrapper .post-image {
+.dashboard form.create-update .form-wrapper .post-image {
   overflow: hidden;
   height: 150px;
   width: auto;
@@ -2006,14 +2011,14 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   display: inline-block;
 }
 
-.dashboard form.create-update-post .form-wrapper .post-image img {
+.dashboard form.create-update .form-wrapper .post-image img {
   vertical-align: bottom;
   width: auto;
   height: 150px;
   display: inline-block;
 }
 
-.dashboard form.create-update-post .form-wrapper .post-image .post-image-overlay {
+.dashboard form.create-update .form-wrapper .post-image .post-image-overlay {
   position: absolute;
   top: 0;
   right: 0;
@@ -2021,7 +2026,7 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   height: 100%;
 }
 
-.dashboard form.create-update-post .form-wrapper .post-image .post-image-overlay a.action-button-delete {
+.dashboard form.create-update .form-wrapper .post-image .post-image-overlay a.action-button-delete {
   margin: 10px 0 0 10px;
   color: #fff;
   background-color: #e71d43;
@@ -2032,7 +2037,7 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   font-size: 1.8rem;
 }
 
-.dashboard form.create-update-post .form-wrapper label.radio-container {
+.dashboard form.create-update .form-wrapper label.radio-container {
   display: block;
   position: relative;
   margin: 0 0 12px 0;
@@ -2048,13 +2053,13 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   -ms-user-elect: none;
 }
 
-.dashboard form.create-update-post .form-wrapper label.radio-container input.form-radio {
+.dashboard form.create-update .form-wrapper label.radio-container input.form-radio {
   position: absolute;
   cursor: pointer;
   opacity: 0;
 }
 
-.dashboard form.create-update-post .form-wrapper label.radio-container .radio-checkmark {
+.dashboard form.create-update .form-wrapper label.radio-container .radio-checkmark {
   position: absolute;
   top: 0;
   left: 0;
@@ -2064,21 +2069,21 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   background-color: #e3e6f0;
 }
 
-.dashboard form.create-update-post .form-wrapper label.radio-container .radio-checkmark:after {
+.dashboard form.create-update .form-wrapper label.radio-container .radio-checkmark:after {
   position: absolute;
   display: none;
   content: "";
 }
 
-.dashboard form.create-update-post .form-wrapper label.radio-container input.form-radio:checked ~ span.radio-checkmark {
+.dashboard form.create-update .form-wrapper label.radio-container input.form-radio:checked ~ span.radio-checkmark {
   background-color: #e71d43;
 }
 
-.dashboard form.create-update-post .form-wrapper label.radio-container input.form-radio:checked ~ span.radio-checkmark:after {
+.dashboard form.create-update .form-wrapper label.radio-container input.form-radio:checked ~ span.radio-checkmark:after {
   display: block;
 }
 
-.dashboard form.create-update-post .form-wrapper label.radio-container span.radio-checkmark:after {
+.dashboard form.create-update .form-wrapper label.radio-container span.radio-checkmark:after {
   top: 7px;
   left: 7px;
   width: 6px;

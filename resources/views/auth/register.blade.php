@@ -1,7 +1,7 @@
 @extends('layouts.frontend')
 
 @section('content')
-<section class="contact-jumbotron">
+<section class="title-jumbotron">
     <div class="parallax-text">
        <h1>{{ __('Register') }}</h1>
     </div>
