@@ -33,7 +33,7 @@
 					<tr>
 						<td>{{ $post->id }}</td>
 						<td>@if($post->photo)<img src="{{ asset('storage/'.$post->photo->path) }}" height="60" width="90" alt="Photo">@endif</td>
-						<td><a href="/posts/{{ $post->id }}">{{ $post->title }}</a></td>
+						<td><a href="/dashboard/posts/{{ $post->id }}">{{ $post->title }}</a></td>
 						<td>{{ $post->published }}</td>
 						<td>{{ $post->viewed }}</td>
 						<td>{{ $post->category_id }}</td>

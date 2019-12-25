@@ -29,6 +29,21 @@ class Post extends Model
         return $this->save();
     }
 
+    public function getDateAttribute($value)
+    {
+        return is_null($this->updated_at) ? '' : $this->updated_at->diffForHumans();
+    }
+
+    public function getHtmlBodyAttribute($value)
+    {
+        return $this->body ? strip_tags($this->body) : NULL;
+    }
+
+    public function getIfPublishedAttribute($value)
+    {
+        return $this->published == 0 ? 'No' : 'Yes';
+    }
+
     public function comments()
     {
         return $this->hasMany(Comment::class)->whereNull('comment_id')->orderBy('created_at', 'DESC');

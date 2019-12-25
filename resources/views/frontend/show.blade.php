@@ -10,12 +10,14 @@
 <section class="news-show">
 	<div class="news-show-wrapper">
 		<div class="item-itself">
+			@if($post->photo)
 			<div class="thumbnail">
-			<img src="{{ $post->photo->path ?? ''  }}" alt="Photo">
+			<img src="{{ asset('storage/'.$post->photo->path) }}" alt="Photo">
 			</div>
+			@endif
 			<p>{{ date('d-m-Y', strtotime($post->updated_at)) }} <span class="dot"></span> <a href="{{ route('category', [$post->category->id]) }}">{{ $post->category->title }}</a> <span class="dot"></span> by <a href="{{ route('user', [$post->user->id]) }}">{{ $post->user->name }}</a> </p>
 			<h1>{{ $post->title }}</h1>
-			<p>{{ $post->body }}</p>
+			<p>{!! $post->html_body !!}</p>
 			<div class="item-line"></div>
 			
                 <!-- Go to www.addthis.com/dashboard to customize your tools -->

@@ -82,7 +82,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+        $post = Post::where('id', $post->id)->firstOrFail();
+     
+        return view('backend.post.show', compact('post'));
     }
 
     /**
@@ -212,8 +214,6 @@ class PostController extends Controller
     public function deletePhoto($id)
     {
         $photo = $this->getPhoto($id);       
-      // $path = $this->deletePhotopath($photo);
-    //  $path = $photo->storagepath;
                
         Storage::disk('public')->delete($photo->storagepath); 
         $photo->delete($id);
