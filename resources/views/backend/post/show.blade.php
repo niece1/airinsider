@@ -59,17 +59,29 @@
 					<tr>
 						<td>Category</td>
 						<td>{{ $post->category->title }}</td>						
-					</tr>	
-						<!--	<form action="{{ route('posts.destroy', $post->id) }}" method="post">
-								@method('DELETE')
-								@csrf
-								<button type="submit" class="action-button-red">Delete</button>
-							</form>-->
-				
+					</tr>
+					<tr>
+						<td>Tags</td>
+						<td>@foreach($post->tags as $tag){{ $tag->title . " " }}@endforeach</td>						
+					</tr>
+					<tr>
+						<td>Created</td>
+						<td>{{ $post->created_at }}</td>						
+					</tr>
+					<tr>
+						<td>Updated</td>
+						<td>{{ $post->updated_at }}</td>						
+					</tr>							
 				</table>
 
 			</div>
 		</div>
+		<a href="/dashboard/posts/" class="back">Back</a>
+		<form action="{{ route('posts.destroy', $post->id) }}" method="post">
+			@method('DELETE')
+			@csrf
+			<button type="submit" class="delete-show-page">Delete</button>
+		</form>
 	</div>
 
 </section>

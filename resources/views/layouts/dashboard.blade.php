@@ -103,9 +103,17 @@
 
 <body>
 
-	<main>				
+	<main>			
 		@yield('content')
 	</main>
+
+	<!--Footer-->
+
+    <div id="dashboard-footer">
+        <div class="dashboard-footer-wrapper">
+        	<p><a href="{{ url('/') }}">Airinsider</a></p>
+        </div>
+    </div>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="{{ asset('js/app.js') }}" defer></script> 

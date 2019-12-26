@@ -225,7 +225,7 @@
                 <div class="footer_copyright">
 
 
-                    <p> &#169; Copyright 2019 Airinsider. All rights reserved.</p>
+                    <p> &#169; Copyright {{ date('Y') }} Airinsider. All rights reserved.</p>
                     <p>Made with love fore a better web.</p>
                 </div>
 

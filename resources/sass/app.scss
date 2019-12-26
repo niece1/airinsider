@@ -1452,8 +1452,7 @@ footer {
 /*Dashboard styles*/
 .dashboard {
     width: 100%;
-    height: auto;
-   
+    height: auto;   
     .dashboard-wrapper {
         width: 85%;
         margin: 50px auto;
@@ -1482,6 +1481,56 @@ footer {
                 transition: all .3s ease-in-out;
                 -webkit-transition: all .3s ease-in-out;
                 -o-transition: all .3s ease-in-out;
+            }
+        }
+        a.back {
+            border: 2px solid #0633ff;
+            padding: 13px 30px;
+            display: inline-block;
+            margin: 20px 0 0 0;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 3px;                              
+            background-color: transparent;
+            color: #000;
+            &:hover {
+                background-color: #0633ff;
+                color: #fff;
+                border: 2px solid #0633ff;
+                transition: all .3s ease-in-out;
+                -webkit-transition: all .3s ease-in-out;
+                -o-transition: all .3s ease-in-out;
+            }
+            &:not(:hover) {
+                background-color: transparent;
+                color: #000;
+                transition: all .3s ease-in-out;
+                -webkit-transition: all .3s ease-in-out;
+                -o-transition: all .3s ease-in-out;
+            }
+        }
+        button.delete-show-page {
+            border: 2px solid #e71d43;
+            padding: 14px 30px;
+            cursor: pointer;                
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 3px; 
+            background-color: transparent;
+            margin: 0 0 0 5px;
+            color: #000;
+            &:hover {
+                background-color: #e71d43;
+                color: #fff;
+                border: 2px solid #e71d43;
+                transition: all 0.3s ease-in-out;
+            }
+            &:not(:hover) {
+                background-color: transparent;
+                color: #000;
+                transition: all 0.3s ease-in-out;
             }
         }
         .well {
@@ -1684,6 +1733,25 @@ footer {
                 background: #fff;
                 border-radius: 50%;
             }         
+        }
+    }
+}
+
+/* Dashboard footer styles */
+
+#dashboard-footer {
+    width: 100%;
+    text-align: center;   
+    background-color: rgb(26, 26, 26);
+    .dashboard-footer-wrapper {
+        width: 85%;
+        margin: auto;
+        p {
+            font-size: 1.8rem;
+            padding: 15px 0;
+            a {
+                color: #fff;
+            }
         }
     }
 }

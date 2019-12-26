@@ -146,8 +146,14 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         $post->delete();
+
+        if($post->tags) {
         $this->detachTags($post);
+        }
+
+        if($post->photo) {
         $this->deletePhoto($post->photo->id);
+        }
 
         return redirect('dashboard/posts');
     }
