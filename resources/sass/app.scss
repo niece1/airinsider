@@ -1739,7 +1739,8 @@ footer {
 
 /* Dashboard footer styles */
 
-#dashboard-footer {
+footer#dashboard-footer {
+    min-height: initial;
     width: 100%;
     text-align: center;   
     background-color: rgb(26, 26, 26);

@@ -2150,23 +2150,24 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
 
 /* Dashboard footer styles */
 
-#dashboard-footer {
+footer#dashboard-footer {
+  min-height: initial;
   width: 100%;
   text-align: center;
   background-color: #1a1a1a;
 }
 
-#dashboard-footer .dashboard-footer-wrapper {
+footer#dashboard-footer .dashboard-footer-wrapper {
   width: 85%;
   margin: auto;
 }
 
-#dashboard-footer .dashboard-footer-wrapper p {
+footer#dashboard-footer .dashboard-footer-wrapper p {
   font-size: 1.8rem;
   padding: 15px 0;
 }
 
-#dashboard-footer .dashboard-footer-wrapper p a {
+footer#dashboard-footer .dashboard-footer-wrapper p a {
   color: #fff;
 }
 

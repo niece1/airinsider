@@ -41,7 +41,7 @@
 					<a href="#">User manager</a>
 					<ul>
 						<li>
-							<a class="sub-item" href="#">Users</a>
+							<a class="sub-item" href="/dashboard/users">Users</a>
 						</li>
 						<li>
 							<a class="sub-item" href="#">Roles</a>
@@ -109,11 +109,11 @@
 
 	<!--Footer-->
 
-    <div id="dashboard-footer">
+    <footer id="dashboard-footer">
         <div class="dashboard-footer-wrapper">
         	<p><a href="{{ url('/') }}">Airinsider</a></p>
         </div>
-    </div>
+    </footer>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="{{ asset('js/app.js') }}" defer></script> 
