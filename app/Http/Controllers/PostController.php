@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class PostController extends Controller
 {
@@ -22,6 +23,10 @@ class PostController extends Controller
     {
         $posts = Post::with(['photo'])->orderBy('id', 'desc')->paginate(50);
        // dd($posts);
+        if(session('success_message')){
+           toast('Success', session('success_message'))->position('top-end')->autoClose(5000);
+
+        }
 
         return view('backend.post.index', compact('posts'));
     }
@@ -71,7 +76,7 @@ class PostController extends Controller
 
         $this->syncTags($post);
         
-        return redirect('dashboard/posts');
+        return redirect('dashboard/posts')->withSuccessMessage('Post was created');
     }
 
     /**
@@ -155,7 +160,7 @@ class PostController extends Controller
         $this->deletePhoto($post->photo->id);
         }
 
-        return redirect('dashboard/posts');
+        return redirect('dashboard/posts')->withSuccessMessage('Post was deleted');
     }
 
     private function validateRequest()
