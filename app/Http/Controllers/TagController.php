@@ -41,6 +41,8 @@ class TagController extends Controller
     {
         $tag = Tag::create($this->validateRequest());
 
+        toast('Tag Created Successfully','success')->position('top-end')->padding('30px')->autoClose(5000);
+
         return redirect('dashboard/tags');
     }
 
@@ -66,6 +68,8 @@ class TagController extends Controller
     {
         $tag->update($this->validateRequest());
 
+        toast('Tag Updated Successfully','success')->position('top-end')->padding('30px')->autoClose(5000);
+
         return redirect('dashboard/tags');
     }
 
@@ -78,6 +82,8 @@ class TagController extends Controller
     public function destroy(Tag $tag)
     {
         $tag->delete();
+
+        toast('Tag Deleted','success')->position('top-end')->padding('30px')->autoClose(5000);
 
         return redirect('dashboard/tags');
     }

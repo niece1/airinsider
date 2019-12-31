@@ -2171,7 +2171,16 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
   color: #fff;
 }
 
+.swal2-container {
+  margin: 20px 20px 0 0;
+}
+
 h2.swal2-title {
-  font-size: 2rem;
+  font-size: 2rem !important;
+  font-weight: normal;
+}
+
+.swal2-content #swal2-content {
+  font-size: 1.8rem;
 }
 

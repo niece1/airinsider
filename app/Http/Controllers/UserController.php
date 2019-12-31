@@ -18,6 +18,8 @@ class UserController extends Controller
     {
         $user->delete();
 
+        toast('User Deleted','success')->position('top-end')->padding('30px')->autoClose(5000);
+
         return redirect('dashboard/users');
     }
 }

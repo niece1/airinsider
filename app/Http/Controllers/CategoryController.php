@@ -41,6 +41,8 @@ class CategoryController extends Controller
     {
         $category = Category::create($this->validateRequest());
 
+        toast('Category Created Successfully','success')->position('top-end')->padding('30px')->autoClose(5000);
+
         return redirect('dashboard/categories');
     }
 
@@ -66,6 +68,8 @@ class CategoryController extends Controller
     {
         $category->update($this->validateRequest());
 
+        toast('Category Updated Successfully','success')->position('top-end')->padding('30px')->autoClose(5000);
+
         return redirect('dashboard/categories');
     }
 
@@ -78,6 +82,8 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
+
+        toast('Category Deleted','success')->position('top-end')->padding('30px')->autoClose(5000);
 
         return redirect('dashboard/categories');
     }

@@ -23,10 +23,7 @@ class PostController extends Controller
     {
         $posts = Post::with(['photo'])->orderBy('id', 'desc')->paginate(50);
        // dd($posts);
-        if(session('success_message')){
-           toast('Success', session('success_message'))->position('top-end')->autoClose(5000);
-
-        }
+        
 
         return view('backend.post.index', compact('posts'));
     }
@@ -75,8 +72,10 @@ class PostController extends Controller
         $this->storeImage($request, $post);
 
         $this->syncTags($post);
-        
-        return redirect('dashboard/posts')->withSuccessMessage('Post was created');
+
+        toast('Post Created Successfully','success')->position('top-end')->padding('30px')->autoClose(5000);
+
+        return redirect('dashboard/posts');
     }
 
     /**
@@ -137,7 +136,9 @@ class PostController extends Controller
         $this->storeImage($request, $post);
 
         $this->syncTags($post);
-        
+    
+        toast('Post Updated Successfully','success')->position('top-end')->padding('30px')->autoClose(5000);
+       
         return redirect('dashboard/posts');
 
     }
@@ -159,8 +160,10 @@ class PostController extends Controller
         if($post->photo) {
         $this->deletePhoto($post->photo->id);
         }
-
-        return redirect('dashboard/posts')->withSuccessMessage('Post was deleted');
+      
+        toast('Post Deleted','success')->position('top-end')->padding('30px')->autoClose(5000);
+   
+        return redirect('dashboard/posts');
     }
 
     private function validateRequest()

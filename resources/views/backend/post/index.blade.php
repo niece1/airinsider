@@ -34,9 +34,9 @@
 						<td>{{ $post->id }}</td>
 						<td>@if($post->photo)<img src="{{ asset('storage/'.$post->photo->path) }}" height="60" width="90" alt="Photo">@endif</td>
 						<td><a href="/dashboard/posts/{{ $post->id }}">{{ $post->title }}</a></td>
-						<td>{{ $post->published }}</td>
+						<td>{{ $post->if_published }}</td>
 						<td>{{ $post->viewed }}</td>
-						<td>{{ $post->category_id }}</td>
+						<td>{{ $post->category->title }}</td>
 						<td><a href="/dashboard/posts/{{ $post->id }}/edit" class="action-button-green">Edit</a>
 							<form action="{{ route('posts.destroy', $post->id) }}" method="post">
 								@method('DELETE')

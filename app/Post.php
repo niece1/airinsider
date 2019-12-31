@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    protected $guarded = [];
+    protected $fillable = [
+        'title', 'body', 'slug', 'user_id', 'category_id', 'published', 'time_to_read',
+    ];
     
     public function photo()
     {

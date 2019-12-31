@@ -30,9 +30,6 @@
                     <a href="{{ url('/') }}">авиа<span class="logo-span">инсайдер</span></a>
                 </div>
                 <nav>
-
-
-
                     <ul>
                         <li>
                             <a href="#">О нас</a>
