@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Post extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
         'title', 'body', 'slug', 'user_id', 'category_id', 'published', 'time_to_read',
     ];

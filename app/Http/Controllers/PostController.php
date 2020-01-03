@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -49,28 +51,12 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {                
+        $post = Post::create($this->validateCreate($request));
 
-        $this->validate($request, [
-          'title' => 'required|min:3',
-          'body' => 'required',
-          'time_to_read' => 'required',
-          'published' => 'required',
-          'category_id' => 'required',
-          'image' => 'sometimes|file|image|max:5000',
-      ]);
-
-        $post = Post::create([
-           'title' => $request->title,
-           'body' => $request->body,
-           'category_id' => $request->category_id,
-           'slug'=> Str::slug($request->title, '-'),
-           'published' => $request->published,
-           'time_to_read' => $request->time_to_read,
-           'user_id' => Auth::id()
-       ]);
+        $this->generateSlug($request, $post);
+        $this->getUser($post);
         $this->storeImage($request, $post);
-
         $this->syncTags($post);
 
         toast('Post Created Successfully','success')->position('top-end')->padding('30px')->autoClose(5000);
@@ -114,27 +100,11 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        $this->validate($request, [
-          'title' => 'required|min:3',
-          'body' => 'required',
-          'time_to_read' => 'required',
-          'published' => 'required',
-          'category_id' => 'required',
-          'image' => 'sometimes|file|image|max:5000',
-      ]);
-
-        $post->update([
-           'title' => $request->title,
-           'body' => $request->body,
-           'category_id' => $request->category_id,
-           'slug'=> Str::slug($request->title, '-'),
-           'published' => $request->published,
-           'time_to_read' => $request->time_to_read,
-           'user_id' => Auth::id()
-       ]);
-
+        $post->update($this->validateUpdate($request, $post));
+              
         $this->storeImage($request, $post);
-
+        $this->generateSlug($request, $post);
+        $this->getUser($post);
         $this->syncTags($post);
     
         toast('Post Updated Successfully','success')->position('top-end')->padding('30px')->autoClose(5000);
@@ -161,27 +131,82 @@ class PostController extends Controller
         $this->deletePhoto($post->photo->id);
         }
       
-        toast('Post Deleted','success')->position('top-end')->padding('30px')->autoClose(5000);
+        toast('Post Trashed','success')->position('top-end')->padding('30px')->autoClose(5000);
    
         return redirect('dashboard/posts');
     }
 
-    private function validateRequest()
+    public function trashed()
     {
-        return request()->validate([
-          'title' => 'required|min:3',
-          'body' => 'required',
-          'time_to_read' => 'required',
-          'published' => 'required',
-          'category_id' => 'required',
-          'slug' => '',
-          'image' => 'sometimes|file|image|max:5000',
-      ]); 
+      $posts = Post::onlyTrashed()->get();
+
+      return view('backend.post.trashed', compact('posts'));
+    }
+
+    public function expunge($id)
+    {
+        $post = Post::withTrashed()->where('id', $id)->first();
+        
+        $post->forceDelete();
+
+        toast('Post Deleted','success')->position('top-end')->padding('30px')->autoClose(5000);
+        
+        return redirect()->back();
+    }
+
+    public function restore($id)
+    {
+        $post = Post::withTrashed()->where('id', $id)->first();
+
+        $post->restore();
+
+        toast('Post Restored','success')->position('top-end')->padding('30px')->autoClose(5000);
+
+        return redirect('dashboard/posts');
+    }
+
+    private function validateCreate(Request $request)
+    {
+        return Validator::make($request->all(), [
+        'title' => 'required|min:2|unique:posts,title',         
+        'body' => 'required',
+        'time_to_read' => 'required',
+        'published' => 'required',
+        'category_id' => 'required',
+        'image' => 'sometimes|file|image|max:5000',
+      ])->validate();
+    }
+
+    private function validateUpdate(Request $request, Post $post)
+    {
+        return Validator::make($request->all(), [
+        'title' => [
+        'required',
+        Rule::unique('posts', 'title')->ignore($post->id),
+        ],
+        'body' => 'required',
+        'time_to_read' => 'required',
+        'published' => 'required',
+        'category_id' => 'required',
+        'image' => 'sometimes|file|image|max:5000',
+      ])->validate();
     }
 
     private function syncTags($post)
     {
        $post->tags()->sync(request('tag_id'));
+    }
+
+    private function generateSlug(Request $request, Post $post)
+    {
+       $post->update([
+           'slug'=> Str::slug($request->title, '-'),
+       ]);
+    }
+
+    private function getUser($post)
+    {
+       Auth::user()->posts()->save($post);
     }
 
    private function detachTags($post)

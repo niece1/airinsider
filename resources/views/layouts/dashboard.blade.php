@@ -8,7 +8,7 @@
 	<!-- CSRF Token -->
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-	<title>{{ config('app.name', 'Airinsider') }}</title>
+	<title>@yield('title', 'Airinsider')</title>
 
 	<!-- Fontawesome -->      
 	<script src="https://kit.fontawesome.com/0f7f320048.js" crossorigin="anonymous"></script>
@@ -29,12 +29,9 @@
 			<a href="{{ url('/') }}">авиа<span class="logo-span">инсайдер</span></a>
 		</div>
 		<nav>
-
-
-
 			<ul>
 				<li>
-					<a href="#">Recycle Bin</a>
+					<a href="/dashboard/trashed">Trashed</a>
 
 				</li>
 				<li class="sub-menu">

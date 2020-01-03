@@ -1960,6 +1960,19 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   margin-right: 5px;
 }
 
+.dashboard button.action-button-green {
+  color: #fff;
+  background-color: #4dbd74;
+  padding: 2px 5px;
+  border-radius: 5px;
+  border: 1px solid #4dbd74;
+  margin-right: 5px;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  font-size: 1.8rem;
+}
+
 .dashboard .action-button-red {
   color: #fff;
   background-color: #e71d43;
@@ -2178,9 +2191,5 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
 h2.swal2-title {
   font-size: 2rem !important;
   font-weight: normal;
-}
-
-.swal2-content #swal2-content {
-  font-size: 1.8rem;
 }
 

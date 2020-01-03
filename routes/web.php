@@ -52,5 +52,9 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
     //User 
     Route::get('/users', 'UserController@index')->name('users');
     Route::delete('/users/{user}', 'UserController@destroy')->name('users.destroy');
+    //Trash 
+    Route::get('/trashed', 'PostController@trashed')->name('trashed');
+    Route::delete('/expunge/{id}', 'PostController@expunge')->name('expunge');
+    Route::post('/restore/{id}', 'PostController@restore')->name('restore');
 });
 
