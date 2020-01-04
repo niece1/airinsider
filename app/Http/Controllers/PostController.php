@@ -110,7 +110,6 @@ class PostController extends Controller
         toast('Post Updated Successfully','success')->position('top-end')->padding('30px')->autoClose(5000);
        
         return redirect('dashboard/posts');
-
     }
 
     /**
@@ -168,7 +167,7 @@ class PostController extends Controller
     private function validateCreate(Request $request)
     {
         return Validator::make($request->all(), [
-        'title' => 'required|min:2|unique:posts,title',         
+        'title' => 'bail|required|min:2|unique:posts,title',         
         'body' => 'required',
         'time_to_read' => 'required',
         'published' => 'required',

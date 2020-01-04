@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', $post->title)
+
 @section('content')
 
 <section class="title-jumbotron">

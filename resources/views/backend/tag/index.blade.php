@@ -1,5 +1,7 @@
 @extends('layouts.dashboard')
 
+@section('title', 'Tag List')
+
 @section('content')
 
 <section class="title-jumbotron">

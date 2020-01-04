@@ -1,5 +1,7 @@
 @extends('layouts.frontend')
 
+@section('title', 'Автор: ' . $user->name)
+
 @section('content')
 
 <section class="title-jumbotron">
@@ -13,11 +15,13 @@
     <div class="news-wrapper">
         @foreach ($news_by_user as $news_item)
         <div class="item">
+            @if($news_item->photo)
             <div class="image-holder">
-                <a href="{{ route('post.show', [$news_item->slug]) }}"><img src="{{ $news_item->photo->path ?? ''  }}" alt="Photo"></a>
+                <a href="{{ route('post.show', [$news_item->slug]) }}"><img src="{{ asset('storage/'.$news_item->photo->path) }}" alt="Photo"></a>
             </div>
+            @endif
             <div class="item-content">
-                <a href="#">
+                <a href="{{ route('post.show', [$news_item->slug]) }}">
                     <h6>{{ $news_item->title }}</h6>
                 </a>
                 <p class="item-blog-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo, accusantium?</p>

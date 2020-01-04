@@ -1,10 +1,12 @@
 @extends('layouts.frontend')
 
+@section('title', Напишите нам)
+
 @section('content')
 
 <section class="title-jumbotron">
 	<div class="parallax-text">
-		<h1>Contact us</h1>
+		<h1>Напишите нам</h1>
 	</div>
 </section>
 
