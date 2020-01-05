@@ -25,8 +25,9 @@ class PostController extends Controller
     {
         $posts = Post::with(['photo'])->orderBy('id', 'desc')->paginate(50);
        // dd($posts);
-        
-
+        if(session('success_message')){
+        Alert::success('Success!', session('success_message'))->toToast();
+}
         return view('backend.post.index', compact('posts'));
     }
 
@@ -107,9 +108,9 @@ class PostController extends Controller
         $this->getUser($post);
         $this->syncTags($post);
     
-        toast('Post Updated Successfully','success')->position('top-end')->padding('30px')->autoClose(5000);
+      //  toast('Post Updated Successfully','success')->position('top-end')->padding('30px')->autoClose(5000);
        
-        return redirect('dashboard/posts');
+        return redirect('dashboard/posts')->withSuccessMessage('Successfully updated');
     }
 
     /**
