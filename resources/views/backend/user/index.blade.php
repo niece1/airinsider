@@ -43,6 +43,7 @@
 						<td>{{ $user->created_at }}</td>
 						<td>{{ $user->updated_at }}</td>
 						<td>
+							<a href="/dashboard/users/{{ $user->id }}/edit" class="action-button-green">Edit</a>
 							<form action="{{ route('users.destroy', $user->id) }}" method="post">
 								@method('DELETE')
 								@csrf

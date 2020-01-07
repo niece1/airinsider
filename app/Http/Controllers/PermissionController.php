@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\Permission;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class CategoryController extends Controller
+class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +15,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $permissions = Permission::all();
 
         if(session('success_message')){
         Alert::success( session('success_message'))->toToast();
         }
-        
-        return view('backend.category.index', compact('categories'));
+
+        return view('backend.permission.index', compact('permissions'));
     }
 
     /**
@@ -31,9 +31,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories = new Category();
+        $permissions = new Permission();
 
-        return view('backend.category.create', compact('categories'));
+        return view('backend.permission.create', compact('permissions'));
     }
 
     /**
@@ -44,53 +44,51 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = Category::create($this->validateRequest());
+        $permission = Permission::create($this->validateRequest());
 
-        return redirect('dashboard/categories')->withSuccessMessage('Category Created Successfully!');
+        return redirect('dashboard/permissions')->withSuccessMessage('Permission Created Successfully!');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Category  $category
+     * @param  \App\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
-    {       
-        return view('backend.category.edit', compact('category'));
+    public function edit(Permission $permission)
+    {
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Category  $category
+     * @param  \App\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Permission $permission)
     {
-        $category->update($this->validateRequest());
-
-        return redirect('dashboard/categories')->withSuccessMessage('Category Updated Successfully!');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Category  $category
+     * @param  \App\Permission  $permission
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Permission $permission)
     {
-        $category->delete();
+        $permission->delete();
 
-        return redirect('dashboard/categories')->withSuccessMessage('Category Deleted Successfully!');
+        return redirect('dashboard/permissions')->withSuccessMessage('Permission Deleted Successfully!');
     }
 
     private function validateRequest()
     {
         return request()->validate([
-          'title' => 'required|min:2|max:30',          
+          'title' => 'bail|required|min:2|max:30',          
       ]); 
     }
 }

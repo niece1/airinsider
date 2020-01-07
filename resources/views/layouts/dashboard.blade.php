@@ -41,10 +41,10 @@
 							<a class="sub-item" href="/dashboard/users">Users</a>
 						</li>
 						<li>
-							<a class="sub-item" href="#">Roles</a>
+							<a class="sub-item" href="/dashboard/roles">Roles</a>
 						</li>
 						<li>
-							<a class="sub-item" href="#">Permissions</a>
+							<a class="sub-item" href="/dashboard/permissions">Permissions</a>
 						</li>
 						<li>
 							<a class="sub-item" href="#">Subscriptions</a>

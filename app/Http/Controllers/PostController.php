@@ -24,9 +24,9 @@ class PostController extends Controller
     public function index()
     {
         $posts = Post::with(['photo'])->orderBy('id', 'desc')->paginate(50);
-       // dd($posts);
+
         if(session('success_message')){
-        Alert::success('Success!', session('success_message'))->toToast();
+        Alert::success( session('success_message'))->toToast();
 }
         return view('backend.post.index', compact('posts'));
     }
@@ -60,9 +60,7 @@ class PostController extends Controller
         $this->storeImage($request, $post);
         $this->syncTags($post);
 
-        toast('Post Created Successfully','success')->position('top-end')->padding('30px')->autoClose(5000);
-
-        return redirect('dashboard/posts');
+        return redirect('dashboard/posts')->withSuccessMessage('Created Successfully!');
     }
 
     /**
@@ -107,10 +105,8 @@ class PostController extends Controller
         $this->generateSlug($request, $post);
         $this->getUser($post);
         $this->syncTags($post);
-    
-      //  toast('Post Updated Successfully','success')->position('top-end')->padding('30px')->autoClose(5000);
        
-        return redirect('dashboard/posts')->withSuccessMessage('Successfully updated');
+        return redirect('dashboard/posts')->withSuccessMessage('Updated Successfully');
     }
 
     /**
@@ -129,16 +125,18 @@ class PostController extends Controller
 
         if($post->photo) {
         $this->deletePhoto($post->photo->id);
-        }
-      
-        toast('Post Trashed','success')->position('top-end')->padding('30px')->autoClose(5000);
+        }      
    
-        return redirect('dashboard/posts');
+        return redirect('dashboard/posts')->withSuccessMessage('Trashed Successfully!');
     }
 
     public function trashed()
     {
       $posts = Post::onlyTrashed()->get();
+
+      if(session('success_message')){
+        Alert::success( session('success_message'))->toToast();
+      }
 
       return view('backend.post.trashed', compact('posts'));
     }
@@ -148,10 +146,8 @@ class PostController extends Controller
         $post = Post::withTrashed()->where('id', $id)->first();
         
         $post->forceDelete();
-
-        toast('Post Deleted','success')->position('top-end')->padding('30px')->autoClose(5000);
         
-        return redirect()->back();
+        return redirect()->back()->withSuccessMessage('Deleted permanently!');
     }
 
     public function restore($id)
@@ -160,9 +156,7 @@ class PostController extends Controller
 
         $post->restore();
 
-        toast('Post Restored','success')->position('top-end')->padding('30px')->autoClose(5000);
-
-        return redirect('dashboard/posts');
+        return redirect('dashboard/posts')->withSuccessMessage('Restored Successfully!');
     }
 
     private function validateCreate(Request $request)

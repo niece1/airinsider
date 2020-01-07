@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Category;
+use App\Role;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
-class CategoryController extends Controller
+class RoleController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,13 +15,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
+        $roles = Role::all();
 
         if(session('success_message')){
         Alert::success( session('success_message'))->toToast();
         }
-        
-        return view('backend.category.index', compact('categories'));
+
+        return view('backend.role.index', compact('roles'));
     }
 
     /**
@@ -31,9 +31,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        $categories = new Category();
+        $roles = new Role();
 
-        return view('backend.category.create', compact('categories'));
+        return view('backend.role.create', compact('roles'));
     }
 
     /**
@@ -44,53 +44,53 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        $category = Category::create($this->validateRequest());
+        $role = Role::create($this->validateRequest());
 
-        return redirect('dashboard/categories')->withSuccessMessage('Category Created Successfully!');
+        return redirect('dashboard/roles')->withSuccessMessage('Role Created Successfully!');
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Category  $category
+     * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
-    {       
-        return view('backend.category.edit', compact('category'));
+    public function edit(Role $role)
+    {
+        return view('backend.role.edit', compact('role'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Category  $category
+     * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Role $role)
     {
-        $category->update($this->validateRequest());
+        $role->update($this->validateRequest());
 
-        return redirect('dashboard/categories')->withSuccessMessage('Category Updated Successfully!');
+        return redirect('dashboard/roles')->withSuccessMessage('Role Updated Successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Category  $category
+     * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Role $role)
     {
-        $category->delete();
+        $role->delete();
 
-        return redirect('dashboard/categories')->withSuccessMessage('Category Deleted Successfully!');
+        return redirect('dashboard/roles')->withSuccessMessage('Role Deleted Successfully!');
     }
 
     private function validateRequest()
     {
         return request()->validate([
-          'title' => 'required|min:2|max:30',          
+          'title' => 'bail|required|min:2|max:30',          
       ]); 
     }
 }

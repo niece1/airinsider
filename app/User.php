@@ -52,6 +52,11 @@ class User extends Authenticatable
         return $this->hasMany(Comment::class);
     }
 
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class);
+    }
+
     public function toggleLike($entity, $type)
     {
         $like = $entity->likes->where('user_id', $this->id)->first();

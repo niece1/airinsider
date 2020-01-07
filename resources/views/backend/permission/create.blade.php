@@ -1,12 +1,12 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Edit category: ' . $category->title)
+@section('title', 'Create permission')
 
 @section('content')
 
 <section class="title-jumbotron">
 	<div class="parallax-text">
-		<h1>Edit Category</h1>
+		<h1>Create Permission</h1>
 	</div>
 </section>
 
@@ -16,16 +16,15 @@
 		
 		<div class="well">
 			<div class="well-title">
-				<h5>Edit Category</h5>
+				<h5>Create Permission</h5>
 			</div>
 
 			<div class="well-content">
 
-				<form action="{{ route('categories.update', $category->id) }}" class="create-update" method="post" enctype="multipart/form-data">
-					@method('PATCH')
+				<form action="{{ route('permissions.store') }}" class="create-update" method="post" enctype="multipart/form-data">
 					<div class="form-wrapper">
 						<label for="title">Title</label>
-						<input type="text" name="title" value="{{ old('title') ?? $category->title }}" class="form-input" autofocus>
+						<input type="text" name="title" value="{{ old('title') }}" class="form-input" autofocus>
 						<div class="form-error">{{ $errors->first('title') }}</div>
 					</div>
 					<button type="submit" class="button">Save</button>

@@ -48,9 +48,14 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
 	Route::resource('posts', 'PostController');
 	Route::resource('categories', 'CategoryController');
 	Route::resource('tags', 'TagController');
+	Route::resource('roles', 'RoleController');
+	Route::resource('permissions', 'PermissionController');
+	//Delete Photo
     Route::get('deletePhoto/{id}', 'PostController@deletePhoto')->name('deletePhoto');
     //User 
-    Route::get('/users', 'UserController@index')->name('users');
+    Route::get('/users', 'UserController@index')->name('users.index');
+    Route::get('/users/{user}/edit', 'UserController@edit')->name('users.edit');
+    Route::patch('/users/{user}', 'UserController@update')->name('users.update');
     Route::delete('/users/{user}', 'UserController@destroy')->name('users.destroy');
     //Trash 
     Route::get('/trashed', 'PostController@trashed')->name('trashed');

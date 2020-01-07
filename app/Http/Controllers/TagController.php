@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Tag;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class TagController extends Controller
 {
@@ -15,6 +16,10 @@ class TagController extends Controller
     public function index()
     {
         $tags = Tag::all();
+
+        if(session('success_message')){
+        Alert::success( session('success_message'))->toToast();
+        }
         
         return view('backend.tag.index', compact('tags'));
     }
@@ -41,9 +46,7 @@ class TagController extends Controller
     {
         $tag = Tag::create($this->validateRequest());
 
-        toast('Tag Created Successfully','success')->position('top-end')->padding('30px')->autoClose(5000);
-
-        return redirect('dashboard/tags');
+        return redirect('dashboard/tags')->withSuccessMessage('Tag Created Successfully!');
     }
 
     /**
@@ -68,9 +71,7 @@ class TagController extends Controller
     {
         $tag->update($this->validateRequest());
 
-        toast('Tag Updated Successfully','success')->position('top-end')->padding('30px')->autoClose(5000);
-
-        return redirect('dashboard/tags');
+        return redirect('dashboard/tags')->withSuccessMessage('Tag Updated Successfully!');
     }
 
     /**
@@ -83,15 +84,13 @@ class TagController extends Controller
     {
         $tag->delete();
 
-        toast('Tag Deleted','success')->position('top-end')->padding('30px')->autoClose(5000);
-
-        return redirect('dashboard/tags');
+        return redirect('dashboard/tags')->withSuccessMessage('Tag Deleted Successfully!');
     }
 
     private function validateRequest()
     {
         return request()->validate([
-          'title' => 'required|min:2|max:30',          
+          'title' => 'bail|required|min:2|max:30',          
       ]); 
     }
 }
