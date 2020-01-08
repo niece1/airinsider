@@ -22,11 +22,7 @@
 			<div class="well-content">
 
 				<form action="{{ route('roles.store') }}" class="create-update" method="post" enctype="multipart/form-data">
-					<div class="form-wrapper">
-						<label for="title">Title</label>
-						<input type="text" name="title" value="{{ old('title') }}" class="form-input" autofocus>
-						<div class="form-error">{{ $errors->first('title') }}</div>
-					</div>
+					@include('/backend/role/includes.form')
 					<button type="submit" class="button">Submit</button>
 					@csrf				
 				</form>	

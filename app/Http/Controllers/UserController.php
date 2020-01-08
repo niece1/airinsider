@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Role;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class UserController extends Controller
@@ -21,12 +22,14 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
-        return view('backend.user.edit', compact('user'));
+    	$roles = Role::all();
+
+        return view('backend.user.edit', compact('user', 'roles'));
     }
 
     public function update(Request $request, User $user)
-    {
-        $user->update($this->validateRequest());
+    {        
+        $this->syncRoles($user);
 
         return redirect('dashboard/users')->withSuccessMessage('User Updated Successfully!');
     }
@@ -38,10 +41,8 @@ class UserController extends Controller
         return redirect('dashboard/users');
     }
 
-    private function validateRequest()
+    private function syncRoles($user)
     {
-        return request()->validate([
-          'title' => 'bail|required|min:2|max:30',          
-      ]); 
+       $user->roles()->sync(request('role_id'));
     }
 }

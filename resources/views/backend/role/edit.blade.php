@@ -2,6 +2,12 @@
 
 @section('title', 'Edit role: ' . $role->title)
 
+@push('styles')
+
+<link href="{{ asset('css/select2.css') }}" rel="stylesheet">
+
+@endpush
+
 @section('content')
 
 <section class="title-jumbotron">
@@ -23,13 +29,8 @@
 
 				<form action="{{ route('roles.update', $role->id) }}" class="create-update" method="post" enctype="multipart/form-data">
 					@method('PATCH')
-					<div class="form-wrapper">
-						<label for="title">Title</label>
-						<input type="text" name="title" value="{{ old('title') ?? $role->title }}" class="form-input" autofocus>
-						<div class="form-error">{{ $errors->first('title') }}</div>
-					</div>
-					<button type="submit" class="button">Save</button>
-					@csrf				
+					@include('/backend/role/includes.form')
+					<button type="submit" class="button">Save</button>				
 				</form>	
 
 			</div>
@@ -38,3 +39,12 @@
 </section>
 
 @endsection
+
+@push('scripts')
+<script src="{{ asset('js/select2.min.js') }}"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.permission-select-for-role').select2();
+});
+</script>
+@endpush

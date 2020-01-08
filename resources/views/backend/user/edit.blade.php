@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Edit user: ' . $user->title)
+@section('title', 'Edit user: ' . $user->name)
 
 @section('content')
 
@@ -26,6 +26,15 @@
 					<div class="form-wrapper">
 						<label for="title">Title</label>
 						<input type="text" name="name" value="{{ old('name') ?? $user->name }}" class="form-input" readonly>
+					</div>
+
+					<div class="form-wrapper">
+						<label for="role">Attach role</label>
+						@foreach($roles as $role)
+						<div class="checkbox-container">
+						<input type="checkbox" name="role_id[]" value="{{ $role->id }}"{{ in_array($role->id, $user->roles->pluck('id')->toArray()) ? 'checked' : ''}}>{{ $role->title }}
+						</div>
+						@endforeach
 					</div>
 					<button type="submit" class="button">Save</button>
 					@csrf				

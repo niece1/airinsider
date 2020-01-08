@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Role;
+use App\Permission;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -45,6 +46,7 @@ class RoleController extends Controller
     public function store(Request $request)
     {
         $role = Role::create($this->validateRequest());
+        $this->syncPermissions($role);
 
         return redirect('dashboard/roles')->withSuccessMessage('Role Created Successfully!');
     }
@@ -57,7 +59,9 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
-        return view('backend.role.edit', compact('role'));
+        $permissions = Permission::all();
+
+        return view('backend.role.edit', compact('role', 'permissions'));
     }
 
     /**
@@ -70,6 +74,7 @@ class RoleController extends Controller
     public function update(Request $request, Role $role)
     {
         $role->update($this->validateRequest());
+        $this->syncPermissions($role);
 
         return redirect('dashboard/roles')->withSuccessMessage('Role Updated Successfully!');
     }
@@ -91,6 +96,11 @@ class RoleController extends Controller
     {
         return request()->validate([
           'title' => 'bail|required|min:2|max:30',          
-      ]); 
+        ]); 
+    }
+
+    private function syncPermissions($role)
+    {
+       $role->permissions()->sync(request('permission_id'));
     }
 }

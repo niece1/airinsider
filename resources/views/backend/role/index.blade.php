@@ -32,7 +32,7 @@
 					<tr>
 						<td>{{ $role->id }}</td>						
 						<td>{{ $role->title }}</td>
-						<th></th>
+						<td></td>
 						<td><a href="/dashboard/roles/{{ $role->id }}/edit" class="action-button-green">Edit</a>
 							<form action="{{ route('roles.destroy', $role->id) }}" method="post">
 								@method('DELETE')
