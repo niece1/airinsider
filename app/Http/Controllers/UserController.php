@@ -36,6 +36,7 @@ class UserController extends Controller
 
     public function destroy(User $user)
     {
+    	abort_unless(\Gate::allows('user_delete'), 403);
         $user->delete();
 
         return redirect('dashboard/users');

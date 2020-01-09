@@ -44,11 +44,13 @@
 						<td>{{ $user->updated_at }}</td>
 						<td>
 							<a href="/dashboard/users/{{ $user->id }}/edit" class="action-button-green">Edit</a>
+							@can('user_delete')
 							<form action="{{ route('users.destroy', $user->id) }}" method="post">
 								@method('DELETE')
 								@csrf
 								<button type="submit" class="action-button-red">Delete</button>
 							</form>
+							@endcan
 						</td>
 					</tr>				
 					@endforeach
