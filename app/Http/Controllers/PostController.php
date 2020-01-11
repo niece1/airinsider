@@ -117,15 +117,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post->delete();
-
-        if($post->tags) {
-        $this->detachTags($post);
-        }
-
-        if($post->photo) {
-        $this->deletePhoto($post->photo->id);
-        }      
+        $post->delete();      
    
         return redirect('dashboard/posts')->withSuccessMessage('Trashed Successfully!');
     }
@@ -144,6 +136,14 @@ class PostController extends Controller
     public function expunge($id)
     {
         $post = Post::withTrashed()->where('id', $id)->first();
+
+        if($post->tags) {
+        $this->detachTags($post);
+        }
+
+        if($post->photo) {
+        $this->deletePhoto($post->photo->id);
+        }
         
         $post->forceDelete();
         

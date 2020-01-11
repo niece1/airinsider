@@ -53,7 +53,7 @@
 <script src="{{ asset('js/select2.min.js') }}"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
-    $('.js-example-basic-multiple').select2();
+    $('.tag-select-for-post').select2();
 });
 </script>
 @endpush

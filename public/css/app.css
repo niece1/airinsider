@@ -2161,6 +2161,63 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   border-radius: 50%;
 }
 
+.dashboard form.create-update .form-wrapper .attach-role {
+  margin-bottom: 10px;
+}
+
+.dashboard form.create-update .form-wrapper .checkbox-container {
+  position: relative;
+  margin: 4px 0;
+  padding-left: 35px;
+  font-size: 1.6rem;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+.dashboard form.create-update .form-wrapper .checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.dashboard form.create-update .form-wrapper .checkbox-container input:checked ~ .checkmark {
+  background-color: #e71d43;
+}
+
+.dashboard form.create-update .form-wrapper .checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+.dashboard form.create-update .form-wrapper .checkbox-container .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 2rem;
+  width: 2rem;
+  background-color: #cccccc;
+}
+
+.dashboard form.create-update .form-wrapper .checkbox-container .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.dashboard form.create-update .form-wrapper .checkbox-container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
 /* Dashboard footer styles */
 
 footer#dashboard-footer {
@@ -2183,6 +2240,8 @@ footer#dashboard-footer .dashboard-footer-wrapper p {
 footer#dashboard-footer .dashboard-footer-wrapper p a {
   color: #fff;
 }
+
+/* Sweet Alert styles */
 
 .swal2-toast {
   font-size: 26px !important;

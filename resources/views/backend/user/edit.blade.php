@@ -29,11 +29,12 @@
 					</div>
 
 					<div class="form-wrapper">
-						<label for="role">Attach role</label>
+						<p class="attach-role">Attach role</p>
 						@foreach($roles as $role)
-						<div class="checkbox-container">
-						<input type="checkbox" name="role_id[]" value="{{ $role->id }}"{{ in_array($role->id, $user->roles->pluck('id')->toArray()) ? 'checked' : ''}}>{{ $role->title }}
-						</div>
+						<label class="checkbox-container">{{ $role->title }}
+						<input class="checkbox" type="checkbox" name="role_id[]" value="{{ $role->id }}"{{ in_array($role->id, $user->roles->pluck('id')->toArray()) ? 'checked' : ''}}>
+						<span class="checkmark"></span>
+						</label><br>
 						@endforeach
 					</div>
 					<button type="submit" class="button">Save</button>

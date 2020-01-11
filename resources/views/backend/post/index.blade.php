@@ -36,7 +36,7 @@
 						<td><a href="/dashboard/posts/{{ $post->id }}">{{ $post->title }}</a></td>
 						<td>{{ $post->if_published }}</td>
 						<td>{{ $post->viewed }}</td>
-						<td>{{ $post->category->title }}</td>
+						<td>@if($post->category){{ $post->category->title }}@endif</td>
 						<td>
 							<a href="/dashboard/posts/{{ $post->id }}/edit" class="action-button-green">Edit</a>
 							<form action="{{ route('posts.destroy', $post->id) }}" method="post">

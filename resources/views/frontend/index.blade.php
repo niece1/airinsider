@@ -6,12 +6,14 @@
     <div class="jumbothron-wrapper">
         <div class="content">
             <h1>{{ $featured->title }}</h1>
-            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. A, distinctio cumque vel aperiam corrupti labore culpa aliquam? Praesentium ipsam ea, pariatur error, est fuga eveniet autem rerum ad ex debitis.</p>
-            <a class="button" href="#">Читать</a>
+            <p>{{ substr(strip_tags($featured->body), 0, 185) }}{{ strlen(strip_tags($featured->body)) > 185 ? " ..." : "" }}</p>
+            <a class="button" href="{{ route('post.show', [$featured->slug]) }}">Читать</a>
         </div>
+        @if($featured->photo)
         <div class="photo">
-            <img src="{{ asset('images/qatar.jpg') }}" alt="News">
+            <img src="{{ asset('storage/'.$featured->photo->path) }}" alt="News">
         </div>
+        @endif
     </div>
 </section>
 
@@ -40,7 +42,9 @@
 
                 <div class="item-blog-bottom">
                     <a href="{{ route('post.show', [$news_item->slug]) }}" class="button">Читать</a>
+                    @if($news_item->category)
                     <p><i class="fas fa-tags"></i><a href="{{ route('category', [$news_item->category->id]) }}">{{ $news_item->category->title }}</a></p>
+                    @endif
                 </div>
             </div>
         </div>

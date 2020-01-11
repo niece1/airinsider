@@ -37,13 +37,23 @@ class UserController extends Controller
     public function destroy(User $user)
     {
     	abort_unless(\Gate::allows('user_delete'), 403);
+
         $user->delete();
 
-        return redirect('dashboard/users');
+        if($user->roles) {
+        $this->detachRoles($user);
+        }
+
+        return redirect('dashboard/users')->withSuccessMessage('User Deleted Successfully!');
     }
 
     private function syncRoles($user)
     {
        $user->roles()->sync(request('role_id'));
+    }
+
+    private function detachRoles($user)
+    {
+       $user->roles()->detach(request('role_id'));
     }
 }

@@ -32,9 +32,10 @@ class RoleController extends Controller
      */
     public function create()
     {
-        $roles = new Role();
+        $role = new Role();
+        $permissions = Permission::all();
 
-        return view('backend.role.create', compact('roles'));
+        return view('backend.role.create', compact('role', 'permissions'));
     }
 
     /**
@@ -89,18 +90,27 @@ class RoleController extends Controller
     {
         $role->delete();
 
+        if($role->permissions) {
+        $this->detachPermissions($role);
+        }
+
         return redirect('dashboard/roles')->withSuccessMessage('Role Deleted Successfully!');
     }
 
     private function validateRequest()
     {
         return request()->validate([
-          'title' => 'bail|required|min:2|max:30',          
+          'title' => 'bail|required|min:2|max:30',
         ]); 
     }
 
     private function syncPermissions($role)
     {
        $role->permissions()->sync(request('permission_id'));
+    }
+
+    private function detachPermissions($role)
+    {
+       $role->permissions()->detach(request('permission_id'));
     }
 }

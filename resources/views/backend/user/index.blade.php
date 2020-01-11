@@ -29,7 +29,7 @@
 						<th>Provider</th>
 						<th>IP adress</th>
 						<th>Created</th>
-						<th>Updated</th>
+						<th>Roles</th>
 						<th></th>
 					</tr>
 					@foreach ($users as $user)
@@ -41,7 +41,7 @@
 						<td>@if($user->provider){{ $user->provider }}@endif</td>
 						<td>{{ $user->last_login_ip_address }}</td>
 						<td>{{ $user->created_at }}</td>
-						<td>{{ $user->updated_at }}</td>
+						<td>@foreach($user->roles as $role){{ $role->title . " " }}@endforeach</td>
 						<td>
 							<a href="/dashboard/users/{{ $user->id }}/edit" class="action-button-green">Edit</a>
 							@can('user_delete')

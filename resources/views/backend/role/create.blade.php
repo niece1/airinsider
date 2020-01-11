@@ -2,6 +2,12 @@
 
 @section('title', 'Create role')
 
+@push('styles')
+
+<link href="{{ asset('css/select2.css') }}" rel="stylesheet">
+
+@endpush
+
 @section('content')
 
 <section class="title-jumbotron">
@@ -33,3 +39,12 @@
 </section>
 
 @endsection
+
+@push('scripts')
+<script src="{{ asset('js/select2.min.js') }}"></script>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('.permission-select-for-role').select2();
+});
+</script>
+@endpush

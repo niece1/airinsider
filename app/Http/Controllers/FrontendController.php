@@ -8,14 +8,13 @@ use App\Photo;
 use App\Category;
 use App\Tag;
 use App\User;
-use Carbon\Carbon;
 
 class FrontendController extends Controller
 {
     public function index()
     {
-        $featured = Post::where('updated_at', Carbon::today('Europe/London'))->orWhere('updated_at', Carbon::yesterday('Europe/London'))->firstOrFail();
-        $news = Post::with(['photo'])->orderBy('id', 'desc')->paginate(8);
+        $featured = Post::orderBy('id', 'desc')->firstOrFail();
+        $news = Post::with(['photo'])->where('id', '<>', $featured->id)->orderBy('id', 'desc')->paginate(8);
 
         return view('frontend.index', compact('featured', 'news'));
     }

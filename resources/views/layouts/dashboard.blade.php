@@ -31,11 +31,11 @@
 		<nav>
 			<ul>
 				<li>
-					<a href="/dashboard/trashed">Trashed</a>
+					<a href="/dashboard/trashed">Trashed posts</a>
 
 				</li>
 				<li class="sub-menu">
-					<a href="#">User manager</a>
+					<a href="#">User board</a>
 					<ul>
 						<li>
 							<a class="sub-item" href="/dashboard/users">Users</a>
@@ -52,7 +52,7 @@
 					</ul>
 				</li>
 				<li class="sub-menu">
-					<a href="#">Post manager</a>
+					<a href="#">Post board</a>
 					<ul>
 						<li>
 							<a class="sub-item" href="/dashboard/posts">Posts</a>
