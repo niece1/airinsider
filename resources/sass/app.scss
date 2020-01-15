@@ -806,50 +806,6 @@ footer {
           margin-bottom: 10px;
          
         }
-        .input-wrapper {
-          width: 100%;
-          margin: 5px auto;
-          position: relative;
-          &:after {
-            content: attr(data-text);
-            font-size: 1.6rem;
-            line-height: 0;
-            height: 0;
-            max-width: 100%;
-            border-bottom: 2px solid #e71d43;
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 3px;
-            overflow: hidden;
-            user-select: none;
-            color: transparent;
-          }
-          input {
-            color: #000;                     
-            border-radius: 0;
-            outline: none;
-            width: 100%;
-            border: none;          
-            padding: 10px 0;
-            border-bottom: 2px solid #000;
-            background-color: transparent;
-            font-size: 1.8rem;
-          }
-          button {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            right: 0;
-            border: none;
-            background: transparent;
-            outline: none;
-            font-size: 1.8rem;
-            color: #000;
-            cursor: pointer;
-            padding: 0 3px;
-          }
-        }
         p {
           margin: 15px 0;
         }

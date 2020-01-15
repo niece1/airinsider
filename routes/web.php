@@ -63,3 +63,6 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
     Route::post('/restore/{id}', 'PostController@restore')->name('restore');
 });
 
+//Subscription
+Route::post('subscriptions/', 'SubscriptionController@store');
+

@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', Напишите нам)
+@section('title', 'Напишите нам')
 
 @section('content')
 

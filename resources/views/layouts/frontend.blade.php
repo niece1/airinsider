@@ -179,15 +179,12 @@
 
                 <div class="footer_newsletter">
                     <h5>Newsletter Subscribe</h5>
-                    <form class="input-wrapper" data-text="">
-                        <input id="newsletter" type="email" placeholder="Get newsletter">
-                        <button type="submit"><i class="fa fa-envelope-o"></i></button>
-                    </form>
-                    <p>Don't forget to folow me on:</p>
-                    <a href="#" id="facebook">fb</a>
-                    <a href="#" id="twitter">tw</a>
-                    <a href="#">pt</a>
-
+                    <subscription></subscription>
+                 
+<p>Don't forget to folow me on:</p>
+        <a href="#" id="facebook">fb</a>
+        <a href="#" id="twitter">tw</a>
+        <a href="#">pt</a>
                 </div>
             </div>
         </footer>
