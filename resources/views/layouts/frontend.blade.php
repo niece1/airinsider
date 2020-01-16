@@ -92,118 +92,119 @@
         </div>
     </header>
 
-        <main>
-            @yield('content')
-        </main>
+    <main>
+        @yield('content')
+    </main>
 
-        <!--Footer-->
+    <!--Footer-->
 
-        <footer>
-            <div class="footer_wrapper_upper">
-                <div class="footer_about">
-                    <a href="#" class="logo-footer">Авиаинсайдер</a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis veniam unde tenetur ullam. Amet, reprehenderit ea nam voluptatibus quisquam harum!</p>
-                    <a href="#"><span>Read more</span></a>
-                </div>
-
-                <div class="footer_links">
-                    <h5>Категории</h5>
-                    <ul>
-                        <li><a href="index.html"><span>Проишествия</span></a></li>
-                        <li><a href="about.html"><span>Скидки</span></a></li>
-                        <li><a href="contact.html"><span>Эрбас</span></a></li>
-                        <li><a href="albums.html"><span>Боинг</span></a></li>
-                        <li><a href="blog.html"><span>Авиасалон</span></a></li>
-
-                    </ul>
-                </div>
-
-                <div class="footer_links">
-                    <h5>Полезные ссылки</h5>
-                    <ul>
-                        <li><a href="index.html"><span>На главную</span></a></li>
-                        <li><a href="about.html"><span>О нас</span></a></li>
-                        <li><a href="contact.html"><span>Контакты</span></a></li>
-                        <li><a href="albums.html"><span>Войти</span></a></li>
-                        <li><a href="blog.html"><span>Зарегистрироваться</span></a></li>
-
-                    </ul>
-                </div>
-
-                <div class="popular_posts">
-                    <h5>Популярные новости</h5>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <img src="{{ asset('images/qatar.jpg') }}" height="60" width="90" alt="Photo">
-                            </a>
-                            <a href="#"><small>14 May, 2014</small></a>
-                            <a href="#">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum.</p>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <img src="{{ asset('images/qatar.jpg') }}" height="60" width="90" alt="Photo">
-                            </a>
-                            <a href="#"><small>14 May, 2014</small></a>
-                            <a href="#">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum.</p>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="#">
-                                <img src="{{ asset('images/qatar.jpg') }}" height="60" width="90" alt="Photo">
-                            </a>
-                            <a href="#"><small>14 May, 2014</small></a>
-                            <a href="#">
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum.</p>
-                            </a>
-                        </li>
-                    </ul>
-
-
-
-                </div>
+    <footer>
+        <div class="footer_wrapper_upper">
+            <div class="footer_about">
+                <a href="#" class="logo-footer">Авиаинсайдер</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis veniam unde tenetur ullam. Amet, reprehenderit ea nam voluptatibus quisquam harum!</p>
+                <a href="#"><span>Read more</span></a>
             </div>
 
-            <div class="footer_wrapper_down">
-                <div class="footer_copyright">
+            <div class="footer_links">
+                <h5>Категории</h5>
+                <ul>
+                    <li><a href="index.html"><span>Проишествия</span></a></li>
+                    <li><a href="about.html"><span>Скидки</span></a></li>
+                    <li><a href="contact.html"><span>Эрбас</span></a></li>
+                    <li><a href="albums.html"><span>Боинг</span></a></li>
+                    <li><a href="blog.html"><span>Авиасалон</span></a></li>
 
-
-                    <p> &#169; Copyright {{ date('Y') }} Airinsider. All rights reserved.</p>
-                    <p>Made with love fore a better web.</p>
-                </div>
-
-                <div class="footer_newsletter">
-                    <h5>Newsletter Subscribe</h5>
-                    <subscription></subscription>
-                 
-<p>Don't forget to folow me on:</p>
-        <a href="#" id="facebook">fb</a>
-        <a href="#" id="twitter">tw</a>
-        <a href="#">pt</a>
-                </div>
+                </ul>
             </div>
-        </footer>
-        <!--/.Footer-->
 
-    </div>
-    <!-- Scripts -->
-    <script>    
-        window.AuthUser = '{!! auth()->user() !!}'
-        window.__auth = function () {
-            try {
-                return JSON.parse(AuthUser)
-            } catch (error) {
-                return null
-            }
-        } 
-    </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    @stack('scripts')
-    <script src="{{ asset('js/app.js') }}" defer></script>   
+            <div class="footer_links">
+                <h5>Полезные ссылки</h5>
+                <ul>
+                    <li><a href="index.html"><span>На главную</span></a></li>
+                    <li><a href="about.html"><span>О нас</span></a></li>
+                    <li><a href="contact.html"><span>Контакты</span></a></li>
+                    <li><a href="albums.html"><span>Войти</span></a></li>
+                    <li><a href="blog.html"><span>Регистрация</span></a></li>
+
+                </ul>
+            </div>
+
+            <div class="popular_posts">
+                <h5>Популярные новости</h5>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <img src="{{ asset('images/qatar.jpg') }}" height="60" width="90" alt="Photo">
+                        </a>
+                        <a href="#"><small>14 May, 2014</small></a>
+                        <a href="#">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum.</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <img src="{{ asset('images/qatar.jpg') }}" height="60" width="90" alt="Photo">
+                        </a>
+                        <a href="#"><small>14 May, 2014</small></a>
+                        <a href="#">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum.</p>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <img src="{{ asset('images/qatar.jpg') }}" height="60" width="90" alt="Photo">
+                        </a>
+                        <a href="#"><small>14 May, 2014</small></a>
+                        <a href="#">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum.</p>
+                        </a>
+                    </li>
+                </ul>
+
+
+
+            </div>
+        </div>
+
+        <div class="footer_wrapper_down">
+            <div class="footer_copyright">
+
+
+                <p> &#169; Copyright {{ date('Y') }} Airinsider. All rights reserved.</p>
+                <p>Made with love fore a better web.</p>
+            </div>
+
+            <div class="footer_newsletter">
+                <h5>Newsletter Subscribe</h5>
+                <!-- Vue component -->
+                <subscription></subscription>
+
+                <p>Don't forget to folow me on:</p>
+                <a href="#" id="facebook">fb</a>
+                <a href="#" id="twitter">tw</a>
+                <a href="#">pt</a>
+            </div>
+        </div>
+    </footer>
+    <!--/.Footer-->
+
+</div>
+<!-- Scripts -->
+<script>    
+    window.AuthUser = '{!! auth()->user() !!}'
+    window.__auth = function () {
+        try {
+            return JSON.parse(AuthUser)
+        } catch (error) {
+            return null
+        }
+    } 
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+@stack('scripts')
+<script src="{{ asset('js/app.js') }}" defer></script>   
 </body>
 </html>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Subscription;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SubscriptionController extends Controller
 {
@@ -14,17 +15,13 @@ class SubscriptionController extends Controller
      */
     public function index()
     {
-        //
-    }
+        $subscriptions = Subscription::orderBy('id', 'desc')->paginate(5);
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        if(session('success_message')){
+        Alert::success( session('success_message'))->toToast();
+        }
+
+        return view('backend.subscription.index', compact('subscriptions'));
     }
 
     /**
@@ -36,47 +33,13 @@ class SubscriptionController extends Controller
     public function store(Request $request)
     {
        $this->validate($request, [
-          'email' => 'required|email|unique:subscriptions,email'
+          'email' => 'required|email|unique:subscriptions,email|max:20'
         ]);
 
         $subscription = new Subscription();
         $subscription->email = request('email');
         $subscription->save();
         
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Subscription  $subscription
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Subscription $subscription)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Subscription  $subscription
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Subscription $subscription)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Subscription  $subscription
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Subscription $subscription)
-    {
-        //
     }
 
     /**
@@ -87,6 +50,8 @@ class SubscriptionController extends Controller
      */
     public function destroy(Subscription $subscription)
     {
-        //
+        $subscription->delete();
+
+        return redirect('dashboard/subscriptions')->withSuccessMessage('Email Deleted Successfully!');
     }
 }

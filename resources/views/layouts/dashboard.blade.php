@@ -47,7 +47,7 @@
 							<a class="sub-item" href="/dashboard/permissions">Permissions</a>
 						</li>
 						<li>
-							<a class="sub-item" href="#">Subscriptions</a>
+							<a class="sub-item" href="/dashboard/subscriptions">Subscriptions</a>
 						</li>
 					</ul>
 				</li>

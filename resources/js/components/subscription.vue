@@ -5,7 +5,7 @@
 			<button type="submit"><i class="fa fa-envelope-o"></i></button>
 			<div v-if="errors && errors.email" class="invalid-feedback">{{ errors.email[0] }}</div>		
 		</form>	
-		<h4 v-if="sent" class="sent-success">Ваш email отправлен</h4>
+		<h6 v-if="sent" class="sent-success">Ваш email отправлен</h6>
 	</div>
 </template>
 
@@ -19,7 +19,6 @@
 		}),
 		methods: {
 			submit() {								
-				this.sent = false;
 				this.errors = {};
 				axios.post('/subscriptions', {
 					email: this.email
@@ -79,7 +78,7 @@
 		text-align: left;
 	}
 
-	h4.sent-success {
+	.sent-success {
 		font-weight: normal;
 		color: #0633FF;
 	}

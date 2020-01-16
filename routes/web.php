@@ -61,8 +61,11 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
     Route::get('/trashed', 'PostController@trashed')->name('trashed');
     Route::delete('/expunge/{id}', 'PostController@expunge')->name('expunge');
     Route::post('/restore/{id}', 'PostController@restore')->name('restore');
+    //Subscription
+    Route::get('/subscriptions', 'SubscriptionController@index')->name('subscriptions.index');
+    Route::delete('/subscriptions/{subscription}', 'SubscriptionController@destroy')->name('subscriptions.destroy');
 });
 
-//Subscription
+//Subscription footer vue component
 Route::post('subscriptions/', 'SubscriptionController@store');
 
