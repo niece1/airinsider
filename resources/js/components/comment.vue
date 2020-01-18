@@ -17,6 +17,7 @@
 			<div v-if="addingReply" class="add-reply">
 				<div v-if="auth">
 					<textarea v-model='body' type="text" placeholder="Ваш ответ"></textarea>
+					<div v-if="errors && errors.body" class="invalid-feedback">{{ errors.body[0] }}</div>
 					<button @click="addReply" class="button">Ответить</button>
 				</div>
 				<div v-else>
@@ -40,7 +41,8 @@
 		data() {
 			return {
 				body: '',
-				addingReply: false
+				addingReply: false,
+				errors: {}
 			}
 		},
 		props: {
@@ -68,7 +70,11 @@
 						this.body = ''
 						this.addingReply = false
 						this.$refs.replies.addReply(data)
-					})
+					}).catch(error => {
+                    if(error.response.status === 422) {
+                        this.errors = error.response.data.errors || {};
+                    }
+                });
 				}
 			}
 
@@ -156,5 +162,12 @@
 			float: left;
 			margin-right: 15px;
 		}
+
+		.comment .replies .invalid-feedback {
+            color: #e71d43;
+            font-size: 1.4rem;
+            text-align: left;
+            margin-left: 65px;
+    }
 
 	</style>

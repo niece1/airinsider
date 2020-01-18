@@ -1871,6 +1871,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1881,7 +1882,8 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       body: '',
-      addingReply: false
+      addingReply: false,
+      errors: {}
     };
   },
   props: {
@@ -1917,6 +1919,10 @@ __webpack_require__.r(__webpack_exports__);
         _this.addingReply = false;
 
         _this.$refs.replies.addReply(data);
+      })["catch"](function (error) {
+        if (error.response.status === 422) {
+          _this.errors = error.response.data.errors || {};
+        }
       });
     }
   }
@@ -1972,6 +1978,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['post'],
@@ -1991,7 +1998,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       comments: {
         data: []
       },
-      newComment: ''
+      newComment: '',
+      errors: {}
     };
   },
   methods: {
@@ -2018,6 +2026,10 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
           data: [data].concat(_toConsumableArray(_this2.comments.data))
         });
         _this2.newComment = "";
+      })["catch"](function (error) {
+        if (error.response.status === 422) {
+          _this2.errors = error.response.data.errors || {};
+        }
       });
     }
   }
@@ -2335,7 +2347,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.comment[data-v-1d15af38] {\n\twidth: 100%;\n\tmargin: 30px 0;\n}\n.comment .comment-itself h6[data-v-1d15af38] {\n\tfont-weight: normal;\n}\n.comment .replies[data-v-1d15af38] {\n\tmargin-top: 7px;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38] {\t\n\tcursor: pointer;                \n\tfont-size: 1.5rem;\n\ttext-transform: uppercase;\n\tletter-spacing: 1px;\n\tborder: none;\n\tbackground-color: transparent;\n\toutline: none;\n\tcolor: #0633ff;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38]:hover {\n\tcolor: #e71d43;\n\ttransition: all 0.3s ease-in-out;\n\t-webkit-transition: all 0.3s ease-in-out;\n\t-o-transition: all 0.3s ease-in-out;\n}\n.comment .replies .add-reply[data-v-1d15af38] {\n\tmargin: 40px 0 0 0;\n}\n.comment .replies .login-to-answer[data-v-1d15af38] {\n\tcolor: #e71d43;\n}\n.comment .replies .add-reply textarea[data-v-1d15af38] {\n\tmargin: 0 0 0 65px;\n\tborder: none;\n\tborder-bottom: 2px solid #000;\n\toutline: none; \n\twidth: 100%; \n\tfont-size: 1.8rem;\n}\n.comment .replies .comment-likes[data-v-1d15af38] {\n\tmargin: 0 10px 0 0;\n\tfloat: left;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38] {\n\tborder: 2px solid #e71d43;\n\tpadding: 14px 30px;\n\tcursor: pointer;                \n\tfont-size: 1.5rem;\n\ttext-transform: uppercase;\n\tletter-spacing: 1px;\n\tborder-radius: 3px; \n\tbackground-color: transparent;\n\tcolor: #000;\n\tmargin: 10px 0 20px 65px;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38]:hover {\n\tbackground-color: #e71d43;\n\tcolor: #fff;\n\tborder: 2px solid #e71d43;\n\ttransition: all 0.3s ease-in-out;\n\t-webkit-transition: all 0.3s ease-in-out;\n\t-o-transition: all 0.3s ease-in-out;\n}\n.comment .comment-itself .avatar-label[data-v-1d15af38] {\n\tfloat: left;\n\tmargin-right: 15px;\n}\n\n", ""]);
+exports.push([module.i, "\n.comment[data-v-1d15af38] {\n\t\t\twidth: 100%;\n\t\t\tmargin: 30px 0;\n}\n.comment .comment-itself h6[data-v-1d15af38] {\n\t\t\tfont-weight: normal;\n}\n.comment .replies[data-v-1d15af38] {\n\t\t\tmargin-top: 7px;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38] {\t\n\t\t\tcursor: pointer;                \n\t\t\tfont-size: 1.5rem;\n\t\t\ttext-transform: uppercase;\n\t\t\tletter-spacing: 1px;\n\t\t\tborder: none;\n\t\t\tbackground-color: transparent;\n\t\t\toutline: none;\n\t\t\tcolor: #0633ff;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38]:hover {\n\t\t\tcolor: #e71d43;\n\t\t\ttransition: all 0.3s ease-in-out;\n\t\t\t-webkit-transition: all 0.3s ease-in-out;\n\t\t\t-o-transition: all 0.3s ease-in-out;\n}\n.comment .replies .add-reply[data-v-1d15af38] {\n\t\t\tmargin: 40px 0 0 0;\n}\n.comment .replies .login-to-answer[data-v-1d15af38] {\n\t\t\tcolor: #e71d43;\n}\n.comment .replies .add-reply textarea[data-v-1d15af38] {\n\t\t\tmargin: 0 0 0 65px;\n\t\t\tborder: none;\n\t\t\tborder-bottom: 2px solid #000;\n\t\t\toutline: none; \n\t\t\twidth: 100%; \n\t\t\tfont-size: 1.8rem;\n}\n.comment .replies .comment-likes[data-v-1d15af38] {\n\t\t\tmargin: 0 10px 0 0;\n\t\t\tfloat: left;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38] {\n\t\t\tborder: 2px solid #e71d43;\n\t\t\tpadding: 14px 30px;\n\t\t\tcursor: pointer;                \n\t\t\tfont-size: 1.5rem;\n\t\t\ttext-transform: uppercase;\n\t\t\tletter-spacing: 1px;\n\t\t\tborder-radius: 3px; \n\t\t\tbackground-color: transparent;\n\t\t\tcolor: #000;\n\t\t\tmargin: 10px 0 20px 65px;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38]:hover {\n\t\t\tbackground-color: #e71d43;\n\t\t\tcolor: #fff;\n\t\t\tborder: 2px solid #e71d43;\n\t\t\ttransition: all 0.3s ease-in-out;\n\t\t\t-webkit-transition: all 0.3s ease-in-out;\n\t\t\t-o-transition: all 0.3s ease-in-out;\n}\n.comment .comment-itself .avatar-label[data-v-1d15af38] {\n\t\t\tfloat: left;\n\t\t\tmargin-right: 15px;\n}\n.comment .replies .invalid-feedback[data-v-1d15af38] {\n            color: #e71d43;\n            font-size: 1.4rem;\n            text-align: left;\n            margin-left: 65px;\n}\n\n\t", ""]);
 
 // exports
 
@@ -2354,7 +2366,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.comments h4[data-v-40db853f] {\n        margin: 50px 0 20px 0;\n        font-weight: normal;\n}\n.comments p.auth-condition[data-v-40db853f] {\n        color: #e71d43;\n}\n.comments .comments-form textarea[data-v-40db853f] {\n\t\tborder: none;\n\t\tborder-bottom: 2px solid #000;\n        outline: none; \n        width: 100%; \n        font-size: 1.8rem;\n}\n.comments .comments-form textarea[data-v-40db853f]::-webkit-input-placeholder {\n        color: #4e4e4e;\n        opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-moz-placeholder {\n        color: #4e4e4e;\n        opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]:-ms-input-placeholder {\n        color: #4e4e4e;\n        opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-ms-input-placeholder {\n        color: #4e4e4e;\n        opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::placeholder {\n        color: #4e4e4e;\n        opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-webkit-input-placeholder {\n        color: #4e4e4e;\n}\n.comments .comments-form button.button[data-v-40db853f] {\n\t\tborder: 2px solid #e71d43;\n        padding: 14px 30px;\n        cursor: pointer;                \n        font-size: 1.5rem;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        border-radius: 3px; \n        background-color: transparent;\n        color: #000;\n        margin: 10px 0 20px 0;\n}\n.comments .comments-form button.button[data-v-40db853f]:hover {\n\t\tbackground-color: #e71d43;\n        color: #fff;\n        border: 2px solid #e71d43;\n        transition: all 0.3s ease-in-out;\n        -webkit-transition: all 0.3s ease-in-out;\n        -o-transition: all 0.3s ease-in-out;\n}\n.comments .comments-form button.button[data-v-40db853f]:not(:hover) {\n\t\tbackground-color: transparent;\n        color: #000;\n        transition: all 0.3s ease-in-out;\n}\n.comments .more-comments button.button[data-v-40db853f] {\n        cursor: pointer;\n        border: 2px solid #e71d43;\n        padding: 14px 30px;\n        font-size: 1.5rem;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        border-radius: 3px; \n        background-color: transparent;\n        color: #000;\n        margin: 5px 0;\n}\n.comments .more-comments button.button[data-v-40db853f]:hover {\n        background-color: #e71d43;\n        color: #fff;\n        border: 2px solid #e71d43;\n        transition: all 0.3s ease-in-out;\n        -webkit-transition: all 0.3s ease-in-out;\n        -o-transition: all 0.3s ease-in-out;\n}\n\t\n", ""]);
+exports.push([module.i, "\n.comments h4[data-v-40db853f] {\n        margin: 50px 0 20px 0;\n        font-weight: normal;\n}\n.comments p.auth-condition[data-v-40db853f] {\n        color: #e71d43;\n}\n.comments .comments-form textarea[data-v-40db853f] {\n\t\tborder: none;\n\t\tborder-bottom: 2px solid #000;\n        outline: none; \n        width: 100%; \n        font-size: 1.8rem;\n}\n.comments .comments-form textarea[data-v-40db853f]::-webkit-input-placeholder {\n        color: #4e4e4e;\n        opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-moz-placeholder {\n        color: #4e4e4e;\n        opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]:-ms-input-placeholder {\n        color: #4e4e4e;\n        opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-ms-input-placeholder {\n        color: #4e4e4e;\n        opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::placeholder {\n        color: #4e4e4e;\n        opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-webkit-input-placeholder {\n        color: #4e4e4e;\n}\n.comments .comments-form button.button[data-v-40db853f] {\n\t\tborder: 2px solid #e71d43;\n        padding: 14px 30px;\n        cursor: pointer;                \n        font-size: 1.5rem;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        border-radius: 3px; \n        background-color: transparent;\n        color: #000;\n        margin: 10px 0 20px 0;\n}\n.comments .comments-form button.button[data-v-40db853f]:hover {\n\t\tbackground-color: #e71d43;\n        color: #fff;\n        border: 2px solid #e71d43;\n        transition: all 0.3s ease-in-out;\n        -webkit-transition: all 0.3s ease-in-out;\n        -o-transition: all 0.3s ease-in-out;\n}\n.comments .comments-form button.button[data-v-40db853f]:not(:hover) {\n\t\tbackground-color: transparent;\n        color: #000;\n        transition: all 0.3s ease-in-out;\n}\n.comments .more-comments button.button[data-v-40db853f] {\n        cursor: pointer;\n        border: 2px solid #e71d43;\n        padding: 14px 30px;\n        font-size: 1.5rem;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        border-radius: 3px; \n        background-color: transparent;\n        color: #000;\n        margin: 5px 0;\n}\n.comments .more-comments button.button[data-v-40db853f]:hover {\n        background-color: #e71d43;\n        color: #fff;\n        border: 2px solid #e71d43;\n        transition: all 0.3s ease-in-out;\n        -webkit-transition: all 0.3s ease-in-out;\n        -o-transition: all 0.3s ease-in-out;\n}\n.comments .comments-form .invalid-feedback[data-v-40db853f] {\n        color: #e71d43;\n        font-size: 1.4rem;\n        text-align: left;\n}\n\t\n", ""]);
 
 // exports
 
@@ -21895,6 +21907,12 @@ var render = function() {
                       }
                     }),
                     _vm._v(" "),
+                    _vm.errors && _vm.errors.body
+                      ? _c("div", { staticClass: "invalid-feedback" }, [
+                          _vm._v(_vm._s(_vm.errors.body[0]))
+                        ])
+                      : _vm._e(),
+                    _vm._v(" "),
                     _c(
                       "button",
                       { staticClass: "button", on: { click: _vm.addReply } },
@@ -21965,6 +21983,12 @@ var render = function() {
                 }
               }
             }),
+            _vm._v(" "),
+            _vm.errors && _vm.errors.body
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(_vm._s(_vm.errors.body[0]))
+                ])
+              : _vm._e(),
             _vm._v(" "),
             _c(
               "button",

@@ -3,6 +3,7 @@
         <h4>Комментарии</h4>
     	<div v-if="auth" class="comments-form">
     		<textarea v-model="newComment" type="text" placeholder="Ваш комментарий"></textarea>
+            <div v-if="errors && errors.body" class="invalid-feedback">{{ errors.body[0] }}</div>
     		<button class="button" @click="addComment">Добавить комментарий</button>
     	</div>
         <div v-else>
@@ -42,7 +43,8 @@
             comments: {
                 data: []
             },
-            newComment: ''
+            newComment: '',
+            errors: {}
         }),
         methods: {
             fetchComments() {
@@ -70,7 +72,11 @@
                         ]
                     };
                     this.newComment= "";
-                })
+                }).catch(error => {
+                    if(error.response.status === 422) {
+                        this.errors = error.response.data.errors || {};
+                    }
+                });
             }
         }
     }
@@ -151,6 +157,12 @@
         transition: all 0.3s ease-in-out;
         -webkit-transition: all 0.3s ease-in-out;
         -o-transition: all 0.3s ease-in-out;
+    }
+
+    .comments .comments-form .invalid-feedback {
+        color: #e71d43;
+        font-size: 1.4rem;
+        text-align: left;
     }
 	
 </style>

@@ -15,6 +15,9 @@ class CommentController extends Controller
 
     public function store(Request $request, Post $post)
     {
+        $this->validate($request, [
+          'body' => 'min:2|max:300'
+        ]);
     	
         return auth()->user()->comments()->create([
             'body' => $request->body,
