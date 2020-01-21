@@ -12,7 +12,8 @@
 
 <section class="dashboard">
 
-	<div class="dashboard-wrapper">		
+	<div class="dashboard-wrapper">	
+		<a href="/dashboard/posts" class="back">Back</a>	
 		<div class="well">
 			<div class="well-title">
 				<h5>Trashed Post List</h5>
@@ -38,24 +39,23 @@
 						<td>{{ $post->deleted_at }}</td>
 						<td>{{ $post->viewed }}</td>
 						<td>{{ $post->category->title }}</td>
-						<td><form action="{{ route('restore', $post->id) }}" method="post">
-								
-								@csrf
-								<button type="submit" class="action-button-green">Restore</button>
-							</form>
-							<form action="{{ route('expunge', $post->id) }}" method="post">
-								@method('DELETE')
-								@csrf
-								<button type="submit" class="action-button-red">Delete</button>
-							</form>
-						</td>
-					</tr>				
-					@endforeach
-				</table>
+						<td><form action="{{ route('restore', $post->id) }}" method="post">							
+							@csrf
+							<button type="submit" class="action-button-green">Restore</button>
+						</form>
+						<form action="{{ route('expunge', $post->id) }}" method="post">
+							@method('DELETE')
+							@csrf
+							<button type="submit" class="action-button-red">Delete</button>
+						</form>
+					</td>
+				</tr>				
+				@endforeach
+			</table>
 
-			</div>
 		</div>
 	</div>
+</div>
 
 </section>
 

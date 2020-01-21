@@ -111,12 +111,6 @@ $(".contact-slider-wrapper").slick({
 //Sticky sidebar
 $(".sidebar").stick_in_parent({offset_top: 120});
 
-//Input footer newsletter underline animation
-const wrapper = document.querySelector(".input-wrapper"),
-    textInput = document.querySelector("input#newsletter");
-textInput.addEventListener("keyup", event => {
-    wrapper.setAttribute("data-text", event.target.value);
-});
 
 
 

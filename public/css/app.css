@@ -1806,9 +1806,9 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
 
 .dashboard .dashboard-wrapper a.back {
   border: 2px solid #0633ff;
-  padding: 13px 30px;
+  padding: 14px 30px;
   display: inline-block;
-  margin: 20px 0 0 0;
+  margin: 20px 0;
   font-size: 1.5rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -1843,7 +1843,7 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   letter-spacing: 1px;
   border-radius: 3px;
   background-color: transparent;
-  margin: 0 0 0 5px;
+  margin: 20px 0 0 0;
   color: #000;
 }
 

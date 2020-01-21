@@ -46,9 +46,9 @@
 					<textarea type="text" name="message" placeholder="Message" autocomplete="message">{{ old('message') }}</textarea>
 					<div class="invalid-feedback">{{ $errors->first('message') }}</div>                                
 				</div>
-				@csrf
+				@captcha
 				<button type="submit" class="button">Send</button>
-
+                @csrf
 			</form>
 			@endif
 		</div>

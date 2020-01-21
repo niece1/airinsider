@@ -13,7 +13,7 @@
 <section class="dashboard">
 
 	<div class="dashboard-wrapper">
-		
+		<a href="/dashboard/posts/" class="back">Back</a>
 		<div class="well">
 			<div class="well-title">
 				<h5>{{ $post->title }}</h5>
@@ -78,7 +78,7 @@
 
 			</div>
 		</div>
-		<a href="/dashboard/posts/" class="back">Back</a>
+				
 		<form action="{{ route('posts.destroy', $post->id) }}" method="post">
 			@method('DELETE')
 			@csrf

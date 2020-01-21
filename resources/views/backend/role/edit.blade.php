@@ -19,7 +19,7 @@
 <section class="dashboard">
 
 	<div class="dashboard-wrapper">
-		
+		<a href="/dashboard/roles" class="back">Back</a>
 		<div class="well">
 			<div class="well-title">
 				<h5>Edit Role</h5>
@@ -43,8 +43,8 @@
 @push('scripts')
 <script src="{{ asset('js/select2.min.js') }}"></script>
 <script type="text/javascript">
-  $(document).ready(function() {
-    $('.permission-select-for-role').select2();
-});
+	$(document).ready(function() {
+		$('.permission-select-for-role').select2();
+	});
 </script>
 @endpush

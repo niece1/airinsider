@@ -34522,12 +34522,6 @@ $(document).ready(function () {
 
 $(".sidebar").stick_in_parent({
   offset_top: 120
-}); //Input footer newsletter underline animation
-
-var wrapper = document.querySelector(".input-wrapper"),
-    textInput = document.querySelector("input#newsletter");
-textInput.addEventListener("keyup", function (event) {
-  wrapper.setAttribute("data-text", event.target.value);
 });
 
 /***/ }),

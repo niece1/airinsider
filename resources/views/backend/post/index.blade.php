@@ -9,7 +9,6 @@
 </section>
 
 <section class="dashboard">
-
 	<div class="dashboard-wrapper">
 		<a href="/dashboard/posts/create" class="button">Add Post</a>
 		<div class="well">

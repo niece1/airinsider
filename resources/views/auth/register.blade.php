@@ -65,6 +65,7 @@
                 </div>
             </div>
 
+           
 
             <button type="submit" class="button">
                 {{ __('Register') }}

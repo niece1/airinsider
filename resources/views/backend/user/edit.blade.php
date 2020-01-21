@@ -13,7 +13,7 @@
 <section class="dashboard">
 
 	<div class="dashboard-wrapper">
-		
+		<a href="/dashboard/users" class="back">Back</a>
 		<div class="well">
 			<div class="well-title">
 				<h5>Edit User</h5>
@@ -32,8 +32,8 @@
 						<p class="attach-role">Attach role</p>
 						@foreach($roles as $role)
 						<label class="checkbox-container">{{ $role->title }}
-						<input class="checkbox" type="checkbox" name="role_id[]" value="{{ $role->id }}"{{ in_array($role->id, $user->roles->pluck('id')->toArray()) ? 'checked' : ''}}>
-						<span class="checkmark"></span>
+							<input class="checkbox" type="checkbox" name="role_id[]" value="{{ $role->id }}"{{ in_array($role->id, $user->roles->pluck('id')->toArray()) ? 'checked' : ''}}>
+							<span class="checkmark"></span>
 						</label><br>
 						@endforeach
 					</div>
