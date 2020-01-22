@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Subscription;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Exports\SubscriptionExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class SubscriptionController extends Controller
 {
@@ -53,5 +55,15 @@ class SubscriptionController extends Controller
         $subscription->delete();
 
         return redirect('dashboard/subscriptions')->withSuccessMessage('Email Deleted Successfully!');
+    }
+
+    public function exportExcel() 
+    {
+        return Excel::download(new SubscriptionExport, 'subscriptions.xlsx');
+    }
+
+    public function exportCsv() 
+    {
+        return Excel::download(new SubscriptionExport, 'subscriptions.csv');
     }
 }

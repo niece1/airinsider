@@ -65,7 +65,7 @@
                 </div>
             </div>
 
-           
+           @captcha
 
             <button type="submit" class="button">
                 {{ __('Register') }}

@@ -31,28 +31,6 @@
                 </div>
                 <nav>
                     <ul>
-                        <li>
-                            <a href="#">О нас</a>
-
-                        </li>
-                        <li>
-                            <a href="{{ route('contact') }}">Контакты</a>
-
-                        </li>
-                        <li class="sub-menu">
-                            <a href="#">Категории</a>
-                            <ul>
-                                <li>
-                                    <a class="sub-item" href="#">История</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item" href="#">Проишествия</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item" href="#">Скидки</a>
-                                </li>
-                            </ul>
-                        </li>
                         @guest
                         <li>
                             <a href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -78,6 +56,30 @@
                         </ul>
                     </li>
                     @endauth
+                        <li>
+                            <a href="#">О нас</a>
+
+                        </li>
+                        
+                        <li class="sub-menu">
+                            <a href="#">Категории</a>
+                            <ul>
+                                <li>
+                                    <a class="sub-item" href="#">История</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item" href="#">Проишествия</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item" href="#">Скидки</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                    <li>
+                            <a href="{{ route('contact') }}">Контакты</a>
+
+                        </li>
                 </ul>
 
             </nav>

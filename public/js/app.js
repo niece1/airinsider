@@ -2317,7 +2317,6 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
-      this.errors = {};
       axios.post('/subscriptions', {
         email: this.email
       }).then(function (response) {
@@ -34468,6 +34467,13 @@ $(document).ready(function () {
   $("ul li").click(function () {
     $(this).siblings().removeClass("active");
     $(this).toggleClass("active");
+  });
+  $(document).mouseup(function (e) {
+    var div = $("ul li");
+
+    if (!div.is(e.target) && div.has(e.target).length === 0) {
+      div.removeClass("active");
+    }
   }); // Hamburger icon animation
 
   $(".menu-toggle").on("click", function () {

@@ -19,7 +19,6 @@
 		}),
 		methods: {
 			submit() {								
-				this.errors = {};
 				axios.post('/subscriptions', {
 					email: this.email
 				}).then(response => {

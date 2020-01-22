@@ -30,45 +30,9 @@
 		</div>
 		<nav>
 			<ul>
-				<li>
-					<a href="/dashboard/trashed">Trashed posts</a>
-
-				</li>
-				<li class="sub-menu">
-					<a href="#">User board</a>
-					<ul>
-						<li>
-							<a class="sub-item" href="/dashboard/users">Users</a>
-						</li>
-						<li>
-							<a class="sub-item" href="/dashboard/roles">Roles</a>
-						</li>
-						<li>
-							<a class="sub-item" href="/dashboard/permissions">Permissions</a>
-						</li>
-						<li>
-							<a class="sub-item" href="/dashboard/subscriptions">Subscriptions</a>
-						</li>
-					</ul>
-				</li>
-				<li class="sub-menu">
-					<a href="#">Post board</a>
-					<ul>
-						<li>
-							<a class="sub-item" href="/dashboard/posts">Posts</a>
-						</li>
-						<li>
-							<a class="sub-item" href="/dashboard/categories">Categories</a>
-						</li>
-						<li>
-							<a class="sub-item" href="/dashboard/tags">Tags</a>
-						</li>						
-					</ul>
-				</li>
-
 				@auth
 				<li class="sub-menu">
-					<a href="#">{{ Auth::user()->name }}</a>
+					<a href="javascript:void(0)">{{ Auth::user()->name }}</a>
 					<ul>
 						<li>
 							<a href="{{ route('logout') }}" class="sub-item" onclick="event.preventDefault();
@@ -84,6 +48,42 @@
 				</ul>
 			</li>
 			@endauth
+			
+			<li class="sub-menu">
+				<a href="javascript:void(0)">User board</a>
+				<ul>
+					<li>
+						<a class="sub-item" href="/dashboard/users">Users</a>
+					</li>
+					<li>
+						<a class="sub-item" href="/dashboard/roles">Roles</a>
+					</li>
+					<li>
+						<a class="sub-item" href="/dashboard/permissions">Permissions</a>
+					</li>
+					<li>
+						<a class="sub-item" href="/dashboard/subscriptions">Subscriptions</a>
+					</li>
+				</ul>
+			</li>
+			<li class="sub-menu">
+				<a href="javascript:void(0)">Post board</a>
+				<ul>
+					<li>
+						<a class="sub-item" href="/dashboard/posts">Posts</a>
+					</li>
+					<li>
+						<a class="sub-item" href="/dashboard/categories">Categories</a>
+					</li>
+					<li>
+						<a class="sub-item" href="/dashboard/tags">Tags</a>
+					</li>						
+				</ul>
+			</li>	
+			<li>
+				<a href="/dashboard/trashed">Trashed posts</a>
+
+			</li>			
 		</ul>
 
 	</nav>
@@ -106,16 +106,16 @@
 
 	<!--Footer-->
 
-    <footer id="dashboard-footer">
-        <div class="dashboard-footer-wrapper">
-        	<p><a href="{{ url('/') }}">Airinsider</a></p>
-        </div>
-    </footer>
+	<footer id="dashboard-footer">
+		<div class="dashboard-footer-wrapper">
+			<p><a href="{{ url('/') }}">Airinsider</a></p>
+		</div>
+	</footer>
 
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	@stack('scripts')
 	<script src="{{ asset('js/app.js') }}" defer></script> 
 	@include('sweetalert::alert')
-	  
+	
 </body>
 </html>

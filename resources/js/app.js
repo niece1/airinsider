@@ -47,6 +47,11 @@ $(document).ready(function() {
         $(this).toggleClass("active");
     });
 
+    $(document).mouseup(function(e) {
+        var div = $("ul li");
+        if(!div.is(e.target) && div.has(e.target).length === 0){div.removeClass("active");}
+    });
+
     // Hamburger icon animation
     $(".menu-toggle").on("click", function() {
         $(".hamburger-menu").toggleClass("animate");

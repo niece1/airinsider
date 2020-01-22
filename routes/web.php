@@ -64,6 +64,9 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
     //Subscription
     Route::get('/subscriptions', 'SubscriptionController@index')->name('subscriptions.index');
     Route::delete('/subscriptions/{subscription}', 'SubscriptionController@destroy')->name('subscriptions.destroy');
+    //Excel and Csv export
+    Route::get('/exportExcel', 'SubscriptionController@exportExcel')->name('export.excel');
+    Route::get('/exportCsv', 'SubscriptionController@exportCsv')->name('export.csv');
 });
 
 //Subscription footer vue component
