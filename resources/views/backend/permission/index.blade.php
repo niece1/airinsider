@@ -37,7 +37,7 @@
 							<form action="{{ route('permissions.destroy', $permission->id) }}" method="post">
 								@method('DELETE')
 								@csrf
-								<button type="submit" class="action-button-red">Delete</button>
+								<button type="submit" class="action-button-red" onsubmit="return confirm('Delete permission?')">Delete</button>
 							</form>
 						</td>
 					</tr>				

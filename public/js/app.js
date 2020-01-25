@@ -34494,7 +34494,8 @@ $(document).ready(function () {
     } else {
       $("header").removeClass('fixed');
     }
-  });
+  }); //Slick slider
+
   $(".contact-slider-wrapper").slick({
     infinite: true,
     draggable: true,

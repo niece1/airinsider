@@ -15,9 +15,7 @@
 			<div class="well-title">
 				<h5>Post List</h5>
 			</div>
-
 			<div class="well-content">
-
 				<table>
 					<tr>
 						<th>ID</th>
@@ -47,11 +45,9 @@
 					</tr>				
 					@endforeach
 				</table>
-
 			</div>
 		</div>
 	</div>
-
 </section>
 
 <section class="news-pagination">

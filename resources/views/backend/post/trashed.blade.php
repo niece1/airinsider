@@ -18,9 +18,7 @@
 			<div class="well-title">
 				<h5>Trashed Post List</h5>
 			</div>
-
 			<div class="well-content">
-
 				<table>
 					<tr>
 						<th>ID</th>
@@ -39,25 +37,29 @@
 						<td>{{ $post->deleted_at }}</td>
 						<td>{{ $post->viewed }}</td>
 						<td>{{ $post->category->title }}</td>
-						<td><form action="{{ route('restore', $post->id) }}" method="post">							
+						<td>
+							<form action="{{ route('restore', $post->id) }}" method="post">							
 							@csrf
 							<button type="submit" class="action-button-green">Restore</button>
 						</form>
-						<form action="{{ route('expunge', $post->id) }}" method="post">
+						<form action="{{ route('expunge', $post->id) }}" method="post" onsubmit="return confirm('Delete post?')">
 							@method('DELETE')
 							@csrf
 							<button type="submit" class="action-button-red">Delete</button>
 						</form>
+						<!--Modal-->
+
 					</td>
-				</tr>				
+				</tr>
+
 				@endforeach
 			</table>
 
 		</div>
 	</div>
 </div>
-
 </section>
+
 
 
 @endsection

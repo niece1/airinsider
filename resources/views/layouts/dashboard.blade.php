@@ -48,7 +48,7 @@
 				</ul>
 			</li>
 			@endauth
-			
+
 			<li class="sub-menu">
 				<a href="javascript:void(0)">User board</a>
 				<ul>
@@ -102,7 +102,7 @@
 
 	<main>			
 		@yield('content')
-	</main>
+	</main>    
 
 	<!--Footer-->
 
@@ -116,6 +116,6 @@
 	@stack('scripts')
 	<script src="{{ asset('js/app.js') }}" defer></script> 
 	@include('sweetalert::alert')
-	
+
 </body>
 </html>
