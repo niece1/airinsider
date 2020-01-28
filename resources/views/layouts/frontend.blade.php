@@ -30,7 +30,31 @@
                     <a href="{{ url('/') }}">авиа<span class="logo-span">инсайдер</span></a>
                 </div>
                 <nav>
-                    <ul>
+                    <ul>                       
+                        <li>
+                            <a href="#">О нас</a>
+
+                        </li>
+                        
+                        <li class="sub-menu">
+                            <a href="javascript:void(0)">Категории</a>
+                            <ul>
+                                <li>
+                                    <a class="sub-item" href="#">История</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item" href="#">Проишествия</a>
+                                </li>
+                                <li>
+                                    <a class="sub-item" href="#">Скидки</a>
+                                </li>
+                            </ul>
+                        </li>
+                        
+                        <li>
+                            <a href="{{ route('contact') }}">Контакты</a>
+
+                        </li>
                         @guest
                         <li>
                             <a href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -38,7 +62,7 @@
                         @endguest
                         @auth
                         <li class="sub-menu">
-                            <a href="#">{{ Auth::user()->name }}</a>
+                            <a href="javascript:void(0)">{{ Auth::user()->name }}</a>
                             <ul>
                                 <li>
                                     <a href="{{ route('logout') }}" class="sub-item" onclick="event.preventDefault();
@@ -56,30 +80,9 @@
                         </ul>
                     </li>
                     @endauth
-                        <li>
-                            <a href="#">О нас</a>
-
-                        </li>
-                        
-                        <li class="sub-menu">
-                            <a href="#">Категории</a>
-                            <ul>
-                                <li>
-                                    <a class="sub-item" href="#">История</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item" href="#">Проишествия</a>
-                                </li>
-                                <li>
-                                    <a class="sub-item" href="#">Скидки</a>
-                                </li>
-                            </ul>
-                        </li>
-                        
                     <li>
-                            <a href="{{ route('contact') }}">Контакты</a>
-
-                        </li>
+                        <a href=""><i class="fas fa-search"></i></a>
+                    </li>
                 </ul>
 
             </nav>
@@ -133,41 +136,7 @@
             </div>
 
             <div class="popular_posts">
-                <h5>Популярные новости</h5>
-                <ul>
-                    <li>
-                        <a href="#">
-                            <img src="{{ asset('images/qatar.jpg') }}" height="60" width="90" alt="Photo">
-                        </a>
-                        <a href="#"><small>14 May, 2014</small></a>
-                        <a href="#">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum.</p>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <img src="{{ asset('images/qatar.jpg') }}" height="60" width="90" alt="Photo">
-                        </a>
-                        <a href="#"><small>14 May, 2014</small></a>
-                        <a href="#">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum.</p>
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="#">
-                            <img src="{{ asset('images/qatar.jpg') }}" height="60" width="90" alt="Photo">
-                        </a>
-                        <a href="#"><small>14 May, 2014</small></a>
-                        <a href="#">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum.</p>
-                        </a>
-                    </li>
-                </ul>
-
-
-
+                @include('layouts.partials.popular-posts')
             </div>
         </div>
 

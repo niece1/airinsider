@@ -34,37 +34,23 @@
 		</div>
 		<aside class="sidebar">
 
-			<div class="search-widget">
-				<form action="#">
-					<input type="text" name="search" placeholder="Search">
-					<button class="submit"><i class="fas fa-search"></i></button>
-				</form>
-			</div>
-
 			<div class="related-posts-widget">
 				<h2>Related posts</h2>
 				@foreach ($related as $post)
 				<ul class="related">
 					<li>
-						<a href="#">
-							<img src="{{ $post->photo->path ?? '' }}" alt="Photo">
+						@if($post->photo)
+						<a href="{{ route('post.show', [$post->slug]) }}">
+							<img src="{{ asset('storage/'.$post->photo->path) }}" alt="Photo">
 						</a>
+						@endif
 						<div class="post-content">
 							<p>
-								<a href="#">{{ $post->title }}</a>
+								<a href="{{ route('post.show', [$post->slug]) }}">{{ $post->title }}</a>
 							</p>
-							<small>September 7, 2019</small>
+							<small>{{ $post->date }}</small>
 						</div>
 					</li>
-				</ul>
-				@endforeach
-			</div>
-
-			<div class="category-widget">
-				<h2>Categories</h2>
-				@foreach ($categories as $category)
-				<ul class="category-list">
-					<li><a href="{{ route('category', [$category->id]) }}">{{ $category->title }}</a></li>
 				</ul>
 				@endforeach
 			</div>
@@ -76,6 +62,15 @@
 					<a href="{{ route('tag', [$tag->id]) }}">{{ $tag->title }}</a>
 					@endforeach
 				</div>				
+			</div>
+
+			<div class="category-widget">
+				<h2>Categories</h2>
+				@foreach ($categories as $category)
+				<ul class="category-list">
+					<li><a href="{{ route('category', [$category->id]) }}">{{ $category->title }}</a></li>
+				</ul>
+				@endforeach
 			</div>
 
 		</aside>

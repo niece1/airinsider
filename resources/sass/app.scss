@@ -749,7 +749,7 @@ footer {
         }
       }
       .popular_posts {
-        padding: 30px 0 0 0;
+        padding: 30px 0;
         
         h5 {
           font-weight: normal;
@@ -760,17 +760,18 @@ footer {
           padding-left: 0;
           li {
             margin: 3px 0;
+            clear: left;
             a {
               color: #000;
               img {
                 float: left;
-                margin: 0 10px 0 0;
+                margin: 3px 10px 3px 0;
               }
             }
             small {
               font-size: 1rem;
               text-transform: uppercase;
-              color: #d2a289;
+              color: #0633ff;
             }
             p {
               color: #4e4e4e;
@@ -810,7 +811,7 @@ footer {
           margin: 15px 0;
         }
         a {
-          color: #bf5c30;
+          color: #000;
           font-size: 1.8rem;
           position: relative;
           margin: 0 45px 0 0;          
@@ -1268,50 +1269,15 @@ footer {
                 margin: 40px 0 0 0;
                 width: 100%;
             }
-            .search-widget {
-                form {
-                    position: relative;
-                    input {
-                        border: 0;
-                        border-bottom: 2px solid #cccccc;
-                        width: 100%;
-                        color: #000;
-                        font-size: 1.8rem;
-                        outline: none;
-                        padding: 10px 0;
-                        &::placeholdr {
-                            color: #000;
-                            opacity: 1;
-                        }
-                        &::-webkit-input-placeholder {
-                            color: #000;
-                        }
-                    }
-                    button {
-                        position: absolute;
-                        top: 0;
-                        bottom: 0;
-                        right: 0;
-                        border: none;
-                        background: transparent;
-                        outline: none;
-                        font-size: 1.8rem;
-                        color: #000;
-                        cursor: pointer;
-                        padding: 0 3px;
-                    }
-                }
-            }
             .related-posts-widget {
-                margin: 30px 0;
+                margin: 0 0 30px 0;
                 h2 {
                     font-weight: normal;
                     margin-bottom: 30px;
                 }
                 ul.related {
                     li {
-                        clear: left;
-                        
+                        clear: left;                       
                         a {                           
                             img {
                                 width: 90px;
@@ -1328,7 +1294,7 @@ footer {
                                 display: block;
                                 font-size: 1.6rem;
                                 margin-bottom: 5px;
-                                margin: 10px 0 0 0;
+                                padding: 10px 0 0 0;
                                 a {
                                     color: #000;
                                     &:hover {
@@ -1351,8 +1317,7 @@ footer {
                 margin: 30px 0;
                 h2 {
                     font-weight: normal;
-                    margin-bottom: 30px;
-                    clear: left;
+                    margin-bottom: 30px;                   
                 }
                 ul.category-list {
                     font-size: 1.8rem;
@@ -1369,10 +1334,12 @@ footer {
                 }
             }
             .tag-widget {
-                margin: 30px 0;
+                margin: 70px 0 30px 0;
+                clear: left;
                 h2 {
                    font-weight: normal;
-                   margin-bottom: 30px; 
+                   margin-bottom: 30px;
+                    
                 }
                 .tag-cloud {
                     font-size: 1.8rem;

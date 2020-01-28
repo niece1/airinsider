@@ -90,4 +90,5 @@ class LoginController extends Controller
             'last_login_ip_address' => $request->ip(),
         ]);
     }
+
 }

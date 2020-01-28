@@ -53,5 +53,5 @@ class FrontendController extends Controller
 
         return view('frontend.user', compact('news_by_user', 'user'));
     }
-    
+
 }

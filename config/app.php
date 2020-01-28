@@ -175,7 +175,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class, 
-        AlbertCht\InvisibleReCaptcha\InvisibleReCaptchaServiceProvider::class,       
+        AlbertCht\InvisibleReCaptcha\InvisibleReCaptchaServiceProvider::class, 
+        App\Providers\FooterServiceProvider::class,      
     ],
 
     /*

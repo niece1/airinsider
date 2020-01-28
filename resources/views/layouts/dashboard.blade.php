@@ -29,7 +29,36 @@
 			<a href="{{ url('/') }}">авиа<span class="logo-span">инсайдер</span></a>
 		</div>
 		<nav>
-			<ul>
+			<ul>				
+				<li class="sub-menu">
+					<a href="javascript:void(0)">Board</a>
+					<ul>
+						<li>
+							<a class="sub-item" href="/dashboard/users">Users</a>
+						</li>
+						<li>
+							<a class="sub-item" href="/dashboard/roles">Roles</a>
+						</li>
+						<li>
+							<a class="sub-item" href="/dashboard/permissions">Permissions</a>
+						</li>
+						<li>
+							<a class="sub-item" href="/dashboard/subscriptions">Subscriptions</a>
+						</li>
+						<li>
+							<a class="sub-item" href="/dashboard/posts">Posts</a>
+						</li>
+						<li>
+							<a class="sub-item" href="/dashboard/categories">Categories</a>
+						</li>
+						<li>
+							<a class="sub-item" href="/dashboard/tags">Tags</a>
+						</li>
+					</ul>
+				</li>
+				<li>
+					<a href="/dashboard/trashed">Trashed posts</a>
+				</li>	
 				@auth
 				<li class="sub-menu">
 					<a href="javascript:void(0)">{{ Auth::user()->name }}</a>
@@ -48,44 +77,10 @@
 				</ul>
 			</li>
 			@endauth
-
-			<li class="sub-menu">
-				<a href="javascript:void(0)">User board</a>
-				<ul>
-					<li>
-						<a class="sub-item" href="/dashboard/users">Users</a>
-					</li>
-					<li>
-						<a class="sub-item" href="/dashboard/roles">Roles</a>
-					</li>
-					<li>
-						<a class="sub-item" href="/dashboard/permissions">Permissions</a>
-					</li>
-					<li>
-						<a class="sub-item" href="/dashboard/subscriptions">Subscriptions</a>
-					</li>
-				</ul>
-			</li>
-			<li class="sub-menu">
-				<a href="javascript:void(0)">Post board</a>
-				<ul>
-					<li>
-						<a class="sub-item" href="/dashboard/posts">Posts</a>
-					</li>
-					<li>
-						<a class="sub-item" href="/dashboard/categories">Categories</a>
-					</li>
-					<li>
-						<a class="sub-item" href="/dashboard/tags">Tags</a>
-					</li>						
-				</ul>
-			</li>	
 			<li>
-				<a href="/dashboard/trashed">Trashed posts</a>
-
-			</li>			
+				<a href=""><i class="fas fa-search"></i></a>
+			</li>		
 		</ul>
-
 	</nav>
 
 	<div class="menu-toggle">
