@@ -95,19 +95,26 @@ $(".contact-slider-wrapper").slick({
   nextArrow: $('#right-arrow'),
   responsive: [
   {
-    breakpoint: 1024,
+    breakpoint: 1400,
     settings: {
       slidesToShow: 3,
       slidesToScroll: 1,
     }
   },   
   {
-    breakpoint: 600,
+    breakpoint: 1150,
     settings: {
-      slidesToShow: 1,
+      slidesToShow: 2,
       slidesToScroll: 1
     }
-  }
+  },
+  {
+    breakpoint: 800,
+    settings: {
+      slidesToShow: 1,
+      slidesToScroll: 1,
+    }
+  },  
   ]      
 });
 });

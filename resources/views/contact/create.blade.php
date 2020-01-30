@@ -14,7 +14,7 @@
 	<div class="contact-page-wrapper">
 
 		<div class="contact-us">
-			<h2>Don'nt be shy...</h2>
+			<h2>Не стесняйтесь...</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis veniam unde tenetur ullam.</p>
 			<h5>social media</h5>
 			<p class="contact-social">
@@ -26,7 +26,7 @@
 
 		<div class="contact-form">
 						
-			<h2>Write to us</h2>
+			<h2>Заполните форму</h2>
             <div class="alert">{{ session()->get('message') }}</div>
 			@if(!session()->has('message'))
 
@@ -54,7 +54,7 @@
 		</div>
 
 		<div class="right-column">
-			<h2>Our office</h2>
+			<h2>Наш офис</h2>
 		</div>
 
 	</div>
@@ -65,10 +65,12 @@
 <div class="contact-slider">
 	<div class="contact-slider-wrapper">
   @foreach ($random_news as $news_item)
-        <div class="item ">
+        <div class="item">
+        	@if($news_item->photo)
             <div class="image-holder">
-                <a href="{{ route('post.show', [$news_item->slug]) }}"><img src="{{ $news_item->photo->path ?? ''  }}" alt="Photo"></a>
+                <a href="{{ route('post.show', [$news_item->slug]) }}"><img src="{{ asset('storage/'.$news_item->photo->path) }}" alt="Photo"></a>
             </div>
+            @endif
             <div class="item-content">
                 <a href="{{ route('post.show', [$news_item->slug]) }}">
                     <h6>{{ $news_item->title }}</h6>
@@ -76,7 +78,7 @@
                 <p class="item-blog-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo, accusantium?</p>
                 <p class="item-blog-author"><i class="fas fa-user-edit"></i>By <a href="{{ route('user', [$news_item->user->id]) }}">{{ $news_item->user->name }}</a></p>
                 <p><i class="fas fa-clock"></i>{{ $news_item->time_to_read }} minutes to read</p>
-                <p class="item-blog-date">October5, 2019</p>
+                <p class="item-blog-date">{{ $news_item->date }}</p>
                 <p class="item-blog-comment">Comments: {{ $news_item->comments->count() }}</p>
                 <div class="blog-line">
                 </div>

@@ -2422,7 +2422,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.input-wrapper[data-v-7e49b268] {\n\twidth: 100%;\n\tmargin: 5px auto;\n\tposition: relative;\n}\n.input-wrapper input[data-v-7e49b268] {\n\tcolor: #000;                     \n\tborder-radius: 0;\n\toutline: none;\n\twidth: 100%;\n\tborder: none;          \n\tpadding: 10px 0;\n\tborder-bottom: 2px solid #000;\n\tbackground-color: transparent;\n\tfont-size: 1.8rem;\n}\n.input-wrapper button[data-v-7e49b268] {\n\tposition: absolute;\n\ttop: 0;\n\tbottom: 0;\n\tright: 0;\n\tborder: none;\n\tbackground: transparent;\n\toutline: none;\n\tfont-size: 1.8rem;\n\tcolor: #000;\n\tcursor: pointer;\n\tpadding: 0 3px;\n}\n.input-wrapper .invalid-feedback[data-v-7e49b268] {\n\tcolor: #e71d43;\n\tfont-size: 1.4rem;\n\ttext-align: left;\n}\n.sent-success[data-v-7e49b268] {\n\tfont-weight: normal;\n\tcolor: #0633FF;\n}\n\n", ""]);
+exports.push([module.i, "\n.input-wrapper[data-v-7e49b268] {\n\t\twidth: 100%;\n\t\tmargin: 5px auto;\n\t\tposition: relative;\n}\n.input-wrapper input[data-v-7e49b268] {\n\t\tcolor: #9c9c9c;                     \n\t\tborder-radius: 0;\n\t\toutline: none;\n\t\twidth: 100%;\n\t\tborder: none;          \n\t\tpadding: 10px 0;\n\t\tborder-bottom: 2px solid #9c9c9c;\n\t\tbackground-color: transparent;\n\t\tfont-size: 1.8rem;\n}\n.input-wrapper input[data-v-7e49b268]::-webkit-input-placeholder {\n        color: #9c9c9c;\n        opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]::-moz-placeholder {\n        color: #9c9c9c;\n        opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]:-ms-input-placeholder {\n        color: #9c9c9c;\n        opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]::-ms-input-placeholder {\n        color: #9c9c9c;\n        opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]::placeholder {\n        color: #9c9c9c;\n        opacity: 1;\n}\n.input-wrapper button[data-v-7e49b268] {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tbottom: 0;\n\t\tright: 0;\n\t\tborder: none;\n\t\tbackground: transparent;\n\t\toutline: none;\n\t\tfont-size: 1.8rem;\n\t\tcolor: #9c9c9c;\n\t\tcursor: pointer;\n\t\tpadding: 0 3px;\n}\n.input-wrapper .invalid-feedback[data-v-7e49b268] {\n\t\tcolor: #e71d43;\n\t\tfont-size: 1.4rem;\n\t\ttext-align: left;\n}\n.sent-success[data-v-7e49b268] {\n\t\tfont-weight: normal;\n\t\tcolor: #0633FF;\n}\n\n", ""]);
 
 // exports
 
@@ -22218,6 +22218,7 @@ var render = function() {
           "form",
           {
             staticClass: "input-wrapper",
+            attrs: { autocomplete: "off" },
             on: {
               submit: function($event) {
                 $event.preventDefault()
@@ -34512,13 +34513,19 @@ $(document).ready(function () {
     prevArrow: $('#left-arrow'),
     nextArrow: $('#right-arrow'),
     responsive: [{
-      breakpoint: 1024,
+      breakpoint: 1400,
       settings: {
         slidesToShow: 3,
         slidesToScroll: 1
       }
     }, {
-      breakpoint: 600,
+      breakpoint: 1150,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1
+      }
+    }, {
+      breakpoint: 800,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1

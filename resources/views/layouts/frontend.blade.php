@@ -106,7 +106,7 @@
     <footer>
         <div class="footer_wrapper_upper">
             <div class="footer_about">
-                <a href="#" class="logo-footer">Авиаинсайдер</a>
+                <a href="{{ url('/') }}" class="logo-footer">Авиаинсайдер</a>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis veniam unde tenetur ullam. Amet, reprehenderit ea nam voluptatibus quisquam harum!</p>
                 <a href="#"><span>Read more</span></a>
             </div>
@@ -124,7 +124,7 @@
             </div>
 
             <div class="footer_links">
-                <h5>Полезные ссылки</h5>
+                <h5>Меню</h5>
                 <ul>
                     <li><a href="index.html"><span>На главную</span></a></li>
                     <li><a href="about.html"><span>О нас</span></a></li>
@@ -144,8 +144,8 @@
             <div class="footer_copyright">
 
 
-                <p> &#169; Copyright {{ date('Y') }} Airinsider. All rights reserved.</p>
-                <p>Made with love fore a better web.</p>
+                <p> &#169; {{ date('Y') }} Airinsider.</p>
+                <p>Made with love for a better web. Noa Digital&Media Group.</p>
             </div>
 
             <div class="footer_newsletter">

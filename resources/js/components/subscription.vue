@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<form class="input-wrapper" v-if="form" @submit.prevent="submit">			
+		<form class="input-wrapper" v-if="form" @submit.prevent="submit" autocomplete="off">			
 			<input id="newsletter" name="email" type="email" v-model="email" placeholder="Get newsletter">
 			<button type="submit"><i class="fa fa-envelope-o"></i></button>
 			<div v-if="errors && errors.email" class="invalid-feedback">{{ errors.email[0] }}</div>		
@@ -29,9 +29,7 @@
 					if(error.response.status === 422) {
 						this.errors = error.response.data.errors || {};
 					}
-				});
-				
-
+				});				
 			}
 		}
 	}
@@ -46,16 +44,21 @@
 	}
 
 	.input-wrapper input {
-		color: #000;                     
+		color: #9c9c9c;                     
 		border-radius: 0;
 		outline: none;
 		width: 100%;
 		border: none;          
 		padding: 10px 0;
-		border-bottom: 2px solid #000;
+		border-bottom: 2px solid #9c9c9c;
 		background-color: transparent;
 		font-size: 1.8rem;
 	}
+
+	.input-wrapper input::placeholder {
+        color: #9c9c9c;
+        opacity: 1;
+    }
 
 	.input-wrapper button {
 		position: absolute;
@@ -66,7 +69,7 @@
 		background: transparent;
 		outline: none;
 		font-size: 1.8rem;
-		color: #000;
+		color: #9c9c9c;
 		cursor: pointer;
 		padding: 0 3px;
 	}
