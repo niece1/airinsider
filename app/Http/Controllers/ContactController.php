@@ -12,7 +12,7 @@ class ContactController extends Controller
 {
     public function create()
     {
-        $random_news = Post::with(['photo'])->inRandomOrder()->limit(5)->get();
+        $random_news = Post::with(['photo'])->where('published', 1)->inRandomOrder()->limit(5)->get();
         return view('contact.create', compact('random_news'));
     }
 

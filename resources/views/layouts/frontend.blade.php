@@ -33,6 +33,10 @@
                     <ul>                       
                         <li>
                             <a href="#">О нас</a>
+                        </li>
+
+                        <li>
+                            <a href="{{ route('contact') }}">Контакты</a>
 
                         </li>
                         
@@ -40,21 +44,17 @@
                             <a href="javascript:void(0)">Категории</a>
                             <ul>
                                 <li>
-                                    <a class="sub-item" href="#">История</a>
+                                    <a class="sub-item" href="#"><span>История</span></a>
                                 </li>
                                 <li>
-                                    <a class="sub-item" href="#">Проишествия</a>
+                                    <a class="sub-item" href="#"><span>Проишествия</span></a>
                                 </li>
                                 <li>
-                                    <a class="sub-item" href="#">Скидки</a>
+                                    <a class="sub-item" href="#"><span>Скидки</span></a>
                                 </li>
                             </ul>
                         </li>
-                        
-                        <li>
-                            <a href="{{ route('contact') }}">Контакты</a>
 
-                        </li>
                         @guest
                         <li>
                             <a href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -66,16 +66,14 @@
                             <ul>
                                 <li>
                                     <a href="{{ route('logout') }}" class="sub-item" onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    document.getElementById('logout-form').submit();"><span>{{ __('Logout') }}</span>
                                 </a>
-
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                     @csrf
                                 </form>
                             </li>
                             <li>
-                                <a class="sub-item" href="/dashboard/posts">Dashboard</a>
+                                <a class="sub-item" href="/dashboard/posts"><span>Dashboard</span></a>
                             </li>
                         </ul>
                     </li>
@@ -119,19 +117,17 @@
                     <li><a href="contact.html"><span>Эрбас</span></a></li>
                     <li><a href="albums.html"><span>Боинг</span></a></li>
                     <li><a href="blog.html"><span>Авиасалон</span></a></li>
-
                 </ul>
             </div>
 
             <div class="footer_links">
                 <h5>Меню</h5>
                 <ul>
-                    <li><a href="index.html"><span>На главную</span></a></li>
+                    <li><a href="{{ url('/') }}"><span>На главную</span></a></li>
                     <li><a href="about.html"><span>О нас</span></a></li>
-                    <li><a href="contact.html"><span>Контакты</span></a></li>
-                    <li><a href="albums.html"><span>Войти</span></a></li>
+                    <li><a href="{{ route('contact') }}"><span>Контакты</span></a></li>
+                    <li><a href="{{ route('login') }}"><span>Войти</span></a></li>
                     <li><a href="blog.html"><span>Регистрация</span></a></li>
-
                 </ul>
             </div>
 
@@ -142,14 +138,13 @@
 
         <div class="footer_wrapper_down">
             <div class="footer_copyright">
-
-
                 <p> &#169; {{ date('Y') }} Airinsider.</p>
                 <p>Made with love for a better web. Noa Digital&Media Group.</p>
             </div>
 
             <div class="footer_newsletter">
                 <h5>Newsletter Subscribe</h5>
+                
                 <!-- Vue component -->
                 <subscription></subscription>
 

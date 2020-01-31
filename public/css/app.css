@@ -129,6 +129,43 @@ header .menu-wrapper nav ul li ul li {
   width: 200px;
 }
 
+header .menu-wrapper nav ul li ul li a {
+  padding-left: initial;
+}
+
+header .menu-wrapper nav ul li ul li a span {
+  position: relative;
+  transition: 0.5s;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease;
+}
+
+header .menu-wrapper nav ul li ul li a span:before {
+  content: "\2192";
+  font-size: 2rem;
+  opacity: 0;
+  transition: 0.5s;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+
+header .menu-wrapper nav ul li ul li a:hover span {
+  padding-left: 20px;
+  color: #e71d43;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+
+header .menu-wrapper nav ul li ul li a:hover span:before {
+  opacity: 1;
+  padding-right: 5px;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  color: #e71d43;
+}
+
 header .menu-wrapper nav ul li ul li a.sub-item {
   line-height: 60px;
   height: 60px;
@@ -585,7 +622,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
 }
 
 .jumbothron .jumbothron-wrapper .photo {
-  margin: 85px 0 0 0;
+  margin: 85px 0;
 }
 
 @media only screen and (max-width: 991px) {
@@ -1023,7 +1060,7 @@ footer .footer_wrapper_down {
 
 footer .footer_wrapper_down .footer_copyright {
   margin: 30px 0;
-  color: #fff;
+  color: #9c9c9c;
 }
 
 @media only screen and (max-width: 1100px) {
@@ -1555,7 +1592,7 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
 
 .slider .contact-slider #left-arrow {
   position: absolute;
-  z-index: 99;
+  z-index: 1;
   top: 50%;
   left: -40px;
   cursor: pointer;
@@ -1589,7 +1626,7 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
 
 .slider .contact-slider #right-arrow {
   position: absolute;
-  z-index: 99;
+  z-index: 1;
   top: 50%;
   right: -40px;
   cursor: pointer;

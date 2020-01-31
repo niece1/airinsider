@@ -17,9 +17,11 @@
 			<img src="{{ asset('storage/'.$post->photo->path) }}" alt="Photo">
 			</div>
 			@endif
-			<p>@if($post->updated_at){{ date('d-m-Y', strtotime($post->updated_at)) }}@endif
+			<p>
+				@if($post->updated_at){{ date('d-m-Y', strtotime($post->updated_at)) }}@endif
 				@if($post->category)<span class="dot"></span> <a href="{{ route('category', [$post->category->id]) }}">{{ $post->category->title }}</a>@endif
-				 <span class="dot"></span> by <a href="{{ route('user', [$post->user->id]) }}">{{ $post->user->name }}</a> </p>
+				@if($post->user)<span class="dot"></span> by <a href="{{ route('user', [$post->user->id]) }}">{{ $post->user->name }}</a>@endif
+			</p>
 			<h1>{{ $post->title }}</h1>
 			<p>{!! clean($post->body) !!}</p>
 			<div class="item-line"></div>

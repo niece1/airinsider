@@ -25,9 +25,9 @@
 		</div>
 
 		<div class="contact-form">
-						
+			
 			<h2>Заполните форму</h2>
-            <div class="alert">{{ session()->get('message') }}</div>
+			<div class="alert">{{ session()->get('message') }}</div>
 			@if(!session()->has('message'))
 
 			<form method="POST" action="/contact">
@@ -48,7 +48,7 @@
 				</div>
 				@captcha
 				<button type="submit" class="button">Send</button>
-                @csrf
+				@csrf
 			</form>
 			@endif
 		</div>
@@ -62,49 +62,47 @@
 
 <section class="slider">
 	<h2>Explore our random articles</h2>
-<div class="contact-slider">
-	<div class="contact-slider-wrapper">
-  @foreach ($random_news as $news_item)
-        <div class="item">
-        	@if($news_item->photo)
-            <div class="image-holder">
-                <a href="{{ route('post.show', [$news_item->slug]) }}"><img src="{{ asset('storage/'.$news_item->photo->path) }}" alt="Photo"></a>
-            </div>
-            @endif
-            <div class="item-content">
-                <a href="{{ route('post.show', [$news_item->slug]) }}">
-                    <h6>{{ $news_item->title }}</h6>
-                </a>
-                <p class="item-blog-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo, accusantium?</p>
-                <p class="item-blog-author"><i class="fas fa-user-edit"></i>By <a href="{{ route('user', [$news_item->user->id]) }}">{{ $news_item->user->name }}</a></p>
-                <p><i class="fas fa-clock"></i>{{ $news_item->time_to_read }} minutes to read</p>
-                <p class="item-blog-date">{{ $news_item->date }}</p>
-                <p class="item-blog-comment">Comments: {{ $news_item->comments->count() }}</p>
-                <div class="blog-line">
-                </div>
-
-                <div class="item-blog-bottom">
-                    <a href="{{ route('post.show', [$news_item->slug]) }}" class="button">Читать</a>
-                    <p><i class="fas fa-tags"></i><a href="{{ route('category', [$news_item->category->id]) }}">{{ $news_item->category->title }}</a></p>
-                </div>
-            </div>
-        </div>
-        @endforeach
-    </div>
-    <div id="left-arrow" class="arrow-left">
-					<i class="fas fa-chevron-left"></i>
+	<div class="contact-slider">
+		<div class="contact-slider-wrapper">
+			@foreach ($random_news as $news_item)
+			<div class="item">
+				@if($news_item->photo)
+				<div class="image-holder">
+					<a href="{{ route('post.show', [$news_item->slug]) }}"><img src="{{ asset('storage/'.$news_item->photo->path) }}" alt="Photo"></a>
 				</div>
+				@endif
+				<div class="item-content">
+					<a href="{{ route('post.show', [$news_item->slug]) }}">
+						<h6>{{ $news_item->title }}</h6>
+					</a>
+					<p class="item-blog-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo, accusantium?</p>
+					<p class="item-blog-author"><i class="fas fa-user-edit"></i>By <a href="{{ route('user', [$news_item->user->id]) }}">{{ $news_item->user->name }}</a></p>
+					<p><i class="fas fa-clock"></i>{{ $news_item->time_to_read }} minutes to read</p>
+					<p class="item-blog-date">{{ $news_item->date }}</p>
+					<p class="item-blog-comment">Comments: {{ $news_item->comments->count() }}</p>
+					<div class="blog-line">
+					</div>
 
-				<div id="right-arrow" class="arrow-right">
-					<i class="fas fa-chevron-right"></i>
+					<div class="item-blog-bottom">
+						<a href="{{ route('post.show', [$news_item->slug]) }}" class="button">Читать</a>
+						<p><i class="fas fa-tags"></i><a href="{{ route('category', [$news_item->category->id]) }}">{{ $news_item->category->title }}</a></p>
+					</div>
 				</div>
-</div>
+			</div>
+			@endforeach
+		</div>
+		<div id="left-arrow" class="arrow-left">
+			<i class="fas fa-chevron-left"></i>
+		</div>
 
-				
-			
+		<div id="right-arrow" class="arrow-right">
+			<i class="fas fa-chevron-right"></i>
+		</div>
+	</div>
+	
 </section>
 @endsection
 
 @push('scripts')
-    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 @endpush

@@ -90,7 +90,6 @@ header {
                 li {                    
                     position: relative;
                     font-size: 1.6rem;
-
                     a {
                         line-height: 85px;
                         height: 85px;
@@ -110,6 +109,38 @@ header {
                         li {
                             display: block;
                             width: 200px;
+                            a {
+                                padding-left: initial;
+                                span {
+                                    position: relative;
+                                    transition: .5s;
+                                    -webkit-transition: all .5s ease-in-out;
+                                    -o-transition: all .5s ease;
+                                    &:before {
+                                        content: "→";
+                                        font-size: 2rem;
+                                        opacity: 0;
+                                        transition: .5s;
+                                        -webkit-transition: all .5s ease-in-out;
+                                        -o-transition: all .5s ease-in-out;
+                                    } 
+                                }
+                                &:hover span {
+                                    padding-left: 20px;
+                                    color: #e71d43;
+                                    transition: all .5s ease-in-out;
+                                    -webkit-transition: all .5s ease-in-out;
+                                    -o-transition: all .5s ease-in-out;
+                                    &:before {
+                                        opacity: 1;
+                                        padding-right: 5px;
+                                        transition: all .5s ease-in-out;
+                                        -webkit-transition: all .5s ease-in-out;
+                                        -o-transition: all .5s ease-in-out;
+                                        color: #e71d43;
+                                    }
+                                }
+                            }
                             a.sub-item {
                                 line-height: 60px;
                                 height: 60px;
@@ -121,6 +152,7 @@ header {
         }
     }
 }
+
 /* Sticky Navigation */
 .fixed {
     position: fixed;
@@ -189,14 +221,12 @@ header .menu-wrapper nav ul li.active ul {
         top: 0;
         transform: rotate(45deg);
         transition: top 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);;
-    }
-    
+    }    
     .hamburger-menu.animate:before {
         bottom: 0;
         transform: rotate(-45deg);
         transition: bottom 300ms cubic-bezier(0.23, 1, 0.32, 1), transform 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);;
-    }
-    
+    }   
 }
 
 header .menu-wrapper nav ul li.sub-menu:before {
@@ -208,15 +238,13 @@ header .menu-wrapper nav ul li.sub-menu:before {
 
 header .menu-wrapper nav ul li.active.sub-menu:before {
     content: "▴";
-    position: absolute;
-  
+    position: absolute;  
 }
 
 @media (max-width: 991px) {
     header {
         padding: 0;
-    }
-    
+    }    
     header .menu-wrapper nav {
         position: absolute;
         width: 100%;
@@ -229,41 +257,34 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
         -o-transition: all .5s ease-in-out;
         z-index: 99;
     }
-
     header .menu-wrapper nav.active {
         left: 0;
     }
-
     header .menu-wrapper nav ul {
         display: block;
         text-align: left;
         margin: 0 30px;
         box-shadow: none !important;
     }
-
-    header .menu-wrapper nav ul li a {
+    header .menu-wrapper nav ul li  a {
         line-height: 60px;       
         height: 60px;
-        display: block;      
+        display: block;            
     }
-
     header .menu-wrapper nav ul li.active ul {
         position: relative;
         background-color: hsl(204, 33%, 97%);
         margin: 0;
     }
-
     header .menu-wrapper nav ul li ul li {
         width: 100%;       
     }
-
     header .menu-wrapper nav ul li ul li a {
         border-bottom: initial;
         line-height: 60px !important;
         margin: 0;
         text-transform: none;
     }
-
     header .menu-wrapper nav ul li.sub-menu:before {
         line-height: 60px;
     }
@@ -271,7 +292,6 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
         display: block;   
     }   
 }
-
 
 /*Register page styles*/
 .register {
@@ -485,7 +505,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
             @media only screen and (max-width: 991px) {
                 grid-area: 1/1/2/2;
             }
-            margin: 85px 0 0 0;
+            margin: 85px 0;
             img {
                 width: 100%;
                 height: auto;
@@ -842,7 +862,7 @@ footer {
         }
         .footer_copyright {
             margin: 30px 0;
-            color: #fff;
+            color: #9c9c9c;
             @media only screen and (max-width: 1100px) {
                 padding: 0 50px 0 0;
             }                       
@@ -1216,7 +1236,7 @@ footer {
         }
         #left-arrow {
             position: absolute;
-            z-index: 99;
+            z-index: 1;
             top: 50%;
             left: -40px;            
             cursor: pointer;
@@ -1243,7 +1263,7 @@ footer {
         }
         #right-arrow {
             position: absolute;
-            z-index: 99;
+            z-index: 1;
             top: 50%;
             right: -40px;           
             cursor: pointer;

@@ -31,6 +31,7 @@ class Post extends Model
     public function viewedCounter()
     {
         $this->viewed += 1;
+        $this->timestamps = false;
         return $this->save();
     }
 
