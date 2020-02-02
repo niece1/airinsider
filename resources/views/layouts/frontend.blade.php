@@ -23,6 +23,7 @@
 </head>
 
 <body>
+
     <div id="app">
         <header>
             <div class="menu-wrapper">
@@ -137,14 +138,23 @@
         </div>
 
         <div class="footer_wrapper_down">
+
+            <svg class="hidden">       
+                <symbol id="icon-heart" viewBox="0 0 24 21">
+                    <path d="M20.497.957A6.765 6.765 0 0 0 17.22.114a6.76 6.76 0 0 0-5.218 2.455A6.778 6.778 0 0 0 3.506.957 6.783 6.783 0 0 0 0 6.897c0 .732.12 1.434.335 2.09 1.163 5.23 11.668 11.827 11.668 11.827s10.498-6.596 11.663-11.826a6.69 6.69 0 0 0 .336-2.091 6.786 6.786 0 0 0-3.505-5.94z"/>
+                </symbol>
+            </svg>
+
             <div class="footer_copyright">
                 <p> &#169; {{ date('Y') }} Airinsider.</p>
-                <p>Made with love for a better web. Noa Digital&Media Group.</p>
+                <p>Noa Media. All rights reserved. Made with <button class="iconbutton">
+                        <svg class="icon icon--heart"><use xlink:href="#icon-heart"></use></svg>          
+                    </button>for a better web. for a better web.</p>
             </div>
 
             <div class="footer_newsletter">
                 <h5>Newsletter Subscribe</h5>
-                
+
                 <!-- Vue component -->
                 <subscription></subscription>
 
@@ -171,6 +181,7 @@
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 @stack('scripts')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
 <script src="{{ asset('js/app.js') }}" defer></script>   
 </body>
 </html>

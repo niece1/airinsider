@@ -34430,6 +34430,12 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -34536,6 +34542,170 @@ $(document).ready(function () {
 
 $(".sidebar").stick_in_parent({
   offset_top: 120
+});
+/**
+ * nearby.js
+ * http://www.codrops.com
+ *
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ *
+ * Copyright 2018, Codrops
+ * http://www.codrops.com
+ */
+
+{
+  /**
+  * Distance between two points P1 (x1,y1) and P2 (x2,y2).
+  */
+  var distancePoints = function distancePoints(x1, y1, x2, y2) {
+    return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
+  }; // from http://www.quirksmode.org/js/events_properties.html#position
+
+
+  var getMousePos = function getMousePos(e) {
+    var posx = 0,
+        posy = 0;
+    if (!e) var e = window.event;
+
+    if (e.pageX || e.pageY) {
+      posx = e.pageX;
+      posy = e.pageY;
+    } else if (e.clientX || e.clientY) {
+      posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft;
+      posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop;
+    }
+
+    return {
+      x: posx,
+      y: posy
+    };
+  };
+
+  var _Nearby =
+  /*#__PURE__*/
+  function () {
+    function _Nearby(el, options) {
+      _classCallCheck(this, _Nearby);
+
+      this.DOM = {
+        el: el
+      };
+      this.options = options;
+      this.init();
+    }
+
+    _createClass(_Nearby, [{
+      key: "init",
+      value: function init() {
+        var _this = this;
+
+        this.mousemoveFn = function (ev) {
+          return requestAnimationFrame(function () {
+            var mousepos = getMousePos(ev);
+            var docScrolls = {
+              left: document.body.scrollLeft + document.documentElement.scrollLeft,
+              top: document.body.scrollTop + document.documentElement.scrollTop
+            };
+
+            var elRect = _this.DOM.el.getBoundingClientRect();
+
+            var elCoords = {
+              x1: elRect.left + docScrolls.left,
+              x2: elRect.width + elRect.left + docScrolls.left,
+              y1: elRect.top + docScrolls.top,
+              y2: elRect.height + elRect.top + docScrolls.top
+            };
+            var closestPoint = {
+              x: mousepos.x,
+              y: mousepos.y
+            };
+
+            if (mousepos.x < elCoords.x1) {
+              closestPoint.x = elCoords.x1;
+            } else if (mousepos.x > elCoords.x2) {
+              closestPoint.x = elCoords.x2;
+            }
+
+            if (mousepos.y < elCoords.y1) {
+              closestPoint.y = elCoords.y1;
+            } else if (mousepos.y > elCoords.y2) {
+              closestPoint.y = elCoords.y2;
+            }
+
+            if (_this.options.onProgress) {
+              _this.options.onProgress(distancePoints(mousepos.x, mousepos.y, closestPoint.x, closestPoint.y));
+            }
+          });
+        };
+
+        window.addEventListener('mousemove', this.mousemoveFn);
+      }
+    }]);
+
+    return _Nearby;
+  }();
+
+  window.Nearby = _Nearby;
+}
+
+var lineEq = function lineEq(y2, y1, x2, x1, currentVal) {
+  // y = mx + b
+  var m = (y2 - y1) / (x2 - x1),
+      b = y1 - m * x1;
+  return m * currentVal + b;
+};
+
+var distanceThreshold = {
+  min: 0,
+  max: 100
+};
+/**************** Heart Icon ****************/
+
+var iconHeart = document.querySelector('.icon--heart');
+var iconHeartButton = iconHeart.parentNode;
+var heartbeatInterval = {
+  from: 1,
+  to: 40
+};
+var grayscaleInterval = {
+  from: 1,
+  to: 0
+};
+var tweenHeart = TweenMax.to(iconHeart, 5, {
+  yoyoEase: Power2.easeOut,
+  repeat: -1,
+  yoyo: true,
+  scale: 1.3,
+  paused: true
+});
+var stateHeart = 'paused';
+new Nearby(iconHeartButton, {
+  onProgress: function onProgress(distance) {
+    var time = lineEq(heartbeatInterval.from, heartbeatInterval.to, distanceThreshold.max, distanceThreshold.min, distance);
+    tweenHeart.timeScale(Math.min(Math.max(time, heartbeatInterval.from), heartbeatInterval.to));
+
+    if (distance < distanceThreshold.max && distance >= distanceThreshold.min && stateHeart !== 'running') {
+      tweenHeart.play();
+      stateHeart = 'running';
+    } else if ((distance > distanceThreshold.max || distance < distanceThreshold.min) && stateHeart !== 'paused') {
+      tweenHeart.pause();
+      stateHeart = 'paused';
+      TweenMax.to(iconHeart, .2, {
+        ease: Power2.easeOut,
+        scale: 1,
+        onComplete: function onComplete() {
+          return tweenHeart.time(0);
+        }
+      });
+    }
+
+    var bw = lineEq(grayscaleInterval.from, grayscaleInterval.to, distanceThreshold.max, distanceThreshold.min, distance);
+    TweenMax.to(iconHeart, 1, {
+      ease: Power2.easeOut,
+      filter: "grayscale(".concat(Math.min(bw, grayscaleInterval.from), ")")
+    });
+  }
 });
 
 /***/ }),
