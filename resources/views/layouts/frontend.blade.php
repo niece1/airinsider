@@ -147,9 +147,9 @@
 
             <div class="footer_copyright">
                 <p> &#169; {{ date('Y') }} Airinsider.</p>
-                <p>Noa Media. All rights reserved. Made with <button class="iconbutton">
+                <p>Noa Digital. Made with <button class="iconbutton">
                         <svg class="icon icon--heart"><use xlink:href="#icon-heart"></use></svg>          
-                    </button>for a better web. for a better web.</p>
+                    </button>for a better web.</p>
             </div>
 
             <div class="footer_newsletter">

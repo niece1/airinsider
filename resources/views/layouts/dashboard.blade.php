@@ -34,25 +34,28 @@
 					<a href="javascript:void(0)">Board</a>
 					<ul>
 						<li>
-							<a class="sub-item" href="/dashboard/users">Users</a>
+							<a class="sub-item" href="/dashboard/users"><span>Users</span></a>
 						</li>
 						<li>
-							<a class="sub-item" href="/dashboard/roles">Roles</a>
+							<a class="sub-item" href="/dashboard/roles"><span>Roles</span></a>
 						</li>
 						<li>
-							<a class="sub-item" href="/dashboard/permissions">Permissions</a>
+							<a class="sub-item" href="/dashboard/permissions"><span>Permissions</span></a>
 						</li>
 						<li>
-							<a class="sub-item" href="/dashboard/subscriptions">Subscriptions</a>
+							<a class="sub-item" href="/dashboard/subscriptions"><span>Subscriptions</span></a>
 						</li>
 						<li>
-							<a class="sub-item" href="/dashboard/posts">Posts</a>
+							<a class="sub-item" href="/dashboard/posts"><span>Posts</span></a>
 						</li>
 						<li>
-							<a class="sub-item" href="/dashboard/categories">Categories</a>
+							<a class="sub-item" href="/dashboard/categories"><span>Categories</span></a>
 						</li>
 						<li>
-							<a class="sub-item" href="/dashboard/tags">Tags</a>
+							<a class="sub-item" href="/dashboard/tags"><span>Tags</span></a>
+						</li>
+						<li>
+							<a class="sub-item" href="/dashboard/comments"><span>Comments</span></a>
 						</li>
 					</ul>
 				</li>
@@ -66,7 +69,7 @@
 						<li>
 							<a href="{{ route('logout') }}" class="sub-item" onclick="event.preventDefault();
 							document.getElementById('logout-form').submit();">
-							{{ __('Logout') }}
+							<span>{{ __('Logout') }}</span>
 						</a>
 
 						<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

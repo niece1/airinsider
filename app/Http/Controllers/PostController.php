@@ -27,7 +27,7 @@ class PostController extends Controller
 
         if(session('success_message')){
         Alert::success( session('success_message'))->toToast();
-}
+      }
         return view('backend.post.index', compact('posts'));
     }
 

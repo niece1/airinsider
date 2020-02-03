@@ -1030,7 +1030,7 @@ footer .footer_wrapper_upper .popular_posts ul li a img {
 footer .footer_wrapper_upper .popular_posts ul li small {
   font-size: 1rem;
   text-transform: uppercase;
-  color: #e71d43;
+  color: #fff;
 }
 
 footer .footer_wrapper_upper .popular_posts ul li p {
@@ -1058,6 +1058,14 @@ footer .footer_wrapper_down {
   }
 }
 
+footer .footer_wrapper_down svg.hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
 footer .footer_wrapper_down .footer_copyright {
   margin: 30px 0;
   color: #9c9c9c;
@@ -1067,6 +1075,29 @@ footer .footer_wrapper_down .footer_copyright {
   footer .footer_wrapper_down .footer_copyright {
     padding: 0 50px 0 0;
   }
+}
+
+footer .footer_wrapper_down .footer_copyright .icon {
+  display: block;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin: 0 auto;
+  fill: currentColor;
+}
+
+footer .footer_wrapper_down .footer_copyright .iconbutton {
+  background: none;
+  border: 0;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+footer .footer_wrapper_down .footer_copyright .iconbutton:focus {
+  outline: none;
+}
+
+footer .footer_wrapper_down .footer_copyright .icon--heart {
+  color: #e71d43;
 }
 
 footer .footer_wrapper_down .footer_newsletter {
@@ -2312,39 +2343,5 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
 
 .swal2-toast {
   font-size: 26px !important;
-}
-
-.hidden {
-  position: absolute;
-  overflow: hidden;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-}
-
-.icon {
-  display: block;
-  width: 2.5rem;
-  height: 2.5rem;
-  margin: 0 auto;
-  fill: currentColor;
-}
-
-.iconbutton {
-  font-size: 1.5rem;
-  background: none;
-  border: 0;
-  padding: 0 2rem;
-  position: relative;
-}
-
-.iconbutton:focus {
-  outline: none;
-}
-
-.icon--heart {
-  color: #ec165f;
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
 }
 

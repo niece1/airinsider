@@ -67,6 +67,9 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
     //Excel and Csv export
     Route::get('/exportExcel', 'SubscriptionController@exportExcel')->name('export.excel');
     Route::get('/exportCsv', 'SubscriptionController@exportCsv')->name('export.csv');
+    //Comments list
+    Route::get('comments', 'CommentController@list')->name('comments.list');
+    Route::delete('comments/{comment}', 'CommentController@destroy')->name('comments.destroy');
 });
 
 //Subscription footer vue component

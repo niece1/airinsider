@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
-use App\Comment; 
+use App\Comment;
+use RealRashid\SweetAlert\Facades\Alert; 
 
 class CommentController extends Controller
 {
@@ -29,6 +30,24 @@ class CommentController extends Controller
     public function show(Comment $comment)
     {
     	return $comment->replies()->paginate(10);
+    }
+
+    public function list()
+    {
+        $comments = Comment::orderBy('id', 'desc')->paginate(50);
+
+        if(session('success_message')){
+            Alert::success( session('success_message'))->toToast();
+        }
+
+        return view('backend.comment.list', compact('comments'));
+    }
+
+    public function destroy(Comment $comment)
+    {
+        $comment->delete();      
+   
+        return redirect('dashboard/comments')->withSuccessMessage('Deleted Successfully!');
     }
 
 }
