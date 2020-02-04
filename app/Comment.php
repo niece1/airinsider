@@ -36,4 +36,9 @@ class Comment extends Model
     {
         return $this->morphMany('App\Like', 'likeable');
     }
+
+    public function getIfReplyAttribute($value)
+    {
+        return $this->comment_id == NULL ? 'No' : 'Yes';
+    }
 }

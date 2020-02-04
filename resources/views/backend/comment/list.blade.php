@@ -34,7 +34,7 @@
 							    {{ $comment->post->title }}
 						    @endif</td>						
 						<td>{{ $comment->body }}</td>
-						<td></td>
+						<td>{{ $comment->if_reply }}</td>
 						<td>
 							<form action="{{ route('comments.destroy', $comment->id) }}" method="post">
 								@method('DELETE')

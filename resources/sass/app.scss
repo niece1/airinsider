@@ -843,6 +843,12 @@ footer {
                     p {
                         color: #9c9c9c;
                         margin-top: 3px;
+                        &:hover {
+                            color: #e71d43;
+                            transition: all .2s ease-in-out;
+                            -webkit-transition: all .2s ease-in-out;
+                            -o-transition: all .2s ease-in-out;
+                        }
                     }
                 }
             }
@@ -860,41 +866,11 @@ footer {
         @media only screen and (max-width: 700px) {
             grid-template-columns: 100%;
         }
-        svg.hidden {
-            position: absolute;
-            overflow: hidden;
-            width: 0;
-            height: 0;
-            pointer-events: none;
-        }
         .footer_copyright {
             margin: 30px 0;
             color: #9c9c9c;
             @media only screen and (max-width: 1100px) {
                 padding: 0 50px 0 0;
-            }
-            .icon {
-                display: block;
-                width: 2.2rem;
-                height: 2.2rem;
-                margin: 0 auto;
-                fill: currentColor;
-            }
-
-            .iconbutton {
-                background: none;
-                border: 0;
-                padding: 0 1rem;
-                cursor: pointer;
-            }
-
-            .iconbutton:focus {
-                outline: none;
-            }
-
-            .icon--heart {
-                color: #e71d43;
-
             }                       
         }
         .footer_newsletter {
@@ -1872,9 +1848,10 @@ footer#dashboard-footer {
         margin: auto;
         p {
             font-size: 1.8rem;
+            color: #9c9c9c;
             padding: 15px 0;
             a {
-                color: #fff;
+                color: #e71d43;
             }
         }
     }
@@ -1886,3 +1863,34 @@ footer#dashboard-footer {
     font-size: 26px !important;
 }
 
+/* Pulsing heart GSAP footer animation*/
+.hidden {
+    position: absolute;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+.icon {
+    display: block;
+    width: 2.2rem;
+    height: 2.2rem;
+    margin: 0 auto;
+    fill: currentColor;
+}
+
+.iconbutton {
+    background: none;
+    border: 0;
+    padding: 0 1rem;
+    cursor: pointer;
+}
+
+.iconbutton:focus {
+    outline: none;
+}
+
+.icon--heart {
+    color: #e71d43;
+}

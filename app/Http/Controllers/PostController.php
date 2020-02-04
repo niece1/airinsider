@@ -144,7 +144,7 @@ class PostController extends Controller
         if($post->photo) {
         $this->deletePhoto($post->photo->id);
         }
-        
+
         $post->forceDelete();
         
         return redirect()->back()->withSuccessMessage('Deleted permanently!');

@@ -1038,6 +1038,13 @@ footer .footer_wrapper_upper .popular_posts ul li p {
   margin-top: 3px;
 }
 
+footer .footer_wrapper_upper .popular_posts ul li p:hover {
+  color: #e71d43;
+  transition: all 0.2s ease-in-out;
+  -webkit-transition: all 0.2s ease-in-out;
+  -o-transition: all 0.2s ease-in-out;
+}
+
 footer .footer_wrapper_down {
   width: 85%;
   margin: 30px auto;
@@ -1058,14 +1065,6 @@ footer .footer_wrapper_down {
   }
 }
 
-footer .footer_wrapper_down svg.hidden {
-  position: absolute;
-  overflow: hidden;
-  width: 0;
-  height: 0;
-  pointer-events: none;
-}
-
 footer .footer_wrapper_down .footer_copyright {
   margin: 30px 0;
   color: #9c9c9c;
@@ -1075,29 +1074,6 @@ footer .footer_wrapper_down .footer_copyright {
   footer .footer_wrapper_down .footer_copyright {
     padding: 0 50px 0 0;
   }
-}
-
-footer .footer_wrapper_down .footer_copyright .icon {
-  display: block;
-  width: 2.2rem;
-  height: 2.2rem;
-  margin: 0 auto;
-  fill: currentColor;
-}
-
-footer .footer_wrapper_down .footer_copyright .iconbutton {
-  background: none;
-  border: 0;
-  padding: 0 1rem;
-  cursor: pointer;
-}
-
-footer .footer_wrapper_down .footer_copyright .iconbutton:focus {
-  outline: none;
-}
-
-footer .footer_wrapper_down .footer_copyright .icon--heart {
-  color: #e71d43;
 }
 
 footer .footer_wrapper_down .footer_newsletter {
@@ -2332,16 +2308,50 @@ footer#dashboard-footer .dashboard-footer-wrapper {
 
 footer#dashboard-footer .dashboard-footer-wrapper p {
   font-size: 1.8rem;
+  color: #9c9c9c;
   padding: 15px 0;
 }
 
 footer#dashboard-footer .dashboard-footer-wrapper p a {
-  color: #fff;
+  color: #e71d43;
 }
 
 /* Sweet Alert styles */
 
 .swal2-toast {
   font-size: 26px !important;
+}
+
+/* Pulsing heart GSAP footer animation*/
+
+.hidden {
+  position: absolute;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.icon {
+  display: block;
+  width: 2.2rem;
+  height: 2.2rem;
+  margin: 0 auto;
+  fill: currentColor;
+}
+
+.iconbutton {
+  background: none;
+  border: 0;
+  padding: 0 1rem;
+  cursor: pointer;
+}
+
+.iconbutton:focus {
+  outline: none;
+}
+
+.icon--heart {
+  color: #e71d43;
 }
 

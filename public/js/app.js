@@ -34570,7 +34570,7 @@ var app = new Vue({
   }();
 
   window.Nearby = _Nearby;
-} // Beating heart footer animation Green Sock Animation platform
+} // Pulsing heart footer animation Green Sock Animation platform
 
 var lineEq = function lineEq(y2, y1, x2, x1, currentVal) {
   // y = mx + b

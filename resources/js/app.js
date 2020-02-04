@@ -105,7 +105,7 @@ constructor(el, options) {
     window.Nearby = Nearby;
 }
 
-// Beating heart footer animation Green Sock Animation platform
+// Pulsing heart footer animation Green Sock Animation platform
 
 const lineEq = (y2, y1, x2, x1, currentVal) => {
     // y = mx + b
