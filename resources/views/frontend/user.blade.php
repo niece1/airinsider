@@ -31,7 +31,6 @@
                 <p class="item-blog-comment">Comments: 4</p>
                 <div class="blog-line">
                 </div>
-
                 <div class="item-blog-bottom">
                     <a href="{{ route('post.show', [$news_item->slug]) }}" class="button">Читать</a>
                     <p><i class="fas fa-tags"></i><a href="{{ route('category', [$news_item->category->id]) }}">{{ $news_item->category->title }}</a></p>
@@ -40,12 +39,12 @@
         </div>
         @endforeach
     </div>
-
 </section>
 
 <section class="news-pagination">
     <div class="news-pagination-wrapper">
-    {{ $news_by_user->links() }}
+        {{ $news_by_user->links() }}
     </div>
 </section>
+
 @endsection

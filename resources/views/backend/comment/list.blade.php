@@ -29,17 +29,17 @@
 					@foreach ($comments as $comment)
 					<tr>
 						<td>{{ $comment->id }}</td>						
-						<td>{{ $comment->user->name }}</td>						
+						<td>@if($comment->user){{ $comment->user->name }}@endif</td>						
 						<td>@if($comment->post)
-							    {{ $comment->post->title }}
-						    @endif</td>						
+							{{ $comment->post->title }}
+						@endif</td>						
 						<td>{{ $comment->body }}</td>
 						<td>{{ $comment->if_reply }}</td>
 						<td>
-							<form action="{{ route('comments.destroy', $comment->id) }}" method="post">
+							<form action="{{ route('comments.destroy', $comment->id) }}" method="post" onsubmit="return confirm('Delete comment?')">
 								@method('DELETE')
 								@csrf
-								<button type="submit" class="action-button-red" onsubmit="return confirm('Delete comment?')">Delete</button>
+								<button type="submit" class="action-button-red">Delete</button>
 							</form>
 						</td>
 					</tr>				

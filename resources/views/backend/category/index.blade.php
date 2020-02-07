@@ -11,16 +11,13 @@
 </section>
 
 <section class="dashboard">
-
 	<div class="dashboard-wrapper">
 		<a href="/dashboard/categories/create" class="button">Add Category</a>
 		<div class="well">
 			<div class="well-title">
 				<h5>Category List</h5>
 			</div>
-
 			<div class="well-content">
-
 				<table>
 					<tr>
 						<th>ID</th>						
@@ -29,25 +26,21 @@
 					</tr>
 					@foreach ($categories as $category)
 					<tr>
-						<td>{{ $category->id }}</td>
-						
-						<td>{{ $category->title }}</td>
-						
+						<td>{{ $category->id }}</td>						
+						<td>{{ $category->title }}</td>						
 						<td><a href="/dashboard/categories/{{ $category->id }}/edit" class="action-button-green">Edit</a>
-							<form action="{{ route('categories.destroy', $category->id) }}" method="post">
+							<form action="{{ route('categories.destroy', $category->id) }}" method="post" onsubmit="return confirm('Delete category?')">
 								@method('DELETE')
 								@csrf
-								<button type="submit" class="action-button-red" onsubmit="return confirm('Delete category?')">Delete</button>
+								<button type="submit" class="action-button-red">Delete</button>
 							</form>
 						</td>
 					</tr>				
 					@endforeach
 				</table>
-
 			</div>
 		</div>
 	</div>
-
 </section>
 
 @endsection

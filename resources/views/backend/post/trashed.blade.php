@@ -11,7 +11,6 @@
 </section>
 
 <section class="dashboard">
-
 	<div class="dashboard-wrapper">	
 		<a href="/dashboard/posts" class="back">Back</a>	
 		<div class="well">
@@ -36,30 +35,25 @@
 						<td>{{ $post->title }}</td>
 						<td>{{ $post->deleted_at }}</td>
 						<td>{{ $post->viewed }}</td>
-						<td>{{ $post->category->title }}</td>
+						<td>@if($post->category){{ $post->category->title }}@endif</td>
 						<td>
 							<form action="{{ route('restore', $post->id) }}" method="post">							
-							@csrf
-							<button type="submit" class="action-button-green">Restore</button>
-						</form>
-						<form action="{{ route('expunge', $post->id) }}" method="post" onsubmit="return confirm('Delete post?')">
-							@method('DELETE')
-							@csrf
-							<button type="submit" class="action-button-red">Delete</button>
-						</form>
-						<!--Modal-->
-
-					</td>
-				</tr>
-
-				@endforeach
-			</table>
-
+								@csrf
+								<button type="submit" class="action-button-green">Restore</button>
+							</form>
+							<form action="{{ route('expunge', $post->id) }}" method="post" onsubmit="return confirm('Delete post?')">
+								@method('DELETE')
+								@csrf
+								<button type="submit" class="action-button-red">Delete</button>
+							</form>
+							<!--Modal-->
+						</td>
+					</tr>
+					@endforeach
+				</table>
+			</div>
 		</div>
 	</div>
-</div>
 </section>
-
-
 
 @endsection

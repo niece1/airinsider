@@ -11,7 +11,6 @@
 </section>
 
 <section class="dashboard">
-
 	<div class="dashboard-wrapper">
 		<a href="{{ route('export.csv') }}" class="button">Csv</a>
 		<a href="{{ route('export.excel') }}" class="back">Excel</a>
@@ -19,9 +18,7 @@
 			<div class="well-title">
 				<h5>Subscription List</h5>
 			</div>
-
 			<div class="well-content">
-
 				<table>
 					<tr>
 						<th>ID</th>						
@@ -30,25 +27,21 @@
 					</tr>
 					@foreach ($subscriptions as $subscription)
 					<tr>
-						<td>{{ $subscription->id }}</td>
-						
-						<td>{{ $subscription->email }}</td>
-						
+						<td>{{ $subscription->id }}</td>						
+						<td>{{ $subscription->email }}</td>						
 						<td>
-							<form action="{{ route('subscriptions.destroy', $subscription->id) }}" method="post">
+							<form action="{{ route('subscriptions.destroy', $subscription->id) }}" method="post" onsubmit="return confirm('Delete subscription?')">
 								@method('DELETE')
 								@csrf
-								<button type="submit" class="action-button-red" onsubmit="return confirm('Delete subscription?')">Delete</button>
+								<button type="submit" class="action-button-red">Delete</button>
 							</form>
 						</td>
 					</tr>				
 					@endforeach
 				</table>
-
 			</div>
 		</div>
 	</div>
-
 </section>
 
 <section class="news-pagination">

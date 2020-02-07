@@ -31,7 +31,6 @@
                 <p class="item-blog-comment">Comments: {{ $news_item->comments->count() }}</p>
                 <div class="blog-line">
                 </div>
-
                 <div class="item-blog-bottom">
                     <a href="{{ route('post.show', [$news_item->slug]) }}" class="button">Читать</a>
                     <p><i class="fas fa-tags"></i><a href="{{ route('category', [$news_item->category->id]) }}">{{ $news_item->category->title }}</a></p>
@@ -40,12 +39,12 @@
         </div>
         @endforeach
     </div>
-
 </section>
 
 <section class="news-pagination">
     <div class="news-pagination-wrapper">
-    {{ $news_by_tag->links() }}
+        {{ $news_by_tag->links() }}
     </div>
 </section>
+
 @endsection

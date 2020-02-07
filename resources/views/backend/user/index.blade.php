@@ -11,15 +11,12 @@
 </section>
 
 <section class="dashboard">
-
 	<div class="dashboard-wrapper">
 		<div class="well">
 			<div class="well-title">
 				<h5>User List</h5>
 			</div>
-
 			<div class="well-content">
-
 				<table>
 					<tr>
 						<th>ID</th>
@@ -45,21 +42,19 @@
 						<td>
 							<a href="/dashboard/users/{{ $user->id }}/edit" class="action-button-green">Edit</a>
 							@can('user_delete')
-							<form action="{{ route('users.destroy', $user->id) }}" method="post">
+							<form action="{{ route('users.destroy', $user->id) }}" method="post" onsubmit="return confirm('Delete user?')">
 								@method('DELETE')
 								@csrf
-								<button type="submit" class="action-button-red" onsubmit="return confirm('Delete user?')">Delete</button>
+								<button type="submit" class="action-button-red">Delete</button>
 							</form>
 							@endcan
 						</td>
 					</tr>				
 					@endforeach
 				</table>
-
 			</div>
 		</div>
 	</div>
-
 </section>
 
 @endsection

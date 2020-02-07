@@ -12,7 +12,6 @@
 
 <section class="contact-page">
 	<div class="contact-page-wrapper">
-
 		<div class="contact-us">
 			<h2>Не стесняйтесь...</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis veniam unde tenetur ullam.</p>
@@ -23,25 +22,19 @@
 				<a href="#">pt</a>
 			</p>
 		</div>
-
-		<div class="contact-form">
-			
+		<div class="contact-form">			
 			<h2>Заполните форму</h2>
 			<div class="alert">{{ session()->get('message') }}</div>
 			@if(!session()->has('message'))
-
 			<form method="POST" action="/contact">
-
 				<div class="contact-form-group">
 					<input type="text" name="name" placeholder="Name" value="{{ old('name') }}" autocomplete="name" autofocus>
 					<div class="invalid-feedback">{{ $errors->first('name') }}</div>                                
 				</div>
-
 				<div class="contact-form-group">              
 					<input type="email" name="email"  placeholder="Email" value="{{ old('email') }}" autocomplete="email">
 					<div class="invalid-feedback">{{ $errors->first('email') }}</div>                                   
 				</div>
-
 				<div class="contact-form-group">              
 					<textarea type="text" name="message" placeholder="Message" autocomplete="message">{{ old('message') }}</textarea>
 					<div class="invalid-feedback">{{ $errors->first('message') }}</div>                                
@@ -52,11 +45,9 @@
 			</form>
 			@endif
 		</div>
-
 		<div class="right-column">
 			<h2>Наш офис</h2>
 		</div>
-
 	</div>
 </section>
 
@@ -68,7 +59,10 @@
 			<div class="item">
 				@if($news_item->photo)
 				<div class="image-holder">
-					<a href="{{ route('post.show', [$news_item->slug]) }}"><img src="{{ asset('storage/'.$news_item->photo->path) }}" alt="Photo"></a>
+					<a href="{{ route('post.show', [$news_item->slug]) }}">
+						<img src="{{ asset('storage/'.$news_item->photo->path) }}" alt="Photo">
+						<div class="image-overlay"></div>
+					</a>
 				</div>
 				@endif
 				<div class="item-content">
@@ -82,10 +76,11 @@
 					<p class="item-blog-comment">Comments: {{ $news_item->comments->count() }}</p>
 					<div class="blog-line">
 					</div>
-
 					<div class="item-blog-bottom">
 						<a href="{{ route('post.show', [$news_item->slug]) }}" class="button">Читать</a>
+						@if($news_item->category)
 						<p><i class="fas fa-tags"></i><a href="{{ route('category', [$news_item->category->id]) }}">{{ $news_item->category->title }}</a></p>
+						@endif
 					</div>
 				</div>
 			</div>
@@ -94,15 +89,15 @@
 		<div id="left-arrow" class="arrow-left">
 			<i class="fas fa-chevron-left"></i>
 		</div>
-
 		<div id="right-arrow" class="arrow-right">
 			<i class="fas fa-chevron-right"></i>
 		</div>
-	</div>
-	
+	</div>	
 </section>
 @endsection
 
 @push('scripts')
+
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
 @endpush

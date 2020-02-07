@@ -7,13 +7,11 @@
 			<h6>{{ comment.user.name }}</h6>
 			<p>{{ comment.body }}</p>
 		</div>
-
 		<div class="replies">
 			<div class="comment-likes">
 				<likes :default_likes="comment.likes" :entity_id="comment.id" :entity_owner="comment.user.id"></likes>
 			</div>
-			<button  @click="addingReply = !addingReply" class="add-reply-button">Добавить ответ</button>
-			
+			<button  @click="addingReply = !addingReply" class="add-reply-button">Добавить ответ</button>			
 			<div v-if="addingReply" class="add-reply">
 				<div v-if="auth">
 					<textarea v-model='body' type="text" placeholder="Ваш ответ"></textarea>
@@ -71,17 +69,16 @@
 						this.addingReply = false
 						this.$refs.replies.addReply(data)
 					}).catch(error => {
-                    if(error.response.status === 422) {
-                        this.errors = error.response.data.errors || {};
-                    }
-                });
+						if(error.response.status === 422) {
+							this.errors = error.response.data.errors || {};
+						}
+					});
 				}
 			}
-
 		}
-	</script>
+</script>
 
-	<style scoped>
+<style scoped>
 
 		.comment {
 			width: 100%;
@@ -164,10 +161,10 @@
 		}
 
 		.comment .replies .invalid-feedback {
-            color: #e71d43;
-            font-size: 1.4rem;
-            text-align: left;
-            margin-left: 65px;
-    }
+			color: #e71d43;
+			font-size: 1.4rem;
+			text-align: left;
+			margin-left: 65px;
+		}
 
-	</style>
+</style>

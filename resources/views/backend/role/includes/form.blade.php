@@ -3,7 +3,6 @@
 	<input type="text" name="title" value="{{ old('title') ?? $role->title }}" class="form-input" autofocus>
 	<div class="form-error">{{ $errors->first('title') }}</div>
 </div>
-
 <div class="form-wrapper">
 	<label for="permission_id">Choose permissions</label>
 	<select class="permission-select-for-role" name="permission_id[]" multiple="multiple">

@@ -11,16 +11,13 @@
 </section>
 
 <section class="dashboard">
-
 	<div class="dashboard-wrapper">
 		<a href="/dashboard/categories" class="back">Back</a>
 		<div class="well">
 			<div class="well-title">
 				<h5>Edit Category</h5>
 			</div>
-
 			<div class="well-content">
-
 				<form action="{{ route('categories.update', $category->id) }}" class="create-update" method="post" enctype="multipart/form-data">
 					@method('PATCH')
 					<div class="form-wrapper">
@@ -31,7 +28,6 @@
 					<button type="submit" class="button">Save</button>
 					@csrf				
 				</form>	
-
 			</div>
 		</div>
 	</div>

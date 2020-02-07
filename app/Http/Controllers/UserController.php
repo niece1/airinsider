@@ -40,10 +40,6 @@ class UserController extends Controller
 
         $user->delete();
 
-        if($user->roles) {
-        $this->detachRoles($user);
-        }
-
         return redirect('dashboard/users')->withSuccessMessage('User Deleted Successfully!');
     }
 
@@ -52,8 +48,4 @@ class UserController extends Controller
        $user->roles()->sync(request('role_id'));
     }
 
-    private function detachRoles($user)
-    {
-       $user->roles()->detach(request('role_id'));
-    }
 }

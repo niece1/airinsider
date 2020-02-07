@@ -25,7 +25,10 @@
         <div class="item">
             @if($news_item->photo)
             <div class="image-holder">                
-                <a href="{{ route('post.show', [$news_item->slug]) }}"><img src="{{ asset('storage/'.$news_item->photo->path) }}" alt="Photo"></a>
+                <a href="{{ route('post.show', [$news_item->slug]) }}">
+                    <img src="{{ asset('storage/'.$news_item->photo->path) }}" alt="Photo">
+                    <div class="image-overlay"></div>
+                </a>
             </div>
             @endif
             <div class="item-content">
@@ -50,12 +53,12 @@
         </div>
         @endforeach
     </div>
-
 </section>
 
 <section class="news-pagination">
     <div class="news-pagination-wrapper">
-    {{ $news->links() }}
+        {{ $news->links() }}
     </div>
 </section>
+
 @endsection

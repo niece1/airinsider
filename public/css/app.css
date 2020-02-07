@@ -680,12 +680,45 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
 .news .news-wrapper .item .image-holder {
   overflow: hidden;
   border-radius: 5px 5px 0 0;
+  position: relative;
+  display: block;
 }
 
 .news .news-wrapper .item .image-holder a img {
   width: 100%;
-  display: inline-block;
+  height: 100%;
+  display: block;
   vertical-align: middle;
+  transition: transform 0.5s ease-in-out;
+  -webkit-transition: transform 0.5s ease-in-out;
+  -o-transition: transform 0.5s ease-in-out;
+}
+
+.news .news-wrapper .item .image-holder a .image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.news .news-wrapper .item .image-holder a:hover img {
+  transform: scale(1.15);
+  -ms-transform: scale(1.15);
+}
+
+.news .news-wrapper .item .image-holder a:hover .image-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: background-color 0.5s ease-in-out;
+  -webkit-transition: background-color 0.5s ease-in-out;
+  -o-transition: background-color 0.5s ease-in-out;
+}
+
+.news .news-wrapper .item .image-holder a:not(:hover) .image-overlay {
+  background-color: transparent;
+  transition: background-color 0.5s ease-in-out;
+  -webkit-transition: background-color 0.5s ease-in-out;
+  -o-transition: background-color 0.5s ease-in-out;
 }
 
 .news .news-wrapper .item .item-content {
@@ -1040,9 +1073,9 @@ footer .footer_wrapper_upper .popular_posts ul li p {
 
 footer .footer_wrapper_upper .popular_posts ul li p:hover {
   color: #e71d43;
-  transition: all 0.2s ease-in-out;
-  -webkit-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
+  transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
 }
 
 footer .footer_wrapper_down {
@@ -1469,12 +1502,45 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
 .slider .contact-slider .contact-slider-wrapper .item .image-holder {
   overflow: hidden;
   border-radius: 5px 5px 0 0;
+  position: relative;
+  display: block;
 }
 
 .slider .contact-slider .contact-slider-wrapper .item .image-holder a img {
   width: 100%;
-  display: inline-block;
+  height: 100%;
+  display: block;
   vertical-align: middle;
+  transition: transform 0.5s ease-in-out;
+  -webkit-transition: transform 0.5s ease-in-out;
+  -o-transition: transform 0.5s ease-in-out;
+}
+
+.slider .contact-slider .contact-slider-wrapper .item .image-holder a .image-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.slider .contact-slider .contact-slider-wrapper .item .image-holder a:hover img {
+  transform: scale(1.15);
+  -ms-transform: scale(1.15);
+}
+
+.slider .contact-slider .contact-slider-wrapper .item .image-holder a:hover .image-overlay {
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: background-color 0.5s ease-in-out;
+  -webkit-transition: background-color 0.5s ease-in-out;
+  -o-transition: background-color 0.5s ease-in-out;
+}
+
+.slider .contact-slider .contact-slider-wrapper .item .image-holder a:not(:hover) .image-overlay {
+  background-color: transparent;
+  transition: background-color 0.5s ease-in-out;
+  -webkit-transition: background-color 0.5s ease-in-out;
+  -o-transition: background-color 0.5s ease-in-out;
 }
 
 .slider .contact-slider .contact-slider-wrapper .item .item-content {

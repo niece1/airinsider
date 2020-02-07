@@ -11,16 +11,13 @@
 </section>
 
 <section class="dashboard">
-
 	<div class="dashboard-wrapper">
 		<a href="/dashboard/permissions" class="back">Back</a>
 		<div class="well">
 			<div class="well-title">
 				<h5>Create Permission</h5>
 			</div>
-
 			<div class="well-content">
-
 				<form action="{{ route('permissions.store') }}" class="create-update" method="post" enctype="multipart/form-data">
 					<div class="form-wrapper">
 						<label for="title">Title</label>
@@ -30,7 +27,6 @@
 					<button type="submit" class="button">Save</button>
 					@csrf				
 				</form>	
-
 			</div>
 		</div>
 	</div>

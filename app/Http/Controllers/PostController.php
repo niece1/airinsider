@@ -137,10 +137,6 @@ class PostController extends Controller
     {
         $post = Post::withTrashed()->where('id', $id)->first();
 
-        if($post->tags) {
-        $this->detachTags($post);
-        }
-
         if($post->photo) {
         $this->deletePhoto($post->photo->id);
         }
@@ -165,6 +161,7 @@ class PostController extends Controller
         'title' => 'bail|required|min:2|unique:posts,title',         
         'body' => 'required',
         'time_to_read' => 'required',
+        'photo_source' => 'max:200',
         'published' => 'required',
         'category_id' => 'required',
         'image' => 'sometimes|file|image|max:5000',
@@ -180,6 +177,7 @@ class PostController extends Controller
         ],
         'body' => 'required',
         'time_to_read' => 'required',
+        'photo_source' => 'max:200',
         'published' => 'required',
         'category_id' => 'required',
         'image' => 'sometimes|file|image|max:5000',
@@ -202,11 +200,6 @@ class PostController extends Controller
     {
        Auth::user()->posts()->save($post);
     }
-
-   private function detachTags($post)
-   {
-       $post->tags()->detach(request('tag_id'));
-   }
 
    private function storeImage(Request $request, Post $post)
    {
