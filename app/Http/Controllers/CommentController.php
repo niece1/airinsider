@@ -11,7 +11,7 @@ class CommentController extends Controller
 {
     public function index(Post $post)
     {
-    	return $post->comments()->paginate(10);
+    	return $post->comments()->with(['replies'])->paginate(10);
     }
 
     public function store(Request $request, Post $post)
@@ -34,7 +34,7 @@ class CommentController extends Controller
 
     public function list()
     {
-        $comments = Comment::orderBy('id', 'desc')->paginate(50);
+        $comments = Comment::with(['post', 'replies'])->orderBy('id', 'desc')->paginate(50);
 
         if(session('success_message')){
             Alert::success( session('success_message'))->toToast();

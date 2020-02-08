@@ -13,8 +13,8 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        $featured = Post::where('published', 1)->orderBy('id', 'desc')->firstOrFail();
-        $news = Post::with(['photo'])->where('published', 1)->where('id', '<>', $featured->id)->orderBy('id', 'desc')->paginate(8);
+        $featured = Post::with(['photo'])->where('published', 1)->orderBy('id', 'desc')->firstOrFail();
+        $news = Post::with(['photo', 'category', 'user', 'comments'])->where('published', 1)->where('id', '<>', $featured->id)->orderBy('id', 'desc')->paginate(8);
 
         return view('frontend.index', compact('featured', 'news'));
     }
@@ -24,7 +24,7 @@ class FrontendController extends Controller
         $post = Post::where('slug', $slug)->firstOrFail();
         $post->viewedCounter();
         $related = Post::with(['photo'])->where('category_id', $post->category_id)->where('published', 1)->limit(5)->get();
-        $categories = Category::with('posts')->get();
+        $categories = Category::all();
         $tags = Tag::all();
 
         return view('frontend.show', compact('post', 'categories', 'tags', 'related'));
@@ -32,7 +32,7 @@ class FrontendController extends Controller
 
     public function postsByCategory($category)
     {            
-        $news_by_category = Post::with(['photo', 'category'])->where('category_id', $category)->where('published', 1)->orderBy('id', 'desc')->paginate(12);
+        $news_by_category = Post::with(['photo', 'category', 'user', 'comments'])->where('category_id', $category)->where('published', 1)->orderBy('id', 'desc')->paginate(12);
         $category = Category::find($category);
 
         return view('frontend.category', compact('news_by_category', 'category'));
@@ -48,7 +48,7 @@ class FrontendController extends Controller
 
     public function postsByUser($user)
     {            
-        $news_by_user = Post::with(['photo', 'user'])->where('user_id', $user)->where('published', 1)->orderBy('id', 'desc')->paginate(12);
+        $news_by_user = Post::with(['photo', 'user', 'category', 'comments'])->where('user_id', $user)->where('published', 1)->orderBy('id', 'desc')->paginate(12);
         $user = User::find($user);
 
         return view('frontend.user', compact('news_by_user', 'user'));

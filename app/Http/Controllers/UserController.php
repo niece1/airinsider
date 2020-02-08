@@ -11,7 +11,7 @@ class UserController extends Controller
 {
 	public function  index()
 	{
-		$users = User::all();
+		$users = User::with(['roles'])->get();
 
 		if(session('success_message')){
         Alert::success( session('success_message'))->toToast();

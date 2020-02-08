@@ -26,7 +26,7 @@ class FooterServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('layouts.partials.popular-posts', function($view) {
-            $view->with(['popular' => Post::where('published', 1)->orderBy('viewed', 'desc')->limit(3)->get()]);
+            $view->with(['popular' => Post::with(['photo'])->where('published', 1)->orderBy('viewed', 'desc')->limit(3)->get()]);
         });
     }
 }

@@ -23,7 +23,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with(['photo'])->orderBy('id', 'desc')->paginate(50);
+        $posts = Post::with(['photo', 'category'])->orderBy('id', 'desc')->paginate(50);
 
         if(session('success_message')){
         Alert::success( session('success_message'))->toToast();
@@ -124,7 +124,7 @@ class PostController extends Controller
 
     public function trashed()
     {
-      $posts = Post::onlyTrashed()->get();
+      $posts = Post::with(['photo', 'category'])->onlyTrashed()->get();
 
       if(session('success_message')){
         Alert::success( session('success_message'))->toToast();

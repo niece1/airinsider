@@ -16,7 +16,7 @@ class RoleController extends Controller
      */
     public function index()
     {
-        $roles = Role::all();
+        $roles = Role::with(['permissions'])->get();
 
         if(session('success_message')){
         Alert::success( session('success_message'))->toToast();
