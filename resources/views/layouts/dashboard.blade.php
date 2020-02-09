@@ -75,7 +75,7 @@
 				</li>
 				@endauth
 				<li>
-					<a href=""><i class="fas fa-search"></i></a>
+					<a href="javascript:void(0)" id="search"><i class="fas fa-search"></i></a>
 				</li>		
 			</ul>
 		</nav>
@@ -84,6 +84,14 @@
 			</div>
 		</div>
 	</div>
+	<!-- Search_overlay -->
+	<div class="search-overlay">
+		<span class="close-search">&times;</span>
+		<form class="search-input" action="#">
+			<input type="text" name="" placeholder="Search...">
+		</form>
+	</div>
+	<!-- /Search_overlay -->
 </header>
 
 <main>			

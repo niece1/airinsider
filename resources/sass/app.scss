@@ -293,6 +293,69 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
     }   
 }
 
+/*Overlay Search Styles*/
+.search-overlay {
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    position: fixed;
+    background-color: #000;
+    z-index: 99;
+    overflow-x: hidden;
+    transition: .5s;
+    -webkit-transition: .5s;
+    -o-transition: .5s;
+    span.close-search {
+        position: absolute;
+        top: 15px;
+        right: 45px;
+        cursor: pointer;
+        font-size: 6rem;
+        color: #9c9c9c;
+        &:hover {
+            color: #e71d43;
+            transition: all .3s ease-in-out;
+            -webkit-transition: all .3s ease-in-out;
+            -o-transition: all .3s ease-in-out;
+        }
+    }
+    form.search-input {
+        position: relative;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+        @media only screen and (max-width: 600px) {
+            top: 30%;
+        }
+        input {
+            border: none;
+            border-bottom: 3px solid #9c9c9c;
+            outline: none;
+            background-color: transparent;
+            color: #9c9c9c;
+            text-align: left;
+            padding-bottom: 5px;
+            font-size: 4rem;
+            overflow: hidden;
+            width: 50%;
+            @media only screen and (max-width: 600px) {
+                width: 65%;
+            }
+            &::placeholder {
+                color: #9c9c9c;
+                font-size: 4rem;
+                opacity: 1;
+            }
+            &::-webkit-input-placeholder {
+                color: #9c9c9c;
+                font-size: 4rem;
+                opacity: 1;
+            }
+        }
+    }
+}
+
 /*Register page styles*/
 .register {
     width: 100%;
@@ -961,11 +1024,23 @@ footer {
         top: 50px;
         width: 100%;
         text-align: center;
+        @media only screen and (max-width: 600px) {
+            top: 45px;
+        }
+        @media only screen and (max-width: 400px) {
+            top: 40px;
+        } 
         h1 {
             font-weight: normal;
             font-size: 4.5rem;
-            margin: 0;
+            margin: 0 30px;
             padding: 0;
+            @media only screen and (max-width: 800px) {
+                font-size: 3.5rem;
+            }
+            @media only screen and (max-width: 600px) {
+                font-size: 3rem;
+            }  
         }
     }
 }

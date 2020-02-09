@@ -328,6 +328,106 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
   }
 }
 
+/*Overlay Search Styles*/
+
+.search-overlay {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  position: fixed;
+  background-color: #000;
+  z-index: 99;
+  overflow-x: hidden;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.search-overlay span.close-search {
+  position: absolute;
+  top: 15px;
+  right: 45px;
+  cursor: pointer;
+  font-size: 6rem;
+  color: #9c9c9c;
+}
+
+.search-overlay span.close-search:hover {
+  color: #e71d43;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+.search-overlay form.search-input {
+  position: relative;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .search-overlay form.search-input {
+    top: 30%;
+  }
+}
+
+.search-overlay form.search-input input {
+  border: none;
+  border-bottom: 3px solid #9c9c9c;
+  outline: none;
+  background-color: transparent;
+  color: #9c9c9c;
+  text-align: left;
+  padding-bottom: 5px;
+  font-size: 4rem;
+  overflow: hidden;
+  width: 50%;
+}
+
+@media only screen and (max-width: 600px) {
+  .search-overlay form.search-input input {
+    width: 65%;
+  }
+}
+
+.search-overlay form.search-input input::-webkit-input-placeholder {
+  color: #9c9c9c;
+  font-size: 4rem;
+  opacity: 1;
+}
+
+.search-overlay form.search-input input::-moz-placeholder {
+  color: #9c9c9c;
+  font-size: 4rem;
+  opacity: 1;
+}
+
+.search-overlay form.search-input input:-ms-input-placeholder {
+  color: #9c9c9c;
+  font-size: 4rem;
+  opacity: 1;
+}
+
+.search-overlay form.search-input input::-ms-input-placeholder {
+  color: #9c9c9c;
+  font-size: 4rem;
+  opacity: 1;
+}
+
+.search-overlay form.search-input input::placeholder {
+  color: #9c9c9c;
+  font-size: 4rem;
+  opacity: 1;
+}
+
+.search-overlay form.search-input input::-webkit-input-placeholder {
+  color: #9c9c9c;
+  font-size: 4rem;
+  opacity: 1;
+}
+
 /*Register page styles*/
 
 .register {
@@ -1173,11 +1273,35 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   text-align: center;
 }
 
+@media only screen and (max-width: 600px) {
+  .title-jumbotron .parallax-text {
+    top: 45px;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .title-jumbotron .parallax-text {
+    top: 40px;
+  }
+}
+
 .title-jumbotron .parallax-text h1 {
   font-weight: normal;
   font-size: 4.5rem;
-  margin: 0;
+  margin: 0 30px;
   padding: 0;
+}
+
+@media only screen and (max-width: 800px) {
+  .title-jumbotron .parallax-text h1 {
+    font-size: 3.5rem;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .title-jumbotron .parallax-text h1 {
+    font-size: 3rem;
+  }
 }
 
 /*Contact page styles*/

@@ -180,6 +180,15 @@ $(document).ready(function() {
     $(".hamburger-menu").toggleClass("animate");
   });
 
+  //Fullscreen search menu
+  $('#search').click(function() {
+   $('.search-overlay').css('width', '100%');
+ });
+
+  $('.close-search').click(function() {
+   $('.search-overlay').css('width', '0%');
+ });
+
 
 //Parallax
 $(window).scroll(function() {
