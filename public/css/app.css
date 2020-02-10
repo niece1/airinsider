@@ -1948,7 +1948,7 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
 
 @media only screen and (max-width: 1000px) {
   .news-show .news-show-wrapper aside.sidebar {
-    float: none;
+    float: left;
     margin: 40px 0 0 0;
     width: 100%;
   }

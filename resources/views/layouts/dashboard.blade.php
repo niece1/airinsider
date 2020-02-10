@@ -87,8 +87,8 @@
 	<!-- Search_overlay -->
 	<div class="search-overlay">
 		<span class="close-search">&times;</span>
-		<form class="search-input" action="#">
-			<input type="text" name="" placeholder="Search...">
+		<form class="search-input" action="{{ route('search') }}" method="GET" autocomplete="off">
+			<input type="text" name="keyword" value="{{ request()->input('keyword') }}" placeholder="Search..." required>
 		</form>
 	</div>
 	<!-- /Search_overlay -->
