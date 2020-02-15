@@ -1870,6 +1870,23 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1879,7 +1896,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      body: '',
+      body: "",
       addingReply: false,
       errors: {}
     };
@@ -1913,7 +1930,7 @@ __webpack_require__.r(__webpack_exports__);
         body: this.body
       }).then(function (_ref) {
         var data = _ref.data;
-        _this.body = '';
+        _this.body = "";
         _this.addingReply = false;
 
         _this.$refs.replies.addReply(data);
@@ -1977,9 +1994,25 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['post'],
+  props: ["post"],
   components: {
     Comment: _comment_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
@@ -1996,7 +2029,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       comments: {
         data: []
       },
-      newComment: '',
+      newComment: "",
       errors: {}
     };
   },
@@ -2114,6 +2147,35 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
@@ -2125,11 +2187,11 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
     },
     entity_owner: {
       required: true,
-      "default": ''
+      "default": ""
     },
     entity_id: {
       required: true,
-      "default": ''
+      "default": ""
     }
   },
   data: function data() {
@@ -2140,19 +2202,19 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
   computed: {
     uplikes: function uplikes() {
       return this.likes.filter(function (v) {
-        return v.type === 'up';
+        return v.type === "up";
       });
     },
     downlikes: function downlikes() {
       return this.likes.filter(function (v) {
-        return v.type === 'down';
+        return v.type === "down";
       });
     },
     uplikes_count: function uplikes_count() {
-      return numeral__WEBPACK_IMPORTED_MODULE_0___default()(this.uplikes.length).format('0a');
+      return numeral__WEBPACK_IMPORTED_MODULE_0___default()(this.uplikes.length).format("0a");
     },
     downlikes_count: function downlikes_count() {
-      return numeral__WEBPACK_IMPORTED_MODULE_0___default()(this.downlikes.length).format('0a');
+      return numeral__WEBPACK_IMPORTED_MODULE_0___default()(this.downlikes.length).format("0a");
     },
     upliked: function upliked() {
       if (!__auth()) return false;
@@ -2172,15 +2234,15 @@ function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
       var _this = this;
 
       if (!__auth()) {
-        return alert('Please login to like.');
+        return alert("Please login to like.");
       }
 
       if (__auth().id === this.entity_owner) {
-        return alert('You cannot like this item.');
+        return alert("You cannot like this item.");
       }
 
-      if (type === 'up' && this.upliked) return;
-      if (type === 'down' && this.downliked) return;
+      if (type === "up" && this.upliked) return;
+      if (type === "down" && this.downliked) return;
       axios.post("/likes/".concat(this.entity_id, "/").concat(type)).then(function (_ref) {
         var data = _ref.data;
 
@@ -2247,9 +2309,21 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['comment'],
+  props: ["comment"],
   components: {
     Avatar: vue_avatar__WEBPACK_IMPORTED_MODULE_0___default.a
   },
@@ -2302,6 +2376,19 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2315,7 +2402,7 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
-      axios.post('/subscriptions', {
+      axios.post("/subscriptions", {
         email: this.email
       }).then(function (response) {
         _this.email = "";
@@ -2344,7 +2431,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.comment[data-v-1d15af38] {\n\twidth: 100%;\n\tmargin: 30px 0;\n}\n.comment .comment-itself h6[data-v-1d15af38] {\n\tfont-weight: normal;\n}\n.comment .replies[data-v-1d15af38] {\n\tmargin-top: 7px;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38] {\t\n\tcursor: pointer;                \n\tfont-size: 1.5rem;\n\ttext-transform: uppercase;\n\tletter-spacing: 1px;\n\tborder: none;\n\tbackground-color: transparent;\n\toutline: none;\n\tcolor: #0633ff;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38]:hover {\n\tcolor: #e71d43;\n\ttransition: all 0.3s ease-in-out;\n\t-webkit-transition: all 0.3s ease-in-out;\n\t-o-transition: all 0.3s ease-in-out;\n}\n.comment .replies .add-reply[data-v-1d15af38] {\n\tmargin: 40px 0 0 0;\n}\n.comment .replies .login-to-answer[data-v-1d15af38] {\n\tcolor: #e71d43;\n}\n.comment .replies .add-reply textarea[data-v-1d15af38] {\n\tmargin: 0 0 0 65px;\n\tborder: none;\n\tborder-bottom: 2px solid #000;\n\toutline: none; \n\twidth: 100%; \n\tfont-size: 1.8rem;\n}\n.comment .replies .comment-likes[data-v-1d15af38] {\n\tmargin: 0 10px 0 0;\n\tfloat: left;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38] {\n\tborder: 2px solid #e71d43;\n\tpadding: 14px 30px;\n\tcursor: pointer;                \n\tfont-size: 1.5rem;\n\ttext-transform: uppercase;\n\tletter-spacing: 1px;\n\tborder-radius: 3px; \n\tbackground-color: transparent;\n\tcolor: #000;\n\tmargin: 10px 0 20px 65px;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38]:hover {\n\tbackground-color: #e71d43;\n\tcolor: #fff;\n\tborder: 2px solid #e71d43;\n\ttransition: all 0.3s ease-in-out;\n\t-webkit-transition: all 0.3s ease-in-out;\n\t-o-transition: all 0.3s ease-in-out;\n}\n.comment .comment-itself .avatar-label[data-v-1d15af38] {\n\tfloat: left;\n\tmargin-right: 15px;\n}\n.comment .replies .invalid-feedback[data-v-1d15af38] {\n\tcolor: #e71d43;\n\tfont-size: 1.4rem;\n\ttext-align: left;\n\tmargin-left: 65px;\n}\n\n", ""]);
+exports.push([module.i, "\n.comment[data-v-1d15af38] {\n    width: 100%;\n    margin: 30px 0;\n}\n.comment .comment-itself h6[data-v-1d15af38] {\n    font-weight: normal;\n}\n.comment .replies[data-v-1d15af38] {\n    margin-top: 7px;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38] {\n    cursor: pointer;\n    font-size: 1.3rem;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border: none;\n    background-color: transparent;\n    outline: none;\n    color: #0633ff;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38]:hover {\n    color: #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comment .replies .add-reply[data-v-1d15af38] {\n    margin: 40px 0 0 0;\n}\n.comment .replies .login-to-answer[data-v-1d15af38] {\n    color: #e71d43;\n}\n.comment .replies .add-reply textarea[data-v-1d15af38] {\n    margin: 0 0 0 65px;\n    border: none;\n    border-bottom: 2px solid #000;\n    outline: none;\n    width: 100%;\n    font-size: 1.6rem;\n}\n.comment .replies .comment-likes[data-v-1d15af38] {\n    margin: 0 10px 0 0;\n    float: left;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38] {\n    border: 2px solid #e71d43;\n    padding: 14px 25px 12px 25px;\n    cursor: pointer;\n    font-size: 1.3rem;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border-radius: 3px;\n    background-color: transparent;\n    color: #000;\n    margin: 10px 0 20px 65px;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38]:hover {\n    background-color: #e71d43;\n    color: #fff;\n    border: 2px solid #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comment .comment-itself .avatar-label[data-v-1d15af38] {\n    float: left;\n    margin-right: 15px;\n}\n.comment .replies .invalid-feedback[data-v-1d15af38] {\n    color: #e71d43;\n    font-size: 1.2rem;\n    text-align: left;\n    margin-left: 65px;\n}\n", ""]);
 
 // exports
 
@@ -2363,7 +2450,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.comments h4[data-v-40db853f] {\n        margin: 50px 0 20px 0;\n        font-weight: normal;\n}\n.comments p.auth-condition[data-v-40db853f] {\n        color: #e71d43;\n}\n.comments .comments-form textarea[data-v-40db853f] {\n\t\tborder: none;\n\t\tborder-bottom: 2px solid #000;\n        outline: none; \n        width: 100%; \n        font-size: 1.8rem;\n}\n.comments .comments-form textarea[data-v-40db853f]::-webkit-input-placeholder {\n        color: #4e4e4e;\n        opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-moz-placeholder {\n        color: #4e4e4e;\n        opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]:-ms-input-placeholder {\n        color: #4e4e4e;\n        opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-ms-input-placeholder {\n        color: #4e4e4e;\n        opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::placeholder {\n        color: #4e4e4e;\n        opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-webkit-input-placeholder {\n        color: #4e4e4e;\n}\n.comments .comments-form button.button[data-v-40db853f] {\n\t\tborder: 2px solid #e71d43;\n        padding: 14px 30px;\n        cursor: pointer;                \n        font-size: 1.5rem;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        border-radius: 3px; \n        background-color: transparent;\n        color: #000;\n        margin: 10px 0 20px 0;\n}\n.comments .comments-form button.button[data-v-40db853f]:hover {\n\t\tbackground-color: #e71d43;\n        color: #fff;\n        border: 2px solid #e71d43;\n        transition: all 0.3s ease-in-out;\n        -webkit-transition: all 0.3s ease-in-out;\n        -o-transition: all 0.3s ease-in-out;\n}\n.comments .comments-form button.button[data-v-40db853f]:not(:hover) {\n\t\tbackground-color: transparent;\n        color: #000;\n        transition: all 0.3s ease-in-out;\n}\n.comments .more-comments button.button[data-v-40db853f] {\n        cursor: pointer;\n        border: 2px solid #e71d43;\n        padding: 14px 30px;\n        font-size: 1.5rem;\n        text-transform: uppercase;\n        letter-spacing: 1px;\n        border-radius: 3px; \n        background-color: transparent;\n        color: #000;\n        margin: 5px 0;\n}\n.comments .more-comments button.button[data-v-40db853f]:hover {\n        background-color: #e71d43;\n        color: #fff;\n        border: 2px solid #e71d43;\n        transition: all 0.3s ease-in-out;\n        -webkit-transition: all 0.3s ease-in-out;\n        -o-transition: all 0.3s ease-in-out;\n}\n.comments .comments-form .invalid-feedback[data-v-40db853f] {\n        color: #e71d43;\n        font-size: 1.4rem;\n        text-align: left;\n}\n\t\n", ""]);
+exports.push([module.i, "\n.comments h4[data-v-40db853f] {\n    margin: 50px 0 20px 0;\n    font-weight: normal;\n}\n.comments p.auth-condition[data-v-40db853f] {\n    color: #e71d43;\n}\n.comments .comments-form textarea[data-v-40db853f] {\n    border: none;\n    border-bottom: 2px solid #000;\n    outline: none;\n    width: 100%;\n    font-size: 1.6rem;\n}\n.comments .comments-form textarea[data-v-40db853f]::-webkit-input-placeholder {\n    color: #4e4e4e;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-moz-placeholder {\n    color: #4e4e4e;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]:-ms-input-placeholder {\n    color: #4e4e4e;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-ms-input-placeholder {\n    color: #4e4e4e;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::placeholder {\n    color: #4e4e4e;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-webkit-input-placeholder {\n    color: #4e4e4e;\n}\n.comments .comments-form button.button[data-v-40db853f] {\n    border: 2px solid #e71d43;\n    padding: 14px 25px 12px 25px;\n    cursor: pointer;\n    font-size: 1.3rem;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border-radius: 3px;\n    background-color: transparent;\n    color: #000;\n    outline: none;\n    margin: 10px 0 20px 0;\n}\n.comments .comments-form button.button[data-v-40db853f]:hover {\n    background-color: #e71d43;\n    color: #fff;\n    border: 2px solid #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comments .comments-form button.button[data-v-40db853f]:not(:hover) {\n    background-color: transparent;\n    color: #000;\n    transition: all 0.3s ease-in-out;\n}\n.comments .more-comments button.button[data-v-40db853f] {\n    cursor: pointer;\n    border: 2px solid #e71d43;\n    padding: 14px 25px 12px 25px;\n    font-size: 1.3rem;\n    outline: none;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border-radius: 3px;\n    background-color: transparent;\n    color: #000;\n    margin: 5px 0;\n}\n.comments .more-comments button.button[data-v-40db853f]:hover {\n    background-color: #e71d43;\n    color: #fff;\n    border: 2px solid #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comments .comments-form .invalid-feedback[data-v-40db853f] {\n    color: #e71d43;\n    font-size: 1.2rem;\n    text-align: left;\n}\n", ""]);
 
 // exports
 
@@ -2382,7 +2469,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.thumbs-up[data-v-522f5e81], .thumbs-down[data-v-522f5e81] {\n    width: 20px;\n    height: 20px;\n    cursor: pointer;\n    fill: currentColor;\n}\n.thumbs-down[data-v-522f5e81] {\n    margin-left: 10px;\n}\n.thumbs-up-active[data-v-522f5e81], .thumbs-down-active[data-v-522f5e81] {\n    color: blue;\n}\n\n", ""]);
+exports.push([module.i, "\n.thumbs-up[data-v-522f5e81],\n.thumbs-down[data-v-522f5e81] {\n    width: 18px;\n    height: 18px;\n    cursor: pointer;\n    fill: currentColor;\n}\n.thumbs-down[data-v-522f5e81] {\n    margin-left: 10px;\n}\n.thumbs-up-active[data-v-522f5e81],\n.thumbs-down-active[data-v-522f5e81] {\n    color: blue;\n}\n", ""]);
 
 // exports
 
@@ -2401,7 +2488,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.reply .reply-itself[data-v-39188e8d] {\n    margin: 20px 0 10px 65px;\n}\n.reply .reply-itself .avatar-label[data-v-39188e8d] {\n    float: left;\n    margin-right: 10px;\n}\n.reply .reply-itself .reply-body h6[data-v-39188e8d] {\n    font-weight: normal;\n}\n.reply .load-replies button.button[data-v-39188e8d] {\n    cursor: pointer;\n    color: #e71d43;                \n    font-size: 1.5rem;\n    letter-spacing: 1px;\n    border: none;\n    background-color: transparent;\n    margin: 10px 0 0 0;\n    outline: none;\n}\n.reply .load-replies button.button[data-v-39188e8d]:hover {\n    color: #0633ff;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n\n", ""]);
+exports.push([module.i, "\n.reply .reply-itself[data-v-39188e8d] {\n    margin: 20px 0 10px 65px;\n}\n.reply .reply-itself .avatar-label[data-v-39188e8d] {\n    float: left;\n    margin-right: 10px;\n}\n.reply .reply-itself .reply-body h6[data-v-39188e8d] {\n    font-weight: normal;\n}\n.reply .load-replies button.button[data-v-39188e8d] {\n    cursor: pointer;\n    color: #e71d43;\n    font-size: 1.3rem;\n    letter-spacing: 1px;\n    border: none;\n    background-color: transparent;\n    margin: 10px 0 0 0;\n    outline: none;\n}\n.reply .load-replies button.button[data-v-39188e8d]:hover {\n    color: #0633ff;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n", ""]);
 
 // exports
 
@@ -2420,7 +2507,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.input-wrapper[data-v-7e49b268] {\n\t\twidth: 100%;\n\t\tmargin: 5px auto;\n\t\tposition: relative;\n}\n.input-wrapper input[data-v-7e49b268] {\n\t\tcolor: #9c9c9c;                     \n\t\tborder-radius: 0;\n\t\toutline: none;\n\t\twidth: 100%;\n\t\tborder: none;          \n\t\tpadding: 10px 0;\n\t\tborder-bottom: 2px solid #9c9c9c;\n\t\tbackground-color: transparent;\n\t\tfont-size: 1.8rem;\n}\n.input-wrapper input[data-v-7e49b268]::-webkit-input-placeholder {\n        color: #9c9c9c;\n        opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]::-moz-placeholder {\n        color: #9c9c9c;\n        opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]:-ms-input-placeholder {\n        color: #9c9c9c;\n        opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]::-ms-input-placeholder {\n        color: #9c9c9c;\n        opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]::placeholder {\n        color: #9c9c9c;\n        opacity: 1;\n}\n.input-wrapper button[data-v-7e49b268] {\n\t\tposition: absolute;\n\t\ttop: 0;\n\t\tbottom: 0;\n\t\tright: 0;\n\t\tborder: none;\n\t\tbackground: transparent;\n\t\toutline: none;\n\t\tfont-size: 1.8rem;\n\t\tcolor: #9c9c9c;\n\t\tcursor: pointer;\n\t\tpadding: 0 3px;\n}\n.input-wrapper .invalid-feedback[data-v-7e49b268] {\n\t\tcolor: #e71d43;\n\t\tfont-size: 1.4rem;\n\t\ttext-align: left;\n}\n.sent-success[data-v-7e49b268] {\n\t\tfont-weight: normal;\n\t\tcolor: #0633FF;\n}\n\n", ""]);
+exports.push([module.i, "\n.input-wrapper[data-v-7e49b268] {\n    width: 100%;\n    margin: 5px auto;\n    position: relative;\n}\n.input-wrapper input[data-v-7e49b268] {\n    color: #9c9c9c;\n    border-radius: 0;\n    outline: none;\n    width: 100%;\n    border: none;\n    padding: 10px 0;\n    border-bottom: 2px solid #9c9c9c;\n    background-color: transparent;\n    font-size: 1.6rem;\n}\n.input-wrapper input[data-v-7e49b268]::-webkit-input-placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]::-moz-placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]:-ms-input-placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]::-ms-input-placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]::placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper button[data-v-7e49b268] {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    right: 0;\n    border: none;\n    background: transparent;\n    outline: none;\n    font-size: 1.8rem;\n    color: #9c9c9c;\n    cursor: pointer;\n    padding: 0 3px;\n}\n.input-wrapper .invalid-feedback[data-v-7e49b268] {\n    color: #e71d43;\n    font-size: 1.2rem;\n    text-align: left;\n}\n.sent-success[data-v-7e49b268] {\n    font-weight: normal;\n    color: #0633ff;\n}\n", ""]);
 
 // exports
 
@@ -21876,7 +21963,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("Добавить ответ")]
+          [_vm._v("\n            Добавить ответ\n        ")]
         ),
         _vm._v(" "),
         _vm.addingReply
@@ -21906,7 +21993,11 @@ var render = function() {
                     _vm._v(" "),
                     _vm.errors && _vm.errors.body
                       ? _c("div", { staticClass: "invalid-feedback" }, [
-                          _vm._v(_vm._s(_vm.errors.body[0]))
+                          _vm._v(
+                            "\n                    " +
+                              _vm._s(_vm.errors.body[0]) +
+                              "\n                "
+                          )
                         ])
                       : _vm._e(),
                     _vm._v(" "),
@@ -21918,7 +22009,9 @@ var render = function() {
                   ])
                 : _c("div", [
                     _c("p", { staticClass: "login-to-answer" }, [
-                      _vm._v("Авторизируйтесь, чтобы ответить")
+                      _vm._v(
+                        "\n                    Авторизируйтесь, чтобы ответить\n                "
+                      )
                     ])
                   ])
             ])
@@ -21983,19 +22076,23 @@ var render = function() {
             _vm._v(" "),
             _vm.errors && _vm.errors.body
               ? _c("div", { staticClass: "invalid-feedback" }, [
-                  _vm._v(_vm._s(_vm.errors.body[0]))
+                  _vm._v(
+                    "\n            " + _vm._s(_vm.errors.body[0]) + "\n        "
+                  )
                 ])
               : _vm._e(),
             _vm._v(" "),
             _c(
               "button",
               { staticClass: "button", on: { click: _vm.addComment } },
-              [_vm._v("Добавить комментарий")]
+              [_vm._v("\n            Добавить комментарий\n        ")]
             )
           ])
         : _c("div", [
             _c("p", { staticClass: "auth-condition" }, [
-              _vm._v("Авторизируйтесь, чтобы оставить комментарий")
+              _vm._v(
+                "\n            Авторизируйтесь, чтобы оставить комментарий\n        "
+              )
             ])
           ]),
       _vm._v(" "),
@@ -22069,13 +22166,13 @@ var render = function() {
           _c("path", {
             attrs: {
               d:
-                "M457.575,325.1c9.8-12.5,14.5-25.9,13.9-39.7c-0.6-15.2-7.4-27.1-13-34.4c6.5-16.2,9-41.7-12.7-61.5\n                    c-15.9-14.5-42.9-21-80.3-19.2c-26.3,1.2-48.3,6.1-49.2,6.3h-0.1c-5,0.9-10.3,2-15.7,3.2c-0.4-6.4,0.7-22.3,12.5-58.1\n                    c14-42.6,13.2-75.2-2.6-97c-16.6-22.9-43.1-24.7-50.9-24.7c-7.5,0-14.4,3.1-19.3,8.8c-11.1,12.9-9.8,36.7-8.4,47.7\n                    c-13.2,35.4-50.2,122.2-81.5,146.3c-0.6,0.4-1.1,0.9-1.6,1.4c-9.2,9.7-15.4,20.2-19.6,29.4c-5.9-3.2-12.6-5-19.8-5h-61\n                    c-23,0-41.6,18.7-41.6,41.6v162.5c0,23,18.7,41.6,41.6,41.6h61c8.9,0,17.2-2.8,24-7.6l23.5,2.8c3.6,0.5,67.6,8.6,133.3,7.3\n                    c11.9,0.9,23.1,1.4,33.5,1.4c17.9,0,33.5-1.4,46.5-4.2c30.6-6.5,51.5-19.5,62.1-38.6c8.1-14.6,8.1-29.1,6.8-38.3\n                    c19.9-18,23.4-37.9,22.7-51.9C461.275,337.1,459.475,330.2,457.575,325.1z M48.275,447.3c-8.1,0-14.6-6.6-14.6-14.6V270.1\n                    c0-8.1,6.6-14.6,14.6-14.6h61c8.1,0,14.6,6.6,14.6,14.6v162.5c0,8.1-6.6,14.6-14.6,14.6h-61V447.3z M431.975,313.4\n                    c-4.2,4.4-5,11.1-1.8,16.3c0,0.1,4.1,7.1,4.6,16.7c0.7,13.1-5.6,24.7-18.8,34.6c-4.7,3.6-6.6,9.8-4.6,15.4c0,0.1,4.3,13.3-2.7,25.8\n                    c-6.7,12-21.6,20.6-44.2,25.4c-18.1,3.9-42.7,4.6-72.9,2.2c-0.4,0-0.9,0-1.4,0c-64.3,1.4-129.3-7-130-7.1h-0.1l-10.1-1.2\n                    c0.6-2.8,0.9-5.8,0.9-8.8V270.1c0-4.3-0.7-8.5-1.9-12.4c1.8-6.7,6.8-21.6,18.6-34.3c44.9-35.6,88.8-155.7,90.7-160.9\n                    c0.8-2.1,1-4.4,0.6-6.7c-1.7-11.2-1.1-24.9,1.3-29c5.3,0.1,19.6,1.6,28.2,13.5c10.2,14.1,9.8,39.3-1.2,72.7\n                    c-16.8,50.9-18.2,77.7-4.9,89.5c6.6,5.9,15.4,6.2,21.8,3.9c6.1-1.4,11.9-2.6,17.4-3.5c0.4-0.1,0.9-0.2,1.3-0.3\n                    c30.7-6.7,85.7-10.8,104.8,6.6c16.2,14.8,4.7,34.4,3.4,36.5c-3.7,5.6-2.6,12.9,2.4,17.4c0.1,0.1,10.6,10,11.1,23.3\n                    C444.875,295.3,440.675,304.4,431.975,313.4z"
+                "M457.575,325.1c9.8-12.5,14.5-25.9,13.9-39.7c-0.6-15.2-7.4-27.1-13-34.4c6.5-16.2,9-41.7-12.7-61.5\n                c-15.9-14.5-42.9-21-80.3-19.2c-26.3,1.2-48.3,6.1-49.2,6.3h-0.1c-5,0.9-10.3,2-15.7,3.2c-0.4-6.4,0.7-22.3,12.5-58.1\n                c14-42.6,13.2-75.2-2.6-97c-16.6-22.9-43.1-24.7-50.9-24.7c-7.5,0-14.4,3.1-19.3,8.8c-11.1,12.9-9.8,36.7-8.4,47.7\n                c-13.2,35.4-50.2,122.2-81.5,146.3c-0.6,0.4-1.1,0.9-1.6,1.4c-9.2,9.7-15.4,20.2-19.6,29.4c-5.9-3.2-12.6-5-19.8-5h-61\n                c-23,0-41.6,18.7-41.6,41.6v162.5c0,23,18.7,41.6,41.6,41.6h61c8.9,0,17.2-2.8,24-7.6l23.5,2.8c3.6,0.5,67.6,8.6,133.3,7.3\n                c11.9,0.9,23.1,1.4,33.5,1.4c17.9,0,33.5-1.4,46.5-4.2c30.6-6.5,51.5-19.5,62.1-38.6c8.1-14.6,8.1-29.1,6.8-38.3\n                c19.9-18,23.4-37.9,22.7-51.9C461.275,337.1,459.475,330.2,457.575,325.1z M48.275,447.3c-8.1,0-14.6-6.6-14.6-14.6V270.1\n                c0-8.1,6.6-14.6,14.6-14.6h61c8.1,0,14.6,6.6,14.6,14.6v162.5c0,8.1-6.6,14.6-14.6,14.6h-61V447.3z M431.975,313.4\n                c-4.2,4.4-5,11.1-1.8,16.3c0,0.1,4.1,7.1,4.6,16.7c0.7,13.1-5.6,24.7-18.8,34.6c-4.7,3.6-6.6,9.8-4.6,15.4c0,0.1,4.3,13.3-2.7,25.8\n                c-6.7,12-21.6,20.6-44.2,25.4c-18.1,3.9-42.7,4.6-72.9,2.2c-0.4,0-0.9,0-1.4,0c-64.3,1.4-129.3-7-130-7.1h-0.1l-10.1-1.2\n                c0.6-2.8,0.9-5.8,0.9-8.8V270.1c0-4.3-0.7-8.5-1.9-12.4c1.8-6.7,6.8-21.6,18.6-34.3c44.9-35.6,88.8-155.7,90.7-160.9\n                c0.8-2.1,1-4.4,0.6-6.7c-1.7-11.2-1.1-24.9,1.3-29c5.3,0.1,19.6,1.6,28.2,13.5c10.2,14.1,9.8,39.3-1.2,72.7\n                c-16.8,50.9-18.2,77.7-4.9,89.5c6.6,5.9,15.4,6.2,21.8,3.9c6.1-1.4,11.9-2.6,17.4-3.5c0.4-0.1,0.9-0.2,1.3-0.3\n                c30.7-6.7,85.7-10.8,104.8,6.6c16.2,14.8,4.7,34.4,3.4,36.5c-3.7,5.6-2.6,12.9,2.4,17.4c0.1,0.1,10.6,10,11.1,23.3\n                C444.875,295.3,440.675,304.4,431.975,313.4z"
             }
           })
         ])
       ]
     ),
-    _vm._v("\n\n            " + _vm._s(_vm.uplikes_count) + "\n            "),
+    _vm._v("\n\n    " + _vm._s(_vm.uplikes_count) + "\n    "),
     _c(
       "svg",
       {
@@ -22105,13 +22202,13 @@ var render = function() {
           _c("path", {
             attrs: {
               d:
-                "M442.822,209.562c1.715-6.283,2.57-12.847,2.57-19.702c0-14.655-3.621-28.361-10.852-41.112\n                        c0.567-3.995,0.855-8.088,0.855-12.275c0-19.223-5.716-36.162-17.132-50.819v-1.427c0.191-26.075-7.946-46.632-24.414-61.669\n                        C377.387,7.521,355.831,0,329.186,0h-31.977c-19.985,0-39.02,2.093-57.102,6.28c-18.086,4.189-39.304,10.468-63.666,18.842\n                        c-22.08,7.616-35.211,11.422-39.399,11.422H54.821c-10.088,0-18.702,3.567-25.84,10.704C21.845,54.387,18.276,63,18.276,73.085\n                        v182.728c0,10.089,3.566,18.698,10.705,25.837c7.142,7.139,15.752,10.705,25.84,10.705h78.228\n                        c6.849,4.572,19.889,19.324,39.113,44.255c11.231,14.661,21.416,26.741,30.551,36.265c3.612,3.997,6.564,10.089,8.848,18.271\n                        c2.284,8.186,3.949,16.228,4.998,24.126c1.047,7.898,3.475,16.516,7.281,25.837c3.806,9.329,8.944,17.139,15.415,23.422\n                        c7.423,7.043,15.985,10.561,25.697,10.561c15.988,0,30.361-3.087,43.112-9.274c12.754-6.184,22.463-15.845,29.126-28.981\n                        c6.663-12.943,9.996-30.646,9.996-53.103c0-17.702-4.568-35.974-13.702-54.819h50.244c19.801,0,36.925-7.23,51.394-21.7\n                        c14.469-14.462,21.693-31.497,21.693-51.103C456.809,239.165,452.15,223.652,442.822,209.562z M85.942,104.219\n                        c-3.616,3.615-7.898,5.424-12.847,5.424c-4.95,0-9.233-1.805-12.85-5.424c-3.615-3.621-5.424-7.898-5.424-12.851\n                        c0-4.948,1.809-9.231,5.424-12.847c3.621-3.617,7.9-5.424,12.85-5.424c4.949,0,9.231,1.807,12.847,5.424\n                        c3.617,3.616,5.426,7.898,5.426,12.847C91.368,96.317,89.56,100.598,85.942,104.219z M409.135,281.377\n                        c-7.42,7.33-15.886,10.992-25.413,10.992H283.227c0,11.04,4.564,26.217,13.698,45.535c9.138,19.321,13.71,34.598,13.71,45.829\n                        c0,18.647-3.046,32.449-9.134,41.395c-6.092,8.949-18.274,13.422-36.546,13.422c-4.951-4.948-8.572-13.045-10.854-24.276\n                        c-2.276-11.225-5.185-23.168-8.706-35.83c-3.519-12.655-9.18-23.079-16.984-31.266c-4.184-4.373-11.516-13.038-21.982-25.98\n                        c-0.761-0.951-2.952-3.806-6.567-8.562c-3.614-4.757-6.613-8.658-8.992-11.703c-2.38-3.046-5.664-7.091-9.851-12.136\n                        c-4.189-5.044-7.995-9.232-11.422-12.565c-3.427-3.327-7.089-6.708-10.992-10.137c-3.901-3.426-7.71-5.996-11.421-7.707\n                        c-3.711-1.711-7.089-2.566-10.135-2.566h-9.136V73.092h9.136c2.474,0,5.47-0.282,8.993-0.854c3.518-0.571,6.658-1.192,9.419-1.858\n                        c2.76-0.666,6.377-1.713,10.849-3.14c4.476-1.425,7.804-2.522,9.994-3.283c2.19-0.763,5.568-1.951,10.138-3.571\n                        c4.57-1.615,7.33-2.613,8.28-2.996c40.159-13.894,72.708-20.839,97.648-20.839h36.542c16.563,0,29.506,3.899,38.828,11.704\n                        c9.328,7.804,13.989,19.795,13.989,35.975c0,4.949-0.479,10.279-1.423,15.987c5.708,3.046,10.231,8.042,13.559,14.987\n                        c3.333,6.945,4.996,13.944,4.996,20.985c0,7.039-1.711,13.61-5.141,19.701c10.089,9.517,15.126,20.839,15.126,33.974\n                        c0,4.759-0.948,10.039-2.847,15.846c-1.899,5.808-4.285,10.327-7.139,13.562c6.091,0.192,11.184,4.665,15.276,13.422\n                        c4.093,8.754,6.14,16.468,6.14,23.127C420.277,265.525,416.561,274.043,409.135,281.377z"
+                "M442.822,209.562c1.715-6.283,2.57-12.847,2.57-19.702c0-14.655-3.621-28.361-10.852-41.112\n                    c0.567-3.995,0.855-8.088,0.855-12.275c0-19.223-5.716-36.162-17.132-50.819v-1.427c0.191-26.075-7.946-46.632-24.414-61.669\n                    C377.387,7.521,355.831,0,329.186,0h-31.977c-19.985,0-39.02,2.093-57.102,6.28c-18.086,4.189-39.304,10.468-63.666,18.842\n                    c-22.08,7.616-35.211,11.422-39.399,11.422H54.821c-10.088,0-18.702,3.567-25.84,10.704C21.845,54.387,18.276,63,18.276,73.085\n                    v182.728c0,10.089,3.566,18.698,10.705,25.837c7.142,7.139,15.752,10.705,25.84,10.705h78.228\n                    c6.849,4.572,19.889,19.324,39.113,44.255c11.231,14.661,21.416,26.741,30.551,36.265c3.612,3.997,6.564,10.089,8.848,18.271\n                    c2.284,8.186,3.949,16.228,4.998,24.126c1.047,7.898,3.475,16.516,7.281,25.837c3.806,9.329,8.944,17.139,15.415,23.422\n                    c7.423,7.043,15.985,10.561,25.697,10.561c15.988,0,30.361-3.087,43.112-9.274c12.754-6.184,22.463-15.845,29.126-28.981\n                    c6.663-12.943,9.996-30.646,9.996-53.103c0-17.702-4.568-35.974-13.702-54.819h50.244c19.801,0,36.925-7.23,51.394-21.7\n                    c14.469-14.462,21.693-31.497,21.693-51.103C456.809,239.165,452.15,223.652,442.822,209.562z M85.942,104.219\n                    c-3.616,3.615-7.898,5.424-12.847,5.424c-4.95,0-9.233-1.805-12.85-5.424c-3.615-3.621-5.424-7.898-5.424-12.851\n                    c0-4.948,1.809-9.231,5.424-12.847c3.621-3.617,7.9-5.424,12.85-5.424c4.949,0,9.231,1.807,12.847,5.424\n                    c3.617,3.616,5.426,7.898,5.426,12.847C91.368,96.317,89.56,100.598,85.942,104.219z M409.135,281.377\n                    c-7.42,7.33-15.886,10.992-25.413,10.992H283.227c0,11.04,4.564,26.217,13.698,45.535c9.138,19.321,13.71,34.598,13.71,45.829\n                    c0,18.647-3.046,32.449-9.134,41.395c-6.092,8.949-18.274,13.422-36.546,13.422c-4.951-4.948-8.572-13.045-10.854-24.276\n                    c-2.276-11.225-5.185-23.168-8.706-35.83c-3.519-12.655-9.18-23.079-16.984-31.266c-4.184-4.373-11.516-13.038-21.982-25.98\n                    c-0.761-0.951-2.952-3.806-6.567-8.562c-3.614-4.757-6.613-8.658-8.992-11.703c-2.38-3.046-5.664-7.091-9.851-12.136\n                    c-4.189-5.044-7.995-9.232-11.422-12.565c-3.427-3.327-7.089-6.708-10.992-10.137c-3.901-3.426-7.71-5.996-11.421-7.707\n                    c-3.711-1.711-7.089-2.566-10.135-2.566h-9.136V73.092h9.136c2.474,0,5.47-0.282,8.993-0.854c3.518-0.571,6.658-1.192,9.419-1.858\n                    c2.76-0.666,6.377-1.713,10.849-3.14c4.476-1.425,7.804-2.522,9.994-3.283c2.19-0.763,5.568-1.951,10.138-3.571\n                    c4.57-1.615,7.33-2.613,8.28-2.996c40.159-13.894,72.708-20.839,97.648-20.839h36.542c16.563,0,29.506,3.899,38.828,11.704\n                    c9.328,7.804,13.989,19.795,13.989,35.975c0,4.949-0.479,10.279-1.423,15.987c5.708,3.046,10.231,8.042,13.559,14.987\n                    c3.333,6.945,4.996,13.944,4.996,20.985c0,7.039-1.711,13.61-5.141,19.701c10.089,9.517,15.126,20.839,15.126,33.974\n                    c0,4.759-0.948,10.039-2.847,15.846c-1.899,5.808-4.285,10.327-7.139,13.562c6.091,0.192,11.184,4.665,15.276,13.422\n                    c4.093,8.754,6.14,16.468,6.14,23.127C420.277,265.525,416.561,274.043,409.135,281.377z"
             }
           })
         ])
       ]
     ),
-    _vm._v("\n\n        " + _vm._s(_vm.downlikes_count) + "\n")
+    _vm._v("\n\n    " + _vm._s(_vm.downlikes_count) + "\n")
   ])
 }
 var staticRenderFns = []
@@ -22180,7 +22277,7 @@ var render = function() {
             _c(
               "button",
               { staticClass: "button", on: { click: _vm.fetchReplies } },
-              [_vm._v("Загрузить ответы")]
+              [_vm._v("\n            Загрузить ответы\n        ")]
             )
           ])
         : _vm._e()
@@ -22255,7 +22352,11 @@ var render = function() {
             _vm._v(" "),
             _vm.errors && _vm.errors.email
               ? _c("div", { staticClass: "invalid-feedback" }, [
-                  _vm._v(_vm._s(_vm.errors.email[0]))
+                  _vm._v(
+                    "\n            " +
+                      _vm._s(_vm.errors.email[0]) +
+                      "\n        "
+                  )
                 ])
               : _vm._e()
           ]
@@ -34465,20 +34566,20 @@ var app = new Vue({
   el: "#app"
 });
 /**
-* nearby.js
-* http://www.codrops.com
-*
-* Licensed under the MIT license.
-* http://www.opensource.org/licenses/mit-license.php
-*
-* Copyright 2018, Codrops
-* http://www.codrops.com
-*/
+ * nearby.js
+ * http://www.codrops.com
+ *
+ * Licensed under the MIT license.
+ * http://www.opensource.org/licenses/mit-license.php
+ *
+ * Copyright 2018, Codrops
+ * http://www.codrops.com
+ */
 
 {
   /**
-  * Distance between two points P1 (x1,y1) and P2 (x2,y2).
-  */
+   * Distance between two points P1 (x1,y1) and P2 (x2,y2).
+   */
   var distancePoints = function distancePoints(x1, y1, x2, y2) {
     return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
   }; // from http://www.quirksmode.org/js/events_properties.html#position
@@ -34560,7 +34661,7 @@ var app = new Vue({
           });
         };
 
-        window.addEventListener('mousemove', this.mousemoveFn);
+        window.addEventListener("mousemove", this.mousemoveFn);
       }
     }]);
 
@@ -34583,7 +34684,7 @@ var distanceThreshold = {
 };
 /**************** Heart Icon ****************/
 
-var iconHeart = document.querySelector('.icon--heart');
+var iconHeart = document.querySelector(".icon--heart");
 var iconHeartButton = iconHeart.parentNode;
 var heartbeatInterval = {
   from: 1,
@@ -34600,19 +34701,19 @@ var tweenHeart = TweenMax.to(iconHeart, 5, {
   scale: 1.3,
   paused: true
 });
-var stateHeart = 'paused';
+var stateHeart = "paused";
 new Nearby(iconHeartButton, {
   onProgress: function onProgress(distance) {
     var time = lineEq(heartbeatInterval.from, heartbeatInterval.to, distanceThreshold.max, distanceThreshold.min, distance);
     tweenHeart.timeScale(Math.min(Math.max(time, heartbeatInterval.from), heartbeatInterval.to));
 
-    if (distance < distanceThreshold.max && distance >= distanceThreshold.min && stateHeart !== 'running') {
+    if (distance < distanceThreshold.max && distance >= distanceThreshold.min && stateHeart !== "running") {
       tweenHeart.play();
-      stateHeart = 'running';
-    } else if ((distance > distanceThreshold.max || distance < distanceThreshold.min) && stateHeart !== 'paused') {
+      stateHeart = "running";
+    } else if ((distance > distanceThreshold.max || distance < distanceThreshold.min) && stateHeart !== "paused") {
       tweenHeart.pause();
-      stateHeart = 'paused';
-      TweenMax.to(iconHeart, .2, {
+      stateHeart = "paused";
+      TweenMax.to(iconHeart, 0.2, {
         ease: Power2.easeOut,
         scale: 1,
         onComplete: function onComplete() {
@@ -34649,26 +34750,25 @@ $(document).ready(function () {
     $(".hamburger-menu").toggleClass("animate");
   }); //Fullscreen search menu
 
-  $('#search').click(function () {
-    $('.search-overlay').css('width', '100%');
+  $("#search").click(function () {
+    $(".search-overlay").css("width", "100%");
   });
-  $('.close-search').click(function () {
-    $('.search-overlay').css('width', '0%');
+  $(".close-search").click(function () {
+    $(".search-overlay").css("width", "0%");
   }); //Parallax
 
   $(window).scroll(function () {
     var st = $(this).scrollTop();
-    $('.parallax-text').css({
-      'transform': 'translate(0%, ' + st + '%'
+    $(".parallax-text").css({
+      transform: "translate(0%, " + st + "%"
     });
   }); //Sticky Navigation
 
   $(window).scroll(function (event) {
-    if ($(this).scrollTop() > 300) {
-      $("header").fadeIn();
-      $("header").addClass('fixed');
+    if ($(this).scrollTop() > 200) {
+      $("header").addClass("fixed");
     } else {
-      $("header").removeClass('fixed');
+      $("header").removeClass("fixed");
     }
   }); //Slick slider
 
@@ -34684,23 +34784,23 @@ $(document).ready(function () {
     autoplaySpeed: 2000,
     pauseOnDotsHover: true,
     pauseOnHover: false,
-    cssEase: 'ease',
-    prevArrow: $('#left-arrow'),
-    nextArrow: $('#right-arrow'),
+    cssEase: "ease",
+    prevArrow: $("#left-arrow"),
+    nextArrow: $("#right-arrow"),
     responsive: [{
-      breakpoint: 1400,
+      breakpoint: 1280,
       settings: {
         slidesToShow: 3,
         slidesToScroll: 1
       }
     }, {
-      breakpoint: 1150,
+      breakpoint: 1050,
       settings: {
         slidesToShow: 2,
         slidesToScroll: 1
       }
     }, {
-      breakpoint: 800,
+      breakpoint: 700,
       settings: {
         slidesToShow: 1,
         slidesToScroll: 1

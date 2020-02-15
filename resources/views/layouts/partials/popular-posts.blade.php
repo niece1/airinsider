@@ -8,7 +8,7 @@
         </a>
         @endif
         <small>{{ $post->date }}</small>
-        <a href="{{ route('post.show', [$post->slug]) }}">
+        <a href="{{ route('post.show', [$post->slug]) }}" class="popular-link-title">
             <p>{{ $post->title }}</p>
         </a>
     </li>

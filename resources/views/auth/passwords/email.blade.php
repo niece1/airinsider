@@ -4,8 +4,8 @@
 
 <section class="title-jumbotron">
     <div class="parallax-text">
-       <h1>{{ __('Reset Password') }}</h1>
-   </div>
+        <h1>Сбросить пароль</h1>
+    </div>
 </section>
 
 <section class="register">
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <button type="submit" class="button">
-                {{ __('Send Password Reset Link') }}
+                Отправить ссылку
             </button>
         </form>
     </div>

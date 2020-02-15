@@ -22,22 +22,22 @@
 				<a href="#">pt</a>
 			</p>
 		</div>
-		<div class="contact-form">			
+		<div class="contact-form">
 			<h2>Заполните форму</h2>
 			<div class="alert">{{ session()->get('message') }}</div>
 			@if(!session()->has('message'))
 			<form method="POST" action="/contact">
 				<div class="contact-form-group">
-					<input type="text" name="name" placeholder="Name" value="{{ old('name') }}" autocomplete="name" autofocus>
-					<div class="invalid-feedback">{{ $errors->first('name') }}</div>                                
+					<input type="text" name="name" placeholder="Имя" value="{{ old('name') }}" autocomplete="name">
+					<div class="invalid-feedback">{{ $errors->first('name') }}</div>
 				</div>
-				<div class="contact-form-group">              
-					<input type="email" name="email"  placeholder="Email" value="{{ old('email') }}" autocomplete="email">
-					<div class="invalid-feedback">{{ $errors->first('email') }}</div>                                   
+				<div class="contact-form-group">
+					<input type="email" name="email" placeholder="Email" value="{{ old('email') }}" autocomplete="email">
+					<div class="invalid-feedback">{{ $errors->first('email') }}</div>
 				</div>
-				<div class="contact-form-group">              
-					<textarea type="text" name="message" placeholder="Message" autocomplete="message">{{ old('message') }}</textarea>
-					<div class="invalid-feedback">{{ $errors->first('message') }}</div>                                
+				<div class="contact-form-group">
+					<textarea type="text" name="message" placeholder="Сообщение" autocomplete="message">{{ old('message') }}</textarea>
+					<div class="invalid-feedback">{{ $errors->first('message') }}</div>
 				</div>
 				@captcha
 				<button type="submit" class="button">Send</button>
@@ -92,7 +92,7 @@
 		<div id="right-arrow" class="arrow-right">
 			<i class="fas fa-chevron-right"></i>
 		</div>
-	</div>	
+	</div>
 </section>
 @endsection
 

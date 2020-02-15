@@ -1,9 +1,22 @@
 <template>
     <div>
-        <svg @click="like('up')" class="thumbs-up" :class="{ 'thumbs-up-active': upliked }" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-        viewBox="0 0 478.2 478.2" style="enable-background:new 0 0 478.2 478.2;" xml:space="preserve">
+        <svg
+            @click="like('up')"
+            class="thumbs-up"
+            :class="{ 'thumbs-up-active': upliked }"
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            viewBox="0 0 478.2 478.2"
+            style="enable-background:new 0 0 478.2 478.2;"
+            xml:space="preserve"
+        >
             <g>
-                <path d="M457.575,325.1c9.8-12.5,14.5-25.9,13.9-39.7c-0.6-15.2-7.4-27.1-13-34.4c6.5-16.2,9-41.7-12.7-61.5
+                <path
+                    d="M457.575,325.1c9.8-12.5,14.5-25.9,13.9-39.7c-0.6-15.2-7.4-27.1-13-34.4c6.5-16.2,9-41.7-12.7-61.5
                     c-15.9-14.5-42.9-21-80.3-19.2c-26.3,1.2-48.3,6.1-49.2,6.3h-0.1c-5,0.9-10.3,2-15.7,3.2c-0.4-6.4,0.7-22.3,12.5-58.1
                     c14-42.6,13.2-75.2-2.6-97c-16.6-22.9-43.1-24.7-50.9-24.7c-7.5,0-14.4,3.1-19.3,8.8c-11.1,12.9-9.8,36.7-8.4,47.7
                     c-13.2,35.4-50.2,122.2-81.5,146.3c-0.6,0.4-1.1,0.9-1.6,1.4c-9.2,9.7-15.4,20.2-19.6,29.4c-5.9-3.2-12.6-5-19.8-5h-61
@@ -17,16 +30,31 @@
                     c0.8-2.1,1-4.4,0.6-6.7c-1.7-11.2-1.1-24.9,1.3-29c5.3,0.1,19.6,1.6,28.2,13.5c10.2,14.1,9.8,39.3-1.2,72.7
                     c-16.8,50.9-18.2,77.7-4.9,89.5c6.6,5.9,15.4,6.2,21.8,3.9c6.1-1.4,11.9-2.6,17.4-3.5c0.4-0.1,0.9-0.2,1.3-0.3
                     c30.7-6.7,85.7-10.8,104.8,6.6c16.2,14.8,4.7,34.4,3.4,36.5c-3.7,5.6-2.6,12.9,2.4,17.4c0.1,0.1,10.6,10,11.1,23.3
-                    C444.875,295.3,440.675,304.4,431.975,313.4z"/>
+                    C444.875,295.3,440.675,304.4,431.975,313.4z"
+                />
             </g>
-            </svg>
+        </svg>
 
-            {{ uplikes_count }}
-            <svg @click="like('down')" class="thumbs-down" :class="{ 'thumbs-down-active': downliked }" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    width="475.092px" height="475.092px" viewBox="0 0 475.092 475.092" style="enable-background:new 0 0 475.092 475.092;"
-                    xml:space="preserve">
-                <g>
-                    <path d="M442.822,209.562c1.715-6.283,2.57-12.847,2.57-19.702c0-14.655-3.621-28.361-10.852-41.112
+        {{ uplikes_count }}
+        <svg
+            @click="like('down')"
+            class="thumbs-down"
+            :class="{ 'thumbs-down-active': downliked }"
+            version="1.1"
+            id="Capa_1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            x="0px"
+            y="0px"
+            width="475.092px"
+            height="475.092px"
+            viewBox="0 0 475.092 475.092"
+            style="enable-background:new 0 0 475.092 475.092;"
+            xml:space="preserve"
+        >
+            <g>
+                <path
+                    d="M442.822,209.562c1.715-6.283,2.57-12.847,2.57-19.702c0-14.655-3.621-28.361-10.852-41.112
                         c0.567-3.995,0.855-8.088,0.855-12.275c0-19.223-5.716-36.162-17.132-50.819v-1.427c0.191-26.075-7.946-46.632-24.414-61.669
                         C377.387,7.521,355.831,0,329.186,0h-31.977c-19.985,0-39.02,2.093-57.102,6.28c-18.086,4.189-39.304,10.468-63.666,18.842
                         c-22.08,7.616-35.211,11.422-39.399,11.422H54.821c-10.088,0-18.702,3.567-25.84,10.704C21.845,54.387,18.276,63,18.276,73.085
@@ -50,105 +78,100 @@
                         c9.328,7.804,13.989,19.795,13.989,35.975c0,4.949-0.479,10.279-1.423,15.987c5.708,3.046,10.231,8.042,13.559,14.987
                         c3.333,6.945,4.996,13.944,4.996,20.985c0,7.039-1.711,13.61-5.141,19.701c10.089,9.517,15.126,20.839,15.126,33.974
                         c0,4.759-0.948,10.039-2.847,15.846c-1.899,5.808-4.285,10.327-7.139,13.562c6.091,0.192,11.184,4.665,15.276,13.422
-                        c4.093,8.754,6.14,16.468,6.14,23.127C420.277,265.525,416.561,274.043,409.135,281.377z"/>
-                </g>
+                        c4.093,8.754,6.14,16.468,6.14,23.127C420.277,265.525,416.561,274.043,409.135,281.377z"
+                />
+            </g>
         </svg>
 
         {{ downlikes_count }}
-</div>
+    </div>
 </template>
 
 <script>
-    import numeral from 'numeral'
-    export default {
-        props: {
-            default_likes: {
-                required: true,
-                default: () => []
-            },
-            entity_owner: {
-                required: true,
-                default: ''
-            },
-            entity_id: {
-                required: true,
-                default: ''
-            }
+import numeral from "numeral";
+export default {
+    props: {
+        default_likes: {
+            required: true,
+            default: () => []
         },
-        data() {
-            return {
-                likes: this.default_likes
-            }
+        entity_owner: {
+            required: true,
+            default: ""
         },
-        computed: {
-            uplikes() {
-                return this.likes.filter(v => v.type === 'up')
-            },
-            downlikes() {
-                return this.likes.filter(v => v.type === 'down')
-            },
-            uplikes_count() {
-                return numeral(this.uplikes.length).format('0a')
-            },
-            downlikes_count() {
-                return numeral(this.downlikes.length).format('0a')
-            },
-            upliked() {
-                if (! __auth()) return false
-                return !!this.uplikes.find(v => v.user_id === __auth().id)
-            },
-            downliked() {
-                if (! __auth()) return false
-                
-                return !!this.downlikes.find(v => v.user_id === __auth().id)
-            }
+        entity_id: {
+            required: true,
+            default: ""
+        }
+    },
+    data() {
+        return {
+            likes: this.default_likes
+        };
+    },
+    computed: {
+        uplikes() {
+            return this.likes.filter(v => v.type === "up");
         },
-        methods: {
-            like(type) {
-                if (! __auth()) {
-                    return alert('Please login to like.')
-                }
-                if (__auth().id === this.entity_owner) {
-                    return alert('You cannot like this item.')
-                }
-                if (type === 'up' && this.upliked) return
-                if (type === 'down' && this.downliked) return
-                axios.post(`/likes/${this.entity_id}/${type}`)
-                    .then(({ data }) => {
-                        if (this.upliked || this.downliked) {
-                            this.likes = this.likes.map(v => {
-                                if (v.user_id === __auth().id) {
-                                    return data
-                                }
-                                return v
-                            })
-                        } else {
-                            this.likes = [
-                                ...this.likes,
-                                data
-                            ]
+        downlikes() {
+            return this.likes.filter(v => v.type === "down");
+        },
+        uplikes_count() {
+            return numeral(this.uplikes.length).format("0a");
+        },
+        downlikes_count() {
+            return numeral(this.downlikes.length).format("0a");
+        },
+        upliked() {
+            if (!__auth()) return false;
+            return !!this.uplikes.find(v => v.user_id === __auth().id);
+        },
+        downliked() {
+            if (!__auth()) return false;
+
+            return !!this.downlikes.find(v => v.user_id === __auth().id);
+        }
+    },
+    methods: {
+        like(type) {
+            if (!__auth()) {
+                return alert("Please login to like.");
+            }
+            if (__auth().id === this.entity_owner) {
+                return alert("You cannot like this item.");
+            }
+            if (type === "up" && this.upliked) return;
+            if (type === "down" && this.downliked) return;
+            axios.post(`/likes/${this.entity_id}/${type}`).then(({ data }) => {
+                if (this.upliked || this.downliked) {
+                    this.likes = this.likes.map(v => {
+                        if (v.user_id === __auth().id) {
+                            return data;
                         }
-                    })
-            }
+                        return v;
+                    });
+                } else {
+                    this.likes = [...this.likes, data];
+                }
+            });
         }
     }
+};
 </script>
 
 <style scoped>
-
-.thumbs-up, .thumbs-down {
-    width: 20px;
-    height: 20px;
+.thumbs-up,
+.thumbs-down {
+    width: 18px;
+    height: 18px;
     cursor: pointer;
     fill: currentColor;
 }
-
 .thumbs-down {
     margin-left: 10px;
 }
-
-.thumbs-up-active, .thumbs-down-active {
+.thumbs-up-active,
+.thumbs-down-active {
     color: blue;
 }
-
 </style>

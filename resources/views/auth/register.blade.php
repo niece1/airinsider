@@ -4,18 +4,18 @@
 
 <section class="title-jumbotron">
     <div class="parallax-text">
-       <h1>{{ __('Register') }}</h1>
-   </div>
+        <h1>Создать аккаунт</h1>
+    </div>
 </section>
 
 <section class="register">
-    <div class="register-wrapper">        
-        <p>If you already have an account<a href="{{ route('login') }}">login here</a></p>
+    <div class="register-wrapper">
+        <p>Уже есть аккаунт?<a href="{{ route('login') }}">войти</a></p>
         <form method="POST" action="{{ route('register') }}">
             @csrf
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="name" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Name" autocomplete="name" autofocus>
+                    <input id="name" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Имя" autocomplete="name" autofocus>
                     @error('name')
                     <span class="invalid-feedback" role="alert">
                         {{ $message }}
@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" autocomplete="new-password">
+                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Пароль" name="password" autocomplete="new-password">
                     @error('password')
                     <span class="invalid-feedback" role="alert">
                         {{ $message }}
@@ -45,12 +45,12 @@
             </div>
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="password-confirm" type="password" class="form-control" placeholder="Confirm password" name="password_confirmation" autocomplete="new-password">
+                    <input id="password-confirm" type="password" class="form-control" placeholder="Подтвердите пароль" name="password_confirmation" autocomplete="new-password">
                 </div>
             </div>
             @captcha
             <button type="submit" class="button">
-                {{ __('Register') }}
+                Создать
             </button>
         </form>
     </div>
