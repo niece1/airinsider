@@ -24,7 +24,7 @@
         @foreach ($news as $news_item)
         <div class="item">
             @if($news_item->photo)
-            <div class="image-holder">                
+            <div class="image-holder">
                 <a href="{{ route('post.show', [$news_item->slug]) }}">
                     <img src="{{ asset('storage/'.$news_item->photo->path) }}" alt="Photo">
                     <div class="image-overlay"></div>
@@ -36,13 +36,14 @@
                     <h6>{{ $news_item->title }}</h6>
                 </a>
                 <p class="item-blog-text">{{ substr(strip_tags(html_entity_decode($news_item->body)), 0, 85) }}{{ strlen(strip_tags(html_entity_decode($news_item->body))) > 85 ? " ..." : "" }}</p>
+                @if($news_item->user)
                 <p class="item-blog-author"><i class="fas fa-user-edit"></i>By <a href="{{ route('user', [$news_item->user->id]) }}">{{ $news_item->user->name }}</a></p>
+                @endif
                 <p><i class="fas fa-clock"></i>{{ $news_item->time_to_read }} minutes to read</p>
                 <p class="item-blog-date">{{ $news_item->date }}</p>
                 <p class="item-blog-comment">Comments: {{ $news_item->comments->count() }}</p>
                 <div class="blog-line">
                 </div>
-
                 <div class="item-blog-bottom">
                     <a href="{{ route('post.show', [$news_item->slug]) }}" class="button">Читать</a>
                     @if($news_item->category)
