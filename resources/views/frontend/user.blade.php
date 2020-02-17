@@ -5,9 +5,9 @@
 @section('content')
 
 <section class="title-jumbotron">
-	<div class="parallax-text">
-		<h1>Новости автора: {{ $user->name }}</h1>
-	</div>
+    <div class="parallax-text">
+        <h1>Автор: {{ $user->name }}</h1>
+    </div>
 </section>
 
 <!-- Posts by category section -->

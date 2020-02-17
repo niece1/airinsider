@@ -23,11 +23,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::with(['photo', 'category'])->orderBy('id', 'desc')->paginate(50);
+        $posts = Post::with(['photo', 'category'])->orderBy('id', 'desc')->paginate(25);
 
-        if(session('success_message')){
-        Alert::success( session('success_message'))->toToast();
-      }
+        if (session('success_message')) {
+            Alert::success(session('success_message'))->toToast();
+        }
         return view('backend.post.index', compact('posts'));
     }
 
@@ -52,7 +52,7 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {                
+    {
         $post = Post::create($this->validateCreate($request));
 
         $this->generateSlug($request, $post);
@@ -72,7 +72,7 @@ class PostController extends Controller
     public function show(Post $post)
     {
         $post = Post::where('id', $post->id)->firstOrFail();
-     
+
         return view('backend.post.show', compact('post'));
     }
 
@@ -100,12 +100,12 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         $post->update($this->validateUpdate($request, $post));
-              
+
         $this->storeImage($request, $post);
         $this->generateSlug($request, $post);
         $this->getUser($post);
         $this->syncTags($post);
-       
+
         return redirect('dashboard/posts')->withSuccessMessage('Updated Successfully');
     }
 
@@ -117,32 +117,32 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        $post->delete();      
-   
+        $post->delete();
+
         return redirect('dashboard/posts')->withSuccessMessage('Trashed Successfully!');
     }
 
     public function trashed()
     {
-      $posts = Post::with(['photo', 'category'])->onlyTrashed()->get();
+        $posts = Post::with(['photo', 'category'])->onlyTrashed()->get();
 
-      if(session('success_message')){
-        Alert::success( session('success_message'))->toToast();
-      }
+        if (session('success_message')) {
+            Alert::success(session('success_message'))->toToast();
+        }
 
-      return view('backend.post.trashed', compact('posts'));
+        return view('backend.post.trashed', compact('posts'));
     }
 
     public function expunge($id)
     {
         $post = Post::withTrashed()->where('id', $id)->first();
 
-        if($post->photo) {
-        $this->deletePhoto($post->photo->id);
+        if ($post->photo) {
+            $this->deletePhoto($post->photo->id);
         }
 
         $post->forceDelete();
-        
+
         return redirect()->back()->withSuccessMessage('Deleted permanently!');
     }
 
@@ -158,63 +158,59 @@ class PostController extends Controller
     private function validateCreate(Request $request)
     {
         return Validator::make($request->all(), [
-        'title' => 'bail|required|min:2|unique:posts,title',         
-        'body' => 'required',
-        'time_to_read' => 'required',
-        'photo_source' => 'max:200',
-        'published' => 'required',
-        'category_id' => 'required',
-        'image' => 'sometimes|file|image|max:5000',
-      ])->validate();
+            'title' => 'bail|required|min:2|unique:posts,title',
+            'body' => 'required',
+            'time_to_read' => 'required',
+            'photo_source' => 'max:200',
+            'published' => 'required',
+            'category_id' => 'required',
+            'image' => 'sometimes|file|image|max:5000',
+        ])->validate();
     }
 
     private function validateUpdate(Request $request, Post $post)
     {
         return Validator::make($request->all(), [
-        'title' => [
-        'required',
-        Rule::unique('posts', 'title')->ignore($post->id),
-        ],
-        'body' => 'required',
-        'time_to_read' => 'required',
-        'photo_source' => 'max:200',
-        'published' => 'required',
-        'category_id' => 'required',
-        'image' => 'sometimes|file|image|max:5000',
-      ])->validate();
+            'title' => [
+                'required',
+                Rule::unique('posts', 'title')->ignore($post->id),
+            ],
+            'body' => 'required',
+            'time_to_read' => 'required',
+            'photo_source' => 'max:200',
+            'published' => 'required',
+            'category_id' => 'required',
+            'image' => 'sometimes|file|image|max:5000',
+        ])->validate();
     }
 
     private function syncTags($post)
     {
-       $post->tags()->sync(request('tag_id'));
+        $post->tags()->sync(request('tag_id'));
     }
 
     private function generateSlug(Request $request, Post $post)
     {
-       $post->update([
-           'slug'=> Str::slug($request->title, '-'),
-       ]);
+        $post->update([
+            'slug' => Str::slug($request->title, '-'),
+        ]);
     }
 
     private function getUser($post)
     {
-       Auth::user()->posts()->save($post);
+        Auth::user()->posts()->save($post);
     }
 
-   private function storeImage(Request $request, Post $post)
-   {
-        if($request->hasFile('image'))
-        {
+    private function storeImage(Request $request, Post $post)
+    {
+        if ($request->hasFile('image')) {
             $path = $request->file('image')->store('posts', 'public');
-                if($post->photo)
-                {
+            if ($post->photo) {
                 $photo = $this->getPhoto($post->photo->id);
                 Storage::disk('public')->delete($photo->storagepath);
                 $photo->path = $path;
                 $this->updatePostPhoto($post, $photo);
-            }
-            else
-            {
+            } else {
                 $this->createPostPhoto($post, $path);
             }
         }
@@ -239,9 +235,9 @@ class PostController extends Controller
 
     public function deletePhoto($id)
     {
-        $photo = $this->getPhoto($id);       
-               
-        Storage::disk('public')->delete($photo->storagepath); 
+        $photo = $this->getPhoto($id);
+
+        Storage::disk('public')->delete($photo->storagepath);
         $photo->delete($id);
 
         return redirect()->back();
@@ -254,5 +250,4 @@ class PostController extends Controller
 
         return view('backend.post.search-results', compact('posts'));
     }
-
 }

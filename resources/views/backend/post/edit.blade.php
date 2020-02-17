@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-@section('title', 'Edit ' . $post->title)
+@section('title', 'Edit: ' . $post->title)
 
 @push('styles')
 
@@ -9,8 +9,8 @@
   tinymce.init({
     selector: '#mytextarea',
     plugins: "link image",
-    setup: function (editor) {
-      editor.on('change', function () {
+    setup: function(editor) {
+      editor.on('change', function() {
         tinymce.triggerSave();
       });
     }
@@ -24,7 +24,7 @@
 
 <section class="title-jumbotron">
   <div class="parallax-text">
-    <h1>Edit {{$post->title}}</h1>
+    <h1>Edit: {{$post->title}}</h1>
   </div>
 </section>
 
@@ -39,8 +39,8 @@
         <form action="{{ route('posts.update', $post->id) }}" class="create-update" method="post" enctype="multipart/form-data">
           @method('PATCH')
           @include('/backend/post/includes.form')
-          <button type="submit" class="button">Submit</button>        
-        </form> 
+          <button type="submit" class="button">Submit</button>
+        </form>
       </div>
     </div>
   </div>

@@ -156,7 +156,7 @@ header {
 /* Sticky Navigation */
 .fixed {
     position: fixed;
-    animation: navbar-slide;
+    animation: navbar-slide 0.7s;
     transition: all 0.7s ease-in-out;
     -webkit-transition: all 0.7s ease-in-out;
     -o-transition: all 0.7s ease-in-out;
@@ -164,9 +164,11 @@ header {
 @keyframes navbar-slide {
     0% {
         transform: translateY(-100%);
+        -ms-transform: translateY(-100%);
     }
     100% {
         transform: translateY(0);
+        -ms-transform: translateY(0);
     }
 }
 header .menu-wrapper nav ul li.active ul {
@@ -200,10 +202,6 @@ header .menu-wrapper nav ul li.active ul {
             background: #000;
             transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
                 transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
-            -webkit-transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1),
-                -webkit-transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
-            -o-transition: top 300ms 300ms cubic-bezier(0.23, 1, 0.32, 1);
-            -ms-transform: 300ms cubic-bezier(0.23, 1, 0.32, 1);
         }
         &:before {
             width: $bar-width;
@@ -260,7 +258,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
         transition: all 0.5s ease-in-out;
         -webkit-transition: all 0.5s ease-in-out;
         -o-transition: all 0.5s ease-in-out;
-        z-index: 99;
+        z-index: 9999;
     }
     header .menu-wrapper nav.active {
         left: 0;
@@ -1039,6 +1037,15 @@ footer {
         top: 45px;
         width: 100%;
         text-align: center;
+        @media only screen and (max-width: 800px) {
+            top: 50px;
+        }
+        @media only screen and (max-width: 600px) {
+            top: 55px;
+        }
+        @media only screen and (max-width: 460px) {
+            top: 60px;
+        }
         h1 {
             font-weight: normal;
             font-size: 3.9rem;
@@ -1046,6 +1053,12 @@ footer {
             padding: 0;
             @media only screen and (max-width: 800px) {
                 font-size: 3.5rem;
+            }
+            @media only screen and (max-width: 600px) {
+                font-size: 2.5rem;
+            }
+            @media only screen and (max-width: 460px) {
+                font-size: 2rem;
             }
         }
     }
@@ -1238,6 +1251,7 @@ footer {
                 border-radius: 0 0 5px 5px;
                 border: 1px solid #f5f8fa;
                 border-radius: 5px;
+                outline: none;
                 box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06),
                     0 1px 2px rgba(0, 0, 0, 0.12);
                 margin: 0 15px;
@@ -1635,10 +1649,10 @@ footer {
         margin: 50px auto;
         a.button {
             border: 2px solid #e71d43;
-            padding: 14px 30px;
+            padding: 14px 25px 12px 25px;
             display: inline-block;
             margin: 0 0 20px 0;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             border-radius: 3px;
@@ -1662,10 +1676,10 @@ footer {
         }
         a.back {
             border: 2px solid #0633ff;
-            padding: 14px 30px;
+            padding: 14px 25px 12px 25px;
             display: inline-block;
             margin: 20px 0;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             border-radius: 3px;
@@ -1689,9 +1703,9 @@ footer {
         }
         button.delete-show-page {
             border: 2px solid #e71d43;
-            padding: 14px 30px;
+            padding: 14px 25px 12px 25px;
             cursor: pointer;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             border-radius: 3px;
@@ -1717,8 +1731,9 @@ footer {
         .well {
             border: 1px solid #e3e6f0;
             border-radius: 5px;
+            overflow-x: scroll;
             .well-title {
-                background: #f5f8fa;
+                background-color: #f5f8fa;
                 border-bottom: 1px solid #e3e6f0;
                 h5 {
                     font-weight: normal;
@@ -1729,7 +1744,7 @@ footer {
                 width: 95%;
                 margin: 50px auto 20px auto;
                 table {
-                    font-size: 1.8rem;
+                    font-size: 1.6rem;
                     color: #000;
                     border-collapse: collapse;
                     width: 100%;
@@ -1752,42 +1767,51 @@ footer {
     .action-button-green {
         color: #fff;
         background-color: #4dbd74;
-        padding: 2px 5px;
+        padding: 1px 5px;
         border-radius: 5px;
-        margin-right: 5px;
+        margin: 4px;
+        &:hover {
+            background-color: #4cae4c;
+        }
     }
     button.action-button-green {
         color: #fff;
         background-color: #4dbd74;
-        padding: 2px 5px;
+        padding: 1px 5px;
         border-radius: 5px;
         border: 1px solid #4dbd74;
-        margin-right: 5px;
+        margin: 4px;
         display: inline-block;
         cursor: pointer;
         outline: none;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+        &:hover {
+            background-color: #4cae4c;
+        }
     }
     .action-button-red {
         color: #fff;
         background-color: #e71d43;
-        padding: 2px 5px;
+        padding: 1px 5px;
         border-radius: 5px;
         border: 1px solid #e71d43;
-        margin-right: 5px;
+        margin: 4px;
         display: inline-block;
         cursor: pointer;
         outline: none;
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+        &:hover {
+            background-color: #d9534f;
+        }
     }
     form {
         display: inline-block;
     }
     button.button {
         border: 2px solid #e71d43;
-        padding: 14px 30px;
+        padding: 14px 25px 12px 25px;
         cursor: pointer;
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         text-transform: uppercase;
         letter-spacing: 1px;
         border-radius: 3px;
@@ -1816,18 +1840,18 @@ footer {
             width: 100%;
             .form-error {
                 color: #e71d43;
-                font-size: 1.4rem;
+                font-size: 1.2rem;
             }
             label {
                 display: inline-block;
-                font-size: 1.8rem;
+                font-size: 1.6rem;
                 margin: 10px 0;
             }
             input.form-input {
                 display: block;
-                font-size: 1.8rem;
+                font-size: 1.6rem;
                 width: 100%;
-                padding: 12px 5px;
+                padding: 10px 5px;
                 border: 2px solid #e3e6f0;
                 border-radius: 5px;
                 outline: 0;
@@ -1841,8 +1865,8 @@ footer {
                 width: 100%;
                 outline: none;
                 display: block;
-                font-size: 1.8rem;
-                padding: 12px 5px;
+                font-size: 1.6rem;
+                padding: 10px 4px;
                 border: 2px solid #e3e6f0;
                 border-radius: 5px;
                 background: #fff;
@@ -1881,7 +1905,10 @@ footer {
                         border-radius: 5px;
                         display: inline-block;
                         outline: none;
-                        font-size: 1.8rem;
+                        font-size: 1.6rem;
+                        &:hover {
+                            background-color: #d9534f;
+                        }
                     }
                 }
             }
@@ -1890,7 +1917,7 @@ footer {
                 position: relative;
                 margin: 0 0 12px 0;
                 cursor: pointer;
-                font-size: 1.6rem;
+                font-size: 1.4rem;
                 padding-left: 30px;
                 user-select: none;
                 -webkit-user-elect: none;
@@ -1905,8 +1932,8 @@ footer {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    height: 20px;
-                    width: 20px;
+                    height: 18px;
+                    width: 18px;
                     border-radius: 50%;
                     background-color: #e3e6f0;
                     &:after {
@@ -1925,8 +1952,8 @@ footer {
                 }
             }
             label.radio-container span.radio-checkmark:after {
-                top: 7px;
-                left: 7px;
+                top: 6px;
+                left: 6px;
                 width: 6px;
                 height: 6px;
                 background: #fff;
@@ -1939,7 +1966,7 @@ footer {
                 position: relative;
                 margin: 4px 0;
                 padding-left: 35px;
-                font-size: 1.6rem;
+                font-size: 1.4rem;
                 cursor: pointer;
                 user-select: none;
                 -webkit-user-select: none;
@@ -1962,8 +1989,8 @@ footer {
                     position: absolute;
                     top: 0;
                     left: 0;
-                    height: 2rem;
-                    width: 2rem;
+                    height: 1.8rem;
+                    width: 1.8rem;
                     background-color: #cccccc;
                     &:after {
                         content: "";
@@ -1973,8 +2000,8 @@ footer {
                 }
             }
             .checkbox-container .checkmark:after {
-                left: 6px;
-                top: 2px;
+                left: 5px;
+                top: 1px;
                 width: 5px;
                 height: 10px;
                 border: solid white;
@@ -1998,7 +2025,7 @@ footer#dashboard-footer {
         width: 85%;
         margin: auto;
         p {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             color: #9c9c9c;
             padding: 15px 0;
             a {
