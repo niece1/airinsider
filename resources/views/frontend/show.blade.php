@@ -17,7 +17,7 @@
 			<div class="thumbnail">
 				<img src="{{ asset('storage/'.$post->photo->path) }}" alt="Photo">
 			</div>
-			<p>{{  $post->photo_source }}</p>
+			<p>{{ $post->photo_source }}</p>
 			@endif
 			<p>
 				@if($post->updated_at){{ date('d-m-Y', strtotime($post->updated_at)) }}@endif
@@ -26,9 +26,9 @@
 			</p>
 			<h1>{{ $post->title }}</h1>
 			<p>{!! clean($post->body) !!}</p>
-			<div class="item-line"></div>			
+			<div class="item-line"></div>
 			<!-- Go to www.addthis.com/dashboard to customize your tools -->
-			<div class="addthis_inline_share_toolbox add-this-position"></div>            
+			<div class="addthis_inline_share_toolbox add-this-position"></div>
 			<p class="meta-right">
 				<likes :default_likes="{{ $post->likes }}" :entity_id="{{ $post->id }}" :entity_owner="{{ $post->user_id }}"></likes>
 			</p>
@@ -56,12 +56,12 @@
 				@endforeach
 			</div>
 			<div class="tag-widget">
-				<h2>Our tags</h2>				
+				<h2>Our tags</h2>
 				<div class="tag-cloud">
 					@foreach ($tags as $tag)
 					<a href="{{ route('tag', [$tag->id]) }}">{{ $tag->title }}</a>
 					@endforeach
-				</div>				
+				</div>
 			</div>
 			<div class="category-widget">
 				<h2>Categories</h2>

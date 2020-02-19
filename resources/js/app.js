@@ -247,7 +247,7 @@ $(document).ready(function() {
 
     //Sticky Navigation
     $(window).scroll(function(event) {
-        if ($(this).scrollTop() > 200) {
+        if ($(this).scrollTop() > 300) {
             $("header").addClass("fixed");
         } else {
             $("header").removeClass("fixed");

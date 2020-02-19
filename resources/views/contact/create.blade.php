@@ -24,7 +24,9 @@
 		</div>
 		<div class="contact-form">
 			<h2>Заполните форму</h2>
+			@if(session()->has('message'))
 			<div class="alert">{{ session()->get('message') }}</div>
+			@endif
 			@if(!session()->has('message'))
 			<form method="POST" action="/contact">
 				<div class="contact-form-group">
@@ -39,7 +41,7 @@
 					<textarea type="text" name="message" placeholder="Сообщение" autocomplete="message">{{ old('message') }}</textarea>
 					<div class="invalid-feedback">{{ $errors->first('message') }}</div>
 				</div>
-				@captcha
+				<!--@captcha-->
 				<button type="submit" class="button">Send</button>
 				@csrf
 			</form>
@@ -70,7 +72,9 @@
 						<h6>{{ $news_item->title }}</h6>
 					</a>
 					<p class="item-blog-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo, accusantium?</p>
+					@if($news_item->user)
 					<p class="item-blog-author"><i class="fas fa-user-edit"></i>By <a href="{{ route('user', [$news_item->user->id]) }}">{{ $news_item->user->name }}</a></p>
+					@endif
 					<p><i class="fas fa-clock"></i>{{ $news_item->time_to_read }} minutes to read</p>
 					<p class="item-blog-date">{{ $news_item->date }}</p>
 					<p class="item-blog-comment">Comments: {{ $news_item->comments->count() }}</p>

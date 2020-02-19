@@ -113,10 +113,12 @@ export default {
 }
 .comments .comments-form textarea::placeholder {
     color: #4e4e4e;
+    font-size: 1.6rem;
     opacity: 1;
 }
 .comments .comments-form textarea::-webkit-input-placeholder {
     color: #4e4e4e;
+    font-size: 1.6rem;
 }
 .comments .comments-form button.button {
     border: 2px solid #e71d43;

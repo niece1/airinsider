@@ -180,7 +180,7 @@ class PostController extends Controller
             'photo_source' => 'max:200',
             'published' => 'required',
             'category_id' => 'required',
-            'image' => 'sometimes|file|image|max:5000',
+            'image' => 'sometimes|file|mimes:jpeg,png|max:5000',
         ])->validate();
     }
 

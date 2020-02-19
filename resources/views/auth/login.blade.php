@@ -10,7 +10,7 @@
 
 <section class="register">
     <div class="register-wrapper">
-        <p>Нет аккаунта?<a href="{{ route('register') }}">зарегистрироваться</a></p>
+        <p>Нет аккаунта?<a href="{{ route('register') }}">создать</a></p>
         <form method="POST" action="{{ route('login') }}">
             @csrf
             <div class="form-group">
