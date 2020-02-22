@@ -37,7 +37,7 @@
 					</tr>									
 					<tr>
 						<td>Body</td>
-						<td>{{ strip_tags($post->body) }}</td>						
+						<td>{{ strip_tags(html_entity_decode($post->body)) }}</td>						
 					</tr>
 					<tr>
 						<td>Slug</td>

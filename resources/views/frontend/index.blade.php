@@ -6,7 +6,7 @@
     <div class="jumbothron-wrapper">
         <div class="content">
             <h1>{{ $featured->title }}</h1>
-            <p>{{ substr(strip_tags($featured->body), 0, 185) }}{{ strlen(strip_tags($featured->body)) > 185 ? " ..." : "" }}</p>
+            <p>{{ substr(strip_tags(html_entity_decode($featured->body)), 0, 185) }}{{ strlen(strip_tags(html_entity_decode($featured->body))) > 185 ? " ..." : "" }}</p>
             <a class="button" href="{{ route('post.show', [$featured->slug]) }}">Читать</a>
         </div>
         @if($featured->photo)

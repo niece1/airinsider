@@ -15,9 +15,9 @@
             @csrf
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="name" type="text" class="@error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" placeholder="Имя" autocomplete="name" autofocus>
+                    <input id="name" type="text" name="name" value="{{ old('name') }}" placeholder="Имя" autocomplete="name" required>
                     @error('name')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="invalid-feedback">
                         {{ $message }}
                     </span>
                     @enderror
@@ -25,9 +25,9 @@
             </div>
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="email" type="email" class="@error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email">
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="Email" required>
                     @error('email')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="invalid-feedback">
                         {{ $message }}
                     </span>
                     @enderror
@@ -35,9 +35,9 @@
             </div>
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" placeholder="Пароль" name="password" autocomplete="new-password">
+                    <input id="password" type="password" placeholder="Пароль" name="password" autocomplete="new-password" required>
                     @error('password')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="invalid-feedback">
                         {{ $message }}
                     </span>
                     @enderror
@@ -45,7 +45,7 @@
             </div>
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="password-confirm" type="password" class="form-control" placeholder="Подтвердите пароль" name="password_confirmation" autocomplete="new-password">
+                    <input id="password-confirm" type="password" placeholder="Подтвердите пароль" name="password_confirmation" autocomplete="new-password">
                 </div>
             </div>
             @captcha

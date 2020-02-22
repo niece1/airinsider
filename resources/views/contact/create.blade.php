@@ -30,18 +30,18 @@
 			@if(!session()->has('message'))
 			<form method="POST" action="/contact">
 				<div class="contact-form-group">
-					<input type="text" name="name" placeholder="Имя" value="{{ old('name') }}" autocomplete="name">
+					<input type="text" name="name" placeholder="Имя" value="{{ old('name') }}" autocomplete="name" required>
 					<div class="invalid-feedback">{{ $errors->first('name') }}</div>
 				</div>
 				<div class="contact-form-group">
-					<input type="email" name="email" placeholder="Email" value="{{ old('email') }}" autocomplete="email">
+					<input type="email" name="email" placeholder="Email" value="{{ old('email') }}" autocomplete="email" required>
 					<div class="invalid-feedback">{{ $errors->first('email') }}</div>
 				</div>
 				<div class="contact-form-group">
-					<textarea type="text" name="message" placeholder="Сообщение" autocomplete="message">{{ old('message') }}</textarea>
+					<textarea type="text" name="message" placeholder="Сообщение" autocomplete="message" required>{{ old('message') }}</textarea>
 					<div class="invalid-feedback">{{ $errors->first('message') }}</div>
 				</div>
-				<!--@captcha-->
+				@captcha
 				<button type="submit" class="button">Send</button>
 				@csrf
 			</form>
@@ -71,7 +71,7 @@
 					<a href="{{ route('post.show', [$news_item->slug]) }}">
 						<h6>{{ $news_item->title }}</h6>
 					</a>
-					<p class="item-blog-text">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo, accusantium?</p>
+					<p class="item-blog-text">{{ substr(strip_tags(html_entity_decode($news_item->body)), 0, 85) }}{{ strlen(strip_tags(html_entity_decode($news_item->body))) > 85 ? " ..." : "" }}</p>
 					@if($news_item->user)
 					<p class="item-blog-author"><i class="fas fa-user-edit"></i>By <a href="{{ route('user', [$news_item->user->id]) }}">{{ $news_item->user->name }}</a></p>
 					@endif

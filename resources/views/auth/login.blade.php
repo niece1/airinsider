@@ -15,10 +15,9 @@
             @csrf
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email" autocomplete="email" autofocus>
-
+                    <input id="email fg" type="email" name="email" value="{{ old('email') }}" placeholder="Email" autocomplete="email" required>
                     @error('email')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="invalid-feedback">
                         {{ $message }}
                     </span>
                     @enderror
@@ -26,10 +25,9 @@
             </div>
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Пароль" autocomplete="current-password">
-
+                    <input id="password" type="password" name="password" placeholder="Пароль" autocomplete="current-password" required>
                     @error('password')
-                    <span class="invalid-feedback" role="alert">
+                    <span class="invalid-feedback">
                         {{ $message }}
                     </span>
                     @enderror
