@@ -63,9 +63,11 @@
                                         @csrf
                                     </form>
                                 </li>
+                                @can('dashboard_access')
                                 <li>
                                     <a class="sub-item" href="/dashboard/posts"><span>Dashboard</span></a>
                                 </li>
+                                @endcan
                             </ul>
                         </li>
                         @endauth

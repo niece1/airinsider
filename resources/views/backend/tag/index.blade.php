@@ -12,7 +12,9 @@
 
 <section class="dashboard">
 	<div class="dashboard-wrapper">
+		@can('tag_create')
 		<a href="/dashboard/tags/create" class="button">Add Tag</a>
+		@endcan
 		<div class="well">
 			<div class="well-title">
 				<h5>Tag List</h5>
@@ -28,12 +30,17 @@
 					<tr>
 						<td>{{ $tag->id }}</td>						
 						<td>{{ $tag->title }}</td>						
-						<td><a href="/dashboard/tags/{{ $tag->id }}/edit" class="action-button-green">Edit</a>
+						<td>
+							@can('tag_edit')
+							<a href="/dashboard/tags/{{ $tag->id }}/edit" class="action-button-green">Edit</a>
+							@endcan
+							@can('tag_delete')
 							<form action="{{ route('tags.destroy', $tag->id) }}" method="post" onsubmit="return confirm('Delete tag?')">
 								@method('DELETE')
 								@csrf
 								<button type="submit" class="action-button-red">Delete</button>
 							</form>
+							@endcan
 						</td>
 					</tr>				
 					@endforeach

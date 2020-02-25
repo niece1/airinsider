@@ -11,6 +11,8 @@ class UserController extends Controller
 {
 	public function  index()
 	{
+        abort_unless(\Gate::allows('user_access'), 403);
+
 		$users = User::with(['roles'])->get();
 
 		if(session('success_message')){
@@ -22,6 +24,8 @@ class UserController extends Controller
 
     public function edit(User $user)
     {
+        abort_unless(\Gate::allows('user_edit'), 403);
+
     	$roles = Role::all();
 
         return view('backend.user.edit', compact('user', 'roles'));

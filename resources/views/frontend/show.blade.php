@@ -25,7 +25,7 @@
 				@if($post->user)<span class="dot"></span> by <a href="{{ route('user', [$post->user->id]) }}">{{ $post->user->name }}</a>@endif
 			</p>
 			<h1>{{ $post->title }}</h1>
-			<p>{!! clean($post->body) !!}</p>
+			<p class="show-body">{!! clean($post->body) !!}</p>
 			<div class="item-line"></div>
 			<!-- Go to www.addthis.com/dashboard to customize your tools -->
 			<div class="addthis_inline_share_toolbox add-this-position"></div>
@@ -80,7 +80,7 @@
 
 @push('scripts')
 
-<script type="text/javascript" src="{{ asset('js/sticky-kit.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/sticky-kit.min.js') }}"></script>
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5de3d2128881893a"></script>
 

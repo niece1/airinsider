@@ -40,7 +40,9 @@
 						<td>{{ $user->created_at }}</td>
 						<td>@foreach($user->roles as $role){{ $role->title . " " }}@endforeach</td>
 						<td>
+							@can('user_edit')
 							<a href="/dashboard/users/{{ $user->id }}/edit" class="action-button-green">Edit</a>
+							@endcan
 							@can('user_delete')
 							<form action="{{ route('users.destroy', $user->id) }}" method="post" onsubmit="return confirm('Delete user?')">
 								@method('DELETE')

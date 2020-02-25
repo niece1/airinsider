@@ -29,9 +29,11 @@
 					<li class="sub-menu">
 						<a href="javascript:void(0)">User board</a>
 						<ul>
+							@can('user_access')
 							<li>
 								<a class="sub-item" href="/dashboard/users"><span>Users</span></a>
 							</li>
+							@endcan
 							<li>
 								<a class="sub-item" href="/dashboard/roles"><span>Roles</span></a>
 							</li>
@@ -52,9 +54,11 @@
 							<li>
 								<a class="sub-item" href="/dashboard/categories"><span>Categories</span></a>
 							</li>
+							@can('tag_access')
 							<li>
 								<a class="sub-item" href="/dashboard/tags"><span>Tags</span></a>
 							</li>
+							@endcan
 							<li>
 								<a class="sub-item" href="/dashboard/comments"><span>Comments</span></a>
 							</li>

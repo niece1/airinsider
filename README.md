@@ -1,2 +1,2 @@
 # airinsider
-Aviation news website on Laravel
+Aviation news web app on Laravel

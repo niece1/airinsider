@@ -40,8 +40,7 @@ class SubscriptionController extends Controller
 
         $subscription = new Subscription();
         $subscription->email = request('email');
-        $subscription->save();
-        
+        $subscription->save();        
     }
 
     /**

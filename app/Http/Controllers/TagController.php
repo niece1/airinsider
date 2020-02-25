@@ -15,6 +15,8 @@ class TagController extends Controller
      */
     public function index()
     {
+        abort_unless(\Gate::allows('tag_access'), 403);
+
         $tags = Tag::all();
 
         if(session('success_message')){
@@ -31,6 +33,8 @@ class TagController extends Controller
      */
     public function create()
     {
+        abort_unless(\Gate::allows('tag_create'), 403);
+
         $tags = new Tag();
 
         return view('backend.tag.create', compact('tags'));
@@ -57,6 +61,8 @@ class TagController extends Controller
      */
     public function edit(Tag $tag)
     {
+        abort_unless(\Gate::allows('tag_edit'), 403);
+
         return view('backend.tag.edit', compact('tag'));
     }
 
@@ -82,6 +88,8 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
+        abort_unless(\Gate::allows('tag_delete'), 403);
+
         $tag->delete();
 
         return redirect('dashboard/tags')->withSuccessMessage('Tag Deleted Successfully!');

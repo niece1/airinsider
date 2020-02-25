@@ -246,6 +246,7 @@ class PostController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->input('keyword');
+        
         $posts = Post::with(['photo', 'category'])
         ->where('title', 'like', "%$keyword%")
         ->orWhere('body', 'like', "%$keyword%")
