@@ -15,6 +15,8 @@ class PermissionController extends Controller
      */
     public function index()
     {
+        abort_unless(\Gate::allows('permission_access'), 403);
+
         $permissions = Permission::all();
 
         if(session('success_message')){
@@ -31,6 +33,8 @@ class PermissionController extends Controller
      */
     public function create()
     {
+        abort_unless(\Gate::allows('permission_create'), 403);
+
         $permissions = new Permission();
 
         return view('backend.permission.create', compact('permissions'));
@@ -50,29 +54,6 @@ class PermissionController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Permission  $permission
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Permission $permission)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Permission  $permission
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Permission $permission)
-    {
-        //
-    }
-
-    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Permission  $permission
@@ -80,6 +61,8 @@ class PermissionController extends Controller
      */
     public function destroy(Permission $permission)
     {
+        abort_unless(\Gate::allows('permission_delete'), 403);
+
         $permission->delete();
 
         return redirect('dashboard/permissions')->withSuccessMessage('Permission Deleted Successfully!');

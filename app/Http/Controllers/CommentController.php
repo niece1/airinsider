@@ -10,14 +10,14 @@ use RealRashid\SweetAlert\Facades\Alert;
 class CommentController extends Controller
 {
     public function index(Post $post)
-    {
+    {        
     	return $post->comments()->with(['replies'])->paginate(10);
     }
 
     public function store(Request $request, Post $post)
     {
         $this->validate($request, [
-          'body' => 'min:2|max:300'
+          'body' => 'bail|min:2|max:300'
         ]);
     	
         return auth()->user()->comments()->create([
@@ -34,6 +34,8 @@ class CommentController extends Controller
 
     public function list()
     {
+        abort_unless(\Gate::allows('comment_access'), 403);
+
         $comments = Comment::with(['post', 'replies'])->orderBy('id', 'desc')->paginate(50);
 
         if(session('success_message')){
@@ -45,6 +47,8 @@ class CommentController extends Controller
 
     public function destroy(Comment $comment)
     {
+        abort_unless(\Gate::allows('comment_delete'), 403);
+
         $comment->delete();      
    
         return redirect('dashboard/comments')->withSuccessMessage('Deleted Successfully!');

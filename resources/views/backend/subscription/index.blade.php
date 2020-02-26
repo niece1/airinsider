@@ -12,8 +12,10 @@
 
 <section class="dashboard">
 	<div class="dashboard-wrapper">
+		@can('subscription_export')
 		<a href="{{ route('export.csv') }}" class="button">Csv</a>
 		<a href="{{ route('export.excel') }}" class="back">Excel</a>
+		@endcan
 		<div class="well">
 			<div class="well-title">
 				<h5>Subscription List</h5>
@@ -30,11 +32,13 @@
 						<td>{{ $subscription->id }}</td>						
 						<td>{{ $subscription->email }}</td>						
 						<td>
+							@can('subscription_delete')
 							<form action="{{ route('subscriptions.destroy', $subscription->id) }}" method="post" onsubmit="return confirm('Delete subscription?')">
 								@method('DELETE')
 								@csrf
 								<button type="submit" class="action-button-red">Delete</button>
 							</form>
+							@endcan
 						</td>
 					</tr>				
 					@endforeach

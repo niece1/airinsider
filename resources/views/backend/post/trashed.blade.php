@@ -37,15 +37,19 @@
 						<td>{{ $post->viewed }}</td>
 						<td>@if($post->category){{ $post->category->title }}@endif</td>
 						<td>
+							@can('post_restore')
 							<form action="{{ route('restore', $post->id) }}" method="post">							
 								@csrf
 								<button type="submit" class="action-button-green">Restore</button>
 							</form>
+							@endcan
+							@can('post_delete')
 							<form action="{{ route('expunge', $post->id) }}" method="post" onsubmit="return confirm('Delete post?')">
 								@method('DELETE')
 								@csrf
 								<button type="submit" class="action-button-red">Delete</button>
 							</form>
+							@endcan
 							<!--Modal-->
 						</td>
 					</tr>

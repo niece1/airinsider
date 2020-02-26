@@ -15,6 +15,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
+        abort_unless(\Gate::allows('category_access'), 403);
+
         $categories = Category::all();
 
         if(session('success_message')){
@@ -31,6 +33,8 @@ class CategoryController extends Controller
      */
     public function create()
     {
+        abort_unless(\Gate::allows('category_create'), 403);
+
         $categories = new Category();
 
         return view('backend.category.create', compact('categories'));
@@ -56,7 +60,9 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit(Category $category)
-    {       
+    {
+        abort_unless(\Gate::allows('category_edit'), 403);
+
         return view('backend.category.edit', compact('category'));
     }
 
@@ -82,6 +88,8 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
+        abort_unless(\Gate::allows('category_delete'), 403);
+
         $category->delete();
 
         return redirect('dashboard/categories')->withSuccessMessage('Category Deleted Successfully!');
@@ -90,7 +98,7 @@ class CategoryController extends Controller
     private function validateRequest()
     {
         return request()->validate([
-          'title' => 'required|min:2|max:30',          
+          'title' => 'bail|required|min:2|max:10',          
       ]); 
     }
 }

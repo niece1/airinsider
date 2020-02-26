@@ -36,11 +36,13 @@
 						<td>{{ $comment->body }}</td>
 						<td>{{ $comment->if_reply }}</td>
 						<td>
+							@can('comment_delete')
 							<form action="{{ route('comments.destroy', $comment->id) }}" method="post" onsubmit="return confirm('Delete comment?')">
 								@method('DELETE')
 								@csrf
 								<button type="submit" class="action-button-red">Delete</button>
 							</form>
+							@endcan
 						</td>
 					</tr>				
 					@endforeach

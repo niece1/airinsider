@@ -38,6 +38,7 @@
 	<input type="text" name="photo_source" value="{{ old('photo_source') ?? $post->photo_source }}" class="form-input">
 	<div class="form-error">{{ $errors->first('photo_source') }}</div>
 </div>
+@can('post_publish')
 <div class="form-wrapper">
 	<label>Select status</label>
 	<label class="radio-container">Unpublished
@@ -50,6 +51,7 @@
 	</label>
 	<div class="form-error">{{ $errors->first('published') }}</div>
 </div>
+@endcan
 <div class="form-wrapper">
 	<label for="time_to_read">Time to read</label>
 	<input type="number" name="time_to_read" value="{{ old('time_to_read') ?? $post->time_to_read }}" min="1" max="10" class="form-input">

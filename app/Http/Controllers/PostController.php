@@ -23,6 +23,8 @@ class PostController extends Controller
      */
     public function index()
     {
+        abort_unless(\Gate::allows('dashboard_access'), 403);
+
         $posts = Post::with(['photo', 'category'])->orderBy('id', 'desc')->paginate(25);
 
         if (session('success_message')) {
@@ -38,6 +40,8 @@ class PostController extends Controller
      */
     public function create()
     {
+        abort_unless(\Gate::allows('post_create'), 403);
+
         $categories = Category::all();
         $tags = Tag::all();
         $post = new Post();
@@ -71,6 +75,8 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        abort_unless(\Gate::allows('post_view'), 403);
+
         $post = Post::where('id', $post->id)->firstOrFail();
 
         return view('backend.post.show', compact('post'));
@@ -84,6 +90,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
+        abort_unless(\Gate::allows('post_edit'), 403);
+
         $categories = Category::all();
         $tags = Tag::all();
 
@@ -117,6 +125,8 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
+        abort_unless(\Gate::allows('post_trash'), 403);
+
         $post->delete();
 
         return redirect('dashboard/posts')->withSuccessMessage('Trashed Successfully!');
@@ -124,6 +134,8 @@ class PostController extends Controller
 
     public function trashed()
     {
+        abort_unless(\Gate::allows('post_trash_list'), 403);
+
         $posts = Post::with(['photo', 'category'])->onlyTrashed()->get();
 
         if (session('success_message')) {
@@ -135,6 +147,8 @@ class PostController extends Controller
 
     public function expunge($id)
     {
+        abort_unless(\Gate::allows('post_delete'), 403);
+
         $post = Post::withTrashed()->where('id', $id)->first();
 
         if ($post->photo) {
@@ -148,6 +162,8 @@ class PostController extends Controller
 
     public function restore($id)
     {
+        abort_unless(\Gate::allows('post_restore'), 403);
+
         $post = Post::withTrashed()->where('id', $id)->first();
 
         $post->restore();
@@ -162,7 +178,6 @@ class PostController extends Controller
             'body' => 'required',
             'time_to_read' => 'required',
             'photo_source' => 'max:200',
-            'published' => 'required',
             'category_id' => 'required',
             'image' => 'sometimes|file|image|max:5000',
         ])->validate();
@@ -178,7 +193,6 @@ class PostController extends Controller
             'body' => 'required',
             'time_to_read' => 'required',
             'photo_source' => 'max:200',
-            'published' => 'required',
             'category_id' => 'required',
             'image' => 'sometimes|file|mimes:jpeg,png|max:5000',
         ])->validate();

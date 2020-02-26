@@ -37,12 +37,16 @@
 							<li>
 								<a class="sub-item" href="/dashboard/roles"><span>Roles</span></a>
 							</li>
+							@can('permission_access')
 							<li>
 								<a class="sub-item" href="/dashboard/permissions"><span>Permissions</span></a>
 							</li>
+							@endcan
+							@can('subscription_access')
 							<li>
 								<a class="sub-item" href="/dashboard/subscriptions"><span>Subscriptions</span></a>
 							</li>
+							@endcan
 						</ul>
 					</li>
 					<li class="sub-menu">
@@ -51,22 +55,28 @@
 							<li>
 								<a class="sub-item" href="/dashboard/posts"><span>Posts</span></a>
 							</li>
+							@can('category_access')
 							<li>
 								<a class="sub-item" href="/dashboard/categories"><span>Categories</span></a>
 							</li>
+							@endcan
 							@can('tag_access')
 							<li>
 								<a class="sub-item" href="/dashboard/tags"><span>Tags</span></a>
 							</li>
 							@endcan
+							@can('comment_access')
 							<li>
 								<a class="sub-item" href="/dashboard/comments"><span>Comments</span></a>
 							</li>
+							@endcan
 						</ul>
 					</li>
+					@can('post_trash_list')
 					<li>
 						<a href="/dashboard/trashed">Trashed posts</a>
 					</li>
+					@endcan
 					@auth
 					<li class="sub-menu">
 						<a href="javascript:void(0)">{{ Auth::user()->name }}</a>

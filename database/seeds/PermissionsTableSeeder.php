@@ -200,6 +200,12 @@ class PermissionsTableSeeder extends Seeder
         	    'created_at' => '2020-02-24 22:34:18',
         	    'updated_at' => '2020-02-24 22:34:18',
         	],
+        	[
+        		'id' => '32',
+        	    'title' => 'post_trash_list',
+        	    'created_at' => '2020-02-24 22:34:18',
+        	    'updated_at' => '2020-02-24 22:34:18',
+        	],
         ];
 
         Permission::insert($permissions);

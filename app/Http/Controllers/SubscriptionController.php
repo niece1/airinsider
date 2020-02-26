@@ -17,7 +17,9 @@ class SubscriptionController extends Controller
      */
     public function index()
     {
-        $subscriptions = Subscription::orderBy('id', 'desc')->paginate(5);
+        abort_unless(\Gate::allows('subscription_access'), 403);
+
+        $subscriptions = Subscription::orderBy('id', 'desc')->paginate(25);
 
         if(session('success_message')){
         Alert::success( session('success_message'))->toToast();
@@ -51,6 +53,8 @@ class SubscriptionController extends Controller
      */
     public function destroy(Subscription $subscription)
     {
+        abort_unless(\Gate::allows('subscription_delete'), 403);
+
         $subscription->delete();
 
         return redirect('dashboard/subscriptions')->withSuccessMessage('Email Deleted Successfully!');
@@ -58,11 +62,15 @@ class SubscriptionController extends Controller
 
     public function exportExcel() 
     {
+        abort_unless(\Gate::allows('subscription_export'), 403);
+
         return Excel::download(new SubscriptionExport, 'subscriptions.xlsx');
     }
 
     public function exportCsv() 
     {
+        abort_unless(\Gate::allows('subscription_export'), 403);
+        
         return Excel::download(new SubscriptionExport, 'subscriptions.csv');
     }
 }

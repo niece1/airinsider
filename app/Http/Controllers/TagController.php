@@ -98,7 +98,7 @@ class TagController extends Controller
     private function validateRequest()
     {
         return request()->validate([
-          'title' => 'bail|required|min:2|max:30',          
+          'title' => 'bail|required|min:2|max:10',          
       ]); 
     }
 }
