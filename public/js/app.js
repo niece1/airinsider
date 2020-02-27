@@ -34775,8 +34775,8 @@ $(document).ready(function () {
   $(".contact-slider-wrapper").slick({
     infinite: true,
     draggable: true,
-    dots: false,
-    arrows: true,
+    dots: true,
+    arrows: false,
     autoplay: false,
     slidesToShow: 4,
     slidesToScroll: 1,

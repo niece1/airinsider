@@ -16,6 +16,8 @@ class RoleController extends Controller
      */
     public function index()
     {
+        abort_unless(\Gate::allows('role_access'), 403);
+
         $roles = Role::with(['permissions'])->get();
 
         if(session('success_message')){
@@ -32,6 +34,8 @@ class RoleController extends Controller
      */
     public function create()
     {
+        abort_unless(\Gate::allows('role_create'), 403);
+
         $role = new Role();
         $permissions = Permission::all();
 
@@ -60,6 +64,8 @@ class RoleController extends Controller
      */
     public function edit(Role $role)
     {
+        abort_unless(\Gate::allows('role_edit'), 403);
+
         $permissions = Permission::all();
 
         return view('backend.role.edit', compact('role', 'permissions'));
@@ -88,11 +94,9 @@ class RoleController extends Controller
      */
     public function destroy(Role $role)
     {
-        $role->delete();
+        abort_unless(\Gate::allows('role_delete'), 403);
 
-        if($role->permissions) {
-        $this->detachPermissions($role);
-        }
+        $role->delete();
 
         return redirect('dashboard/roles')->withSuccessMessage('Role Deleted Successfully!');
     }
@@ -109,8 +113,4 @@ class RoleController extends Controller
        $role->permissions()->sync(request('permission_id'));
     }
 
-    private function detachPermissions($role)
-    {
-       $role->permissions()->detach(request('permission_id'));
-    }
 }

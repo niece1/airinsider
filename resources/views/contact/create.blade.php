@@ -90,12 +90,7 @@
 			</div>
 			@endforeach
 		</div>
-		<div id="left-arrow" class="arrow-left">
-			<i class="fas fa-chevron-left"></i>
-		</div>
-		<div id="right-arrow" class="arrow-right">
-			<i class="fas fa-chevron-right"></i>
-		</div>
+		
 	</div>
 </section>
 @endsection

@@ -34,9 +34,11 @@
 								<a class="sub-item" href="/dashboard/users"><span>Users</span></a>
 							</li>
 							@endcan
+							@can('role_access')
 							<li>
 								<a class="sub-item" href="/dashboard/roles"><span>Roles</span></a>
 							</li>
+							@endcan
 							@can('permission_access')
 							<li>
 								<a class="sub-item" href="/dashboard/permissions"><span>Permissions</span></a>
@@ -52,9 +54,11 @@
 					<li class="sub-menu">
 						<a href="javascript:void(0)">Post board</a>
 						<ul>
+							@can('dashboard_access')
 							<li>
 								<a class="sub-item" href="/dashboard/posts"><span>Posts</span></a>
 							</li>
+							@endcan
 							@can('category_access')
 							<li>
 								<a class="sub-item" href="/dashboard/categories"><span>Categories</span></a>

@@ -36,6 +36,9 @@
 							@can('post_view')
 							<a href="/dashboard/posts/{{ $post->id }}">{{ $post->title }}</a>
 							@endcan
+							@cannot('post_view')
+							<p>{{ $post->title }}</p>
+							@endcannot
 						</td>
 						<td>{{ $post->if_published }}</td>
 						<td>{{ $post->viewed }}</td>
