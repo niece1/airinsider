@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    @include('cookieConsent::index')
     <div id="app">
         <header>
             <div class="menu-wrapper">
@@ -146,7 +147,7 @@
                     <a href="#">pt</a>
                 </div>
             </div>
-        </footer>
+        </footer>       
         <!--/.Footer-->
     </div>
     <!-- Scripts -->

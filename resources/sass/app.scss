@@ -1425,14 +1425,29 @@ footer {
             }
         }
         ul.slick-dots {
-            position: relative;
+            text-align: center;
+            margin-top: 32px;
             li {
-                display: inline-block;
+                display: inline-block;               
                 button {
                     background-color: #cccccc;
                     text-indent: -9999px;
+                    margin: 0 5px;
+                    border: 1px solid #cccccc;
+                    padding: 2px 5px;
+                    outline: none;
+                    font-size: 5px;
+                    border-radius: 50%;
+                    cursor: pointer;
                 }
             }
+            li.slick-active {
+                button {
+                    background-color: #e71d43;
+                    border: 1px solid #e71d43;
+                    cursor: pointer;
+                }
+            }    
         }
     }
 }
@@ -2763,5 +2778,53 @@ footer#dashboard-footer {
 
 .select2-container--classic.select2-container--open .select2-dropdown {
     border-color: #5897fb;
+}
+
+/*Cookie consent styles*/
+.js-cookie-consent {
+    position: fixed;
+    bottom: 15px;
+    right: 20px;
+    z-index: 9999;
+    width: 200px;
+    padding: 15px;
+    background-color: #fff;
+    border: 2px solid #f5f8fa;
+    border-radius: 3px;
+    span.cookie-consent__message {
+        display: block;
+        color: #4e4e4e;
+        font-size: 1.4rem;
+        line-height: 22px;
+    }
+    button.js-cookie-consent-agree {
+        border: 2px solid #e71d43;
+        text-align: center;
+        padding: 12px 18px 10px 18px;
+        cursor: pointer;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+        outline: none;
+        letter-spacing: 1px;
+        border-radius: 3px;
+        background-color: transparent;
+        color: #000;
+        margin: 15px 0 0 23px;
+        &:hover {
+            background-color: #e71d43;
+            color: #fff;
+            border: 2px solid #e71d43;
+            transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+        }
+        &:not(:hover) {
+            background-color: transparent;
+            color: #000;
+            transition: all 0.3s ease-in-out;
+            -webkit-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+        }
+    }
 }
 
