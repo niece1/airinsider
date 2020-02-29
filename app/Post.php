@@ -35,17 +35,17 @@ class Post extends Model
         return $this->save();
     }
 
-    public function getDateAttribute($value)
+    public function getDateAttribute()
     {
         return is_null($this->updated_at) ? '' : $this->updated_at->diffForHumans();
     }
 
-    public function getHtmlBodyAttribute($value)
+    public function getHtmlBodyAttribute()
     {
         return $this->body ? strip_tags($this->body) : NULL;
     }
 
-    public function getIfPublishedAttribute($value)
+    public function getIfPublishedAttribute()
     {
         return $this->published == 0 ? 'No' : 'Yes';
     }
