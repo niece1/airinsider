@@ -19,6 +19,7 @@
         "maatwebsite/excel": "^3.1",
         "mews/purifier": "^3.1",
         "realrashid/sweet-alert": "^3.0",
+        "spatie/laravel-backup": "^6.7",
         "spatie/laravel-cookie-consent": "^2.11"
     },
     "require-dev": {

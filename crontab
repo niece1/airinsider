@@ -1,0 +1,2 @@
+
+* * * * * cd /home/test/laravel-dev/airinsider && php artisan schedule:run >> /dev/null 2>&1
