@@ -6,7 +6,7 @@
     <div class="jumbothron-wrapper">
         <div class="content">
             <h1>{{ $featured->title }}</h1>
-            <p>{{ substr(strip_tags(html_entity_decode($featured->body)), 0, 185) }}{{ strlen(strip_tags(html_entity_decode($featured->body))) > 185 ? " ..." : "" }}</p>
+            <p>{{ $featured->featured_description }}{{ $featured->featured_three_dots }}</p>
             <a class="button" href="{{ route('post.show', [$featured->slug]) }}">Читать</a>
         </div>
         @if($featured->photo)
@@ -35,7 +35,7 @@
                 <a href="{{ route('post.show', [$news_item->slug]) }}">
                     <h6>{{ $news_item->title }}</h6>
                 </a>
-                <p class="item-blog-text">{{ substr(strip_tags(html_entity_decode($news_item->body)), 0, 85) }}{{ strlen(strip_tags(html_entity_decode($news_item->body))) > 85 ? " ..." : "" }}</p>
+                <p class="item-blog-text">{{ $news_item->description }}{{ $news_item->three_dots }}</p>
                 @if($news_item->user)
                 <p class="item-blog-author"><i class="fas fa-user-edit"></i>By <a href="{{ route('user', [$news_item->user->id]) }}">{{ $news_item->user->name }}</a></p>
                 @endif

@@ -39,10 +39,30 @@ class Post extends Model
     {
         return is_null($this->updated_at) ? '' : $this->updated_at->diffForHumans();
     }
-
-    public function getHtmlBodyAttribute()
+    
+    public function getDashboardShowBodyAttribute()
     {
-        return $this->body ? strip_tags($this->body) : NULL;
+        return $this->body ? strip_tags(html_entity_decode($this->body)) : NULL;
+    }
+
+    public function getDescriptionAttribute()
+    {
+        return $this->body ? substr(strip_tags(html_entity_decode($this->body)), 0, 85) : NULL;
+    }
+    
+    public function getFeaturedDescriptionAttribute()
+    {
+        return $this->body ? substr(strip_tags(html_entity_decode($this->body)), 0, 185) : NULL;
+    }
+    
+    public function getThreeDotsAttribute()
+    {
+        return strlen(strip_tags(html_entity_decode($this->body))) > 85 ? " ..." : "";
+    }
+    
+    public function getFeaturedThreeDotsAttribute()
+    {
+        return strlen(strip_tags(html_entity_decode($this->body))) > 185 ? " ..." : "";
     }
 
     public function getIfPublishedAttribute()

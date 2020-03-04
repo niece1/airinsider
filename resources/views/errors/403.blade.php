@@ -1,5 +1,7 @@
 @extends('layouts.frontend')
 
+@section('title', 'Ошибка 403')
+
 @section('content')
 
 <section class="title-jumbotron">
