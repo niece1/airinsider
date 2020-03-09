@@ -34728,7 +34728,9 @@ new Nearby(iconHeartButton, {
       filter: "grayscale(".concat(Math.min(bw, grayscaleInterval.from), ")")
     });
   }
-}); //Navigation
+}); //Lazyload
+
+lazyload(); //Navigation
 
 $(document).ready(function () {
   $(".menu-toggle").click(function () {

@@ -832,6 +832,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
   border-radius: 5px 5px 0 0;
   position: relative;
   display: block;
+  background: #cccccc;
 }
 
 .news .news-wrapper .item .image-holder a img {
@@ -1205,9 +1206,17 @@ footer .footer_wrapper_upper .popular_posts ul li {
   clear: left;
 }
 
-footer .footer_wrapper_upper .popular_posts ul li a img {
+footer .footer_wrapper_upper .popular_posts ul li .image-holder {
+  display: block;
+  overflow: hidden;
+  background: #cccccc;
   float: left;
   margin: 3px 10px 3px 0;
+}
+
+footer .footer_wrapper_upper .popular_posts ul li .image-holder a img {
+  overflow: hidden;
+  display: block;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -1906,10 +1915,15 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
 .news-show .news-show-wrapper .item-itself .thumbnail {
   display: block;
   overflow: hidden;
+  background: #cccccc;
 }
 
 .news-show .news-show-wrapper .item-itself .thumbnail img {
   width: 100%;
+  display: block;
+  overflow: hidden;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .news-show .news-show-wrapper .item-itself h1 {
@@ -2001,9 +2015,16 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   clear: left;
 }
 
-.news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li a img {
-  width: 90px;
-  height: 90px;
+.news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .image-holder {
+  background: #cccccc;
+  display: block;
+  overflow: hidden;
+  width: 92px;
+  height: 69px;
+}
+
+.news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .image-holder a img {
+  width: 100%;
   float: left;
   display: block;
   -o-object-fit: cover;

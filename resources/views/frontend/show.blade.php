@@ -15,12 +15,12 @@
         <div class="item-itself">
             @if($post->photo)
             <div class="thumbnail">
-                <img src="{{ asset('storage/'.$post->photo->path) }}" alt="Photo">
+                <img class="lazyload" src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs=" data-src="{{ asset('storage/'.$post->photo->path) }}" alt="Photo">
             </div>
             <p>{{ $post->photo_source }}</p>
             @endif
             <p>
-                @if($post->updated_at){{ date('d-m-Y', strtotime($post->updated_at)) }}@endif
+                @if($post->updated_at){{ $post->show_page_date }}@endif
                 @if($post->category)<span class="dot"></span> <a href="{{ route('category', [$post->category->id]) }}">{{ $post->category->title }}</a>@endif
                 @if($post->user)<span class="dot"></span> by <a href="{{ route('user', [$post->user->id]) }}">{{ $post->user->name }}</a>@endif
             </p>
@@ -41,9 +41,11 @@
                 <ul class="related">
                     <li>
                         @if($post->photo)
-                        <a href="{{ route('post.show', [$post->slug]) }}">
-                            <img src="{{ asset('storage/'.$post->photo->path) }}" alt="Photo">
-                        </a>
+                        <div class="image-holder">
+                            <a href="{{ route('post.show', [$post->slug]) }}">
+                                <img  src="{{ asset('storage/'.$post->photo->path) }}" alt="Photo">
+                            </a>
+                        </div>
                         @endif
                         <div class="post-content">
                             <p>

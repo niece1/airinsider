@@ -203,6 +203,9 @@ new Nearby(iconHeartButton, {
     }
 });
 
+//Lazyload
+lazyload();
+
 //Navigation
 $(document).ready(function() {
     $(".menu-toggle").click(function() {

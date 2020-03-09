@@ -40,6 +40,11 @@ class Post extends Model
         return is_null($this->updated_at) ? '' : $this->updated_at->diffForHumans();
     }
     
+    public function getShowPageDateAttribute()
+    {
+        return date('d-m-Y', strtotime($this->updated_at));
+    }
+    
     public function getDashboardShowBodyAttribute()
     {
         return $this->body ? strip_tags(html_entity_decode($this->body)) : NULL;

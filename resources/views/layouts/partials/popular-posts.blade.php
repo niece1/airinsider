@@ -3,9 +3,11 @@
 <ul>
     <li>
         @if($post->photo)
-        <a href="{{ route('post.show', [$post->slug]) }}">
-            <img src="{{ asset('storage/'.$post->photo->path) }}" height="60" width="90" alt="Photo">
-        </a>
+        <div class="image-holder">
+            <a href="{{ route('post.show', [$post->slug]) }}">
+                <img class="lazyload" src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs=" data-src="{{ asset('storage/'.$post->photo->path) }}" width="92" height="69" alt="Photo">
+            </a>
+        </div>
         @endif
         <small>{{ $post->date }}</small>
         <a href="{{ route('post.show', [$post->slug]) }}" class="popular-link-title">

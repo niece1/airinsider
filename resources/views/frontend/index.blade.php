@@ -11,7 +11,7 @@
         </div>
         @if($featured->photo)
         <div class="photo">
-            <img src="{{ asset('storage/'.$featured->photo->path) }}" alt="News">
+            <img class="lazyload" src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs=" data-src="{{ asset('storage/'.$featured->photo->path) }}" alt="News">
         </div>
         @endif
     </div>
@@ -26,7 +26,7 @@
             @if($news_item->photo)
             <div class="image-holder">
                 <a href="{{ route('post.show', [$news_item->slug]) }}">
-                    <img src="{{ asset('storage/'.$news_item->photo->path) }}" alt="Photo">
+                    <img class="lazyload" src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs=" data-src="{{ asset('storage/'.$news_item->photo->path) }}" alt="Photo">
                     <div class="image-overlay"></div>
                 </a>
             </div>

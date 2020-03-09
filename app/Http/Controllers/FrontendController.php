@@ -20,7 +20,8 @@ class FrontendController extends Controller
 
         $news = Post::with(['photo', 'category', 'user', 'comments'])
         ->where('published', 1)
-        ->where('id', '<>', $featured->id)->orderBy('id', 'desc')
+        ->where('id', '<>', $featured->id)
+        ->orderBy('id', 'desc')
         ->paginate(8);
 
         return view('frontend.index', compact('featured', 'news'));

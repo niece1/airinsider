@@ -634,6 +634,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
                 border-radius: 5px 5px 0 0;
                 position: relative;
                 display: block;
+                background: #cccccc;
                 a {
                     img {
                         width: 100%;
@@ -950,13 +951,20 @@ footer {
                 li {
                     margin: 3px 0;
                     clear: left;
-                    a {
-                        img {
-                            float: left;
-                            margin: 3px 10px 3px 0;
-                            object-fit: cover;
+                    .image-holder {
+                        display: block;
+                        overflow: hidden;
+                        background: #cccccc;
+                        float: left;
+                        margin: 3px 10px 3px 0;
+                        a {
+                            img {
+                                overflow: hidden;
+                                display: block;
+                                object-fit: cover;
+                            }
                         }
-                    }
+                    }                   
                     small {
                         font-size: 1rem;
                         text-transform: uppercase;
@@ -1471,8 +1479,12 @@ footer {
             .thumbnail {
                 display: block;
                 overflow: hidden;
+                background: #cccccc;
                 img {
                     width: 100%;
+                    display: block;
+                    overflow: hidden;
+                    object-fit: cover;
                 }
             }
             h1 {
@@ -1544,17 +1556,23 @@ footer {
                 ul.related {
                     li {
                         clear: left;
-                        a {
-                            img {
-                                width: 90px;
-                                height: 90px;
-                                float: left;
-                                display: block;
-                                object-fit: cover;
-                                overflow: hidden;
-                                margin: 0 15px 15px 0;
+                        .image-holder {
+                            background: #cccccc;
+                            display: block;
+                            overflow: hidden;
+                            width: 92px;
+                                    height: 69px;
+                            a {
+                                img {
+                                    width: 100%;
+                                    float: left;
+                                    display: block;
+                                    object-fit: cover;
+                                    overflow: hidden;
+                                    margin: 0 15px 15px 0;
+                                }
                             }
-                        }
+                        }                       
                         .post-content {
                             p {
                                 display: block;
