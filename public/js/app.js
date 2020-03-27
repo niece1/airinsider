@@ -2379,16 +2379,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2507,7 +2497,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.input-wrapper[data-v-7e49b268] {\n    width: 100%;\n    margin: 5px auto;\n    position: relative;\n}\n.input-wrapper input[data-v-7e49b268] {\n    color: #9c9c9c;\n    border-radius: 0;\n    outline: none;\n    width: 100%;\n    border: none;\n    padding: 10px 0;\n    border-bottom: 2px solid #9c9c9c;\n    background-color: transparent;\n    font-size: 1.6rem;\n}\n.input-wrapper input[data-v-7e49b268]::-webkit-input-placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]::-moz-placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]:-ms-input-placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]::-ms-input-placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]::placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper button[data-v-7e49b268] {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    right: 0;\n    border: none;\n    background: transparent;\n    outline: none;\n    font-size: 1.8rem;\n    color: #9c9c9c;\n    cursor: pointer;\n    padding: 0 3px;\n}\n.input-wrapper .invalid-feedback[data-v-7e49b268] {\n    color: #e71d43;\n    font-size: 1.2rem;\n    text-align: left;\n}\n.sent-success[data-v-7e49b268] {\n    font-weight: normal;\n    color: #0633ff;\n}\n", ""]);
+exports.push([module.i, "\n.input-wrapper[data-v-7e49b268] {\n    width: 100%;\n    margin: 5px auto;\n    position: relative;\n}\n.input-wrapper input[data-v-7e49b268] {\n    color: #9c9c9c;\n    border-radius: 0;\n    outline: none;\n    width: 100%;\n    border: none;\n    padding: 10px 0;\n    border-bottom: 2px solid #9c9c9c;\n    background-color: transparent;\n    font-size: 1.6rem;\n}\n.input-wrapper input[data-v-7e49b268]::-webkit-input-placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]::-moz-placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]:-ms-input-placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]::-ms-input-placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper input[data-v-7e49b268]::placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper button[data-v-7e49b268] {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    right: 0;\n    border: none;\n    background: transparent;\n    outline: none;\n    font-size: 1.8rem;\n    color: #9c9c9c;\n    cursor: pointer;\n    padding: 0 3px;\n}\n.input-wrapper .invalid-feedback[data-v-7e49b268] {\n    color: #e71d43;\n    font-size: 1.2rem;\n    text-align: left;\n}\n.sent-success[data-v-7e49b268] {\n    font-weight: normal;\n    color: #0633ff;\n}\n\n", ""]);
 
 // exports
 
@@ -22348,6 +22338,11 @@ var render = function() {
               }
             }),
             _vm._v(" "),
+            _c("input", {
+              staticClass: "g-token",
+              attrs: { type: "hidden", name: "g-token" }
+            }),
+            _vm._v(" "),
             _vm._m(0),
             _vm._v(" "),
             _vm.errors && _vm.errors.email
@@ -34728,9 +34723,7 @@ new Nearby(iconHeartButton, {
       filter: "grayscale(".concat(Math.min(bw, grayscaleInterval.from), ")")
     });
   }
-}); //Lazyload
-
-lazyload(); //Navigation
+}); //Navigation
 
 $(document).ready(function () {
   $(".menu-toggle").click(function () {
@@ -34813,7 +34806,9 @@ $(document).ready(function () {
 
 $(".sidebar").stick_in_parent({
   offset_top: 120
-});
+}); //Lazyload
+
+lazyload();
 
 /***/ }),
 

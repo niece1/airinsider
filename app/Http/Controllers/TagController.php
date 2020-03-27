@@ -99,6 +99,6 @@ class TagController extends Controller
     {
         return request()->validate([
           'title' => 'bail|required|min:2|max:10',          
-      ]); 
+        ]); 
     }
 }

@@ -1560,16 +1560,18 @@ footer {
                             background: #cccccc;
                             display: block;
                             overflow: hidden;
+                            float: left;
                             width: 92px;
-                                    height: 69px;
+                            height: 69px;
+                            margin: 0 15px 15px 0;
                             a {
                                 img {
-                                    width: 100%;
-                                    float: left;
+                                    width: 100%;                                   
                                     display: block;
                                     object-fit: cover;
                                     overflow: hidden;
-                                    margin: 0 15px 15px 0;
+                                    width: 92px;
+                                    height: 69px;
                                 }
                             }
                         }                       

@@ -41,6 +41,9 @@
                     <textarea type="text" name="message" placeholder="Сообщение" autocomplete="message" required>{{ old('message') }}</textarea>
                     <div class="invalid-feedback">{{ $errors->first('message') }}</div>
                 </div>
+                <div class="contact-form-group">
+                    <input type="hidden" class="g-token" name="g-token">                   
+                </div>
                 <!--@captcha-->
                 <button type="submit" class="button">Send</button>
                 @csrf
@@ -90,7 +93,6 @@
             </div>
             @endforeach
         </div>
-
     </div>
 </section>
 @endsection

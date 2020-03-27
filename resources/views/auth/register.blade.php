@@ -48,7 +48,12 @@
                     <input id="password-confirm" type="password" placeholder="Подтвердите пароль" name="password_confirmation" autocomplete="new-password">
                 </div>
             </div>
-            @captcha
+            <div class="contact-form-group">
+                <div class="group-holder">
+                    <input type="hidden" class="g-token" name="g-token">
+                </div>
+            </div>
+            <!--@captcha-->
             <button type="submit" class="button">
                 Создать
             </button>

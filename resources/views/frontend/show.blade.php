@@ -43,7 +43,7 @@
                         @if($post->photo)
                         <div class="image-holder">
                             <a href="{{ route('post.show', [$post->slug]) }}">
-                                <img  src="{{ asset('storage/'.$post->photo->path) }}" alt="Photo">
+                                <img class="lazyload" src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs=" data-src="{{ asset('storage/'.$post->photo->path) }}" alt="Photo">
                             </a>
                         </div>
                         @endif

@@ -1,18 +1,8 @@
 <template>
     <div>
-        <form
-            class="input-wrapper"
-            v-if="form"
-            @submit.prevent="submit"
-            autocomplete="off"
-        >
-            <input
-                id="newsletter"
-                name="email"
-                type="email"
-                v-model="email"
-                placeholder="Get newsletter"
-            />
+        <form class="input-wrapper" v-if="form" @submit.prevent="submit" autocomplete="off">
+            <input id="newsletter" name="email" type="email" v-model="email" placeholder="Get newsletter">
+            <input type="hidden" class="g-token" name="g-token">
             <button type="submit"><i class="fa fa-envelope-o"></i></button>
             <div v-if="errors && errors.email" class="invalid-feedback">
                 {{ errors.email[0] }}
@@ -25,7 +15,7 @@
 <script>
 export default {
     data: () => ({
-        email: "",
+        email: "",    
         errors: {},
         form: true,
         sent: false
@@ -34,7 +24,7 @@ export default {
         submit() {
             axios
                 .post("/subscriptions", {
-                    email: this.email
+                    email: this.email,
                 })
                 .then(response => {
                     this.email = "";
@@ -49,15 +39,16 @@ export default {
         }
     }
 };
+
 </script>
 
 <style scoped>
+
 .input-wrapper {
     width: 100%;
     margin: 5px auto;
     position: relative;
 }
-
 .input-wrapper input {
     color: #9c9c9c;
     border-radius: 0;
@@ -69,12 +60,10 @@ export default {
     background-color: transparent;
     font-size: 1.6rem;
 }
-
 .input-wrapper input::placeholder {
     color: #9c9c9c;
     opacity: 1;
 }
-
 .input-wrapper button {
     position: absolute;
     top: 0;
@@ -88,15 +77,14 @@ export default {
     cursor: pointer;
     padding: 0 3px;
 }
-
 .input-wrapper .invalid-feedback {
     color: #e71d43;
     font-size: 1.2rem;
     text-align: left;
 }
-
 .sent-success {
     font-weight: normal;
     color: #0633ff;
 }
+
 </style>

@@ -122,6 +122,16 @@ return [
     'key' => env('APP_KEY'),
 
     'cipher' => 'AES-256-CBC',
+    
+    /*Google recaptcha v3*/
+      
+    'recaptcha' => [
+        
+        'key' => env('INVISIBLE_RECAPTCHA_SITEKEY'),
+    
+        'secret' => env('INVISIBLE_RECAPTCHA_SECRETKEY'),
+        
+    ],
 
     /*
     |--------------------------------------------------------------------------

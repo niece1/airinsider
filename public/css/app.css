@@ -2019,18 +2019,20 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   background: #cccccc;
   display: block;
   overflow: hidden;
+  float: left;
   width: 92px;
   height: 69px;
+  margin: 0 15px 15px 0;
 }
 
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .image-holder a img {
   width: 100%;
-  float: left;
   display: block;
   -o-object-fit: cover;
      object-fit: cover;
   overflow: hidden;
-  margin: 0 15px 15px 0;
+  width: 92px;
+  height: 69px;
 }
 
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .post-content p {

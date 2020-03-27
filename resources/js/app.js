@@ -203,9 +203,6 @@ new Nearby(iconHeartButton, {
     }
 });
 
-//Lazyload
-lazyload();
-
 //Navigation
 $(document).ready(function() {
     $(".menu-toggle").click(function() {
@@ -301,3 +298,6 @@ $(document).ready(function() {
 
 //Sticky sidebar
 $(".sidebar").stick_in_parent({ offset_top: 120 });
+
+//Lazyload
+lazyload();
