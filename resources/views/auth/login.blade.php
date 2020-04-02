@@ -15,7 +15,7 @@
             @csrf
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="email fg" type="email" name="email" value="{{ old('email') }}" placeholder="Email" autocomplete="email" required>
+                    <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="Email" autocomplete="email" required>
                     @error('email')
                     <span class="invalid-feedback">
                         {{ $message }}
@@ -40,6 +40,7 @@
                     <span class="checkmark"></span>
                 </label>
             </div>
+            @captcha
             <div class="form-group">
                 <button type="submit" class="button">
                     Войти

@@ -296,8 +296,8 @@ $(document).ready(function() {
     });
 });
 
-//Sticky sidebar
-$(".sidebar").stick_in_parent({ offset_top: 120 });
-
 //Lazyload
 lazyload();
+
+//Sticky sidebar
+$(".sidebar").stick_in_parent({ offset_top: 120 });

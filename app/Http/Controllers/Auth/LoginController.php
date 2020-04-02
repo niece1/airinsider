@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
@@ -82,13 +83,12 @@ class LoginController extends Controller
         return redirect('/');
     }
 
-    //Get last login time and IP address. Overrides the authenticated method from AuthenticatesUser trait
-    public function authenticated(\Illuminate\Http\Request $request, $user)
+    //Get last login time and IP address. Overrides the authenticated method from AuthenticatesUser trait. Saves only on login not register
+    public function authenticated(Request $request, $user)
     {
         $user->update([
             'last_login_at' => Carbon::now()->toDateTimeString(),
             'last_login_ip_address' => $request->ip(),
         ]);
     }
-
 }

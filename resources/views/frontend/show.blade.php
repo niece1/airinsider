@@ -32,6 +32,7 @@
             <p class="meta-right">
             <likes :default_likes="{{ $post->likes }}" :entity_id="{{ $post->id }}" :entity_owner="{{ $post->user_id }}"></likes>
             </p>
+            <h4>Комментарии: {{ $post->comments->count() }}</h4>
             <comments :post="{{ $post }}"></comments>
         </div>
         <aside class="sidebar">

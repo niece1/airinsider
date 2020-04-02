@@ -121,17 +121,7 @@ return [
 
     'key' => env('APP_KEY'),
 
-    'cipher' => 'AES-256-CBC',
-    
-    /*Google recaptcha v3*/
-      
-    'recaptcha' => [
-        
-        'key' => env('INVISIBLE_RECAPTCHA_SITEKEY'),
-    
-        'secret' => env('INVISIBLE_RECAPTCHA_SECRETKEY'),
-        
-    ],
+    'cipher' => 'AES-256-CBC',    
 
     /*
     |--------------------------------------------------------------------------
@@ -186,9 +176,9 @@ return [
         App\Providers\HorizonServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-        Laravel\Socialite\SocialiteServiceProvider::class, 
-        AlbertCht\InvisibleReCaptcha\InvisibleReCaptchaServiceProvider::class, 
-        App\Providers\FooterServiceProvider::class,      
+        Laravel\Socialite\SocialiteServiceProvider::class,  
+        App\Providers\FooterServiceProvider::class,
+        AlbertCht\InvisibleReCaptcha\InvisibleReCaptchaServiceProvider::class,
     ],
 
     /*

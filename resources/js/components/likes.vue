@@ -1,19 +1,6 @@
 <template>
     <div>
-        <svg
-            @click="like('up')"
-            class="thumbs-up"
-            :class="{ 'thumbs-up-active': upliked }"
-            version="1.1"
-            id="Capa_1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px"
-            y="0px"
-            viewBox="0 0 478.2 478.2"
-            style="enable-background:new 0 0 478.2 478.2;"
-            xml:space="preserve"
-        >
+        <svg @click="like('up')" class="thumbs-up" :class="{ 'thumbs-up-active': upliked }" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 478.2 478.2" style="enable-background:new 0 0 478.2 478.2;" xml:space="preserve">
             <g>
                 <path
                     d="M457.575,325.1c9.8-12.5,14.5-25.9,13.9-39.7c-0.6-15.2-7.4-27.1-13-34.4c6.5-16.2,9-41.7-12.7-61.5
@@ -36,22 +23,7 @@
         </svg>
 
         {{ uplikes_count }}
-        <svg
-            @click="like('down')"
-            class="thumbs-down"
-            :class="{ 'thumbs-down-active': downliked }"
-            version="1.1"
-            id="Capa_1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            x="0px"
-            y="0px"
-            width="475.092px"
-            height="475.092px"
-            viewBox="0 0 475.092 475.092"
-            style="enable-background:new 0 0 475.092 475.092;"
-            xml:space="preserve"
-        >
+        <svg @click="like('down')" class="thumbs-down" :class="{ 'thumbs-down-active': downliked }" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="475.092px" height="475.092px" viewBox="0 0 475.092 475.092" style="enable-background:new 0 0 475.092 475.092;" xml:space="preserve">
             <g>
                 <path
                     d="M442.822,209.562c1.715-6.283,2.57-12.847,2.57-19.702c0-14.655-3.621-28.361-10.852-41.112

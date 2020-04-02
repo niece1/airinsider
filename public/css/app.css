@@ -1979,6 +1979,11 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   color: #000;
 }
 
+.news-show .news-show-wrapper .item-itself h4 {
+  margin: 50px 0 20px 0;
+  font-weight: normal;
+}
+
 @media screen and (max-width: 950px) {
   .news-show .news-show-wrapper .item-itself {
     width: 100%;

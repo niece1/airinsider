@@ -2,30 +2,16 @@
     <div class="reply">
         <div class="reply-itself" v-for="reply in replies.data">
             <div class="avatar-label">
-                <avatar
-                    :username="reply.user.name"
-                    class="mr-3"
-                    :size="35"
-                ></avatar>
+                <avatar :username="reply.user.name" class="mr-3" :size="35"></avatar>
             </div>
             <div class="reply-body">
                 <h6>{{ reply.user.name }}</h6>
                 <p>{{ reply.body }}</p>
             </div>
-            <likes
-                :default_likes="reply.likes"
-                :entity_id="reply.id"
-                :entity_owner="reply.user.id"
-            ></likes>
+            <likes :default_likes="reply.likes" :entity_id="reply.id" :entity_owner="reply.user.id"></likes>
         </div>
-
-        <div
-            v-if="comment.repliesCount > 0 && replies.next_page_url"
-            class="load-replies"
-        >
-            <button @click="fetchReplies" class="button">
-                Загрузить ответы
-            </button>
+        <div v-if="comment.repliesCount > 0 && replies.next_page_url" class="load-replies">
+            <button @click="fetchReplies" class="button">Загрузить ответы</button>
         </div>
     </div>
 </template>

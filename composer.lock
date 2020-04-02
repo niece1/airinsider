@@ -4,29 +4,29 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ba227aad58649b803952d26e1ee06d49",
+    "content-hash": "fee5be79ae1aff41be2dd7b4ecb1f45d",
     "packages": [
         {
             "name": "albertcht/invisible-recaptcha",
-            "version": "v1.9.3",
+            "version": "v1.9.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/albertcht/invisible-recaptcha.git",
-                "reference": "0e03f61f55fdff961f203e9d96cbd9ecfb152df5"
+                "reference": "dd74d80e8e10d27bced23ac8fad4c8ac0f3c4728"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/albertcht/invisible-recaptcha/zipball/0e03f61f55fdff961f203e9d96cbd9ecfb152df5",
-                "reference": "0e03f61f55fdff961f203e9d96cbd9ecfb152df5",
+                "url": "https://api.github.com/repos/albertcht/invisible-recaptcha/zipball/dd74d80e8e10d27bced23ac8fad4c8ac0f3c4728",
+                "reference": "dd74d80e8e10d27bced23ac8fad4c8ac0f3c4728",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^6.2",
-                "illuminate/support": "^5.0|^6.0",
+                "illuminate/support": "^5.0|^6.0|^7.0",
                 "php": "^5.6.4 || ^7.0"
             },
             "require-dev": {
-                "illuminate/view": "^5.0|^6.0",
+                "illuminate/view": "^5.0|^6.0|^7.0",
                 "phpunit/phpunit": "^8.0"
             },
             "type": "library",
@@ -63,7 +63,7 @@
                 "php",
                 "recaptcha"
             ],
-            "time": "2019-09-05T17:22:43+00:00"
+            "time": "2020-03-18T15:46:48+00:00"
         },
         {
             "name": "cakephp/chronos",

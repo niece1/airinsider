@@ -24,10 +24,10 @@
         </div>
         <div class="contact-form">
             <h2>Заполните форму</h2>
-            @if(session()->has('message'))
-            <div class="alert">{{ session()->get('message') }}</div>
+            @if(session()->has('success'))
+            <div class="alert">{{ session()->get('success') }}</div>             
             @endif
-            @if(!session()->has('message'))
+            @if(!session()->has('success'))
             <form method="POST" action="/contact">
                 <div class="contact-form-group">
                     <input type="text" name="name" placeholder="Имя" value="{{ old('name') }}" autocomplete="name" required>
@@ -41,10 +41,7 @@
                     <textarea type="text" name="message" placeholder="Сообщение" autocomplete="message" required>{{ old('message') }}</textarea>
                     <div class="invalid-feedback">{{ $errors->first('message') }}</div>
                 </div>
-                <div class="contact-form-group">
-                    <input type="hidden" class="g-token" name="g-token">                   
-                </div>
-                <!--@captcha-->
+                @captcha
                 <button type="submit" class="button">Send</button>
                 @csrf
             </form>

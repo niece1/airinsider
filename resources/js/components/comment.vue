@@ -9,34 +9,19 @@
         </div>
         <div class="replies">
             <div class="comment-likes">
-                <likes
-                    :default_likes="comment.likes"
-                    :entity_id="comment.id"
-                    :entity_owner="comment.user.id"
-                ></likes>
+                <likes :default_likes="comment.likes" :entity_id="comment.id" :entity_owner="comment.user.id"></likes>
             </div>
-            <button
-                @click="addingReply = !addingReply"
-                class="add-reply-button"
-            >
-                Добавить ответ
-            </button>
+            <button @click="addingReply = !addingReply" class="add-reply-button">Добавить ответ</button>
             <div v-if="addingReply" class="add-reply">
                 <div v-if="auth">
-                    <textarea
-                        v-model="body"
-                        type="text"
-                        placeholder="Ваш ответ"
-                    ></textarea>
+                    <textarea v-model="body" type="text" placeholder="Ваш ответ"></textarea>
                     <div v-if="errors && errors.body" class="invalid-feedback">
                         {{ errors.body[0] }}
                     </div>
                     <button @click="addReply" class="button">Ответить</button>
                 </div>
                 <div v-else>
-                    <p class="login-to-answer">
-                        Авторизируйтесь, чтобы ответить
-                    </p>
+                    <p class="login-to-answer">Авторизируйтесь, чтобы ответить</p>
                 </div>
             </div>
         </div>
@@ -138,6 +123,7 @@ export default {
     outline: none;
     width: 100%;
     font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
 }
 .comment .replies .comment-likes {
     margin: 0 10px 0 0;

@@ -166,17 +166,6 @@
         @stack('scripts')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
-        <script src="https://www.google.com/recaptcha/api.js?render=6LeMDNEUAAAAAOWwA16kLcNyZD3fH6aMPjyNw_rJ"></script>
-        <script>
-                    grecaptcha.ready(function () {
-                        grecaptcha.execute('6LeMDNEUAAAAAOWwA16kLcNyZD3fH6aMPjyNw_rJ', {action: 'homepage'}).then(function (token) {
-                            var elements = document.getElementsByClassName("g-token");
-                            for (var i = 0; i < elements.length; i++) {
-                                elements[i].value = token;
-                            }
-                        });
-                    });
-        </script>
     </body>
 
 </html>

@@ -2,7 +2,6 @@
     <div>
         <form class="input-wrapper" v-if="form" @submit.prevent="submit" autocomplete="off">
             <input id="newsletter" name="email" type="email" v-model="email" placeholder="Get newsletter">
-            <input type="hidden" class="g-token" name="g-token">
             <button type="submit"><i class="fa fa-envelope-o"></i></button>
             <div v-if="errors && errors.email" class="invalid-feedback">
                 {{ errors.email[0] }}

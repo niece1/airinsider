@@ -1,40 +1,20 @@
 <template>
-    <div class="comments">
-        <h4>Комментарии</h4>
+    <div class="comments">        
         <div v-if="auth" class="comments-form">
-            <textarea
-                v-model="newComment"
-                type="text"
-                placeholder="Ваш комментарий"
-            ></textarea>
+            <textarea v-model="newComment" type="text" placeholder="Ваш комментарий"></textarea>
             <div v-if="errors && errors.body" class="invalid-feedback">
                 {{ errors.body[0] }}
             </div>
-            <button class="button" @click="addComment">
-                Добавить комментарий
-            </button>
+            <button class="button" @click="addComment">Добавить комментарий</button>
         </div>
         <div v-else>
-            <p class="auth-condition">
-                Авторизируйтесь, чтобы оставить комментарий
-            </p>
+            <p class="auth-condition">Авторизируйтесь, чтобы оставить комментарий</p>
         </div>
 
-        <comment
-            v-for="comment in comments.data"
-            :key="comment.id"
-            :comment="comment"
-            :post="post"
-        ></comment>
+        <comment v-for="comment in comments.data" :key="comment.id" :comment="comment" :post="post"></comment>
 
         <div class="more-comments">
-            <button
-                v-if="comments.next_page_url"
-                @click="fetchComments"
-                class="button"
-            >
-                Load More
-            </button>
+            <button v-if="comments.next_page_url" @click="fetchComments" class="button">Load More</button>
         </div>
     </div>
 </template>
@@ -97,10 +77,6 @@ export default {
 </script>
 
 <style scoped>
-.comments h4 {
-    margin: 50px 0 20px 0;
-    font-weight: normal;
-}
 .comments p.auth-condition {
     color: #e71d43;
 }
@@ -110,6 +86,7 @@ export default {
     outline: none;
     width: 100%;
     font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
 }
 .comments .comments-form textarea::placeholder {
     color: #4e4e4e;

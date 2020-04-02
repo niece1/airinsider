@@ -1872,21 +1872,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -1990,26 +1975,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["post"],
@@ -2087,34 +2052,6 @@ function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.
 
 function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
 
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 //
 //
 //
@@ -2307,20 +2244,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["comment"],
@@ -2378,7 +2301,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2421,7 +2343,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.comment[data-v-1d15af38] {\n    width: 100%;\n    margin: 30px 0;\n}\n.comment .comment-itself h6[data-v-1d15af38] {\n    font-weight: normal;\n}\n.comment .replies[data-v-1d15af38] {\n    margin-top: 7px;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38] {\n    cursor: pointer;\n    font-size: 1.3rem;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border: none;\n    background-color: transparent;\n    outline: none;\n    color: #0633ff;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38]:hover {\n    color: #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comment .replies .add-reply[data-v-1d15af38] {\n    margin: 40px 0 0 0;\n}\n.comment .replies .login-to-answer[data-v-1d15af38] {\n    color: #e71d43;\n}\n.comment .replies .add-reply textarea[data-v-1d15af38] {\n    margin: 0 0 0 65px;\n    border: none;\n    border-bottom: 2px solid #000;\n    outline: none;\n    width: 100%;\n    font-size: 1.6rem;\n}\n.comment .replies .comment-likes[data-v-1d15af38] {\n    margin: 0 10px 0 0;\n    float: left;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38] {\n    border: 2px solid #e71d43;\n    padding: 14px 25px 12px 25px;\n    cursor: pointer;\n    font-size: 1.3rem;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border-radius: 3px;\n    background-color: transparent;\n    color: #000;\n    margin: 10px 0 20px 65px;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38]:hover {\n    background-color: #e71d43;\n    color: #fff;\n    border: 2px solid #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comment .comment-itself .avatar-label[data-v-1d15af38] {\n    float: left;\n    margin-right: 15px;\n}\n.comment .replies .invalid-feedback[data-v-1d15af38] {\n    color: #e71d43;\n    font-size: 1.2rem;\n    text-align: left;\n    margin-left: 65px;\n}\n", ""]);
+exports.push([module.i, "\n.comment[data-v-1d15af38] {\n    width: 100%;\n    margin: 30px 0;\n}\n.comment .comment-itself h6[data-v-1d15af38] {\n    font-weight: normal;\n}\n.comment .replies[data-v-1d15af38] {\n    margin-top: 7px;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38] {\n    cursor: pointer;\n    font-size: 1.3rem;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border: none;\n    background-color: transparent;\n    outline: none;\n    color: #0633ff;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38]:hover {\n    color: #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comment .replies .add-reply[data-v-1d15af38] {\n    margin: 40px 0 0 0;\n}\n.comment .replies .login-to-answer[data-v-1d15af38] {\n    color: #e71d43;\n}\n.comment .replies .add-reply textarea[data-v-1d15af38] {\n    margin: 0 0 0 65px;\n    border: none;\n    border-bottom: 2px solid #000;\n    outline: none;\n    width: 100%;\n    font-size: 1.6rem;\n    font-family: \"Open Sans\", sans-serif;\n}\n.comment .replies .comment-likes[data-v-1d15af38] {\n    margin: 0 10px 0 0;\n    float: left;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38] {\n    border: 2px solid #e71d43;\n    padding: 14px 25px 12px 25px;\n    cursor: pointer;\n    font-size: 1.3rem;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border-radius: 3px;\n    background-color: transparent;\n    color: #000;\n    margin: 10px 0 20px 65px;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38]:hover {\n    background-color: #e71d43;\n    color: #fff;\n    border: 2px solid #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comment .comment-itself .avatar-label[data-v-1d15af38] {\n    float: left;\n    margin-right: 15px;\n}\n.comment .replies .invalid-feedback[data-v-1d15af38] {\n    color: #e71d43;\n    font-size: 1.2rem;\n    text-align: left;\n    margin-left: 65px;\n}\n", ""]);
 
 // exports
 
@@ -2440,7 +2362,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.comments h4[data-v-40db853f] {\n    margin: 50px 0 20px 0;\n    font-weight: normal;\n}\n.comments p.auth-condition[data-v-40db853f] {\n    color: #e71d43;\n}\n.comments .comments-form textarea[data-v-40db853f] {\n    border: none;\n    border-bottom: 2px solid #000;\n    outline: none;\n    width: 100%;\n    font-size: 1.6rem;\n}\n.comments .comments-form textarea[data-v-40db853f]::-webkit-input-placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-moz-placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]:-ms-input-placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-ms-input-placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-webkit-input-placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n}\n.comments .comments-form button.button[data-v-40db853f] {\n    border: 2px solid #e71d43;\n    padding: 14px 25px 12px 25px;\n    cursor: pointer;\n    font-size: 1.3rem;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border-radius: 3px;\n    background-color: transparent;\n    color: #000;\n    outline: none;\n    margin: 10px 0 20px 0;\n}\n.comments .comments-form button.button[data-v-40db853f]:hover {\n    background-color: #e71d43;\n    color: #fff;\n    border: 2px solid #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comments .comments-form button.button[data-v-40db853f]:not(:hover) {\n    background-color: transparent;\n    color: #000;\n    transition: all 0.3s ease-in-out;\n}\n.comments .more-comments button.button[data-v-40db853f] {\n    cursor: pointer;\n    border: 2px solid #e71d43;\n    padding: 14px 25px 12px 25px;\n    font-size: 1.3rem;\n    outline: none;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border-radius: 3px;\n    background-color: transparent;\n    color: #000;\n    margin: 5px 0;\n}\n.comments .more-comments button.button[data-v-40db853f]:hover {\n    background-color: #e71d43;\n    color: #fff;\n    border: 2px solid #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comments .comments-form .invalid-feedback[data-v-40db853f] {\n    color: #e71d43;\n    font-size: 1.2rem;\n    text-align: left;\n}\n", ""]);
+exports.push([module.i, "\n.comments p.auth-condition[data-v-40db853f] {\n    color: #e71d43;\n}\n.comments .comments-form textarea[data-v-40db853f] {\n    border: none;\n    border-bottom: 2px solid #000;\n    outline: none;\n    width: 100%;\n    font-size: 1.6rem;\n    font-family: \"Open Sans\", sans-serif;\n}\n.comments .comments-form textarea[data-v-40db853f]::-webkit-input-placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-moz-placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]:-ms-input-placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-ms-input-placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-webkit-input-placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n}\n.comments .comments-form button.button[data-v-40db853f] {\n    border: 2px solid #e71d43;\n    padding: 14px 25px 12px 25px;\n    cursor: pointer;\n    font-size: 1.3rem;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border-radius: 3px;\n    background-color: transparent;\n    color: #000;\n    outline: none;\n    margin: 10px 0 20px 0;\n}\n.comments .comments-form button.button[data-v-40db853f]:hover {\n    background-color: #e71d43;\n    color: #fff;\n    border: 2px solid #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comments .comments-form button.button[data-v-40db853f]:not(:hover) {\n    background-color: transparent;\n    color: #000;\n    transition: all 0.3s ease-in-out;\n}\n.comments .more-comments button.button[data-v-40db853f] {\n    cursor: pointer;\n    border: 2px solid #e71d43;\n    padding: 14px 25px 12px 25px;\n    font-size: 1.3rem;\n    outline: none;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border-radius: 3px;\n    background-color: transparent;\n    color: #000;\n    margin: 5px 0;\n}\n.comments .more-comments button.button[data-v-40db853f]:hover {\n    background-color: #e71d43;\n    color: #fff;\n    border: 2px solid #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comments .comments-form .invalid-feedback[data-v-40db853f] {\n    color: #e71d43;\n    font-size: 1.2rem;\n    text-align: left;\n}\n", ""]);
 
 // exports
 
@@ -21953,7 +21875,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("\n            Добавить ответ\n        ")]
+          [_vm._v("Добавить ответ")]
         ),
         _vm._v(" "),
         _vm.addingReply
@@ -21999,9 +21921,7 @@ var render = function() {
                   ])
                 : _c("div", [
                     _c("p", { staticClass: "login-to-answer" }, [
-                      _vm._v(
-                        "\n                    Авторизируйтесь, чтобы ответить\n                "
-                      )
+                      _vm._v("Авторизируйтесь, чтобы ответить")
                     ])
                   ])
             ])
@@ -22039,8 +21959,6 @@ var render = function() {
     "div",
     { staticClass: "comments" },
     [
-      _c("h4", [_vm._v("Комментарии")]),
-      _vm._v(" "),
       _vm.auth
         ? _c("div", { staticClass: "comments-form" }, [
             _c("textarea", {
@@ -22075,14 +21993,12 @@ var render = function() {
             _c(
               "button",
               { staticClass: "button", on: { click: _vm.addComment } },
-              [_vm._v("\n            Добавить комментарий\n        ")]
+              [_vm._v("Добавить комментарий")]
             )
           ])
         : _c("div", [
             _c("p", { staticClass: "auth-condition" }, [
-              _vm._v(
-                "\n            Авторизируйтесь, чтобы оставить комментарий\n        "
-              )
+              _vm._v("Авторизируйтесь, чтобы оставить комментарий")
             ])
           ]),
       _vm._v(" "),
@@ -22098,7 +22014,7 @@ var render = function() {
           ? _c(
               "button",
               { staticClass: "button", on: { click: _vm.fetchComments } },
-              [_vm._v("\n            Load More\n        ")]
+              [_vm._v("Load More")]
             )
           : _vm._e()
       ])
@@ -22267,7 +22183,7 @@ var render = function() {
             _c(
               "button",
               { staticClass: "button", on: { click: _vm.fetchReplies } },
-              [_vm._v("\n            Загрузить ответы\n        ")]
+              [_vm._v("Загрузить ответы")]
             )
           ])
         : _vm._e()
@@ -22336,11 +22252,6 @@ var render = function() {
                   _vm.email = $event.target.value
                 }
               }
-            }),
-            _vm._v(" "),
-            _c("input", {
-              staticClass: "g-token",
-              attrs: { type: "hidden", name: "g-token" }
             }),
             _vm._v(" "),
             _vm._m(0),
@@ -34802,13 +34713,13 @@ $(document).ready(function () {
       }
     }]
   });
-}); //Sticky sidebar
+}); //Lazyload
+
+lazyload(); //Sticky sidebar
 
 $(".sidebar").stick_in_parent({
   offset_top: 120
-}); //Lazyload
-
-lazyload();
+});
 
 /***/ }),
 
@@ -35291,7 +35202,7 @@ __webpack_require__.r(__webpack_exports__);
 /*!*********************************************************************************************!*\
   !*** ./resources/js/components/subscription.vue?vue&type=template&id=7e49b268&scoped=true& ***!
   \*********************************************************************************************/
-/*! exports provided: render, staticRenderFns */
+/*! no static exports found */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
