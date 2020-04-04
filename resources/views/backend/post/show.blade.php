@@ -65,7 +65,7 @@
                     </tr>
                     <tr>
                         <td>Tags</td>
-                        <td>@foreach($post->tags as $tag){{ $tag->title . " " }}@endforeach</td>						
+                        <td>@foreach($post->tags as $tag)<span class="badge">{{ $tag->title . " " }}</span>@endforeach</td>						
                     </tr>
                     <tr>
                         <td>Created</td>

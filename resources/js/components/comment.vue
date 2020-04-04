@@ -9,6 +9,7 @@
         </div>
         <div class="replies">
             <div class="comment-likes">
+                <!-- Likes Vue Component -->
                 <likes :default_likes="comment.likes" :entity_id="comment.id" :entity_owner="comment.user.id"></likes>
             </div>
             <button @click="addingReply = !addingReply" class="add-reply-button">Добавить ответ</button>
@@ -25,6 +26,7 @@
                 </div>
             </div>
         </div>
+        <!-- Replies Vue Component -->
         <replies ref="replies" :comment="comment"></replies>
     </div>
 </template>

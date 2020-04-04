@@ -6,13 +6,11 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use App\Photo;
-use Illuminate\Http\Request;
+use App\Http\Requests\StorePostRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 
 class PostController extends Controller
 {
@@ -55,9 +53,9 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        $post = Post::create($this->validateCreate($request));
+        $post = Post::create($request->all());
 
         $this->generateSlug($request, $post);
         $this->getUser($post);
@@ -169,35 +167,6 @@ class PostController extends Controller
         $post->restore();
 
         return redirect('dashboard/posts')->withSuccessMessage('Restored Successfully!');
-    }
-
-    private function validateCreate(Request $request)
-    {
-        return Validator::make($request->all(), [
-            'title' => 'bail|required|min:2|unique:posts,title',
-            'body' => 'required',
-            'time_to_read' => 'required',
-            'photo_source' => 'max:200',
-            'published' => '',
-            'category_id' => 'required',
-            'image' => 'sometimes|file|image|max:5000',
-        ])->validate();
-    }
-
-    private function validateUpdate(Request $request, Post $post)
-    {
-        return Validator::make($request->all(), [
-            'title' => [
-                'required',
-                Rule::unique('posts', 'title')->ignore($post->id),
-            ],
-            'body' => 'required',
-            'time_to_read' => 'required',
-            'photo_source' => 'max:200',
-            'published' => '',
-            'category_id' => 'required',
-            'image' => 'sometimes|file|mimes:jpeg,png|max:5000',
-        ])->validate();
     }
 
     private function syncTags($post)

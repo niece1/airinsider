@@ -1780,6 +1780,14 @@ footer {
                         border: 1px solid #e3e6f0;
                         text-align: left;
                         padding: 15px;
+                        .badge {
+                            background-color: #17a2b8;
+                            margin: 3px;
+                            color: #fff;
+                            display: inline-block;
+                            border-radius: 5px;
+                            padding: 0 3px;
+                        }
                     }
                 }
             }

@@ -10,9 +10,8 @@
         <div v-else>
             <p class="auth-condition">Авторизируйтесь, чтобы оставить комментарий</p>
         </div>
-
+        <!-- Comment Vue Component -->
         <comment v-for="comment in comments.data" :key="comment.id" :comment="comment" :post="post"></comment>
-
         <div class="more-comments">
             <button v-if="comments.next_page_url" @click="fetchComments" class="button">Load More</button>
         </div>

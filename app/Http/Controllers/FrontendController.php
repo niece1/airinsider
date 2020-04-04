@@ -28,7 +28,7 @@ class FrontendController extends Controller
     public function show($slug)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
-        $post->viewedCounter();
+        $post->viewCounter();
 
         $related = Post::with(['photo'])
         ->where('category_id', $post->category_id)

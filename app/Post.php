@@ -28,7 +28,7 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function viewedCounter()
+    public function viewCounter()
     {
         $this->viewed += 1;
         $this->timestamps = false;

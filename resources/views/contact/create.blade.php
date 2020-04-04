@@ -24,9 +24,7 @@
         </div>
         <div class="contact-form">
             <h2>Заполните форму</h2>
-            @if(session()->has('success'))
-            <div class="alert">{{ session()->get('success') }}</div>             
-            @endif
+            @include('frontend.includes.flash')
             @if(!session()->has('success'))
             <form method="POST" action="/contact">
                 <div class="contact-form-group">

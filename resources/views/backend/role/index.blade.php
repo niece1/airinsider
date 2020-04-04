@@ -31,7 +31,7 @@
 					<tr>
 						<td>{{ $role->id }}</td>						
 						<td>{{ $role->title }}</td>
-						<td>@foreach($role->permissions as $permission){{ $permission->title . " " }}@endforeach</td>
+                                                <td>@foreach($role->permissions as $permission)<span class="badge">{{ $permission->title . " " }}</span>@endforeach</td>
 						<td>
 							@can('role_edit')
 							<a href="/dashboard/roles/{{ $role->id }}/edit" class="action-button-green">Edit</a>

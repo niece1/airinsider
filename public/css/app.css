@@ -2274,6 +2274,15 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   padding: 15px;
 }
 
+.dashboard .dashboard-wrapper .well .well-content table td .badge {
+  background-color: #17a2b8;
+  margin: 3px;
+  color: #fff;
+  display: inline-block;
+  border-radius: 5px;
+  padding: 0 3px;
+}
+
 .dashboard a.action-button-green {
   color: #fff;
   background-color: #4dbd74;
