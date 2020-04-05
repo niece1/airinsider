@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Tag;
-use Illuminate\Http\Request;
+use App\Http\Requests\TagRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class TagController extends Controller
@@ -46,9 +46,9 @@ class TagController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TagRequest $request)
     {
-        $tag = Tag::create($this->validateRequest());
+        Tag::create($request->all());
 
         return redirect('dashboard/tags')->withSuccessMessage('Tag Created Successfully!');
     }
@@ -73,9 +73,9 @@ class TagController extends Controller
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Tag $tag)
+    public function update(TagRequest $request, Tag $tag)
     {
-        $tag->update($this->validateRequest());
+        $tag->update($request->all());
 
         return redirect('dashboard/tags')->withSuccessMessage('Tag Updated Successfully!');
     }
@@ -93,12 +93,5 @@ class TagController extends Controller
         $tag->delete();
 
         return redirect('dashboard/tags')->withSuccessMessage('Tag Deleted Successfully!');
-    }
-
-    private function validateRequest()
-    {
-        return request()->validate([
-          'title' => 'bail|required|min:2|max:10',          
-        ]); 
-    }
+    }   
 }

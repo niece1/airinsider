@@ -20,8 +20,8 @@
             <div class="well-content">
                 <table>
                     <tr>
-                        <th>ID</th>
-                        <th>{{ $post->id }}</th>						
+                        <td>ID</td>
+                        <td>{{ $post->id }}</td>						
                     </tr>
                     <tr>
                         <td>Title</td>

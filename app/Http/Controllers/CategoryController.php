@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
-use Illuminate\Http\Request;
+use App\Http\Requests\CategoryRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class CategoryController extends Controller
@@ -46,9 +46,9 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoryRequest $request)
     {
-        $category = Category::create($this->validateRequest());
+        Category::create($request->all());
 
         return redirect('dashboard/categories')->withSuccessMessage('Category Created Successfully!');
     }
@@ -73,9 +73,9 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(CategoryRequest $request, Category $category)
     {
-        $category->update($this->validateRequest());
+        $category->update($request->all());
 
         return redirect('dashboard/categories')->withSuccessMessage('Category Updated Successfully!');
     }
@@ -93,12 +93,5 @@ class CategoryController extends Controller
         $category->delete();
 
         return redirect('dashboard/categories')->withSuccessMessage('Category Deleted Successfully!');
-    }
-
-    private function validateRequest()
-    {
-        return request()->validate([
-          'title' => 'bail|required|min:2|max:10',          
-      ]); 
     }
 }

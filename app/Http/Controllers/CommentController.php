@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CommentRequest;
 use App\Post;
 use App\Comment;
 use RealRashid\SweetAlert\Facades\Alert; 
@@ -14,12 +14,8 @@ class CommentController extends Controller
     	return $post->comments()->with(['replies'])->paginate(10);
     }
 
-    public function store(Request $request, Post $post)
-    {
-        $this->validate($request, [
-          'body' => 'bail|min:2|max:300'
-        ]);
-    	
+    public function store(CommentRequest $request, Post $post)
+    {   	
         return auth()->user()->comments()->create([
             'body' => $request->body,
             'post_id' => $post->id,

@@ -6,7 +6,9 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use App\Photo;
+use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
+use App\Http\Requests\UpdatePostRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
@@ -103,9 +105,9 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(UpdatePostRequest $request, Post $post)
     {
-        $post->update($this->validateUpdate($request, $post));
+        $post->update($request->all());
 
         $this->storeImage($request, $post);
         $this->generateSlug($request, $post);

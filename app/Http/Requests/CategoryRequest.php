@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdatePostRequest extends FormRequest
+class CategoryRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,7 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:posts,title,'.request()->route('post')->id,       
-            'body' => 'required',
-            'time_to_read' => 'required',
-            'photo_source' => 'max:200',
-            'published' => '',
-            'category_id' => 'required',
-            'image' => 'sometimes|file|mimes:jpeg,png|max:5000',
+            'title' => 'bail|required|min:2|max:10',
         ];
     }
 }
