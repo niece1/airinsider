@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Permission;
-use Illuminate\Http\Request;
+use App\Http\Requests\PermissionRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class PermissionController extends Controller
@@ -43,12 +43,12 @@ class PermissionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\PermissionRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PermissionRequest $request)
     {
-        $permission = Permission::create($this->validateRequest());
+        Permission::create($request->all());
 
         return redirect('dashboard/permissions')->withSuccessMessage('Permission Created Successfully!');
     }
@@ -66,12 +66,5 @@ class PermissionController extends Controller
         $permission->delete();
 
         return redirect('dashboard/permissions')->withSuccessMessage('Permission Deleted Successfully!');
-    }
-
-    private function validateRequest()
-    {
-        return request()->validate([
-          'title' => 'bail|required|min:2|max:30',          
-      ]); 
     }
 }

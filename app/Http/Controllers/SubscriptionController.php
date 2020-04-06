@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Subscription;
-use Illuminate\Http\Request;
+use App\Http\Requests\SubscriptionRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Exports\SubscriptionExport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -31,18 +31,12 @@ class SubscriptionController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\SubscriptionRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-       $this->validate($request, [
-          'email' => 'required|email|unique:subscriptions,email|max:20'
-        ]);
-
-        $subscription = new Subscription();
-        $subscription->email = request('email');
-        $subscription->save();        
+    public function store(SubscriptionRequest $request)
+    {     
+        Subscription::create($request->all());        
     }
 
     /**

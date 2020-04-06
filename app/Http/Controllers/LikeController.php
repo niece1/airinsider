@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Post;
 use App\Comment;
 use Illuminate\Database\Eloquent\ModelNotFoundException;

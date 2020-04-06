@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Role;
 use App\Permission;
-use Illuminate\Http\Request;
+use App\Http\Requests\RoleRequest;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class RoleController extends Controller
@@ -45,12 +45,12 @@ class RoleController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\RoleRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RoleRequest $request)
     {
-        $role = Role::create($this->validateRequest());
+        $role = Role::create($request->all());
         $this->syncPermissions($role);
 
         return redirect('dashboard/roles')->withSuccessMessage('Role Created Successfully!');
@@ -74,13 +74,13 @@ class RoleController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\RoleRequest  $request
      * @param  \App\Role  $role
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Role $role)
+    public function update(RoleRequest $request, Role $role)
     {
-        $role->update($this->validateRequest());
+        $role->update($request->all());
         $this->syncPermissions($role);
 
         return redirect('dashboard/roles')->withSuccessMessage('Role Updated Successfully!');
@@ -99,13 +99,6 @@ class RoleController extends Controller
         $role->delete();
 
         return redirect('dashboard/roles')->withSuccessMessage('Role Deleted Successfully!');
-    }
-
-    private function validateRequest()
-    {
-        return request()->validate([
-          'title' => 'bail|required|min:2|max:30',
-        ]); 
     }
 
     private function syncPermissions($role)

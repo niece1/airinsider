@@ -43,7 +43,7 @@ class TagController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\TagRequest  $request
      * @return \Illuminate\Http\Response
      */
     public function store(TagRequest $request)
@@ -69,7 +69,7 @@ class TagController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\TagRequest  $request
      * @param  \App\Tag  $tag
      * @return \Illuminate\Http\Response
      */
