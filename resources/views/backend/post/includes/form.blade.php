@@ -28,7 +28,7 @@
 	<div class="post-image">	
 		<img src="{{ asset('storage/'.$post->photo->path) }}"  alt="Photo">
 		<div class="post-image-overlay">
-			<a href="{{ route('deletePhoto', ['id' => $post->photo->id]) }}" class="action-button-delete">Delete</a>
+			<a href="{{ route('expungePhoto', ['id' => $post->photo->id]) }}" class="action-button-delete">Delete</a>
 		</div>	
 	</div>
 </div>

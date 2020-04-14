@@ -50,17 +50,17 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
 	Route::resource('tags', 'TagController');
 	Route::resource('roles', 'RoleController');
 	Route::resource('permissions', 'PermissionController');
-	//Delete Photo
-    Route::get('deletePhoto/{id}', 'PostController@deletePhoto')->name('deletePhoto');
+	//Expunge Photo
+    Route::get('expungePhoto/{id}', 'PhotoController@expungePhoto')->name('expungePhoto');
     //User 
     Route::get('/users', 'UserController@index')->name('users.index');
     Route::get('/users/{user}/edit', 'UserController@edit')->name('users.edit');
     Route::patch('/users/{user}', 'UserController@update')->name('users.update');
     Route::delete('/users/{user}', 'UserController@destroy')->name('users.destroy');
     //Trash 
-    Route::get('/trashed', 'PostController@trashed')->name('trashed');
-    Route::delete('/expunge/{id}', 'PostController@expunge')->name('expunge');
-    Route::post('/restore/{id}', 'PostController@restore')->name('restore');
+    Route::get('/trashed', 'TrashPostController@trashed')->name('trashed');
+    Route::delete('/expunge/{id}', 'TrashPostController@expunge')->name('expunge');
+    Route::post('/restore/{id}', 'TrashPostController@restore')->name('restore');
     //Subscription
     Route::get('/subscriptions', 'SubscriptionController@index')->name('subscriptions.index');
     Route::delete('/subscriptions/{subscription}', 'SubscriptionController@destroy')->name('subscriptions.destroy');

@@ -13,7 +13,7 @@ class LikeController extends Controller
         return auth()->user()->toggleLike($entity, $type);
     }
 
-    public function getEntity($entityId)
+    private function getEntity($entityId)
     {       
         $comment = Comment::find($entityId);
         if ($comment) {

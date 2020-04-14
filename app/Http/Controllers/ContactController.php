@@ -28,7 +28,7 @@ class ContactController extends Controller {
         ]);
 
         Mail::to('test@test.com')->send(new ContactMail($data));
-        
-        return redirect('contact')->withSuccess('Сообщение успешно отправлено. Ожидайте ответ.');      
+
+        return redirect('contact')->withSuccess('Сообщение успешно отправлено. Ожидайте ответ.');
     }
-}   
+}

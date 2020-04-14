@@ -4,10 +4,11 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Traits\PostPhotoUpload;
 
 class Post extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, PostPhotoUpload;    
 
     protected $fillable = [
         'title', 'body', 'slug', 'user_id', 'category_id', 'published', 'photo_source', 'time_to_read',
