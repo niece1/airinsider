@@ -71,7 +71,7 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
     Route::get('comments', 'CommentController@list')->name('comments.list');
     Route::delete('comments/{comment}', 'CommentController@destroy')->name('comments.destroy');
     //Search
-    Route::get('/search', 'PostController@search')->name('search');
+    Route::get('/search', 'SearchController@search')->name('search');
 });
 
 //Subscription footer vue component

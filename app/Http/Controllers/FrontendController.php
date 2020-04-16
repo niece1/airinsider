@@ -6,35 +6,42 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use App\User;
+use App\Services\ViewCounterService;
 
-class FrontendController extends Controller
-{
+class FrontendController extends Controller {
+
     public function index()
     {
         $featured = Post::with(['photo'])
-        ->where('published', 1)
-        ->orderBy('id', 'desc')
-        ->first();
+                ->where('published', 1)
+                ->orderBy('id', 'desc')
+                ->first();
 
         $news = Post::with(['photo', 'category', 'user', 'comments'])
-        ->where('published', 1)
-        ->where('id', '<>', $featured->id)
-        ->orderBy('id', 'desc')
-        ->paginate(8);
+                ->where('published', 1)
+                ->where('id', '<>', $featured->id)
+                ->orderBy('id', 'desc')
+                ->paginate(8);
 
         return view('frontend.index', compact('featured', 'news'));
     }
-
-    public function show($slug)
+    
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Services\ViewCounterService $viewCounterService
+     * @return \Illuminate\Http\Response
+     */
+    public function show($slug, ViewCounterService $viewCounterService)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
-        $post->viewCounter();
+        $viewCounterService->postViewCount($post);
 
         $related = Post::with(['photo'])
-        ->where('category_id', $post->category_id)
-        ->where('published', 1)
-        ->limit(5)
-        ->get();
+                ->where('category_id', $post->category_id)
+                ->where('published', 1)
+                ->limit(5)
+                ->get();
 
         $categories = Category::all();
         $tags = Tag::all();
@@ -45,10 +52,10 @@ class FrontendController extends Controller
     public function postsByCategory($category)
     {
         $news_by_category = Post::with(['photo', 'category', 'user', 'comments'])
-        ->where('category_id', $category)
-        ->where('published', 1)
-        ->orderBy('id', 'desc')
-        ->paginate(12);
+                ->where('category_id', $category)
+                ->where('published', 1)
+                ->orderBy('id', 'desc')
+                ->paginate(12);
 
         $category = Category::find($category);
 
@@ -57,7 +64,11 @@ class FrontendController extends Controller
 
     public function postsByTag($tag)
     {
-        $news_by_tag = Tag::find($tag)->posts()->where('published', 1)->orderBy('id', 'desc')->paginate(12);
+        $news_by_tag = Tag::find($tag)
+                ->posts()->where('published', 1)
+                ->orderBy('id', 'desc')
+                ->paginate(12);
+        
         $tag = Tag::find($tag);
 
         return view('frontend.tag', compact('news_by_tag', 'tag'));
@@ -66,13 +77,14 @@ class FrontendController extends Controller
     public function postsByUser($user)
     {
         $news_by_user = Post::with(['photo', 'user', 'category', 'comments'])
-        ->where('user_id', $user)
-        ->where('published', 1)
-        ->orderBy('id', 'desc')
-        ->paginate(12);
-        
+                ->where('user_id', $user)
+                ->where('published', 1)
+                ->orderBy('id', 'desc')
+                ->paginate(12);
+
         $user = User::find($user);
 
         return view('frontend.user', compact('news_by_user', 'user'));
     }
+
 }

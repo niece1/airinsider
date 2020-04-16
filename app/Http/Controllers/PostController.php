@@ -59,7 +59,7 @@ class PostController extends Controller
         $this->generateSlug($request, $post);
         $this->getUser($post);
         $post->storePostPhoto($request, $post);       
-        $this->syncTags($post);
+        $post->syncTags($post);
 
         return redirect('dashboard/posts')->withSuccessMessage('Created Successfully!');
     }
@@ -103,11 +103,10 @@ class PostController extends Controller
     public function update(UpdatePostRequest $request, Post $post)
     {
         $post->update($request->all());
-
         $post->storePostPhoto($request, $post);
         $this->generateSlug($request, $post);
         $this->getUser($post);
-        $this->syncTags($post);
+        $post->syncTags($post);
 
         return redirect('dashboard/posts')->withSuccessMessage('Updated Successfully');
     }
@@ -126,11 +125,6 @@ class PostController extends Controller
         return redirect('dashboard/posts')->withSuccessMessage('Trashed Successfully!');
     }
 
-    private function syncTags($post)
-    {
-        $post->tags()->sync(request('tag_id'));
-    }
-
     private function generateSlug(Request $request, Post $post)
     {
         $post->update([
@@ -141,19 +135,5 @@ class PostController extends Controller
     private function getUser($post)
     {
         Auth::user()->posts()->save($post);
-    }
-
-    public function search(Request $request)
-    {
-        $keyword = $request->input('keyword');
-        
-        $posts = Post::with(['photo', 'category'])
-        ->where('title', 'like', "%$keyword%")
-        ->orWhere('body', 'like', "%$keyword%")
-        ->limit(10)
-        ->get();
-
-        return view('backend.post.search-results', compact('posts'));
-    }
-        
+    }           
 }

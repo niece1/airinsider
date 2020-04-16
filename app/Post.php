@@ -5,10 +5,11 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\PostPhotoUpload;
+use App\Traits\SyncTags;
 
 class Post extends Model
 {
-    use SoftDeletes, PostPhotoUpload;    
+    use SoftDeletes, PostPhotoUpload, SyncTags;    
 
     protected $fillable = [
         'title', 'body', 'slug', 'user_id', 'category_id', 'published', 'photo_source', 'time_to_read',
@@ -27,13 +28,6 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-    public function viewCounter()
-    {
-        $this->viewed += 1;
-        $this->timestamps = false;
-        return $this->save();
     }
 
     public function getDateAttribute()
