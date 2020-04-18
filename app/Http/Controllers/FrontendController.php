@@ -6,7 +6,7 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use App\User;
-use App\Services\ViewCounterService;
+use App\Services\ViewCountService;
 
 class FrontendController extends Controller {
 
@@ -32,10 +32,10 @@ class FrontendController extends Controller {
      * @param  \App\Services\ViewCounterService $viewCounterService
      * @return \Illuminate\Http\Response
      */
-    public function show($slug, ViewCounterService $viewCounterService)
+    public function show($slug, ViewCountService $viewCountService)
     {
         $post = Post::where('slug', $slug)->firstOrFail();
-        $viewCounterService->postViewCount($post);
+        $viewCountService->postViewCount($post);
 
         $related = Post::with(['photo'])
                 ->where('category_id', $post->category_id)

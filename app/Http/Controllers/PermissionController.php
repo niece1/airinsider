@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Permission;
 use App\Http\Requests\PermissionRequest;
-use RealRashid\SweetAlert\Facades\Alert;
 
 class PermissionController extends Controller
 {
@@ -18,10 +17,6 @@ class PermissionController extends Controller
         abort_unless(\Gate::allows('permission_access'), 403);
 
         $permissions = Permission::all();
-
-        if(session('success_message')){
-        Alert::success( session('success_message'))->toToast();
-        }
 
         return view('backend.permission.index', compact('permissions'));
     }

@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Http\Requests\CategoryRequest;
-use RealRashid\SweetAlert\Facades\Alert;
 
-class CategoryController extends Controller
+class CategoryController extends BackendController
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +17,6 @@ class CategoryController extends Controller
         abort_unless(\Gate::allows('category_access'), 403);
 
         $categories = Category::all();
-
-        if(session('success_message')){
-        Alert::success( session('success_message'))->toToast();
-        }
         
         return view('backend.category.index', compact('categories'));
     }

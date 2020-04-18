@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CommentRequest;
 use App\Post;
-use App\Comment;
-use RealRashid\SweetAlert\Facades\Alert; 
+use App\Comment; 
 
 class CommentController extends Controller
 {
@@ -33,10 +32,6 @@ class CommentController extends Controller
         abort_unless(\Gate::allows('comment_access'), 403);
 
         $comments = Comment::with(['post', 'replies'])->orderBy('id', 'desc')->paginate(50);
-
-        if(session('success_message')){
-            Alert::success( session('success_message'))->toToast();
-        }
 
         return view('backend.comment.list', compact('comments'));
     }

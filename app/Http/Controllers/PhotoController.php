@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Photo;
 
-class PhotoController extends Controller
+class PhotoController extends BackendController
 {
     /**
      * Remove the specified resource from storage.
@@ -16,6 +16,6 @@ class PhotoController extends Controller
     {
         $photo->deletePhoto($id);
         
-        return redirect()->back();
+        return redirect()->back()->withSuccessMessage('Photo Deleted!');
     }
 }

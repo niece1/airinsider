@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\PostPhotoUpload;
 use App\Traits\SyncTags;
+use App\Traits\SaveUser;
 
 class Post extends Model
 {
-    use SoftDeletes, PostPhotoUpload, SyncTags;    
+    use SoftDeletes, PostPhotoUpload, SyncTags, SaveUser;    
 
     protected $fillable = [
         'title', 'body', 'slug', 'user_id', 'category_id', 'published', 'photo_source', 'time_to_read',

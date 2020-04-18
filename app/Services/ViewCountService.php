@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Post;
 
-class ViewCounterService
+class ViewCountService
 {
     public function postViewCount(Post $post)
     {

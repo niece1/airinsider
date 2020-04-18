@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Tag;
 use App\Http\Requests\TagRequest;
-use RealRashid\SweetAlert\Facades\Alert;
 
-class TagController extends Controller
+class TagController extends BackendController
 {
     /**
      * Display a listing of the resource.
@@ -19,10 +18,6 @@ class TagController extends Controller
 
         $tags = Tag::all();
 
-        if(session('success_message')){
-        Alert::success( session('success_message'))->toToast();
-        }
-        
         return view('backend.tag.index', compact('tags'));
     }
 

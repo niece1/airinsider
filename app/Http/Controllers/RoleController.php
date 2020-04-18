@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use App\Role;
 use App\Permission;
 use App\Http\Requests\RoleRequest;
-use RealRashid\SweetAlert\Facades\Alert;
 
-class RoleController extends Controller
+class RoleController extends BackendController
 {
     /**
      * Display a listing of the resource.
@@ -19,10 +18,6 @@ class RoleController extends Controller
         abort_unless(\Gate::allows('role_access'), 403);
 
         $roles = Role::with(['permissions'])->get();
-
-        if(session('success_message')){
-        Alert::success( session('success_message'))->toToast();
-        }
 
         return view('backend.role.index', compact('roles'));
     }

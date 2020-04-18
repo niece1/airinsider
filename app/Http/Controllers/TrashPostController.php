@@ -4,17 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use App\Photo;
-use RealRashid\SweetAlert\Facades\Alert;
 
-class TrashPostController extends Controller
+class TrashPostController extends BackendController
 {
     public function trashed()
     {
         abort_unless(\Gate::allows('post_trash_list'), 403);
         $posts = Post::with(['photo', 'category'])->onlyTrashed()->get();
-        if (session('success_message')) {
-            Alert::success(session('success_message'))->toToast();
-        }
 
         return view('backend.post.trashed', compact('posts'));
     }

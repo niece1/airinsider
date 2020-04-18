@@ -5,14 +5,11 @@ namespace App\Http\Controllers;
 use App\Post;
 use App\Category;
 use App\Tag;
-use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
-use RealRashid\SweetAlert\Facades\Alert;
+use App\Services\SlugService;
 
-class PostController extends Controller
+class PostController extends BackendController
 {
     /**
      * Display a listing of the resource.
@@ -24,10 +21,7 @@ class PostController extends Controller
         abort_unless(\Gate::allows('dashboard_access'), 403);
 
         $posts = Post::with(['photo', 'category'])->orderBy('id', 'desc')->paginate(25);
-
-        if (session('success_message')) {
-            Alert::success(session('success_message'))->toToast();
-        }
+        
         return view('backend.post.index', compact('posts'));
     }
 
@@ -53,11 +47,11 @@ class PostController extends Controller
      * @param  \App\Http\Requests\StorePostRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePostRequest $request)
+    public function store(StorePostRequest $request, SlugService $slugService)
     {
         $post = Post::create($request->all());
-        $this->generateSlug($request, $post);
-        $this->getUser($post);
+        $slugService->generateSlug($request, $post);
+        $post->saveUserWithPost($post);
         $post->storePostPhoto($request, $post);       
         $post->syncTags($post);
 
@@ -100,12 +94,12 @@ class PostController extends Controller
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdatePostRequest $request, Post $post, SlugService $slugService)
     {
         $post->update($request->all());
         $post->storePostPhoto($request, $post);
-        $this->generateSlug($request, $post);
-        $this->getUser($post);
+        $slugService->generateSlug($request, $post);
+        $post->saveUserWithPost($post);
         $post->syncTags($post);
 
         return redirect('dashboard/posts')->withSuccessMessage('Updated Successfully');
@@ -123,17 +117,5 @@ class PostController extends Controller
         $post->delete();
 
         return redirect('dashboard/posts')->withSuccessMessage('Trashed Successfully!');
-    }
-
-    private function generateSlug(Request $request, Post $post)
-    {
-        $post->update([
-            'slug' => Str::slug($request->title, '-'),
-        ]);
-    }
-
-    private function getUser($post)
-    {
-        Auth::user()->posts()->save($post);
-    }           
+    }               
 }
