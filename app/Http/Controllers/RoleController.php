@@ -16,7 +16,6 @@ class RoleController extends BackendController
     public function index()
     {
         abort_unless(\Gate::allows('role_access'), 403);
-
         $roles = Role::with(['permissions'])->get();
 
         return view('backend.role.index', compact('roles'));
@@ -30,7 +29,6 @@ class RoleController extends BackendController
     public function create()
     {
         abort_unless(\Gate::allows('role_create'), 403);
-
         $role = new Role();
         $permissions = Permission::all();
 
@@ -60,7 +58,6 @@ class RoleController extends BackendController
     public function edit(Role $role)
     {
         abort_unless(\Gate::allows('role_edit'), 403);
-
         $permissions = Permission::all();
 
         return view('backend.role.edit', compact('role', 'permissions'));
@@ -90,7 +87,6 @@ class RoleController extends BackendController
     public function destroy(Role $role)
     {
         abort_unless(\Gate::allows('role_delete'), 403);
-
         $role->delete();
 
         return redirect('dashboard/roles')->withSuccessMessage('Role Deleted Successfully!');

@@ -19,7 +19,6 @@ class PostController extends BackendController
     public function index()
     {
         abort_unless(\Gate::allows('dashboard_access'), 403);
-
         $posts = Post::with(['photo', 'category'])->orderBy('id', 'desc')->paginate(25);
         
         return view('backend.post.index', compact('posts'));
@@ -33,7 +32,6 @@ class PostController extends BackendController
     public function create()
     {
         abort_unless(\Gate::allows('post_create'), 403);
-
         $categories = Category::all();
         $tags = Tag::all();
         $post = new Post();

@@ -16,7 +16,7 @@ class FrontendController extends Controller {
                 ->where('published', 1)
                 ->orderBy('id', 'desc')
                 ->first();
-
+        
         $news = Post::with(['photo', 'category', 'user', 'comments'])
                 ->where('published', 1)
                 ->where('id', '<>', $featured->id)

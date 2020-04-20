@@ -15,7 +15,6 @@ class PermissionController extends Controller
     public function index()
     {
         abort_unless(\Gate::allows('permission_access'), 403);
-
         $permissions = Permission::all();
 
         return view('backend.permission.index', compact('permissions'));
@@ -29,7 +28,6 @@ class PermissionController extends Controller
     public function create()
     {
         abort_unless(\Gate::allows('permission_create'), 403);
-
         $permissions = new Permission();
 
         return view('backend.permission.create', compact('permissions'));
@@ -57,7 +55,6 @@ class PermissionController extends Controller
     public function destroy(Permission $permission)
     {
         abort_unless(\Gate::allows('permission_delete'), 403);
-
         $permission->delete();
 
         return redirect('dashboard/permissions')->withSuccessMessage('Permission Deleted Successfully!');

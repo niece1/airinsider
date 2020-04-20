@@ -15,7 +15,6 @@ class TagController extends BackendController
     public function index()
     {
         abort_unless(\Gate::allows('tag_access'), 403);
-
         $tags = Tag::all();
 
         return view('backend.tag.index', compact('tags'));
@@ -29,7 +28,6 @@ class TagController extends BackendController
     public function create()
     {
         abort_unless(\Gate::allows('tag_create'), 403);
-
         $tags = new Tag();
 
         return view('backend.tag.create', compact('tags'));
@@ -84,7 +82,6 @@ class TagController extends BackendController
     public function destroy(Tag $tag)
     {
         abort_unless(\Gate::allows('tag_delete'), 403);
-
         $tag->delete();
 
         return redirect('dashboard/tags')->withSuccessMessage('Tag Deleted Successfully!');

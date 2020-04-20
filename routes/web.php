@@ -65,8 +65,8 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
     Route::get('/subscriptions', 'SubscriptionController@index')->name('subscriptions.index');
     Route::delete('/subscriptions/{subscription}', 'SubscriptionController@destroy')->name('subscriptions.destroy');
     //Excel and Csv export
-    Route::get('/exportExcel', 'SubscriptionController@exportExcel')->name('export.excel');
-    Route::get('/exportCsv', 'SubscriptionController@exportCsv')->name('export.csv');
+    Route::get('/exportExcel', 'ExportController@exportExcel')->name('export.excel');
+    Route::get('/exportCsv', 'ExportController@exportCsv')->name('export.csv');
     //Comments list
     Route::get('comments', 'CommentController@list')->name('comments.list');
     Route::delete('comments/{comment}', 'CommentController@destroy')->name('comments.destroy');

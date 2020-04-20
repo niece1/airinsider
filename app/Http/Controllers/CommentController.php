@@ -6,7 +6,7 @@ use App\Http\Requests\CommentRequest;
 use App\Post;
 use App\Comment; 
 
-class CommentController extends Controller
+class CommentController extends BackendController
 {
     public function index(Post $post)
     {        
@@ -30,7 +30,6 @@ class CommentController extends Controller
     public function list()
     {
         abort_unless(\Gate::allows('comment_access'), 403);
-
         $comments = Comment::with(['post', 'replies'])->orderBy('id', 'desc')->paginate(50);
 
         return view('backend.comment.list', compact('comments'));
@@ -39,10 +38,8 @@ class CommentController extends Controller
     public function destroy(Comment $comment)
     {
         abort_unless(\Gate::allows('comment_delete'), 403);
-
         $comment->delete();      
    
         return redirect('dashboard/comments')->withSuccessMessage('Deleted Successfully!');
     }
-
 }

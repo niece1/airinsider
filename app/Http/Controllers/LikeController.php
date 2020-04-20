@@ -8,8 +8,10 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class LikeController extends Controller
 {
-    public function like($entityId, $type) {
+    public function like($entityId, $type)
+    {
         $entity = $this->getEntity($entityId);
+        
         return auth()->user()->toggleLike($entity, $type);
     }
 
@@ -17,7 +19,7 @@ class LikeController extends Controller
     {       
         $comment = Comment::find($entityId);
         if ($comment) {
-        	return $comment;
+            return $comment;
         }else{
             return Post::find($entityId);
         }

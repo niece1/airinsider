@@ -15,7 +15,6 @@ class CategoryController extends BackendController
     public function index()
     {
         abort_unless(\Gate::allows('category_access'), 403);
-
         $categories = Category::all();
         
         return view('backend.category.index', compact('categories'));
@@ -29,7 +28,6 @@ class CategoryController extends BackendController
     public function create()
     {
         abort_unless(\Gate::allows('category_create'), 403);
-
         $categories = new Category();
 
         return view('backend.category.create', compact('categories'));
@@ -84,7 +82,6 @@ class CategoryController extends BackendController
     public function destroy(Category $category)
     {
         abort_unless(\Gate::allows('category_delete'), 403);
-
         $category->delete();
 
         return redirect('dashboard/categories')->withSuccessMessage('Category Deleted Successfully!');
