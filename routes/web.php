@@ -77,3 +77,7 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
 //Subscription footer vue component
 Route::post('subscriptions/', 'SubscriptionController@store');
 
+Route::fallback(function () {
+    return view('errors.503');
+});
+

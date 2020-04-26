@@ -1,4 +1,4 @@
-@extends('layouts.frontend')
+@extends('layouts.error')
 
 @section('title', 'Ошибка 503')
 
@@ -15,7 +15,6 @@
         <h1>503</h1>
         <h6>Приложение недоступно</h6>
         <p>Приложение на данный момент недоступно по техническим причинам.</p>
-        <a href="{{ url('/') }}" class="button">На главную</a>
     </div>
 </section>
 

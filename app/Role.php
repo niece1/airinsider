@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Traits\SyncPermissions;
 
 class Role extends Model
-{    
+{
+    use SyncPermissions;
+    
     protected $fillable = ['title'];
 	
     public function permissions()

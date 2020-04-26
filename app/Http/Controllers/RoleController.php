@@ -44,7 +44,7 @@ class RoleController extends BackendController
     public function store(RoleRequest $request)
     {
         $role = Role::create($request->all());
-        $this->syncPermissions($role);
+        $role->syncPermissions($role);
 
         return redirect('dashboard/roles')->withSuccessMessage('Role Created Successfully!');
     }
@@ -73,7 +73,7 @@ class RoleController extends BackendController
     public function update(RoleRequest $request, Role $role)
     {
         $role->update($request->all());
-        $this->syncPermissions($role);
+        $role->syncPermissions($role);
 
         return redirect('dashboard/roles')->withSuccessMessage('Role Updated Successfully!');
     }
@@ -90,11 +90,5 @@ class RoleController extends BackendController
         $role->delete();
 
         return redirect('dashboard/roles')->withSuccessMessage('Role Deleted Successfully!');
-    }
-
-    private function syncPermissions($role)
-    {
-       $role->permissions()->sync(request('permission_id'));
-    }
-
+    }    
 }

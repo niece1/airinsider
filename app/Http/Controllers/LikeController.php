@@ -20,7 +20,7 @@ class LikeController extends Controller
         $comment = Comment::find($entityId);
         if ($comment) {
             return $comment;
-        }else{
+        } else {
             return Post::find($entityId);
         }
         throw new ModelNotFoundException('Entity not found.');
