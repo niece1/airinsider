@@ -177,7 +177,7 @@ return [
         App\Providers\TelescopeServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Laravel\Socialite\SocialiteServiceProvider::class,  
-        App\Providers\FooterServiceProvider::class,
+        App\Providers\ViewComposerServiceProvider::class,
         AlbertCht\InvisibleReCaptcha\InvisibleReCaptchaServiceProvider::class,
     ],
 

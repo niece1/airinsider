@@ -18,7 +18,7 @@
         <header>
             <div class="menu-wrapper">
                 <div class="logo">
-                    <a href="{{ url('/') }}">авиа<span class="logo-span">инсайдер</span></a>
+                    <a href="javascript:void(0)">авиа<span class="logo-span">инсайдер</span></a>
                 </div>
             </div>
         </header>
