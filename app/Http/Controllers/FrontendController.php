@@ -6,22 +6,27 @@ use App\Post;
 use App\Category;
 use App\Tag;
 use App\User;
+use Illuminate\Support\Facades\Cache;
 use App\Services\ViewCountService;
 
 class FrontendController extends Controller {
 
     public function index()
     {
-        $featured = Post::with(['photo'])
+        $featured = Cache::remember('featured', now()->addSeconds(300), function() {
+            return Post::with(['photo'])
                 ->where('published', 1)
                 ->orderBy('id', 'desc')
                 ->first();
+        });
         
-        $news = Post::with(['photo', 'category', 'user', 'comments'])
+        $news = Cache::remember('main_page_news'. \Request::input('page'), now()->addSeconds(300), function() use ($featured) {
+            return Post::with(['photo', 'category', 'user', 'comments', 'comments.replies'])
                 ->where('published', 1)
                 ->where('id', '<>', $featured->id)
                 ->orderBy('id', 'desc')
                 ->paginate(8);
+        });
 
         return view('frontend.index', compact('featured', 'news'));
     }
@@ -34,30 +39,44 @@ class FrontendController extends Controller {
      */
     public function show($slug, ViewCountService $viewCountService)
     {
-        $post = Post::where('slug', $slug)->firstOrFail();
+        $post = Cache::remember('post_show'. $slug, now()->addSeconds(300), function() use ($slug) {
+            return Post::where('slug', $slug)->firstOrFail();
+        });
+        
         $viewCountService->postViewCount($post);
 
-        $related = Post::with(['photo'])
+        $related = Cache::remember('related', now()->addSeconds(300), function() use ($post) {
+            return Post::with(['photo'])
                 ->where('category_id', $post->category_id)
                 ->where('published', 1)
                 ->limit(5)
                 ->get();
+        });
 
-        $categories = Category::all();
-        $tags = Tag::all();
+        $categories = Cache::remember('categories', now()->addSeconds(300), function() {
+            return Category::all();
+        });
+        
+        $tags = Cache::remember('tags', now()->addSeconds(300), function() {
+            return Tag::all();
+        });
 
         return view('frontend.show', compact('post', 'categories', 'tags', 'related'));
     }
 
     public function postsByCategory($category)
     {
-        $news_by_category = Post::with(['photo', 'category', 'user', 'comments'])
+        $news_by_category = Cache::remember('news_by_category', now()->addSeconds(300), function() use ($category) {
+            return Post::with(['photo', 'category', 'user', 'comments'])
                 ->where('category_id', $category)
                 ->where('published', 1)
                 ->orderBy('id', 'desc')
                 ->paginate(12);
+        });
 
-        $category = Category::find($category);
+        $category = Cache::remember('category'. $category, now()->addSeconds(300), function() use ($category) {
+            return Category::find($category);
+        });
 
         return view('frontend.category', compact('news_by_category', 'category'));
     }
