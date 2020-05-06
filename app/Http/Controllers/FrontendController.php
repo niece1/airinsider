@@ -67,7 +67,7 @@ class FrontendController extends Controller {
     public function postsByCategory($category)
     {
         $news_by_category = Cache::remember('news_by_category', now()->addSeconds(300), function() use ($category) {
-            return Post::with(['photo', 'category', 'user', 'comments'])
+            return Post::with(['photo', 'category', 'user', 'comments', 'comments.replies'])
                 ->where('category_id', $category)
                 ->where('published', 1)
                 ->orderBy('id', 'desc')
@@ -83,25 +83,35 @@ class FrontendController extends Controller {
 
     public function postsByTag($tag)
     {
-        $news_by_tag = Tag::find($tag)
-                ->posts()->where('published', 1)
+        $news_by_tag = Cache::remember('news_by_tag', now()->addSeconds(300), function() use ($tag) {
+            return Tag::find($tag)
+                ->posts()
+                ->with(['photo', 'category', 'user', 'comments', 'comments.replies'])
+                ->where('published', 1)
                 ->orderBy('id', 'desc')
                 ->paginate(12);
+        });
         
-        $tag = Tag::find($tag);
+        $tag = Cache::remember('tag'. $tag, now()->addSeconds(300), function() use ($tag) {
+            return Tag::find($tag);
+        });
 
         return view('frontend.tag', compact('news_by_tag', 'tag'));
     }
 
     public function postsByUser($user)
     {
-        $news_by_user = Post::with(['photo', 'user', 'category', 'comments'])
+        $news_by_user = Cache::remember('news_by_user', now()->addSeconds(300), function() use ($user) {
+            return Post::with(['photo', 'user', 'category', 'comments', 'comments.replies'])
                 ->where('user_id', $user)
                 ->where('published', 1)
                 ->orderBy('id', 'desc')
                 ->paginate(12);
+        });
 
-        $user = User::find($user);
+        $user = Cache::remember('user'. $user, now()->addSeconds(300), function() use ($user) {
+            return User::find($user);
+        });
 
         return view('frontend.user', compact('news_by_user', 'user'));
     }
