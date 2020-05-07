@@ -133,6 +133,10 @@ return [
     | this array to grant expanded functionality to your applications.
     |
     */
+    
+    // Cache time, default 1 hour
+    
+    'cache' => env('CACHE_TIME', 3600),
 
     'providers' => [
 

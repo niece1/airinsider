@@ -13,14 +13,14 @@ class FrontendController extends Controller {
 
     public function index()
     {
-        $featured = Cache::remember('featured', now()->addSeconds(300), function() {
+        $featured = Cache::remember('featured', now()->addSeconds(config('app.cache')), function() {
             return Post::with(['photo'])
                 ->where('published', 1)
                 ->orderBy('id', 'desc')
                 ->first();
         });
         
-        $news = Cache::remember('main_page_news'. \Request::input('page'), now()->addSeconds(300), function() use ($featured) {
+        $news = Cache::remember('main_page_news'. \Request::input('page'), now()->addSeconds(config('app.cache')), function() use ($featured) {
             return Post::with(['photo', 'category', 'user', 'comments', 'comments.replies'])
                 ->where('published', 1)
                 ->where('id', '<>', $featured->id)
@@ -39,13 +39,13 @@ class FrontendController extends Controller {
      */
     public function show($slug, ViewCountService $viewCountService)
     {
-        $post = Cache::remember('post_show'. $slug, now()->addSeconds(300), function() use ($slug) {
+        $post = Cache::remember('post_show'. $slug, now()->addSeconds(config('app.cache')), function() use ($slug) {
             return Post::where('slug', $slug)->firstOrFail();
         });
         
         $viewCountService->postViewCount($post);
 
-        $related = Cache::remember('related', now()->addSeconds(300), function() use ($post) {
+        $related = Cache::remember('related', now()->addSeconds(config('app.cache')), function() use ($post) {
             return Post::with(['photo'])
                 ->where('category_id', $post->category_id)
                 ->where('published', 1)
@@ -53,11 +53,11 @@ class FrontendController extends Controller {
                 ->get();
         });
 
-        $categories = Cache::remember('categories', now()->addSeconds(300), function() {
+        $categories = Cache::remember('categories', now()->addSeconds(config('app.cache')), function() {
             return Category::all();
         });
         
-        $tags = Cache::remember('tags', now()->addSeconds(300), function() {
+        $tags = Cache::remember('tags', now()->addSeconds(config('app.cache')), function() {
             return Tag::all();
         });
 
@@ -66,7 +66,7 @@ class FrontendController extends Controller {
 
     public function postsByCategory($category)
     {
-        $news_by_category = Cache::remember('news_by_category', now()->addSeconds(300), function() use ($category) {
+        $news_by_category = Cache::remember('news_by_category', now()->addSeconds(config('app.cache')), function() use ($category) {
             return Post::with(['photo', 'category', 'user', 'comments', 'comments.replies'])
                 ->where('category_id', $category)
                 ->where('published', 1)
@@ -74,7 +74,7 @@ class FrontendController extends Controller {
                 ->paginate(12);
         });
 
-        $category = Cache::remember('category'. $category, now()->addSeconds(300), function() use ($category) {
+        $category = Cache::remember('category'. $category, now()->addSeconds(config('app.cache')), function() use ($category) {
             return Category::find($category);
         });
 
@@ -83,7 +83,7 @@ class FrontendController extends Controller {
 
     public function postsByTag($tag)
     {
-        $news_by_tag = Cache::remember('news_by_tag', now()->addSeconds(300), function() use ($tag) {
+        $news_by_tag = Cache::remember('news_by_tag', now()->addSeconds(config('app.cache')), function() use ($tag) {
             return Tag::find($tag)
                 ->posts()
                 ->with(['photo', 'category', 'user', 'comments', 'comments.replies'])
@@ -92,7 +92,7 @@ class FrontendController extends Controller {
                 ->paginate(12);
         });
         
-        $tag = Cache::remember('tag'. $tag, now()->addSeconds(300), function() use ($tag) {
+        $tag = Cache::remember('tag'. $tag, now()->addSeconds(config('app.cache')), function() use ($tag) {
             return Tag::find($tag);
         });
 
@@ -101,7 +101,7 @@ class FrontendController extends Controller {
 
     public function postsByUser($user)
     {
-        $news_by_user = Cache::remember('news_by_user', now()->addSeconds(300), function() use ($user) {
+        $news_by_user = Cache::remember('news_by_user', now()->addSeconds(config('app.cache')), function() use ($user) {
             return Post::with(['photo', 'user', 'category', 'comments', 'comments.replies'])
                 ->where('user_id', $user)
                 ->where('published', 1)
@@ -109,11 +109,10 @@ class FrontendController extends Controller {
                 ->paginate(12);
         });
 
-        $user = Cache::remember('user'. $user, now()->addSeconds(300), function() use ($user) {
+        $user = Cache::remember('user'. $user, now()->addSeconds(config('app.cache')), function() use ($user) {
             return User::find($user);
         });
 
         return view('frontend.user', compact('news_by_user', 'user'));
     }
-
 }

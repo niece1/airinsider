@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Post;
 use Carbon\Carbon;
 use App\Http\Requests\ContactFormRequest;
-use App\Jobs\SendContactMail;
+use App\Jobs\SendContactMailJob;
 
 class ContactController extends Controller {
 
     public function createSlider()
     {
-        $random_news = Post::with(['photo', 'category', 'user', 'comments'])
+        $random_news = Post::with(['photo', 'category', 'user', 'comments', 'comments.replies'])
                 ->whereDate('created_at', '>', Carbon::now()->sub(20, 'days'))
                 ->where('published', 1)
                 ->inRandomOrder()
@@ -24,7 +24,7 @@ class ContactController extends Controller {
     public function storeContactForm(ContactFormRequest $request)
     {
         $data = $request->all();
-        dispatch(new SendContactMail($data));
+        dispatch(new SendContactMailJob($data));
 
         return redirect('contact')->withSuccess('Сообщение успешно отправлено. Ожидайте ответ.');
     }

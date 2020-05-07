@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Cache;
 class FooterComposer
 {
     public function compose(View $view) {
-        $view->with(['popular' => Cache::remember('footer_composer', now()->addSeconds(300), function() {
+        $view->with(['popular' => Cache::remember('footer_composer', now()->addSeconds(config('app.cache')), function() {
             return Post::with(['photo'])
                     ->where('published', 1)
                     ->orderBy('viewed', 'desc')
