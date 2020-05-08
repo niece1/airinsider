@@ -27,7 +27,7 @@
                         <th>Category</th>
                         <th></th>
                     </tr>
-                    @foreach ($posts as $post)
+                    @forelse ($posts as $post)
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>@if($post->photo)<img src="{{ asset('storage/'.$post->photo->path) }}" height="60" width="90" alt="Photo">@endif</td>
@@ -43,8 +43,12 @@
                                 <button type="submit" class="action-button-red">Trash</button>
                             </form>
                         </td>
-                    </tr>				
-                    @endforeach
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="7">No posts found</td>
+                    </tr>
+                    @endforelse
                 </table>
             </div>
         </div>
