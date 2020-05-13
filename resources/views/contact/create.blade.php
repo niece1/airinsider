@@ -40,7 +40,7 @@
                     <div class="invalid-feedback">{{ $errors->first('message') }}</div>
                 </div>
                 @captcha
-                <button type="submit" class="button">Send</button>
+                <button type="submit" class="button">Отправить</button>
                 @csrf
             </form>
             @endif

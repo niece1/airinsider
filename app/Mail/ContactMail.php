@@ -11,7 +11,7 @@ class ContactMail extends Mailable implements ShouldQueue
 {
     use Queueable, SerializesModels;
     
-    private $data;
+    public $data;
 
     /**
      * Create a new message instance.

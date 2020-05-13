@@ -128,7 +128,7 @@
                     </symbol>
                     </svg>
                     <div class="footer_copyright">
-                        <p> &#169; {{ date('Y') }} Airinsider.</p>
+                        <p> &#169; {{ date('Y') }} Airinsider</p>
                         <p>Noa Digital. Made with <button class="iconbutton">
                                 <svg class="icon icon--heart">
                                 <use xlink:href="#icon-heart"></use>
@@ -141,7 +141,7 @@
                         <!-- Vue component -->
                         <subscription></subscription>
 
-                        <p>Don't forget to folow me on:</p>
+                        <p>Следите за новостями:</p>
                         <a href="#" id="facebook">fb</a>
                         <a href="#" id="twitter">tw</a>
                         <a href="#">pt</a>
