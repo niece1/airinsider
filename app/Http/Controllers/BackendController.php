@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use RealRashid\SweetAlert\Facades\Alert;
@@ -13,7 +12,6 @@ class BackendController extends Controller
             Alert::success(session('success_message'))->toToast();
         }
         return $next($request);
-        });
-        
+        });        
     }
 }

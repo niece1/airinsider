@@ -81,4 +81,3 @@ Route::post('subscriptions/', 'SubscriptionController@store');
 Route::fallback(function () {
     return view('errors.503');
 });*/
-

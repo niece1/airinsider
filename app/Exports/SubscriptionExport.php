@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Exports;
 
 use App\Subscription;

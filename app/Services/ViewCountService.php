@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Services;
 
 use App\Post;
@@ -13,4 +12,3 @@ class ViewCountService
         return $post->save();
     }
 }
-

@@ -38,4 +38,3 @@
         @endforeach
     </div>
 </aside>
-
