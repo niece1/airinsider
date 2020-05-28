@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Traits;
 
 use App\Photo;
@@ -12,7 +13,7 @@ trait PostPhotoUpload
     public function storePostPhoto(Request $request, Post $post)
     {
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('posts', 'public');
+            $path = $request->file('image')->store('posts');
             if ($post->photo) {
                 $photo = $this->getPhoto($post->photo->id);
                 $this->deletePhotoFromStorageFolder($photo);
