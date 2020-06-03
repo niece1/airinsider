@@ -11,16 +11,6 @@ class CommentsTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create();
-
-        for ($i = 1; $i <= 10; $i++) {
-
-            DB::table('comments')->insert([
-                'user_id' => $faker->numberBetween(1, 7),
-                'post_id' => $faker->numberBetween(1, 100),
-                'body' => $faker->sentence(5),
-                'comment_id' => null,
-            ]);
-        }
+        factory(App\Comment::class, 10)->create();
     }
 }

@@ -11,16 +11,6 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker\Factory::create();
-
-        for ($i = 1; $i <= 7; $i++) {
-
-            DB::table('users')->insert([
-
-                'name' => $faker->firstName,
-                'email' => $faker->email,
-                'password' => bcrypt('passw'),
-            ]);
-        }
+        factory(App\User::class, 7)->create();
     }
 }

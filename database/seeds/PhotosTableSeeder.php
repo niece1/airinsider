@@ -19,6 +19,7 @@ class PhotosTableSeeder extends Seeder
                 'path' => $faker->imageUrl(1000, 700, 'city')
             ]);
         }
+        
         for ($i = 1; $i <= 7; $i++) {
             DB::table('photos')->insert([
                 'photoable_type' => 'App\User',
