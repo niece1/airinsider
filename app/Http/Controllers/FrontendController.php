@@ -13,17 +13,21 @@ class FrontendController extends Controller {
 
     public function index()
     {
-        $featured = Cache::remember('featured', now()->addSeconds(config('app.cache')), function() {
+        $featured = Cache::remember('featured',
+                now()->addSeconds(config('app.cache')), function() {
             return Post::with(['photo'])
                 ->where('published', 1)
                 ->orderBy('id', 'desc')
                 ->first();
         });
         
-        $news = Cache::remember('main_page_news'. \Request::input('page'), now()->addSeconds(config('app.cache')), function() use ($featured) {
+        $news = Cache::remember('main_page_news'. \Request::input('page'),
+                now()->addSeconds(config('app.cache')), function() use ($featured) {
             return Post::with(['photo', 'category', 'user', 'comments', 'comments.replies'])
                 ->where('published', 1)
-                ->where('id', '<>', $featured->id)
+                ->when($featured, function ($query, $featured) {
+                    return $query->where('id', '<>', $featured->id);                           
+                })
                 ->orderBy('id', 'desc')
                 ->paginate(8);
         });

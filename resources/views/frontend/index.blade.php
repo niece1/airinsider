@@ -3,25 +3,27 @@
 @section('content')
 <!-- Jumbotron section -->
 <section class="jumbothron">
-    <div class="jumbothron-wrapper">
-        <div class="content">
+    @if($featured)
+    <div class="jumbothron-wrapper">        
+        <div class="content">            
             <h1>{{ $featured->title }}</h1>
             <p>{{ $featured->featured_description }}{{ $featured->featured_three_dots }}</p>
-            <a class="button" href="{{ route('post.show', [$featured->slug]) }}">Читать</a>
+            <a class="button" href="{{ route('post.show', [$featured->slug]) }}">Читать</a>            
         </div>
         @if($featured->photo)
         <div class="photo">
             <img class="lazyload" src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs=" data-src="{{ asset('storage/'.$featured->photo->path) }}" alt="News">
         </div>
-        @endif
+        @endif        
     </div>
+    @endif
 </section>
 
 <!-- News section -->
 <section class="news">
-    <h1>Latest news</h1>
+    <h1>Последние новости</h1>
     <div class="news-wrapper">
-        @foreach ($news as $news_item)
+        @forelse ($news as $news_item)
         <div class="item">
             @if($news_item->photo)
             <div class="image-holder">
@@ -52,7 +54,9 @@
                 </div>
             </div>
         </div>
-        @endforeach
+        @empty
+        <h1>Временно недоступны</h1>
+        @endforelse
     </div>
 </section>
 
