@@ -7,7 +7,6 @@ use Tests\TestCase;
 use App\Post;
 use App\User;
 use App\Category;
-use Illuminate\Support\Facades\Hash;
 
 class FrontendTest extends TestCase
 {
@@ -52,20 +51,7 @@ class FrontendTest extends TestCase
         $response = $this->get('/contact');
         $response->assertSeeText('Заполните форму');
         $response->assertSeeText('Напишите нам');
-    }
-    
-    /** @test */
-    public function login_redirects_successfully()
-    {
-        $this->actingAs(factory(User::class)->create([
-            'email' => 'admin@admin.com',
-            'password' => Hash::make('passw'),
-        ]));
-
-        $response=$this->get('/login', ['email'=>'admin@admin.com', 'password'=>'passw']);
-        $response->assertStatus(302);
-        $response->assertRedirect('/');
-    }
+    }      
     
     /** @test */
     public function no_posts_when_there_is_nothing_in_database()
