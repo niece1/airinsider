@@ -31,7 +31,7 @@
                     @foreach ($posts as $post)
                     <tr>
                         <td>{{ $post->id }}</td>
-                        <td>@if($post->photo)<img src="{{ asset('storage/'.$post->photo->path) }}" height="60" width="90" alt="Photo">@endif</td>
+                        <td>@if($post->photo)<img src="{{ asset('storage/' . $post->photo->path) }}" height="60" width="90" alt="Photo">@endif</td>
                         <td>
                             @can('post_view')
                             <a href="/dashboard/posts/{{ $post->id }}">{{ $post->title }}</a>

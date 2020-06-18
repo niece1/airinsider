@@ -50,7 +50,7 @@ Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
 	Route::resource('tags', 'TagController');
 	Route::resource('roles', 'RoleController');
 	Route::resource('permissions', 'PermissionController');
-	//Expunge Photo
+    //Expunge Photo
     Route::get('expungePhoto/{id}', 'PhotoController@expungePhoto')->name('expungePhoto');
     //User 
     Route::get('/users', 'UserController@index')->name('users.index');

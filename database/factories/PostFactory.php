@@ -12,7 +12,6 @@ $factory->define(Post::class, function (Faker $faker) {
         'title' => $faker->unique()->text(20),
         'body' => $faker->text(7000),
         'slug' => $faker->text(20),
-        'published' => $faker->boolean(50),
         'viewed' => $faker->numberBetween(1, 1000),
         'time_to_read' => $faker->numberBetween(1, 10),
         'user_id' => function() {
