@@ -3,22 +3,15 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Hash;
-use Tests\TestCase;
+use Tests\Feature\FeatureTestCase;
 use App\Category;
 use App\Post;
 use App\User;
 use App\Role;
 use App\Permission;
-use PermissionRoleTableSeeder;
-use RoleUserTableSeeder;
-use UsersTableSeeder;
-use RolesTableSeeder;
-use PermissionsTableSeeder;
-use Illuminate\Support\Facades\Gate;
 
-class PostTest extends TestCase {
-
+class PostTest extends FeatureTestCase
+{
     use RefreshDatabase;
     /**
      * A basic feature test example.
@@ -27,8 +20,9 @@ class PostTest extends TestCase {
      */
 
     /** @test */
-    public function post_can_be_added_to_the_table_through_the_form() {
-        $this->actingAs(factory(User::class)->create());
+    public function a_post_can_be_added_to_the_table_through_the_form()
+    {
+        $this->actingAs($this->create_admin_user());
         factory(Category::class)->create();
         $response = $this->post('/dashboard/posts', [
             'title' => 'New Title',
@@ -41,11 +35,9 @@ class PostTest extends TestCase {
     }
 
     /** @test */
-    public function validation_a_title_is_required() {
-        $this->actingAs(factory(User::class)->create([
-                    'email' => 'admin@admin.com',
-                    'password' => Hash::make('passw'),
-        ]));
+    public function validation_title_is_required() 
+    {
+        $this->actingAs($this->create_admin_user());
         factory(Category::class)->create();
         $response = $this->post('/dashboard/posts', [
             'title' => '',
@@ -55,10 +47,30 @@ class PostTest extends TestCase {
         ]);
         $response->assertSessionHasErrors('title');
     }
+    
+    /** @test */
+    public function store_post_validation_fails() 
+    {
+        $this->actingAs($this->create_admin_user());
+        factory(Category::class)->create();
+        $params = [
+            'title' => 'N',
+            'body' => '',
+            'time_to_read' => 1,
+            'category_id' => 1,
+        ];
+        $this->post('/dashboard/posts', $params)
+                ->assertStatus(302)
+                ->assertSessionHas('errors');
+        $messages = session('errors')->getMessages();
+        $this->assertEquals($messages['title'][0], 'Поле должно быть мин 2 символа(ов).');
+        $this->assertEquals($messages['body'][0], 'Данное поле обязательно.');
+    }
 
     /** @test */
-    public function post_validation_a_title_is_at_least_two_characters() {
-        $this->actingAs(factory(User::class)->create());
+    public function validation_title_is_at_least_two_characters() 
+    {
+        $this->actingAs($this->create_admin_user());
         factory(Category::class)->create();
         $response = $this->post('/dashboard/posts', [
             'title' => 'A',
@@ -69,31 +81,72 @@ class PostTest extends TestCase {
         $response->assertSessionHasErrors('title');
         $this->assertCount(0, Post::all());
     }
+    
+    /** @test */
+    public function validation_a_body_is_required()
+    {
+        $this->actingAs($this->create_admin_user());
+        factory(Category::class)->create();
+        $response = $this->post('/dashboard/posts', [
+            'title' => 'New title',
+            'body' => '',
+            'time_to_read' => 1,
+            'category_id' => 1,
+        ]);
+        $response->assertSessionHasErrors('body');
+        $this->assertCount(0, Post::all());
+    }
+    
+    /** @test */
+    public function validation_time_to_read_is_required()
+    {
+        $this->actingAs($this->create_admin_user());
+        factory(Category::class)->create();
+        $response = $this->post('/dashboard/posts', [
+            'title' => 'New title',
+            'body' => 'New body',
+            'time_to_read' => '',
+            'category_id' => 1,
+        ]);
+        $response->assertSessionHasErrors('time_to_read');
+        $this->assertCount(0, Post::all());
+    }
+    
+    /** @test */
+    public function validation_category_id_is_required()
+    {
+        $this->actingAs($this->create_admin_user());
+        factory(Category::class)->create();
+        $response = $this->post('/dashboard/posts', [
+            'title' => 'New title',
+            'body' => 'New body',
+            'time_to_read' => 1,
+            'category_id' => '',
+        ]);
+        $response->assertSessionHasErrors('category_id');
+        $this->assertCount(0, Post::all());
+    }
 
     /** @test */
-    public function store_post_validated() {
-        $this->actingAs(factory(User::class)->create([
-                    'email' => 'admin@admin.com',
-                    'password' => Hash::make('passw'),
-        ]));
+    public function store_post_validated_successfully() 
+    {
+        $this->actingAs($this->create_admin_user());
         factory(Category::class)->create();
-
         $params = [
             'title' => 'New title',
             'body' => 'New body',
             'time_to_read' => 1,
             'category_id' => 1,
         ];
-
         $this->post('/dashboard/posts', $params)->assertStatus(302)
                 ->assertSessionHas('success_message');
         $this->assertEquals(session('success_message'), 'Created Successfully!');
     }
 
     /** @test */
-    public function a_post_can_be_updated() {
-        $this->withoutExceptionHandling();
-        $this->actingAs(factory(User::class)->create());
+    public function a_post_can_be_updated() 
+    {
+        $this->actingAs($this->create_admin_user());
         factory(Category::class)->create();
         factory(Post::class)->create();
         $post = Post::first();
@@ -102,17 +155,19 @@ class PostTest extends TestCase {
             'body' => 'New body',
             'time_to_read' => 1,
             'category_id' => 1,
-        ]);
+        ])->assertSessionHas('success_message');
         $this->assertEquals('New Title', Post::first()->title);
         $this->assertEquals('New body', Post::first()->body);
+        $this->assertEquals(session('success_message'), 'Updated Successfully!');
+        $this->assertDatabaseMissing('posts', $post->toArray());
+        $this->assertDatabaseHas('posts', ['title' => 'New Title']);
         $response->assertRedirect('/dashboard/posts/');
     }
 
     /** @test */
     public function a_post_can_be_deleted()
     {
-        $user = $this->create_admin_user();
-        $this->actingAs($user);
+        $this->actingAs($this->create_admin_user());
         $this->assertCount(1, Role::all());
         $this->assertCount(32, Permission::all());
         factory(Category::class)->create();
@@ -124,22 +179,11 @@ class PostTest extends TestCase {
         $this->assertCount(0, Post::all());
         $this->assertSoftDeleted($post);
     }
-
-    /** @test */
-    public function admin_can_see_add_post_button() 
-    {
-        $user = $this->create_admin_user();
-        $response = $this->actingAs($user)->get('/dashboard/posts/');
-        $response->assertStatus(200);
-        $this->assertCount(32, Permission::all());
-        $response->assertSee('Post List');
-        $response->assertSee('Add Post');
-    }
-
+    
     /** @test */
     public function user_id_added_automatically_while_creating_post() 
     {
-        $this->actingAs(factory(User::class)->create());
+        $this->actingAs($this->create_admin_user());
         factory(Category::class)->create();
         $this->post('/dashboard/posts', [
             'title' => 'New Title',
@@ -154,26 +198,5 @@ class PostTest extends TestCase {
         $this->assertCount(1, User::all());
     }
 
-    public function create_admin_user() 
-    {
-        $this->seed(PermissionsTableSeeder::class);
-        $this->seed(RolesTableSeeder::class);
-        factory(User::class)->create();
-        $this->seed(PermissionRoleTableSeeder::class);
-        $this->seed(RoleUserTableSeeder::class);
-        $user = User::findOrFail(1);
-        $roles = Role::with('permissions')->get();
-        $permissionsArray = [];
-        foreach ($roles as $role) {
-            foreach ($role->permissions as $permissions) {
-                $permissionsArray[$permissions->title][] = $role->id;
-            }
-        }
-        foreach ($permissionsArray as $title => $roles) {
-            Gate::define($title, function (\App\User $user) use ($roles) {
-                return count(array_intersect($user->roles->pluck('id')->toArray(), $roles)) > 0;
-            });
-        }
-        return $user;
-    }
+    
 }

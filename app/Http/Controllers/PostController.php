@@ -100,7 +100,7 @@ class PostController extends BackendController
         $post->saveUserWithPost($post);
         $post->syncTags($post);
 
-        return redirect('dashboard/posts')->withSuccessMessage('Updated Successfully');
+        return redirect('dashboard/posts')->withSuccessMessage('Updated Successfully!');
     }
 
     /**

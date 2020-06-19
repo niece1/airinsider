@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
             $table->string('title')->unique();
             $table->longText('body');
             $table->string('slug')->nullable();
-            $table->boolean('published')->default(true);
+            $table->boolean('published')->default(false);
             $table->integer('viewed')->default(0);
             $table->integer('time_to_read');
             $table->unsignedBigInteger('user_id')->nullable();
