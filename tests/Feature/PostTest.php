@@ -196,7 +196,5 @@ class PostTest extends FeatureTestCase
         $post = Post::first();
         $this->assertEquals($user->id, $post->user_id);
         $this->assertCount(1, User::all());
-    }
-
-    
+    }    
 }
