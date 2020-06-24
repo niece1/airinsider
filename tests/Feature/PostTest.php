@@ -138,7 +138,8 @@ class PostTest extends FeatureTestCase
             'time_to_read' => 1,
             'category_id' => 1,
         ];
-        $this->post('/dashboard/posts', $params)->assertStatus(302)
+        $this->post('/dashboard/posts', $params)
+                ->assertStatus(302)
                 ->assertSessionHas('success_message');
         $this->assertEquals(session('success_message'), 'Created Successfully!');
     }

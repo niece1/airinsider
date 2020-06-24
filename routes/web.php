@@ -16,7 +16,7 @@
 });*/
 
 Auth::routes();
-
+//Frontend
 Route::get('/', 'FrontendController@index')->name('home');
 Route::get('/post/{post}', 'FrontendController@show')->name('post.show');
 Route::get('/contact', 'ContactController@createSlider')->name('contact');
