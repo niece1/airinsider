@@ -10,12 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class AuthTest extends TestCase
 {
     use RefreshDatabase;
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */      
-    
+
     /** @test */
     public function unauthenticated_users_cannot_get_dashboard()
     {  

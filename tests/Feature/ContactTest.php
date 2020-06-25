@@ -6,12 +6,7 @@ use Tests\TestCase;
 
 class ContactTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    
+
     /** @test */
     public function a_user_can_send_mail_through_the_form()
     {

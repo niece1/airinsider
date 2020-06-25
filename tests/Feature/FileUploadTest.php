@@ -11,12 +11,7 @@ use Tests\Feature\FeatureTestCase;
 class FileUploadTest extends FeatureTestCase
 {
     use RefreshDatabase;
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    
+
     /** @test */
     public function post_photo_uploaded_successfully()
     {

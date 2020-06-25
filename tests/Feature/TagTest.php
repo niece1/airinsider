@@ -4,28 +4,28 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\Feature\FeatureTestCase;
-use App\Category;
+use App\Tag;
 
-class CategoryTest extends FeatureTestCase
+class TagTest extends FeatureTestCase
 {
-    use RefreshDatabase;    
+    use RefreshDatabase;
     
     /** @test */
-    public function a_catagory_can_be_added_to_the_table_through_the_form()
+    public function a_tag_can_be_added_to_the_table_through_the_form()
     {
         $this->actingAs($this->create_admin_user());
-        $response = $this->post('/dashboard/categories', [
+        $response = $this->post('/dashboard/tags', [
             'title' => 'Airbus',
         ]);
-        $response->assertRedirect('/dashboard/categories');
-        $this->assertCount(1, Category::all());
+        $response->assertRedirect('/dashboard/tags');
+        $this->assertCount(1, Tag::all());
     }
     
     /** @test */
     public function title_field_is_required() 
     {
         $this->actingAs($this->create_admin_user());
-        $this->post('/dashboard/categories', [
+        $this->post('/dashboard/tags', [
             'title' => '',
         ])
                 ->assertStatus(302)
@@ -38,7 +38,7 @@ class CategoryTest extends FeatureTestCase
     public function title_field_should_be_at_least_two_characters() 
     {
         $this->actingAs($this->create_admin_user());
-        $this->post('/dashboard/categories', [
+        $this->post('/dashboard/tags', [
             'title' => 'A',
         ])
                 ->assertStatus(302)
@@ -51,7 +51,7 @@ class CategoryTest extends FeatureTestCase
     public function title_field_should_be_max_ten_characters() 
     {
         $this->actingAs($this->create_admin_user());
-        $this->post('/dashboard/categories', [
+        $this->post('/dashboard/tags', [
             'title' => 'Antananarivo',
         ])
                 ->assertStatus(302)
@@ -61,18 +61,18 @@ class CategoryTest extends FeatureTestCase
     }
     
     /** @test */
-    public function a_category_can_be_updated() 
+    public function a_tag_can_be_updated() 
     {
         $this->actingAs($this->create_admin_user());
-        factory(Category::class)->create();
-        $category = Category::first();
-        $response = $this->patch('/dashboard/categories/' . $category->id, [
+        factory(Tag::class)->create();
+        $tag = Tag::first();
+        $response = $this->patch('/dashboard/tags/' . $tag->id, [
             'title' => 'Airbus',
         ])->assertSessionHas('success_message');
-        $this->assertEquals('Airbus', Category::first()->title);
-        $this->assertEquals(session('success_message'), 'Category Updated Successfully!');
-        $this->assertDatabaseMissing('categories', $category->toArray());
-        $this->assertDatabaseHas('categories', ['title' => 'Airbus']);
-        $response->assertRedirect('/dashboard/categories/');
+        $this->assertEquals('Airbus', Tag::first()->title);
+        $this->assertEquals(session('success_message'), 'Tag Updated Successfully!');
+        $this->assertDatabaseMissing('tags', $tag->toArray());
+        $this->assertDatabaseHas('tags', ['title' => 'Airbus']);
+        $response->assertRedirect('/dashboard/tags/');
     }
 }

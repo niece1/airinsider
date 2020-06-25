@@ -13,11 +13,6 @@ use App\Permission;
 class PostTest extends FeatureTestCase
 {
     use RefreshDatabase;
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
 
     /** @test */
     public function a_post_can_be_added_to_the_table_through_the_form()

@@ -11,11 +11,6 @@ use Tests\Feature\FeatureTestCase;
 class RoleTest extends FeatureTestCase
 {
     use RefreshDatabase;
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
     
     /** @test */
     public function generating_admin_user_via_seeds_works_correctly()
