@@ -49,7 +49,7 @@ class ContactTest extends TestCase
     }
     
     /** @test */
-    public function to_send_mail_email_field_should_be_a_valid_email()
+    public function to_send_mail_an_email_field_should_be_a_valid_email()
     {
         $this->post('contact', [
             'name' => 'Anna',
