@@ -75,4 +75,16 @@ class TagTest extends FeatureTestCase
         $this->assertDatabaseHas('tags', ['title' => 'Airbus']);
         $response->assertRedirect('/dashboard/tags/');
     }
+    
+    /** @test */
+    public function a_tag_can_be_deleted()
+    {
+        $this->actingAs($this->create_admin_user());
+        factory(Tag::class)->create();
+        $this->assertCount(1, Tag::all());
+        $tag = Tag::first();        
+        $this->delete('/dashboard/tags/' . $tag->id);
+        $this->assertCount(0, Tag::all());
+        $this->assertDeleted($tag);
+    }
 }

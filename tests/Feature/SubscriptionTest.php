@@ -48,12 +48,12 @@ class SubscriptionTest extends FeatureTestCase
     public function subscription_can_be_deleted()
     {
         $this->post('/subscriptions', [
-            'email' => 'airinsider.gmail.com',
+            'email' => 'airinsider@gmail.com',
         ]);
         $this->assertCount(1, Subscription::all());
         $this->actingAs($this->create_admin_user());
         $subscription = Subscription::first();        
-        $this->delete('/subscriptions/' . $subscription->id);
+        $this->delete('/dashboard/subscriptions/' . $subscription->id);
         $this->assertCount(0, Subscription::all());
         $this->assertDeleted($subscription);
     }

@@ -161,7 +161,7 @@ class PostTest extends FeatureTestCase
     }
 
     /** @test */
-    public function a_post_can_be_deleted()
+    public function a_post_can_be_trashed()
     {
         $this->actingAs($this->create_admin_user());
         $this->assertCount(1, Role::all());

@@ -20,26 +20,15 @@ class RoleTest extends FeatureTestCase
         $this->assertCount(1, User::all());
         $this->assertCount(32, Permission::all());        
     }
-    
+
     /** @test */
-    public function admin_user_can_see_add_post_button() 
+    public function generating_guest_user_via_factory_works_correctly()
     {
-        $user = $this->create_admin_user();
-        $response = $this->actingAs($user)->get('/dashboard/posts/');
-        $response->assertStatus(200);
-        $response->assertSee('Post List');
-        $response->assertSee('Add Post');
-    }
-    
-    /** @test */
-    public function admin_user_can_see_add_role_button() 
-    {
-        $user = $this->create_admin_user();
-        $response = $this->actingAs($user)->get('/dashboard/roles/');
-        $response->assertStatus(200);
-        $response->assertSee('Role List');
-        $response->assertSee('Add Role');
-    }
+        $this->actingAs($this->create_guest_user());
+        $this->assertCount(1, Role::all());
+        $this->assertCount(1, User::all());
+        $this->assertCount(1, Permission::all());        
+    }    
     
     /** @test */
     public function a_role_can_be_added_to_the_table_through_the_form()
@@ -107,5 +96,17 @@ class RoleTest extends FeatureTestCase
         $this->assertDatabaseMissing('roles', $role->toArray());
         $this->assertDatabaseHas('roles', ['title' => 'Guest']);
         $response->assertRedirect('/dashboard/roles/');
+    }
+    
+    /** @test */
+    public function a_role_can_be_deleted()
+    {
+        $this->actingAs($this->create_admin_user());
+        factory(Role::class)->create();
+        $this->assertCount(2, Role::all());
+        $role = Role::first();        
+        $this->delete('/dashboard/roles/' . $role->id);
+        $this->assertCount(1, Role::all());
+        $this->assertDeleted($role);
     }
 }

@@ -75,4 +75,16 @@ class CategoryTest extends FeatureTestCase
         $this->assertDatabaseHas('categories', ['title' => 'Airbus']);
         $response->assertRedirect('/dashboard/categories/');
     }
+    
+    /** @test */
+    public function a_category_can_be_deleted()
+    {
+        $this->actingAs($this->create_admin_user());
+        factory(Category::class)->create();
+        $this->assertCount(1, Category::all());
+        $category = Category::first();        
+        $this->delete('/dashboard/categories/' . $category->id);
+        $this->assertCount(0, Category::all());
+        $this->assertDeleted($category);
+    }
 }
