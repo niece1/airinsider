@@ -4,16 +4,17 @@ namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Subscription;
-use Tests\Feature\FeatureTestCase;
+use Tests\Traits\AdminUser;
+use Tests\TestCase;
 
-class SubscriptionTest extends FeatureTestCase
+class SubscriptionTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, AdminUser;
     
     /** @test */
     public function a_user_can_subscribe_for_the_news()
     {
-        $response = $this->post('/subscriptions', [
+        $this->post('/subscriptions', [
             'email' => 'airinsider@gmail.com',
         ]);
       //  $response->assertRedirect('/dashboard/posts');
@@ -33,7 +34,7 @@ class SubscriptionTest extends FeatureTestCase
     }
     
     /** @test */
-    public function to_subscribe_email_field_is_required()
+    public function to_subscribe_an_email_field_is_required()
     {
         $this->post('/subscriptions', [
             'email' => '',
@@ -51,7 +52,7 @@ class SubscriptionTest extends FeatureTestCase
             'email' => 'airinsider@gmail.com',
         ]);
         $this->assertCount(1, Subscription::all());
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         $subscription = Subscription::first();        
         $this->delete('/dashboard/subscriptions/' . $subscription->id);
         $this->assertCount(0, Subscription::all());

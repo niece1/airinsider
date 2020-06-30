@@ -3,17 +3,18 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\Feature\FeatureTestCase;
+use Tests\Traits\AdminUser;
+use Tests\TestCase;
 use App\Category;
 
-class CategoryTest extends FeatureTestCase
+class CategoryTest extends TestCase
 {
-    use RefreshDatabase;    
+    use RefreshDatabase, AdminUser;    
     
     /** @test */
     public function a_catagory_can_be_added_to_the_table_through_the_form()
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         $response = $this->post('/dashboard/categories', [
             'title' => 'Airbus',
         ]);
@@ -24,7 +25,7 @@ class CategoryTest extends FeatureTestCase
     /** @test */
     public function title_field_is_required() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         $this->post('/dashboard/categories', [
             'title' => '',
         ])
@@ -37,7 +38,7 @@ class CategoryTest extends FeatureTestCase
     /** @test */
     public function title_field_should_be_at_least_two_characters() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         $this->post('/dashboard/categories', [
             'title' => 'A',
         ])
@@ -50,7 +51,7 @@ class CategoryTest extends FeatureTestCase
     /** @test */
     public function title_field_should_be_max_ten_characters() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         $this->post('/dashboard/categories', [
             'title' => 'Antananarivo',
         ])
@@ -63,7 +64,7 @@ class CategoryTest extends FeatureTestCase
     /** @test */
     public function a_category_can_be_updated() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
         $category = Category::first();
         $response = $this->patch('/dashboard/categories/' . $category->id, [
@@ -79,7 +80,7 @@ class CategoryTest extends FeatureTestCase
     /** @test */
     public function a_category_can_be_deleted()
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
         $this->assertCount(1, Category::all());
         $category = Category::first();        

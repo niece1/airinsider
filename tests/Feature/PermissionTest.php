@@ -3,17 +3,19 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\Feature\FeatureTestCase;
+use Tests\TestCase;
+use Tests\Traits\AdminUser;
+use Tests\Traits\GuestUser;
 use App\Permission;
 
-class PermissionTest extends FeatureTestCase
+class PermissionTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, AdminUser, GuestUser;
     
     /** @test */
     public function permission_can_be_added_to_the_table_through_the_form()
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         $response = $this->post('/dashboard/permissions', [
             'title' => 'user_edit',
         ])->assertSessionHas('success_message')->assertStatus(302);
@@ -25,7 +27,7 @@ class PermissionTest extends FeatureTestCase
     /** @test */
     public function title_field_is_required() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         $this->post('/dashboard/permissions', [
             'title' => '',
         ])
@@ -38,7 +40,7 @@ class PermissionTest extends FeatureTestCase
     /** @test */
     public function title_field_should_be_at_least_two_characters() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         $this->post('/dashboard/permissions', [
             'title' => 'u',
         ])
@@ -51,7 +53,7 @@ class PermissionTest extends FeatureTestCase
     /** @test */
     public function title_field_should_be_max_thirty_characters() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         $this->post('/dashboard/permissions', [
             'title' => 'user_access_role_add_permission_delete',
         ])
@@ -64,7 +66,7 @@ class PermissionTest extends FeatureTestCase
     /** @test */
     public function admin_user_can_see_user_page_and_edit_user_button()
     {
-        $response = $this->actingAs($this->create_admin_user())
+        $response = $this->actingAs($this->createAdminUser())
                 ->get('/dashboard/users/');
         $response->assertStatus(200);
         $response->assertSee('User List');
@@ -74,7 +76,7 @@ class PermissionTest extends FeatureTestCase
     /** @test */
     public function admin_user_can_see_category_page_and_add_category_button()
     {
-        $response = $this->actingAs($this->create_admin_user())
+        $response = $this->actingAs($this->createAdminUser())
                 ->get('/dashboard/categories/');
         $response->assertStatus(200);
         $response->assertSee('Category List');
@@ -84,7 +86,7 @@ class PermissionTest extends FeatureTestCase
     /** @test */
     public function admin_user_can_see_tag_page_and_add_tag_button()
     {
-        $response = $this->actingAs($this->create_admin_user())
+        $response = $this->actingAs($this->createAdminUser())
                 ->get('/dashboard/tags/');
         $response->assertStatus(200);
         $response->assertSee('Tag List');
@@ -94,7 +96,7 @@ class PermissionTest extends FeatureTestCase
     /** @test */
     public function admin_user_can_see_permission_page_and_add_permission_button()
     {
-        $response = $this->actingAs($this->create_admin_user())
+        $response = $this->actingAs($this->createAdminUser())
                 ->get('/dashboard/permissions/');
         $response->assertStatus(200);
         $response->assertSee('Permission List');
@@ -104,7 +106,7 @@ class PermissionTest extends FeatureTestCase
     /** @test */
     public function admin_user_can_see_trash_page()
     {
-        $response = $this->actingAs($this->create_admin_user())
+        $response = $this->actingAs($this->createAdminUser())
                 ->get('/dashboard/trashed/');
         $response->assertStatus(200);
         $response->assertSee('Trashed');
@@ -113,7 +115,7 @@ class PermissionTest extends FeatureTestCase
     /** @test */
     public function admin_user_can_see_post_page_add_post_button() 
     {
-        $user = $this->create_admin_user();
+        $user = $this->createAdminUser();
         $response = $this->actingAs($user)->get('/dashboard/posts/');
         $response->assertStatus(200);
         $response->assertSee('Post List');
@@ -123,7 +125,7 @@ class PermissionTest extends FeatureTestCase
     /** @test */
     public function admin_user_can_see_role_page_and_add_role_button() 
     {
-        $user = $this->create_admin_user();
+        $user = $this->createAdminUser();
         $response = $this->actingAs($user)->get('/dashboard/roles/');
         $response->assertStatus(200);
         $response->assertSee('Role List');
@@ -133,7 +135,7 @@ class PermissionTest extends FeatureTestCase
     /** @test */
     public function admin_user_can_see_comments_page() 
     {
-        $user = $this->create_admin_user();
+        $user = $this->createAdminUser();
         $response = $this->actingAs($user)->get('/dashboard/comments/');
         $response->assertStatus(200);
         $response->assertSee('Comments List');
@@ -142,7 +144,7 @@ class PermissionTest extends FeatureTestCase
     /** @test */
     public function admin_user_can_see_subscription_page() 
     {
-        $user = $this->create_admin_user();
+        $user = $this->createAdminUser();
         $response = $this->actingAs($user)->get('/dashboard/subscriptions/');
         $response->assertStatus(200);
         $response->assertSee('Subscription List');
@@ -151,7 +153,7 @@ class PermissionTest extends FeatureTestCase
     /** @test */
     public function guest_user_can_see_post_page() 
     {
-        $user = $this->create_guest_user();
+        $user = $this->createGuestUser();
         $response = $this->actingAs($user)->get('/dashboard/posts/');
         $response->assertStatus(200);
         $response->assertSee('Post List');
@@ -160,7 +162,7 @@ class PermissionTest extends FeatureTestCase
     /** @test */
     public function guest_user_cannot_see_add_post_button() 
     {
-        $user = $this->create_guest_user();
+        $user = $this->createGuestUser();
         $response = $this->actingAs($user)->get('/dashboard/posts/');
         $response->assertStatus(200);
         $response->assertDontSee('Add Post');
@@ -169,7 +171,7 @@ class PermissionTest extends FeatureTestCase
     /** @test */
     public function guest_user_cannot_see_role_page() 
     {
-        $user = $this->create_guest_user();
+        $user = $this->createGuestUser();
         $response = $this->actingAs($user)->get('/dashboard/roles/');
         $response->assertForbidden();
     }

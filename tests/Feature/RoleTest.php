@@ -3,19 +3,21 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\Traits\AdminUser;
+use Tests\Traits\GuestUser;
 use App\User;
 use App\Role;
 use App\Permission;
-use Tests\Feature\FeatureTestCase;
+use Tests\TestCase;
 
-class RoleTest extends FeatureTestCase
+class RoleTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, AdminUser, GuestUser;
     
     /** @test */
     public function generating_admin_user_via_seeds_works_correctly()
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         $this->assertCount(1, Role::all());
         $this->assertCount(1, User::all());
         $this->assertCount(32, Permission::all());        
@@ -24,7 +26,7 @@ class RoleTest extends FeatureTestCase
     /** @test */
     public function generating_guest_user_via_factory_works_correctly()
     {
-        $this->actingAs($this->create_guest_user());
+        $this->actingAs($this->createGuestUser());
         $this->assertCount(1, Role::all());
         $this->assertCount(1, User::all());
         $this->assertCount(1, Permission::all());        
@@ -33,7 +35,7 @@ class RoleTest extends FeatureTestCase
     /** @test */
     public function a_role_can_be_added_to_the_table_through_the_form()
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         $response = $this->post('/dashboard/roles', [
             'title' => 'Moderator',
         ])->assertSessionHas('success_message')->assertStatus(302);
@@ -45,7 +47,7 @@ class RoleTest extends FeatureTestCase
     /** @test */
     public function validation_title_is_at_least_two_characters() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         $response = $this->post('/dashboard/roles', [
             'title' => 'A',
         ]);
@@ -59,7 +61,7 @@ class RoleTest extends FeatureTestCase
     /** @test */
     public function validation_a_title_is_required() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         $response = $this->post('/dashboard/roles', [
             'title' => '',
         ]);
@@ -71,7 +73,7 @@ class RoleTest extends FeatureTestCase
     /** @test */
     public function validation_a_title_should_be_max_30_characters() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         $response = $this->post('/dashboard/roles', [
             'title' => 'Quaerat qui fuga minima sunt voluptatem id',
         ]);
@@ -85,7 +87,7 @@ class RoleTest extends FeatureTestCase
     /** @test */
     public function a_role_can_be_updated() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         factory(Role::class)->create();
         $role = Role::first();
         $response = $this->patch('/dashboard/roles/' . $role->id, [
@@ -101,7 +103,7 @@ class RoleTest extends FeatureTestCase
     /** @test */
     public function a_role_can_be_deleted()
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         factory(Role::class)->create();
         $this->assertCount(2, Role::all());
         $role = Role::first();        

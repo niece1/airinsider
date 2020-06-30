@@ -3,21 +3,22 @@
 namespace Tests\Feature;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\Feature\FeatureTestCase;
+use Tests\TestCase;
+use Tests\Traits\AdminUser;
 use App\Category;
 use App\Post;
 use App\User;
 use App\Role;
 use App\Permission;
 
-class PostTest extends FeatureTestCase
+class PostTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, AdminUser;
 
     /** @test */
     public function a_post_can_be_added_to_the_table_through_the_form()
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
         $response = $this->post('/dashboard/posts', [
             'title' => 'New Title',
@@ -32,7 +33,7 @@ class PostTest extends FeatureTestCase
     /** @test */
     public function validation_title_is_required() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
         $response = $this->post('/dashboard/posts', [
             'title' => '',
@@ -46,7 +47,7 @@ class PostTest extends FeatureTestCase
     /** @test */
     public function store_post_validation_fails() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
         $params = [
             'title' => 'N',
@@ -65,7 +66,7 @@ class PostTest extends FeatureTestCase
     /** @test */
     public function validation_title_is_at_least_two_characters() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
         $response = $this->post('/dashboard/posts', [
             'title' => 'A',
@@ -80,7 +81,7 @@ class PostTest extends FeatureTestCase
     /** @test */
     public function validation_a_body_is_required()
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
         $response = $this->post('/dashboard/posts', [
             'title' => 'New title',
@@ -95,7 +96,7 @@ class PostTest extends FeatureTestCase
     /** @test */
     public function validation_time_to_read_is_required()
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
         $response = $this->post('/dashboard/posts', [
             'title' => 'New title',
@@ -110,7 +111,7 @@ class PostTest extends FeatureTestCase
     /** @test */
     public function validation_category_id_is_required()
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
         $response = $this->post('/dashboard/posts', [
             'title' => 'New title',
@@ -125,7 +126,7 @@ class PostTest extends FeatureTestCase
     /** @test */
     public function store_post_validated_successfully() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
         $params = [
             'title' => 'New title',
@@ -142,7 +143,7 @@ class PostTest extends FeatureTestCase
     /** @test */
     public function a_post_can_be_updated() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
         factory(Post::class)->create();
         $post = Post::first();
@@ -163,7 +164,7 @@ class PostTest extends FeatureTestCase
     /** @test */
     public function a_post_can_be_trashed()
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         $this->assertCount(1, Role::all());
         $this->assertCount(32, Permission::all());
         factory(Category::class)->create();
@@ -179,7 +180,7 @@ class PostTest extends FeatureTestCase
     /** @test */
     public function user_id_added_automatically_while_creating_post() 
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
         $this->post('/dashboard/posts', [
             'title' => 'New Title',

@@ -5,17 +5,18 @@ namespace Tests\Feature;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
+use Tests\Traits\AdminUser;
 use App\Category;
-use Tests\Feature\FeatureTestCase;
+use Tests\TestCase;
 
-class FileUploadTest extends FeatureTestCase
+class FileUploadTest extends TestCase
 {
-    use RefreshDatabase;
+    use RefreshDatabase, AdminUser;
 
     /** @test */
     public function post_photo_uploaded_successfully()
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         Storage::fake('public');
         factory(Category::class)->create();
         $file = UploadedFile::fake()->image('logo.jpg');
@@ -26,7 +27,7 @@ class FileUploadTest extends FeatureTestCase
     /** @test */
     public function post_photo_upload_fails_if_image_size_more_than_5mb()
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         Storage::fake('public');
         factory(Category::class)->create();
         $file = UploadedFile::fake()->image('logo.jpg')->size(6000);
@@ -39,7 +40,7 @@ class FileUploadTest extends FeatureTestCase
     /** @test */
     public function post_photo_upload_fails_if_file_is_not_image()
     {
-        $this->actingAs($this->create_admin_user());
+        $this->actingAs($this->createAdminUser());
         Storage::fake('public');
         factory(Category::class)->create();
         $file = UploadedFile::fake()->image('logo.pdf');
