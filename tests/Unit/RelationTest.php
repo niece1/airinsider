@@ -6,6 +6,7 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Category;
+use App\Comment;
 use App\Post;
 use App\User;
 use App\Tag;
@@ -32,6 +33,15 @@ class RelationTest extends TestCase
     }
     
     /** @test */
+    public function a_user_has_many_posts()
+    {
+        $user = factory(User::class)->create();
+        factory(Category::class)->create();
+        factory(Post::class)->create();
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $user->posts);
+    }
+    
+    /** @test */
     public function a_post_belongs_to_user()
     {
         $post = $this->createFactoryPost();
@@ -52,5 +62,31 @@ class RelationTest extends TestCase
         $this->createFactoryPost();
         $tag = factory(Tag::class)->create();
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $tag->posts);
+    }
+    
+    /** @test */
+    public function a_comment_belongs_to_user()
+    {
+        $this->createFactoryPost();
+        $comment = factory(Comment::class)->create();
+        $this->assertInstanceOf(User::class, $comment->user);
+    }
+    
+    /** @test */
+    public function a_user_has_many_comments()
+    {
+        $user = factory(User::class)->create();
+        factory(Category::class)->create();
+        factory(Post::class)->create();
+        factory(Comment::class)->create();
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $user->comments);
+    }
+    
+    /** @test */
+    public function a_comment_has_many_replies()
+    {
+        $this->createFactoryPost();
+        $comment = factory(Comment::class)->create();
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $comment->replies);
     }
 }
