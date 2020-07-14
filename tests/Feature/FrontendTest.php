@@ -26,18 +26,7 @@ class FrontendTest extends TestCase
         $response = $this->actingAs($user)->get('/');
         $response->assertStatus(200);
     }
-    
-    /** @test */
-    public function paginated_posts_table_doesnt_show_10th_record()
-    {
-        factory(User::class, 10)->create();
-        factory(Category::class, 10)->create();
-        $posts = factory(Post::class, 10)->create();
-        $response = $this->get('/');
-        $response->assertDontSee($posts->first()->title);//
-    }
-    
-    
+ 
     /** @test */
     public function contact_page_works_correctly()
     {      
@@ -73,5 +62,16 @@ class FrontendTest extends TestCase
         ]);
     }
     
-            
+    /** @test */
+    public function a_user_can_see_a_show_page()
+    {  
+        $this->actingAs(factory(User::class)->create());
+        factory(Category::class)->create();
+        factory(Post::class)->create([
+            'title' => 'First post',
+            'slug' => 'first-post',
+        ]);
+        $response = $this->get('/post/first-post');
+        $response->assertSee('First post');
+    }               
 }
