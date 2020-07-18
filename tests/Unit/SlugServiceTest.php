@@ -5,12 +5,9 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Category;
-use App\Post;
-use App\User;
 use Tests\Traits\AdminUser;
-use App\Services\SlugService;
 
-class ServiceTest extends TestCase
+class SlugServiceTest extends TestCase
 {
     use RefreshDatabase, AdminUser;
     
@@ -29,8 +26,6 @@ class ServiceTest extends TestCase
         $this->assertDatabaseHas('posts', [
             'title' => 'New Title',
             'slug' => 'new-title',
-            ]);        
-        $slug = new SlugService;
-        $this->assertInstanceOf(SlugService::class, $slug);
+        ]);        
     }
 }
