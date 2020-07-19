@@ -11,6 +11,7 @@ use App\Category;
 class FrontendTest extends TestCase
 {
     use RefreshDatabase;
+    
     /** @test */
     public function all_users_can_see_index_page()
     {      

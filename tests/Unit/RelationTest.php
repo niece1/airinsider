@@ -48,22 +48,6 @@ class RelationTest extends TestCase
     }
     
     /** @test */
-    public function a_post_has_many_tags()
-    {
-        $post = $this->createFactoryPost();
-        factory(Tag::class)->create();
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $post->tags);
-    }
-    
-    /** @test */
-    public function a_tag_has_many_posts()
-    {
-        $this->createFactoryPost();
-        $tag = factory(Tag::class)->create();
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $tag->posts);
-    }
-    
-    /** @test */
     public function a_comment_belongs_to_user()
     {
         $this->createFactoryPost();
