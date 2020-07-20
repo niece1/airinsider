@@ -19,7 +19,7 @@ class PostTagRelationTest extends TestCase
     {
         $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
-        $tag=factory(Tag::class)->create();
+        $tag = factory(Tag::class)->create();
         $this->post('/dashboard/posts', [
             'title' => 'New Title',
             'body' => 'New body',
