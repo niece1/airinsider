@@ -39,8 +39,12 @@ class CommentPostRelationTest extends TestCase
     {
         $this->createFactoryPost();
         $comment = factory(Comment::class)->create();
+        factory(Comment::class)->create([
+            'user_id' => 1,
+            'user_id' => 1,
+            'comment_id' => 1,
+        ]);
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $comment->replies);
-       // $this->assertTrue($user->comments->contains($comment));
         $this->assertTrue($comment->replies()->exists());
     }
 }
