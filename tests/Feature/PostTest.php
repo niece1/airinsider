@@ -7,7 +7,6 @@ use Tests\TestCase;
 use Tests\Traits\AdminUser;
 use App\Category;
 use App\Post;
-use App\User;
 use App\Role;
 use App\Permission;
 
@@ -20,14 +19,9 @@ class PostTest extends TestCase
     {
         $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
-        $response = $this->post('/dashboard/posts', [
-            'title' => 'New Title',
-            'body' => 'New body',
-            'time_to_read' => 1,
-            'category_id' => 1,
-        ]);
+        $response = $this->post('/dashboard/posts', $this->createPostAttributes());
         $response->assertRedirect('/dashboard/posts');
-        $this->assertCount(1, Post::all());
+        $this->assertCount(1, Post::all());        
     }
 
     /** @test */
@@ -35,12 +29,10 @@ class PostTest extends TestCase
     {
         $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
-        $response = $this->post('/dashboard/posts', [
+        $response = $this->post('/dashboard/posts',
+                array_merge($this->createPostAttributes(), [
             'title' => '',
-            'body' => 'New body',
-            'time_to_read' => 1,
-            'category_id' => 1,
-        ]);
+        ]));
         $response->assertSessionHasErrors('title');
     }
     
@@ -49,13 +41,10 @@ class PostTest extends TestCase
     {
         $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
-        $params = [
+        $this->post('/dashboard/posts', array_merge($this->createPostAttributes(), [
             'title' => 'N',
             'body' => '',
-            'time_to_read' => 1,
-            'category_id' => 1,
-        ];
-        $this->post('/dashboard/posts', $params)
+        ]))
                 ->assertStatus(302)
                 ->assertSessionHas('errors');
         $messages = session('errors')->getMessages();
@@ -68,12 +57,10 @@ class PostTest extends TestCase
     {
         $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
-        $response = $this->post('/dashboard/posts', [
+        $response = $this->post('/dashboard/posts',
+                array_merge($this->createPostAttributes(), [
             'title' => 'A',
-            'body' => 'New body',
-            'time_to_read' => 1,
-            'category_id' => 1,
-        ]);
+        ]));
         $response->assertSessionHasErrors('title');
         $this->assertCount(0, Post::all());
     }
@@ -83,12 +70,10 @@ class PostTest extends TestCase
     {
         $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
-        $response = $this->post('/dashboard/posts', [
-            'title' => 'New title',
+        $response = $this->post('/dashboard/posts',
+                array_merge($this->createPostAttributes(), [
             'body' => '',
-            'time_to_read' => 1,
-            'category_id' => 1,
-        ]);
+        ]));
         $response->assertSessionHasErrors('body');
         $this->assertCount(0, Post::all());
     }
@@ -98,12 +83,10 @@ class PostTest extends TestCase
     {
         $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
-        $response = $this->post('/dashboard/posts', [
-            'title' => 'New title',
-            'body' => 'New body',
+        $response = $this->post('/dashboard/posts',
+                array_merge($this->createPostAttributes(), [
             'time_to_read' => '',
-            'category_id' => 1,
-        ]);
+        ]));
         $response->assertSessionHasErrors('time_to_read');
         $this->assertCount(0, Post::all());
     }
@@ -113,12 +96,10 @@ class PostTest extends TestCase
     {
         $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
-        $response = $this->post('/dashboard/posts', [
-            'title' => 'New title',
-            'body' => 'New body',
-            'time_to_read' => 1,
+        $response = $this->post('/dashboard/posts',
+                array_merge($this->createPostAttributes(), [
             'category_id' => '',
-        ]);
+        ]));
         $response->assertSessionHasErrors('category_id');
         $this->assertCount(0, Post::all());
     }
@@ -127,14 +108,8 @@ class PostTest extends TestCase
     public function store_post_validated_successfully() 
     {
         $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
-        $params = [
-            'title' => 'New title',
-            'body' => 'New body',
-            'time_to_read' => 1,
-            'category_id' => 1,
-        ];
-        $this->post('/dashboard/posts', $params)
+        factory(Category::class)->create();       
+        $this->post('/dashboard/posts', $this->createPostAttributes())
                 ->assertStatus(302)
                 ->assertSessionHas('success_message');
         $this->assertEquals(session('success_message'), 'Created Successfully!');
@@ -147,12 +122,9 @@ class PostTest extends TestCase
         factory(Category::class)->create();
         factory(Post::class)->create();
         $post = Post::first();
-        $response = $this->patch('/dashboard/posts/' . $post->id, [
-            'title' => 'New Title',
-            'body' => 'New body',
-            'time_to_read' => 1,
-            'category_id' => 1,
-        ])->assertSessionHas('success_message');
+        $response = $this->patch('/dashboard/posts/' . $post->id,
+                $this->createPostAttributes())
+                ->assertSessionHas('success_message');
         $this->assertEquals('New Title', Post::first()->title);
         $this->assertEquals('New body', Post::first()->body);
         $this->assertEquals(session('success_message'), 'Updated Successfully!');
@@ -172,26 +144,17 @@ class PostTest extends TestCase
         $post = Post::first();
         $this->assertCount(1, Post::all());
         $this->delete('/dashboard/posts/' . $post->id);
-        //   $response->assertOk();//use with GET, PUT only
         $this->assertCount(0, Post::all());
         $this->assertSoftDeleted($post);
     }
     
-    /** @test */
-    public function user_id_added_automatically_while_creating_post() 
+    private function createPostAttributes()
     {
-        $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
-        $this->post('/dashboard/posts', [
+        return [
             'title' => 'New Title',
             'body' => 'New body',
             'time_to_read' => 1,
             'category_id' => 1,
-            'user_id' => 1,
-        ]);
-        $user = User::first();
-        $post = Post::first();
-        $this->assertEquals($user->id, $post->user_id);
-        $this->assertCount(1, User::all());
-    }    
+        ];
+    }
 }

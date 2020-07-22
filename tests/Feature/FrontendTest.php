@@ -7,6 +7,7 @@ use Tests\TestCase;
 use App\Post;
 use App\User;
 use App\Category;
+use Carbon\Carbon;
 
 class FrontendTest extends TestCase
 {
@@ -48,7 +49,7 @@ class FrontendTest extends TestCase
     {
         factory(User::class)->create();
         factory(Category::class)->create();
-        factory(Post::class)->create([
+        $post = factory(Post::class)->create([
             'title' => 'New title',
             'body' => 'New body',
             'time_to_read' => 1,
@@ -61,6 +62,7 @@ class FrontendTest extends TestCase
         $this->assertDatabaseHas('posts', [
             'title' => 'New title'
         ]);
+        $this->assertInstanceOf(Carbon::class, $post->created_at);
     }
     
     /** @test */
@@ -73,6 +75,6 @@ class FrontendTest extends TestCase
             'slug' => 'first-post',
         ]);
         $response = $this->get('/post/first-post');
-        $response->assertSee('First post');
-    }               
+        $response->assertSee('First post');        
+    }  
 }

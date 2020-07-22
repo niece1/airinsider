@@ -30,6 +30,21 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
+    
+    public function comments()
+    {
+        return $this->hasMany(Comment::class)->whereNull('comment_id')->orderBy('created_at', 'DESC');
+    }
+
+    public function likes()
+    {
+        return $this->morphMany('App\Like', 'likeable');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class)->withTimestamps();
+    }
 
     public function getDateAttribute()
     {
@@ -69,20 +84,5 @@ class Post extends Model
     public function getIfPublishedAttribute()
     {
         return $this->published == 0 ? 'No' : 'Yes';
-    }
-
-    public function comments()
-    {
-        return $this->hasMany(Comment::class)->whereNull('comment_id')->orderBy('created_at', 'DESC');
-    }
-
-    public function likes()
-    {
-        return $this->morphMany('App\Like', 'likeable');
-    }
-
-    public function tags()
-    {
-        return $this->belongsToMany(Tag::class)->withTimestamps();
-    }
+    }    
 }
