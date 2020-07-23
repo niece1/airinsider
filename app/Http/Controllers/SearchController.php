@@ -19,5 +19,4 @@ class SearchController extends Controller {
 
         return view('backend.post.search-results', compact('posts'));
     }
-
 }

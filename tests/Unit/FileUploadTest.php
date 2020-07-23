@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Storage;
@@ -21,7 +21,13 @@ class FileUploadTest extends TestCase
         factory(Category::class)->create();
         $file = UploadedFile::fake()->image('logo.jpg');
         $this->createPost($file);
-        Storage::disk('public')->assertExists('posts/' . $file->hashName());
+        $this->assertDirectoryExists('public');
+        $this->assertDirectoryIsReadable('public');
+        $this->assertDirectoryIsWritable('public');
+        Storage::disk('public')->assertExists('posts/' . $file->hashName()); 
+        $this->assertFileExists('public');
+        $this->assertFileIsReadable('public');
+        $this->assertFileIsWritable('public');
     }
     
     /** @test */
