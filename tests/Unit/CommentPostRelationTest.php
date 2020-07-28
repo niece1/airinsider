@@ -4,7 +4,6 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\Traits\PostFactory;
 use App\Category;
 use App\Comment;
 use App\User;
@@ -12,39 +11,38 @@ use App\Post;
 
 class CommentPostRelationTest extends TestCase
 {
-    use RefreshDatabase, PostFactory;
+    use RefreshDatabase;
+    
+    public function setUp(): void
+    {
+        parent::setUp();        
+        $this->user = factory(User::class)->create();       
+        factory(Category::class)->create();
+        $this->post = factory(Post::class)->create();
+        $this->comment = factory(Comment::class)->create();
+    }
     
     /** @test */
     public function a_comment_belongs_to_user()
-    {
-        $this->createFactoryPost();
-        $comment = factory(Comment::class)->create();
-        $this->assertInstanceOf(User::class, $comment->user);
-        $this->assertTrue($comment->user()->exists());
+    {        
+        $this->assertInstanceOf(User::class, $this->comment->user);
+        $this->assertTrue($this->comment->user()->exists());
     }
     
     /** @test */
     public function a_user_has_many_comments()
     {
-        $user = factory(User::class)->create();
-        factory(Category::class)->create();
-        factory(Post::class)->create();
-        $comment = factory(Comment::class)->create();
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $user->comments);
-        $this->assertTrue($user->comments->contains($comment));
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->user->comments);
+        $this->assertTrue($this->user->comments->contains($this->comment));
     }
     
     /** @test */
     public function a_comment_has_many_replies()
     {
-        $this->createFactoryPost();
-        $comment = factory(Comment::class)->create();
         factory(Comment::class)->create([
-            'user_id' => 1,
-            'user_id' => 1,
             'comment_id' => 1,
         ]);
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $comment->replies);
-        $this->assertTrue($comment->replies()->exists());
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->comment->replies);
+        $this->assertTrue($this->comment->replies()->exists());
     }
 }

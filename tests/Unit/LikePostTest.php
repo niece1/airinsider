@@ -3,7 +3,6 @@
 namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Support\Facades\Schema;
 use Tests\TestCase;
 use App\Category;
 use App\Post;
@@ -17,23 +16,15 @@ class LikePostTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();        
-        $this->user = factory(User::class)->create();
-        $this->actingAs($this->user);
+        $this->user = factory(User::class)->create();        
         $this->category = factory(Category::class)->create();
         $this->post = factory(Post::class)->create();
-    }
+    }       
     
     /** @test */
-    public function like_database_has_expected_columns()
+    public function auth_users_can_like_a_post()
     {
-        $this->assertTrue(Schema::hasColumns('likes', [
-            'id', 'type', 'likeable_type', 'likeable_id', 'user_id'
-        ]), 1);
-    }
-    
-    /** @test */
-    public function one_can_like_a_post()
-    {     
+        $this->actingAs($this->user);
         $this->post('/likes/' . $this->post->id . '/up',
                 $this->createLikePostAttributes());
         $like = Like::first();
@@ -49,8 +40,9 @@ class LikePostTest extends TestCase
     }
    
     /** @test */
-    public function one_can_dislike_already_liked_post()
-    {     
+    public function auth_users_can_dislike_already_liked_post()
+    {
+        $this->actingAs($this->user);
         $this->post('/likes/' . $this->post->id . '/up',
                 $this->createLikePostAttributes());
         $this->assertDatabaseHas('likes', [
@@ -69,8 +61,9 @@ class LikePostTest extends TestCase
     }
     
     /** @test */
-    public function one_can_like_already_disliked_post()
-    {     
+    public function auth_users_can_like_already_disliked_post()
+    {
+        $this->actingAs($this->user);
         $this->post('/likes/' . $this->post->id . '/down',
                 array_merge($this->createLikePostAttributes(), [
                     'type' => 'down',
@@ -88,6 +81,20 @@ class LikePostTest extends TestCase
         ]);
     }
     
+    /** @test */
+    public function unauthenticated_users_cannot_like_a_post()
+    {
+        $this->post('/likes/' . $this->post->id . '/up',
+                $this->createLikePostAttributes());
+        $this->assertDatabaseCount('likes', 0);
+        $this->assertFalse($this->post->likes()->exists());
+    }
+    
+    /**
+     * Creates post attributes for Like entity
+     * 
+     * @return array
+     */
     private function createLikePostAttributes()
     {
         return [

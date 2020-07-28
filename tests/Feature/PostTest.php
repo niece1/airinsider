@@ -147,7 +147,11 @@ class PostTest extends TestCase
         $this->assertCount(0, Post::all());
         $this->assertSoftDeleted($post);
     }
-    
+    /**
+     * Creates attributes for Post entity
+     * 
+     * @return array
+     */
     private function createPostAttributes()
     {
         return [
