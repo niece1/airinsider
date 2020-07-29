@@ -16,7 +16,8 @@ class CommentTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();        
-        $this->user = factory(User::class)->create();       
+        $this->user = factory(User::class)->create(); 
+        $this->actingAs($this->user);
         $this->category = factory(Category::class)->create();
         $this->post = factory(Post::class)->create([
             'title' => 'First post',
@@ -27,7 +28,6 @@ class CommentTest extends TestCase
     /** @test */
     public function auth_users_can_post_a_comment()
     {
-        $this->actingAs($this->user);
         $this->post('/comments/' . $this->post->id, $this->createCommentAttributes());
         $this->assertCount(1, Comment::all());
     }
@@ -35,25 +35,23 @@ class CommentTest extends TestCase
     /** @test */
     public function unauthenticated_users_cannot_see_a_comment_form()
     {  
-        $response = $this->get('/post/first-post');
-        $response->assertDontSee('Ваш комментарий'); 
+        $this->get('/post/first-post')->assertDontSee('Ваш комментарий'); 
     }
     
     /** @test */
     public function to_post_a_comment_body_should_be_at_least_two_characters()
-    {
-        $this->actingAs($this->user);
+    {       
         $this->post('/comments/' . $this->post->id,
                 array_merge($this->createCommentAttributes(), [
                     'body' => 'V',
-                ]))->assertSessionHas('errors'); 
+                ]))
+                ->assertSessionHas('errors'); 
         $this->assertCount(0, Comment::all());
     }
     
     /** @test */
     public function auth_users_can_post_a_comment_reply()
     {
-        $this->actingAs($this->user);
         $comment = factory(Comment::class)->create();
         $this->post('/comments/' . $this->post->id,
                 array_merge($this->createCommentAttributes(), [

@@ -13,34 +13,35 @@ use App\Permission;
 class PostTest extends TestCase
 {
     use RefreshDatabase, AdminUser;
+    
+    public function setUp(): void
+    {
+        parent::setUp();  
+        $this->actingAs($this->createAdminUser());
+        factory(Category::class)->create();
+    }
 
     /** @test */
     public function a_post_can_be_added_to_the_table_through_the_form()
     {
-        $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
-        $response = $this->post('/dashboard/posts', $this->createPostAttributes());
-        $response->assertRedirect('/dashboard/posts');
+        $this->post('/dashboard/posts', $this->createPostAttributes())
+                ->assertRedirect('/dashboard/posts');
         $this->assertCount(1, Post::all());        
     }
 
     /** @test */
     public function validation_title_is_required() 
     {
-        $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
-        $response = $this->post('/dashboard/posts',
+        $this->post('/dashboard/posts',
                 array_merge($this->createPostAttributes(), [
             'title' => '',
-        ]));
-        $response->assertSessionHasErrors('title');
+        ]))
+                ->assertSessionHasErrors('title');
     }
     
     /** @test */
     public function store_post_validation_fails() 
     {
-        $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
         $this->post('/dashboard/posts', array_merge($this->createPostAttributes(), [
             'title' => 'N',
             'body' => '',
@@ -55,60 +56,50 @@ class PostTest extends TestCase
     /** @test */
     public function validation_title_is_at_least_two_characters() 
     {
-        $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
-        $response = $this->post('/dashboard/posts',
+        $this->post('/dashboard/posts',
                 array_merge($this->createPostAttributes(), [
             'title' => 'A',
-        ]));
-        $response->assertSessionHasErrors('title');
+        ]))
+                ->assertSessionHasErrors('title');
         $this->assertCount(0, Post::all());
     }
     
     /** @test */
     public function validation_a_body_is_required()
     {
-        $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
-        $response = $this->post('/dashboard/posts',
+        $this->post('/dashboard/posts',
                 array_merge($this->createPostAttributes(), [
             'body' => '',
-        ]));
-        $response->assertSessionHasErrors('body');
+        ]))
+                ->assertSessionHasErrors('body');
         $this->assertCount(0, Post::all());
     }
     
     /** @test */
     public function validation_time_to_read_is_required()
     {
-        $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
-        $response = $this->post('/dashboard/posts',
+        $this->post('/dashboard/posts',
                 array_merge($this->createPostAttributes(), [
             'time_to_read' => '',
-        ]));
-        $response->assertSessionHasErrors('time_to_read');
+        ]))
+                ->assertSessionHasErrors('time_to_read');
         $this->assertCount(0, Post::all());
     }
     
     /** @test */
     public function validation_category_id_is_required()
     {
-        $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
-        $response = $this->post('/dashboard/posts',
+        $this->post('/dashboard/posts',
                 array_merge($this->createPostAttributes(), [
             'category_id' => '',
-        ]));
-        $response->assertSessionHasErrors('category_id');
+        ]))
+                ->assertSessionHasErrors('category_id');
         $this->assertCount(0, Post::all());
     }
 
     /** @test */
     public function store_post_validated_successfully() 
-    {
-        $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();       
+    {       
         $this->post('/dashboard/posts', $this->createPostAttributes())
                 ->assertStatus(302)
                 ->assertSessionHas('success_message');
@@ -118,35 +109,30 @@ class PostTest extends TestCase
     /** @test */
     public function a_post_can_be_updated() 
     {
-        $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
-        factory(Post::class)->create();
-        $post = Post::first();
-        $response = $this->patch('/dashboard/posts/' . $post->id,
+        $post = factory(Post::class)->create();       
+        $this->patch('/dashboard/posts/' . $post->id,
                 $this->createPostAttributes())
-                ->assertSessionHas('success_message');
+                ->assertSessionHas('success_message')
+                ->assertRedirect('/dashboard/posts/');
         $this->assertEquals('New Title', Post::first()->title);
         $this->assertEquals('New body', Post::first()->body);
         $this->assertEquals(session('success_message'), 'Updated Successfully!');
         $this->assertDatabaseMissing('posts', $post->toArray());
-        $this->assertDatabaseHas('posts', ['title' => 'New Title']);
-        $response->assertRedirect('/dashboard/posts/');
+        $this->assertDatabaseHas('posts', ['title' => 'New Title']);        
     }
 
     /** @test */
     public function a_post_can_be_trashed()
     {
-        $this->actingAs($this->createAdminUser());
         $this->assertCount(1, Role::all());
         $this->assertCount(32, Permission::all());
-        factory(Category::class)->create();
-        factory(Post::class)->create();
-        $post = Post::first();
+        $post = factory(Post::class)->create();
         $this->assertCount(1, Post::all());
         $this->delete('/dashboard/posts/' . $post->id);
         $this->assertCount(0, Post::all());
         $this->assertSoftDeleted($post);
     }
+    
     /**
      * Creates attributes for Post entity
      * 

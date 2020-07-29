@@ -9,23 +9,27 @@ use App\Category;
 
 class CategoryTest extends TestCase
 {
-    use RefreshDatabase, AdminUser;    
+    use RefreshDatabase, AdminUser;
+
+    public function setUp(): void
+    {
+        parent::setUp();  
+        $this->actingAs($this->createAdminUser());
+    }    
     
     /** @test */
     public function a_catagory_can_be_added_to_the_table_through_the_form()
     {
-        $this->actingAs($this->createAdminUser());
-        $response = $this->post('/dashboard/categories', [
+        $this->post('/dashboard/categories', [
             'title' => 'Airbus',
-        ]);
-        $response->assertRedirect('/dashboard/categories');
+        ])
+                ->assertRedirect('/dashboard/categories');
         $this->assertCount(1, Category::all());
     }
     
     /** @test */
     public function title_field_is_required() 
     {
-        $this->actingAs($this->createAdminUser());
         $this->post('/dashboard/categories', [
             'title' => '',
         ])
@@ -38,7 +42,6 @@ class CategoryTest extends TestCase
     /** @test */
     public function title_field_should_be_at_least_two_characters() 
     {
-        $this->actingAs($this->createAdminUser());
         $this->post('/dashboard/categories', [
             'title' => 'A',
         ])
@@ -51,7 +54,6 @@ class CategoryTest extends TestCase
     /** @test */
     public function title_field_should_be_max_ten_characters() 
     {
-        $this->actingAs($this->createAdminUser());
         $this->post('/dashboard/categories', [
             'title' => 'Antananarivo',
         ])
@@ -64,26 +66,23 @@ class CategoryTest extends TestCase
     /** @test */
     public function a_category_can_be_updated() 
     {
-        $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
-        $category = Category::first();
-        $response = $this->patch('/dashboard/categories/' . $category->id, [
+        $category = factory(Category::class)->create();
+        $this->patch('/dashboard/categories/' . $category->id, [
             'title' => 'Airbus',
-        ])->assertSessionHas('success_message');
+        ])
+                ->assertSessionHas('success_message')
+                ->assertRedirect('/dashboard/categories/');
         $this->assertEquals('Airbus', Category::first()->title);
         $this->assertEquals(session('success_message'), 'Category Updated Successfully!');
         $this->assertDatabaseMissing('categories', $category->toArray());
         $this->assertDatabaseHas('categories', ['title' => 'Airbus']);
-        $response->assertRedirect('/dashboard/categories/');
     }
     
     /** @test */
     public function a_category_can_be_deleted()
     {
-        $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
-        $this->assertCount(1, Category::all());
-        $category = Category::first();        
+        $category = factory(Category::class)->create();
+        $this->assertCount(1, Category::all());       
         $this->delete('/dashboard/categories/' . $category->id);
         $this->assertCount(0, Category::all());
         $this->assertDeleted($category);
