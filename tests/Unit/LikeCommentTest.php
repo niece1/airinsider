@@ -37,7 +37,8 @@ class LikeCommentTest extends TestCase
             'user_id' => $this->user->id,
         ]);
         $this->assertInstanceOf(Comment::class, $like->likeable);
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->comment->likes);
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection',
+                $this->comment->likes);
         $this->assertTrue($this->comment->likes()->exists());
     }
     

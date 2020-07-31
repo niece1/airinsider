@@ -28,8 +28,10 @@ class PermissionRoleRelationTest extends TestCase
             'role_id' => $role->id,
             'permission_id' => $permission->id,
         ]);
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $role->permissions);
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $permission->roles);
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection',
+                $role->permissions);
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection',
+                $permission->roles);
         $this->assertTrue($role->permissions()->exists());
         $this->assertTrue($permission->roles()->exists());
     }

@@ -17,7 +17,6 @@ class SubscriptionTest extends TestCase
         $this->post('/subscriptions', [
             'email' => 'airinsider@gmail.com',
         ]);
-      //  $response->assertRedirect('/dashboard/posts');
         $this->assertCount(1, Subscription::all());
     }
     
