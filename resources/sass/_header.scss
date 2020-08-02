@@ -1,0 +1,170 @@
+/*Header and Navigation styles*/
+
+header {
+    top: 0;
+    left: 0;
+    padding: 0;
+    position: absolute;
+    background: #fff;
+    width: 100%;
+    height: 75px;
+    z-index: 99;
+    box-shadow: 0 0 12.48px 0.52px rgba(48, 178, 32, 0.04);
+    .menu-wrapper {
+        width: 90%;
+        margin: auto;
+        .logo {
+            color: #000;
+            height: 75px;
+            line-height: 75px;
+            font-size: 2rem;
+            float: left;
+            a {
+                color: #000;
+                span.logo-span {
+                    font-weight: 600;
+                }
+            }
+        }
+        nav {
+            float: right;
+            display: block;
+            ul {
+                margin: 0%;
+                padding: 0%;
+                display: flex;
+                li {
+                    position: relative;
+                    font-size: 1.4rem;
+                    a {
+                        line-height: 75px;
+                        height: 75px;
+                        padding: 0 20px;
+                        color: #000;
+                        display: inline-block;
+                        letter-spacing: 1px;
+                    }
+                    ul {
+                        position: absolute;
+                        left: 0;
+                        background: #fff;
+                        box-shadow: 2px 2px hsl(204, 33%, 97%);
+                        display: none;
+                        z-index: 99;
+                        li {
+                            display: block;
+                            width: 200px;
+                            a {
+                                padding-left: initial;
+                                span {
+                                    position: relative;
+                                    transition: 0.5s;
+                                    &:before {
+                                        content: "→";
+                                        font-size: 2rem;
+                                        opacity: 0;
+                                        transition: 0.5s;
+                                    }
+                                }
+                                &:hover span {
+                                    padding-left: 20px;
+                                    color: #e71d43;
+                                    transition: all 0.5s ease-in-out;
+                                    &:before {
+                                        opacity: 1;
+                                        padding-right: 5px;
+                                        transition: all 0.5s ease-in-out;
+                                        color: #e71d43;
+                                    }
+                                }
+                            }
+                            a.sub-item {
+                                line-height: 60px;
+                                height: 60px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* Sticky and Mobile Navigation */
+
+.fixed {
+    position: fixed;
+    animation: navbar-slide 0.7s;
+    transition: all 0.7s ease-in-out;
+}
+@keyframes navbar-slide {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+header .menu-wrapper nav ul li.active ul {
+    display: block;
+}
+header .menu-wrapper nav ul li.sub-menu:before {
+    content: "▾";
+    line-height: 75px;
+    position: absolute;
+    right: 5px;
+}
+header .menu-wrapper nav ul li.active.sub-menu:before {
+    content: "▴";
+    position: absolute;
+}
+@media screen and (max-width: 991px) {
+    header {
+        padding: 0;
+    }
+    header .menu-wrapper nav {
+        position: absolute;
+        width: 100%;
+        height: calc(100vh - 75px);
+        overflow: auto;
+        background: #fff;
+        top: 75px;
+        left: -100%;
+        transition: all 0.5s ease-in-out;
+        z-index: 90;
+    }
+    header .menu-wrapper nav.active {
+        left: 0;
+    }
+    header .menu-wrapper nav ul {
+        display: block;
+        text-align: left;
+        margin: 0 30px;
+        box-shadow: none !important;
+    }
+    header .menu-wrapper nav ul li a {
+        line-height: 60px;
+        height: 60px;
+        display: block;
+    }
+    header .menu-wrapper nav ul li.active ul {
+        position: relative;
+        background-color: hsl(204, 33%, 97%);
+        margin: 0;
+    }
+    header .menu-wrapper nav ul li ul li {
+        width: 100%;
+    }
+    header .menu-wrapper nav ul li ul li a {
+        border-bottom: initial;
+        line-height: 60px !important;
+        margin: 0;
+        text-transform: none;
+    }
+    header .menu-wrapper nav ul li.sub-menu:before {
+        line-height: 60px;
+    }
+    .menu-toggle {
+        display: block;
+    }
+}

@@ -28,7 +28,7 @@
                     <nav>
                         <ul>
                             <li>
-                                <a href="#">О нас</a>
+                                <a href="{{ route('about') }}">О нас</a>
                             </li>
                             <li>
                                 <a href="{{ route('contact') }}">Контакты</a>

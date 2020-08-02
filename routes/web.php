@@ -20,7 +20,12 @@ Auth::routes();
 Route::get('/', 'FrontendController@index')->name('home');
 Route::get('/post/{post}', 'FrontendController@show')->name('post.show');
 Route::get('/contact', 'ContactController@createSlider')->name('contact');
+
+//Contact
 Route::post('contact', 'ContactController@storeContactForm');
+
+//About
+Route::get('about', 'AboutController')->name('about');
 
 //Laravel Socialite Facebook Google Github
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');

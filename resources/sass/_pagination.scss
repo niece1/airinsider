@@ -1,0 +1,36 @@
+/*Pagination styles*/
+
+.news-pagination {
+    width: 100%;
+    .news-pagination-wrapper {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        ul.pagination {
+            display: inline-block;
+            margin-bottom: 20px;
+            li {
+                float: left;
+                padding: 7px;
+                margin: 0 5px 0 0;
+                a {
+                    color: #000;
+                    font-size: 1.6rem;
+                    &:hover {
+                        color: #e71d43;
+                        transition: all 0.2s ease-in-out;
+                    }
+                    &:not(:hover) {
+                        color: #000;
+                        transition: all 0.2s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+}
+span.page-link {
+    font-size: 1.8rem;
+    color: #e71d43;
+    cursor: not-allowed;
+}

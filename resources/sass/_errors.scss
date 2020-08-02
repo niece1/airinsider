@@ -1,0 +1,47 @@
+/*Error pages styles*/
+
+.error-page {
+    width: 100%;
+    .error-page-wrapper {
+        width: 90%;
+        margin: 60px auto;
+        text-align: center;
+        h1 {
+            font-weight: normal;
+            font-size: 4rem;
+        }
+        h6 {
+            text-transform: uppercase;
+            margin: 35px auto 15px auto;
+            font-weight: normal;
+            letter-spacing: 2px;
+        }
+        p {
+            color: #4e4e4e;
+            margin-bottom: 20px;
+        }
+        a.button {
+            border: 2px solid #e71d43;
+            padding: 14px 22px 12px 22px;
+            display: inline-block;
+            margin: 0 0 20px 0;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 3px;
+            background-color: transparent;
+            color: #000;
+            &:hover {
+                background-color: #e71d43;
+                color: #fff;
+                border: 2px solid #e71d43;
+                transition: all 0.3s ease-in-out;
+            }
+            &:not(:hover) {
+                background-color: transparent;
+                color: #000;
+                transition: all 0.3s ease-in-out;
+            }
+        }
+    }
+}

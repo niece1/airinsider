@@ -1,0 +1,190 @@
+/*Show page styles*/
+
+.news-show {
+    width: 100%;
+    .news-show-wrapper {
+        width: 90%;
+        margin: 60px auto;
+        min-height: 500px;
+        position: relative;
+        .item-itself {
+            overflow: hidden;
+            width: 70%;
+            display: block;
+            float: left;
+            user-select: none;
+            .thumbnail {
+                display: block;
+                overflow: hidden;
+                background: #cccccc;
+                img {
+                    width: 100%;
+                    display: block;
+                    overflow: hidden;
+                    object-fit: cover;
+                }
+            }
+            h1 {
+                font-weight: normal;
+                margin: 20px 0;
+                font-size: 3.6rem;
+            }
+            p {
+                line-height: 30px;
+                color: #000;
+                position: relative;
+                span.dot {
+                    height: 5px;
+                    width: 5px;
+                    background-color: #000;
+                    border-radius: 50%;
+                    margin: 0 10px 3px 10px;
+                    display: inline-block;
+                }
+                a {
+                    color: #0633ff;
+                    &:hover {
+                        color: #e71d43;
+                        transition: all 0.4s ease-in-out;
+                    }
+                }
+            }
+            p.show-body {              
+                line-height: 30px;
+                color: #4e4e4e;
+            }
+            .item-line {
+                width: 100%;
+                height: 1px;
+                background-color: #4e4e4e;
+                margin: 30px 0;
+            }
+            .add-this-position {
+                display: inline-block;
+            }
+            .meta-right {
+                float: right;
+                color: #000;
+            }
+            h4 {
+                margin: 50px 0 20px 0;
+                font-weight: normal;
+            }
+            @media screen and (max-width: 950px) {
+                width: 100%;
+            }
+        }
+        aside.sidebar {
+            float: right;
+            display: block;
+            width: 23%;
+            margin: 0;
+            padding: 0;
+            @media screen and (max-width: 950px) {
+                float: left;
+                margin: 40px 0 0 0;
+                width: 100%;
+            }
+            .related-posts-widget {
+                margin: 0 0 30px 0;
+                h2 {
+                    font-weight: normal;
+                    padding: 0;
+                    margin: 0 0 30px 0;
+                }
+                ul.related {
+                    li {
+                        clear: left;
+                        .image-holder {
+                            background: #cccccc;
+                            display: block;
+                            overflow: hidden;
+                            float: left;
+                            width: 92px;
+                            height: 69px;
+                            margin: 0 15px 15px 0;
+                            a {
+                                img {
+                                    width: 100%;                                   
+                                    display: block;
+                                    object-fit: cover;
+                                    overflow: hidden;
+                                    width: 92px;
+                                    height: 69px;
+                                }
+                            }
+                        }                       
+                        .post-content {
+                            p {
+                                display: block;
+                                margin-bottom: 5px;
+                                padding: 10px 0 0 0;
+                                a {
+                                    color: #000;
+                                    &:hover {
+                                        color: #e71d43;
+                                        transition: all 0.4s ease-in-out;
+                                    }
+                                }
+                            }
+                            small {
+                                color: #4e4e4e;
+                                font-size: 1.2rem;
+                            }
+                        }
+                    }
+                }
+            }
+            .category-widget {
+                margin: 30px 0;
+                h2 {
+                    font-weight: normal;
+                    margin-bottom: 30px;
+                }
+                ul.category-list {
+                    font-size: 1.6rem;
+                    li {
+                        margin: 10px 0;
+                        a {
+                            display: inline-block;
+                            color: #000;
+                            &:hover {
+                                color: #e71d43;
+                            }
+                        }
+                    }
+                }
+            }
+            .tag-widget {
+                margin: 70px 0 30px 0;
+                clear: left;
+                h2 {
+                    font-weight: normal;
+                    margin-bottom: 30px;
+                }
+                .tag-cloud {
+                    font-size: 1.6rem;
+                    a {
+                        display: inline-block;
+                        margin: 0 5px 5px 0;
+                        border: 1px solid #e71d43;
+                        padding: 3px 14px 3px 14px;
+                        &:hover {
+                            color: #fff;
+                            background-color: #e71d43;
+                            transition: all 0.4s ease-in-out;
+                        }
+                        &:not(:hover) {
+                            background-color: transparent;
+                            color: #000;
+                            transition: all 0.4s ease-in-out;
+                        }
+                    }
+                }
+            }
+        }
+        .clear {
+            clear: both;
+        }
+    }
+}
