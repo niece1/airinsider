@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Open+Sans&display=swap);@charset "UTF-8";
 
 /*General styles*/
 
@@ -168,19 +168,8 @@ header .menu-wrapper nav ul li ul li a.sub-item {
 
 .fixed {
   position: fixed;
-  -webkit-animation: navbar-slide 0.7s;
-          animation: navbar-slide 0.7s;
+  animation: navbar-slide 0.7s;
   transition: all 0.7s ease-in-out;
-}
-
-@-webkit-keyframes navbar-slide {
-  0% {
-    transform: translateY(-100%);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
 }
 
 @keyframes navbar-slide {
@@ -487,8 +476,7 @@ footer .footer_wrapper_upper .popular_posts ul li .image-holder {
 footer .footer_wrapper_upper .popular_posts ul li .image-holder a img {
   overflow: hidden;
   display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 footer .footer_wrapper_upper .popular_posts ul li small {
@@ -673,8 +661,7 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
 .jumbothron .jumbothron-wrapper .photo img {
   width: 100%;
   height: auto;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 /*News section*/
@@ -730,8 +717,7 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   width: 100%;
   height: 100%;
   display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: transform 0.5s ease-in-out;
 }
 
@@ -927,10 +913,7 @@ span.page-link {
   width: 70%;
   display: block;
   float: left;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .news-show .news-show-wrapper .item-itself .thumbnail {
@@ -943,8 +926,7 @@ span.page-link {
   width: 100%;
   display: block;
   overflow: hidden;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 
 .news-show .news-show-wrapper .item-itself h1 {
@@ -1052,8 +1034,7 @@ span.page-link {
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .image-holder a img {
   width: 100%;
   display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   overflow: hidden;
   width: 92px;
   height: 69px;
@@ -1275,26 +1256,6 @@ and open the template in the editor.
   width: 100%;
 }
 
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group input::-webkit-input-placeholder {
-  font-size: 1.6rem;
-  color: #4e4e4e;
-}
-
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group input::-moz-placeholder {
-  font-size: 1.6rem;
-  color: #4e4e4e;
-}
-
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group input:-ms-input-placeholder {
-  font-size: 1.6rem;
-  color: #4e4e4e;
-}
-
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group input::-ms-input-placeholder {
-  font-size: 1.6rem;
-  color: #4e4e4e;
-}
-
 .contact-page .contact-page-wrapper .contact-form form .contact-form-group input::placeholder {
   font-size: 1.6rem;
   color: #4e4e4e;
@@ -1304,22 +1265,6 @@ and open the template in the editor.
   outline: none;
   border-bottom: 1px solid #000;
   transition: all 0.2s ease-in-out;
-}
-
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group input:focus::-webkit-input-placeholder {
-  color: #000;
-}
-
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group input:focus::-moz-placeholder {
-  color: #000;
-}
-
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group input:focus:-ms-input-placeholder {
-  color: #000;
-}
-
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group input:focus::-ms-input-placeholder {
-  color: #000;
 }
 
 .contact-page .contact-page-wrapper .contact-form form .contact-form-group input:focus::placeholder {
@@ -1334,30 +1279,6 @@ and open the template in the editor.
   width: 100%;
 }
 
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea::-webkit-input-placeholder {
-  font-size: 1.6rem;
-  color: #4e4e4e;
-  font-family: "Open Sans", sans-serif;
-}
-
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea::-moz-placeholder {
-  font-size: 1.6rem;
-  color: #4e4e4e;
-  font-family: "Open Sans", sans-serif;
-}
-
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea:-ms-input-placeholder {
-  font-size: 1.6rem;
-  color: #4e4e4e;
-  font-family: "Open Sans", sans-serif;
-}
-
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea::-ms-input-placeholder {
-  font-size: 1.6rem;
-  color: #4e4e4e;
-  font-family: "Open Sans", sans-serif;
-}
-
 .contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea::placeholder {
   font-size: 1.6rem;
   color: #4e4e4e;
@@ -1368,22 +1289,6 @@ and open the template in the editor.
   outline: none;
   border-bottom: 1px solid #000;
   transition: all 0.2s ease-in-out;
-}
-
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea:focus::-webkit-input-placeholder {
-  color: #000;
-}
-
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea:focus::-moz-placeholder {
-  color: #000;
-}
-
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea:focus:-ms-input-placeholder {
-  color: #000;
-}
-
-.contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea:focus::-ms-input-placeholder {
-  color: #000;
 }
 
 .contact-page .contact-page-wrapper .contact-form form .contact-form-group textarea:focus::placeholder {
@@ -1471,8 +1376,7 @@ and open the template in the editor.
   width: 100%;
   height: 100%;
   display: block;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   transition: transform 0.5s ease-in-out;
 }
 
@@ -1693,30 +1597,6 @@ and open the template in the editor.
   width: 100%;
 }
 
-.register .register-wrapper form .form-group .group-holder input::-webkit-input-placeholder {
-  font-size: 1.6rem;
-  color: #4e4e4e;
-  opacity: 1;
-}
-
-.register .register-wrapper form .form-group .group-holder input::-moz-placeholder {
-  font-size: 1.6rem;
-  color: #4e4e4e;
-  opacity: 1;
-}
-
-.register .register-wrapper form .form-group .group-holder input:-ms-input-placeholder {
-  font-size: 1.6rem;
-  color: #4e4e4e;
-  opacity: 1;
-}
-
-.register .register-wrapper form .form-group .group-holder input::-ms-input-placeholder {
-  font-size: 1.6rem;
-  color: #4e4e4e;
-  opacity: 1;
-}
-
 .register .register-wrapper form .form-group .group-holder input::placeholder {
   font-size: 1.6rem;
   color: #4e4e4e;
@@ -1727,26 +1607,6 @@ and open the template in the editor.
   outline: none;
   border-bottom: 1px solid #000;
   transition: all 0.2s ease-in-out;
-}
-
-.register .register-wrapper form .form-group .group-holder input:focus::-webkit-input-placeholder {
-  color: #000;
-  opacity: 1;
-}
-
-.register .register-wrapper form .form-group .group-holder input:focus::-moz-placeholder {
-  color: #000;
-  opacity: 1;
-}
-
-.register .register-wrapper form .form-group .group-holder input:focus:-ms-input-placeholder {
-  color: #000;
-  opacity: 1;
-}
-
-.register .register-wrapper form .form-group .group-holder input:focus::-ms-input-placeholder {
-  color: #000;
-  opacity: 1;
 }
 
 .register .register-wrapper form .form-group .group-holder input:focus::placeholder {
@@ -1765,10 +1625,7 @@ and open the template in the editor.
   padding-left: 30px;
   font-size: 1.4rem;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .register .register-wrapper form .form-group .checkbox-container input {
@@ -1926,30 +1783,6 @@ and open the template in the editor.
   .search-overlay form.search-input input {
     width: 65%;
   }
-}
-
-.search-overlay form.search-input input::-webkit-input-placeholder {
-  color: #9c9c9c;
-  font-size: 4rem;
-  opacity: 1;
-}
-
-.search-overlay form.search-input input::-moz-placeholder {
-  color: #9c9c9c;
-  font-size: 4rem;
-  opacity: 1;
-}
-
-.search-overlay form.search-input input:-ms-input-placeholder {
-  color: #9c9c9c;
-  font-size: 4rem;
-  opacity: 1;
-}
-
-.search-overlay form.search-input input::-ms-input-placeholder {
-  color: #9c9c9c;
-  font-size: 4rem;
-  opacity: 1;
 }
 
 .search-overlay form.search-input input::placeholder {
@@ -2248,8 +2081,7 @@ and open the template in the editor.
 }
 
 .dashboard form.create-update .form-wrapper .post-image img {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   width: auto;
   height: 150px;
   display: block;
@@ -2284,10 +2116,7 @@ and open the template in the editor.
   cursor: pointer;
   font-size: 1.4rem;
   padding-left: 30px;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .dashboard form.create-update .form-wrapper label.radio-container input.form-radio {
@@ -2339,10 +2168,7 @@ and open the template in the editor.
   padding-left: 35px;
   font-size: 1.4rem;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  user-select: none;
 }
 
 .dashboard form.create-update .form-wrapper .checkbox-container input {
@@ -2480,9 +2306,7 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
   cursor: pointer;
   display: block;
   height: 28px;
-  -moz-user-select: none;
-   -ms-user-select: none;
-       user-select: none;
+  user-select: none;
   -webkit-user-select: none;
 }
 
@@ -2509,9 +2333,7 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
   cursor: pointer;
   display: block;
   min-height: 32px;
-  -moz-user-select: none;
-   -ms-user-select: none;
-       user-select: none;
+  user-select: none;
   -webkit-user-select: none;
 }
 
@@ -2563,9 +2385,7 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
 
 .select2-results__option {
   padding: 6px;
-  -moz-user-select: none;
-   -ms-user-select: none;
-       user-select: none;
+  user-select: none;
   -webkit-user-select: none;
 }
 
@@ -2883,6 +2703,8 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
   border: 1px solid #aaa;
   border-radius: 4px;
   outline: 0;
+  background-image: -webkit-linear-gradient(top, white 50%, #eeeeee 100%);
+  background-image: -o-linear-gradient(top, white 50%, #eeeeee 100%);
   background-image: linear-gradient(to bottom, white 50%, #eeeeee 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#FFFFFFFF", endColorstr="#FFEEEEEE", GradientType=0);
@@ -2919,6 +2741,8 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
   top: 1px;
   right: 1px;
   width: 20px;
+  background-image: -webkit-linear-gradient(top, #eeeeee 50%, #cccccc 100%);
+  background-image: -o-linear-gradient(top, #eeeeee 50%, #cccccc 100%);
   background-image: linear-gradient(to bottom, #eeeeee 50%, #cccccc 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#FFEEEEEE", endColorstr="#FFCCCCCC", GradientType=0);
@@ -2969,6 +2793,8 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
   border-top: none;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+  background-image: -webkit-linear-gradient(top, white 0%, #eeeeee 50%);
+  background-image: -o-linear-gradient(top, white 0%, #eeeeee 50%);
   background-image: linear-gradient(to bottom, white 0%, #eeeeee 50%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#FFFFFFFF", endColorstr="#FFEEEEEE", GradientType=0);
@@ -2978,6 +2804,8 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
   border-bottom: none;
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
+  background-image: -webkit-linear-gradient(top, #eeeeee 50%, white 100%);
+  background-image: -o-linear-gradient(top, #eeeeee 50%, white 100%);
   background-image: linear-gradient(to bottom, #eeeeee 50%, white 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#FFEEEEEE", endColorstr="#FFFFFFFF", GradientType=0);
