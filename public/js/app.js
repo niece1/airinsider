@@ -22242,7 +22242,7 @@ var render = function() {
                 id: "newsletter",
                 name: "email",
                 type: "email",
-                placeholder: "Get newsletter"
+                placeholder: "Получить новости"
               },
               domProps: { value: _vm.email },
               on: {
