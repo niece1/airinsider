@@ -1,3 +1,34 @@
 /*About page styles*/
 
-
+.about-page {
+    width: 100%;
+    height: auto;
+    .about-page-wrapper {
+        width: 90%;
+        margin: 60px auto;
+        .thumbnail {
+            display: block;
+            overflow: hidden;
+            background: #cccccc;
+            margin: 35px 0;
+            img {
+                width: 100%;
+                display: block;
+                overflow: hidden;
+                object-fit: cover;
+            }
+        }
+    }
+    .about-content {       
+        h3 {
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 1.8rem;
+            a {
+                color: #0633ff;
+            }
+        }
+    }
+}

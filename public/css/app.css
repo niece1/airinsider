@@ -1123,16 +1123,44 @@ span.page-link {
   clear: both;
 }
 
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
+/*About page styles*/
 
-/*
-    Created on : Aug 2, 2020, 5:26:06 PM
-    Author     : test
-*/
+.about-page {
+  width: 100%;
+  height: auto;
+}
+
+.about-page .about-page-wrapper {
+  width: 90%;
+  margin: 60px auto;
+}
+
+.about-page .about-page-wrapper .thumbnail {
+  display: block;
+  overflow: hidden;
+  background: #cccccc;
+  margin: 35px 0;
+}
+
+.about-page .about-page-wrapper .thumbnail img {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  object-fit: cover;
+}
+
+.about-page .about-content h3 {
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.about-page .about-content p {
+  font-size: 1.8rem;
+}
+
+.about-page .about-content p a {
+  color: #0633ff;
+}
 
 /*Contact page styles*/
 

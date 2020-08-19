@@ -91,8 +91,9 @@
                 <div class="footer_wrapper_upper">
                     <div class="footer_about">
                         <a href="{{ url('/') }}" class="logo-footer">Авиаинсайдер</a>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis veniam unde tenetur ullam. Amet, reprehenderit ea nam voluptatibus quisquam harum!</p>
-                        <a href="#"><span>Read more</span></a>
+                        <p>Авиационный новостной портал, освещающий
+            события в мире гражданской авиации.</p>
+                        <a href="{{ route('about') }}"><span>Читать далее</span></a>
                     </div>
                     <div class="footer_links">
                         <h5>Категории</h5>
@@ -108,7 +109,7 @@
                         <h5>Меню</h5>
                         <ul>
                             <li><a href="{{ url('/') }}"><span>На главную</span></a></li>
-                            <li><a href="about.html"><span>О нас</span></a></li>
+                            <li><a href="{{ route('about') }}"><span>О нас</span></a></li>
                             <li><a href="{{ route('contact') }}"><span>Контакты</span></a></li>
                             <li><a href="{{ route('login') }}"><span>Войти</span></a></li>
                             <li><a href="{{ route('register') }}"><span>Регистрация</span></a></li>
@@ -122,7 +123,12 @@
                 <div class="footer_wrapper_down">
                     <svg class="hidden">
                     <symbol id="icon-heart" viewBox="0 0 24 21">
-                        <path d="M20.497.957A6.765 6.765 0 0 0 17.22.114a6.76 6.76 0 0 0-5.218 2.455A6.778 6.778 0 0 0 3.506.957 6.783 6.783 0 0 0 0 6.897c0 .732.12 1.434.335 2.09 1.163 5.23 11.668 11.827 11.668 11.827s10.498-6.596 11.663-11.826a6.69 6.69 0 0 0 .336-2.091 6.786 6.786 0 0 0-3.505-5.94z" />
+                        <path d="M20.497.957A6.765 6.765 0 0 0 17.22.114a6.76 
+                              6.76 0 0 0-5.218 2.455A6.778 6.778 0 0 0 3.506.957 
+                              6.783 6.783 0 0 0 0 6.897c0 .732.12 1.434.335 2.09 
+                              1.163 5.23 11.668 11.827 11.668 11.827s10.498-6.596 
+                              11.663-11.826a6.69 6.69 0 0 0 .336-2.091 6.786 6.786 
+                              0 0 0-3.505-5.94z" />
                     </symbol>
                     </svg>
                     <div class="footer_copyright">
@@ -134,7 +140,7 @@
                             </button>for a better web.</p>
                     </div>
                     <div class="footer_newsletter">
-                        <h5>Newsletter Subscribe</h5>
+                        <h5>Подпишитесь на новости</h5>
 
                         <!-- Vue component -->
                         <subscription></subscription>
