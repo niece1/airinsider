@@ -33,15 +33,7 @@ class FrontendTest extends TestCase
         $this->actingAs($this->user)
                 ->get('/')
                 ->assertStatus(200);
-    }
- 
-    /** @test */
-    public function contact_page_works_correctly()
-    {      
-        $this->get('/contact')
-                ->assertSeeText('Заполните форму')
-                ->assertSeeText('Напишите нам');
-    }      
+    }         
     
     /** @test */
     public function no_posts_on_index_page_when_database_empty()

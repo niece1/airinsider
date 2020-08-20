@@ -11,17 +11,17 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
-
 Auth::routes();
+
 //Frontend
 Route::get('/', 'FrontendController@index')->name('home');
 Route::get('/post/{post}', 'FrontendController@show')->name('post.show');
-Route::get('/contact', 'ContactController@createSlider')->name('contact');
+Route::get('categories/{category}', 'FrontendController@postsByCategory')->name('category');
+Route::get('tags/{tag}', 'FrontendController@postsByTag')->name('tag');
+Route::get('users/{user}', 'FrontendController@postsByUser')->name('user');
 
 //Contact
+Route::get('/contact', 'ContactController@createSlider')->name('contact');
 Route::post('contact', 'ContactController@storeContactForm');
 
 //About
@@ -38,15 +38,6 @@ Route::post('comments/{post}', 'CommentController@store')->middleware(['auth']);
 
 //Likes
 Route::post('likes/{entityId}/{type}', 'LikeController@like')->middleware(['auth']);
-
-//Posts by category
-Route::get('categories/{category}', 'FrontendController@postsByCategory')->name('category');
-
-//Posts by tag
-Route::get('tags/{tag}', 'FrontendController@postsByTag')->name('tag');
-
-//Posts by user
-Route::get('users/{user}', 'FrontendController@postsByUser')->name('user');
 
 //Dashboard
 Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
