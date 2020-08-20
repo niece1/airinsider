@@ -1364,6 +1364,10 @@ span.page-link {
   font-weight: normal;
 }
 
+.contact-page .contact-page-wrapper .right-column p {
+  color: #4e4e4e;
+}
+
 /* Slick slider */
 
 .slider {

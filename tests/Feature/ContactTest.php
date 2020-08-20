@@ -3,9 +3,20 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class ContactTest extends TestCase
 {
+    use RefreshDatabase;
+    
+    /** @test */
+    public function contact_page_works_correctly()
+    {      
+        $this->get('/contact')
+                ->assertSeeText('Заполните форму')
+                ->assertSeeText('Напишите нам');
+    }
+    
     /** @test */
     public function a_user_can_send_mail_through_the_form()
     {
