@@ -35,19 +35,31 @@
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->last_login_at }}</td>
-                        <td>@if($user->provider){{ $user->provider }}@endif</td>
+                        <td>
+                            @if($user->provider)
+                            {{ $user->provider }}
+                            @endif
+                        </td>
                         <td>{{ $user->last_login_ip_address }}</td>
                         <td>{{ $user->created_at }}</td>
-                        <td>@foreach($user->roles as $role){{ $role->title . " " }}@endforeach</td>
+                        <td>
+                            @foreach ($user->roles as $role)
+                            {{ $role->title . " " }}
+                            @endforeach
+                        </td>
                         <td>
                             @can('user_edit')
-                            <a href="/dashboard/users/{{ $user->id }}/edit" class="action-button-green">Edit</a>
+                            <a href="/dashboard/users/{{ $user->id }}/edit" class="action-button-green">
+                                Edit
+                            </a>
                             @endcan
                             @can('user_delete')
-                            <form action="{{ route('users.destroy', $user->id) }}" method="post" onsubmit="return confirm('Delete user?')">
+                            <form action="{{ route('users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Delete user?')">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="action-button-red">Delete</button>
+                                <button type="submit" class="action-button-red">
+                                    Delete
+                                </button>
                             </form>
                             @endcan
                         </td>

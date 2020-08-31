@@ -7,13 +7,17 @@
                 @if($post->photo)
                 <div class="image-holder">
                     <a href="{{ route('post.show', [$post->slug]) }}">
-                        <img class="lazyload" src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs=" data-src="{{ asset('storage/'.$post->photo->path) }}" alt="Photo">
+                        <img class="lazyload"
+                            src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs=" 
+                            data-src="{{ asset('storage/' . $post->photo->path) }}" alt="Photo">
                     </a>
                 </div>
                 @endif
                 <div class="post-content">
                     <p>
-                        <a href="{{ route('post.show', [$post->slug]) }}">{{ $post->title }}</a>
+                        <a href="{{ route('post.show', [$post->slug]) }}">
+                            {{ $post->title }}
+                        </a>
                     </p>
                     <small>{{ $post->date }}</small>
                 </div>
@@ -33,7 +37,11 @@
         <h2>Categories</h2>
         @foreach ($categories as $category)
         <ul class="category-list">
-            <li><a href="{{ route('category', [$category->id]) }}">{{ $category->title }}</a></li>
+            <li>
+                <a href="{{ route('category', [$category->id]) }}">
+                    {{ $category->title }}
+                </a>
+            </li>
         </ul>
         @endforeach
     </div>

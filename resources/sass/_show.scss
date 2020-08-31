@@ -29,20 +29,30 @@
                 margin: 20px 0;
                 font-size: 3.6rem;
             }
-            p {
+            p.photo-source {
+                text-transform: initial;
+                font-size: 1.6rem;
+            }
+            p.meta {
                 line-height: 30px;
                 color: #000;
                 position: relative;
-                span.dot {
-                    height: 5px;
-                    width: 5px;
-                    background-color: #000;
-                    border-radius: 50%;
-                    margin: 0 10px 3px 10px;
-                    display: inline-block;
-                }
-                a {
+                text-transform: uppercase;
+                font-size: 1.4rem;                
+                a.show-category {
                     color: #0633ff;
+                    font-size: 1.4rem;
+
+                    margin-right: 1rem;
+                    &:hover {
+                        color: #e71d43;
+                        transition: all 0.4s ease-in-out;
+                    }
+                }
+                a.show-author {
+                    color: #0633ff;
+                    font-size: 1.4rem;
+                    margin-left: 1rem;
                     &:hover {
                         color: #e71d43;
                         transition: all 0.4s ease-in-out;

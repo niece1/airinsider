@@ -1,5 +1,7 @@
 @extends('layouts.frontend')
 
+@section('title', 'Войти')
+
 @section('content')
 
 <section class="title-jumbotron">
@@ -10,33 +12,31 @@
 
 <section class="register">
     <div class="register-wrapper">
-        <p>Нет аккаунта?<a href="{{ route('register') }}">создать</a></p>
-        <form method="POST" action="{{ route('login') }}">
+        <p>Нет аккаунта?
+            <a href="{{ route('register') }}">создать</a>
+        </p>
+        <form action="{{ route('login') }}" method="POST">
             @csrf
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="Email" autocomplete="email" required>
+                    <input type="email" name="email" value="{{ old('email') }}" id="email" placeholder="Email" autocomplete="email" required>
                     @error('email')
-                    <span class="invalid-feedback">
-                        {{ $message }}
-                    </span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="password" type="password" name="password" placeholder="Пароль" autocomplete="current-password" required>
+                    <input type="password" name="password" id="password" placeholder="Пароль" autocomplete="current-password" required>
                     @error('password')
-                    <span class="invalid-feedback">
-                        {{ $message }}
-                    </span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
             <div class="form-group">
                 <label class="checkbox-container" for="remember">
                     Запомнить меня
-                    <input class="checkbox" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                    <input type="checkbox" name="remember" id="remember" class="checkbox" {{ old('remember') ? 'checked' : '' }}>
                     <span class="checkmark"></span>
                 </label>
             </div>
@@ -46,14 +46,24 @@
                     Войти
                 </button>
                 @if (Route::has('password.request'))
-                <a class="reset-link" href="{{ route('password.request') }}">
+                <a href="{{ route('password.request') }}" class="reset-link">
                     Забыли пароль?
                 </a>
                 @endif
             </div>
         </form>
         <p class="social-proceed">Продолжить с помощью вашей соцсети</p>
-        <p><a href="{{ url('login/facebook') }}"><i class="fab fa-facebook-f"></i></a><a href="{{ url('login/google') }}"><i class="fab fa-google"></i></a><a href="{{ url('login/github') }}"><i class="fab fa-github"></i></a></p>
+        <p>
+            <a href="{{ url('login/facebook') }}">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="{{ url('login/google') }}">
+                <i class="fab fa-google"></i>
+            </a>
+            <a href="{{ url('login/github') }}">
+                <i class="fab fa-github"></i>
+            </a>
+        </p>
     </div>
 </section>
 

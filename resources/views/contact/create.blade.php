@@ -15,7 +15,8 @@
         <div class="contact-us">
             <h2>Не стесняйтесь...</h2>
             <p>Если вас что-то интересует или беспокоит в пределах тематики
-                сайта - смело адресуйте ваш вопрос.</p>
+                сайта - смело адресуйте ваш вопрос.
+            </p>
             <h5>мы в соцсетях</h5>
             <p class="contact-social">
                 <a href="#" id="facebook">fb</a>
@@ -27,22 +28,22 @@
             <h2>Заполните форму</h2>
             @include('frontend.includes.flash')
             @if(!session()->has('success'))
-            <form method="POST" action="/contact">
+            <form action="/contact" method="POST">
                 <div class="contact-form-group">
-                    <input type="text" name="name" placeholder="Имя" 
-                            value="{{ old('name') }}" autocomplete="name" required>
+                    <input type="text" name="name" value="{{ old('name') }}" placeholder="Имя" autocomplete="name" required>
                     <div class="invalid-feedback">{{ $errors->first('name') }}</div>
                 </div>
                 <div class="contact-form-group">
-                    <input type="email" name="email" placeholder="Email"
-                            value="{{ old('email') }}" autocomplete="email" required>
+                    <input type="email" name="email" value="{{ old('email') }}" placeholder="Email" autocomplete="email" required>
                     <div class="invalid-feedback">{{ $errors->first('email') }}</div>
                 </div>
                 <div class="contact-form-group">
-                    <textarea type="text" name="message" placeholder="Сообщение"
-                            autocomplete="message" required>{{ old('message') }}
+                    <textarea type="text" name="message" placeholder="Сообщение" autocomplete="message" required>
+                        {{ old('message') }}
                     </textarea>
-                    <div class="invalid-feedback">{{ $errors->first('message') }}</div>
+                    <div class="invalid-feedback">
+                        {{ $errors->first('message') }}
+                    </div>
                 </div>
                 @captcha
                 <button type="submit" class="button">Отправить</button>
@@ -71,7 +72,7 @@
                     <a href="{{ route('post.show', [$news_item->slug]) }}">
                         <img class="lazyload" 
                             src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs="
-                            data-src="{{ asset('storage/'.$news_item->photo->path) }}" alt="Photo">
+                            data-src="{{ asset('storage/' . $news_item->photo->path) }}" alt="Photo">
                         <div class="image-overlay"></div>
                     </a>
                 </div>
@@ -80,21 +81,35 @@
                     <a href="{{ route('post.show', [$news_item->slug]) }}">
                         <h6>{{ $news_item->title }}</h6>
                     </a>
-                    <p class="item-blog-text">{{ $news_item->description }}{{ $news_item->three_dots }}</p>
+                    <p class="item-blog-text">
+                        {{ $news_item->description }}{{ $news_item->three_dots }}
+                    </p>
                     @if($news_item->user)
                     <p class="item-blog-author">
                         <i class="fas fa-user-edit"></i>
-                        By <a href="{{ route('user', [$news_item->user->id]) }}">{{ $news_item->user->name }}</a>
+                        <a href="{{ route('user', [$news_item->user->id]) }}">
+                            {{ $news_item->user->name }}
+                        </a>
                     </p>
                     @endif
-                    <p><i class="fas fa-clock"></i>{{ $news_item->time_to_read }} minutes to read</p>
-                    <p class="item-blog-date">{{ $news_item->date }}</p>
-                    <p class="item-blog-comment">Comments: {{ $news_item->comments->count() }}</p>
+                    <p>
+                        <i class="fas fa-clock"></i>
+                        Время чтения: {{ $news_item->time_to_read }} мин.
+                    </p>
+                    <p class="item-blog-date">
+                        {{ $news_item->date }}
+                    </p>
+                    <p class="item-blog-comment">
+                        Комментарии: {{ $news_item->comments->count() }}
+                    </p>
                     <div class="blog-line"></div>
                     <div class="item-blog-bottom">
-                        <a href="{{ route('post.show', [$news_item->slug]) }}" class="button">Читать</a>
+                        <a href="{{ route('post.show', [$news_item->slug]) }}" class="button">
+                            Читать
+                        </a>
                         @if($news_item->category)
-                        <p><i class="fas fa-tags"></i>
+                        <p>
+                            <i class="fas fa-tags"></i>
                             <a href="{{ route('category', [$news_item->category->id]) }}">
                                 {{ $news_item->category->title }}
                             </a>

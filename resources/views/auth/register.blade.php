@@ -1,5 +1,7 @@
 @extends('layouts.frontend')
 
+@section('title', 'Создать аккаунт')
+
 @section('content')
 
 <section class="title-jumbotron">
@@ -10,42 +12,38 @@
 
 <section class="register">
     <div class="register-wrapper">
-        <p>Уже есть аккаунт?<a href="{{ route('login') }}">войти</a></p>
-        <form method="POST" action="{{ route('register') }}">
+        <p>Уже есть аккаунт?
+            <a href="{{ route('login') }}">войти</a>
+        </p>
+        <form action="{{ route('register') }}" method="POST">
             @csrf
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="name" type="text" name="name" value="{{ old('name') }}" placeholder="Имя" autocomplete="name" required>
+                    <input type="text" name="name" value="{{ old('name') }}" id="name" placeholder="Имя" autocomplete="name" required>
                     @error('name')
-                    <span class="invalid-feedback">
-                        {{ $message }}
-                    </span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="email" type="email" name="email" value="{{ old('email') }}" placeholder="Email" required>
+                    <input type="email" name="email" value="{{ old('email') }}" id="email" placeholder="Email" required>
                     @error('email')
-                    <span class="invalid-feedback">
-                        {{ $message }}
-                    </span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="password" type="password" placeholder="Пароль" name="password" autocomplete="new-password" required>
+                    <input type="password" name="password" id="password" placeholder="Пароль" autocomplete="new-password" required>
                     @error('password')
-                    <span class="invalid-feedback">
-                        {{ $message }}
-                    </span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="password-confirm" type="password" placeholder="Подтвердите пароль" name="password_confirmation" autocomplete="new-password">
+                    <input type="password" name="password_confirmation" id="password-confirm" placeholder="Подтвердите пароль" autocomplete="new-password">
                 </div>
             </div>
            @captcha

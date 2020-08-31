@@ -31,16 +31,24 @@
                     <tr>
                         <td>{{ $role->id }}</td>						
                         <td>{{ $role->title }}</td>
-                        <td>@foreach($role->permissions as $permission)<span class="badge">{{ $permission->title . " " }}</span>@endforeach</td>
+                        <td>
+                            @foreach($role->permissions as $permission)
+                            <span class="badge">{{ $permission->title . " " }}</span>
+                            @endforeach
+                        </td>
                         <td>
                             @can('role_edit')
-                            <a href="/dashboard/roles/{{ $role->id }}/edit" class="action-button-green">Edit</a>
+                            <a href="/dashboard/roles/{{ $role->id }}/edit" class="action-button-green">
+                                Edit
+                            </a>
                             @endcan
                             @can('role_delete')
-                            <form action="{{ route('roles.destroy', $role->id) }}" method="post" onsubmit="return confirm('Delete role?')">
+                            <form action="{{ route('roles.destroy', $role->id) }}" method="POST" onsubmit="return confirm('Delete role?')">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="action-button-red">Delete</button>
+                                <button type="submit" class="action-button-red">
+                                    Delete
+                                </button>
                             </form>
                             @endcan
                         </td>

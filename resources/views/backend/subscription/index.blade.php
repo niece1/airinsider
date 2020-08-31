@@ -33,10 +33,12 @@
                         <td>{{ $subscription->email }}</td>						
                         <td>
                             @can('subscription_delete')
-                            <form action="{{ route('subscriptions.destroy', $subscription->id) }}" method="post" onsubmit="return confirm('Delete subscription?')">
+                            <form action="{{ route('subscriptions.destroy', $subscription->id) }}" method="POST" onsubmit="return confirm('Delete subscription?')">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="action-button-red">Delete</button>
+                                <button type="submit" class="action-button-red">
+                                    Delete
+                                </button>
                             </form>
                             @endcan
                         </td>
@@ -49,9 +51,7 @@
 </section>
 
 <section class="news-pagination">
-    <div class="news-pagination-wrapper">
-        {{ $subscriptions->links() }}
-    </div>
+    <div class="news-pagination-wrapper">{{ $subscriptions->links() }}</div>
 </section>
 
 @endsection

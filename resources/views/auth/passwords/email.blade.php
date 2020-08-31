@@ -1,5 +1,7 @@
 @extends('layouts.frontend')
 
+@section('title', 'Сбросить пароль')
+
 @section('content')
 
 <section class="title-jumbotron">
@@ -15,11 +17,11 @@
             {{ session('status') }}
         </div>
         @endif
-        <form method="POST" action="{{ route('password.email') }}">
+        <form action="{{ route('password.email') }}" method="POST">
             @csrf
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Email" autocomplete="email" autofocus>
+                    <input type="email" name="email" id="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" placeholder="Email" autocomplete="email">
                     @error('email')
                     <span class="invalid-feedback" role="alert">
                         {{ $message }}

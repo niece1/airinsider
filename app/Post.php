@@ -53,7 +53,13 @@ class Post extends Model
     
     public function getShowPageDateAttribute()
     {
-        return date('d-m-Y', strtotime($this->updated_at));
+        setlocale(LC_TIME, config('app.locale'));
+        return is_null($this->updated_at) ? '' : strftime('%d %B %G года', strtotime($this->updated_at));
+    }
+    
+    public function getShowPageTimeAttribute()
+    {
+        return is_null($this->updated_at) ? '' : date('H:i', strtotime($this->updated_at));
     }
     
     public function getDashboardShowBodyAttribute()

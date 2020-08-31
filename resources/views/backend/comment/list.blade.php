@@ -29,34 +29,39 @@
                     @foreach ($comments as $comment)
                     <tr>
                         <td>{{ $comment->id }}</td>						
-                        <td>@if($comment->user){{ $comment->user->name }}@endif</td>						
-                        <td>@if($comment->post)
+                        <td>
+                            @if($comment->user)
+                            {{ $comment->user->name }}
+                            @endif
+                        </td>						
+                        <td>
+                            @if($comment->post)
                             {{ $comment->post->title }}
-                            @endif</td>						
+                            @endif
+                        </td>						
                         <td>{{ $comment->body }}</td>
                         <td>{{ $comment->if_reply }}</td>
                         <td>
                             @can('comment_delete')
-                            <form action="{{ route('comments.destroy', $comment->id) }}" method="post" onsubmit="return confirm('Delete comment?')">
+                            <form action="{{ route('comments.destroy', $comment->id) }}" method="POST" onsubmit="return confirm('Delete comment?')">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="action-button-red">Delete</button>
+                                <button type="submit" class="action-button-red">
+                                    Delete
+                                </button>
                             </form>
                             @endcan
                         </td>
                     </tr>				
                     @endforeach
                 </table>
-
             </div>
         </div>
     </div>
 </section>
 
 <section class="news-pagination">
-    <div class="news-pagination-wrapper">
-        {{ $comments->links() }}
-    </div>
+    <div class="news-pagination-wrapper">{{ $comments->links() }}</div>
 </section>
 
 @endsection

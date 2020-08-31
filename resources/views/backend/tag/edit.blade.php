@@ -18,7 +18,7 @@
                 <h5>Edit Tag</h5>
             </div>
             <div class="well-content">
-                <form action="{{ route('tags.update', $tag->id) }}" class="create-update" method="post" enctype="multipart/form-data">
+                <form action="{{ route('tags.update', $tag->id) }}" method="POST" class="create-update" enctype="multipart/form-data">
                     @method('PATCH')
                     <div class="form-wrapper">
                         <label for="title">Title</label>

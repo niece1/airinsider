@@ -5,7 +5,7 @@
 </div>
 <div class="form-wrapper">
     <label for="body">Body</label>
-    <textarea id="mytextarea" name="body">{{ old('body') ?? $post->body }}</textarea>
+    <textarea name="body" id="mytextarea">{{ old('body') ?? $post->body }}</textarea>
     <div class="form-error">{{ $errors->first('body') }}</div>
 </div>
 <div class="form-wrapper">
@@ -13,7 +13,9 @@
     <select name="category_id" value="{{ old('category_id') }}" class="form-select">
         <option selected disabled="">Select category</option>
         @foreach ($categories as $category)
-        <option value="{{ $category->id }}" {{ $category->id == $post->category_id ? 'selected' : '' }}>{{ $category->title }}</option>
+        <option value="{{ $category->id }}" {{ $category->id == $post->category_id ? 'selected' : '' }}>
+            {{ $category->title }}
+        </option>
         @endforeach
     </select>
     <div class="form-error">{{ $errors->first('category_id') }}</div>
@@ -26,9 +28,11 @@
 @if($post->photo)
 <div class="form-wrapper">
     <div class="post-image">	
-        <img src="{{ asset('storage/'.$post->photo->path) }}"  alt="Photo">
+        <img src="{{ asset('storage/' . $post->photo->path) }}"  alt="Photo">
         <div class="post-image-overlay">
-            <a href="{{ route('expungePhoto', ['id' => $post->photo->id]) }}" class="action-button-delete">Delete</a>
+            <a href="{{ route('expungePhoto', ['id' => $post->photo->id]) }}" class="action-button-delete">
+                Delete
+            </a>
         </div>	
     </div>
 </div>
@@ -59,9 +63,11 @@
 </div>
 <div class="form-wrapper">
     <label for="tag_id">Choose tags</label>
-    <select class="tag-select-for-post" name="tag_id[]" multiple="multiple">
+    <select name="tag_id[]" class="tag-select-for-post" multiple="multiple">
         @foreach ($tags as $tag)
-        <option value="{{ $tag->id }}" {{ in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'selected' : '' }}>{{ $tag->title }}</option>
+        <option value="{{ $tag->id }}" {{ in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'selected' : '' }}>
+            {{ $tag->title }}
+        </option>
         @endforeach
     </select>
 </div>
