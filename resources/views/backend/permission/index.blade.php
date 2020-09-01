@@ -32,10 +32,12 @@
                         <td>{{ $permission->title }}</td>						
                         <td>
                             @can('permission_delete')
-                            <form action="{{ route('permissions.destroy', $permission->id) }}" method="post" onsubmit="return confirm('Delete permission?')">
+                            <form action="{{ route('permissions.destroy', $permission->id) }}" method="POST" onsubmit="return confirm('Delete permission?')">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="action-button-red">Delete</button>
+                                <button type="submit" class="action-button-red">
+                                    Delete
+                                </button>
                             </form>
                             @endcan
                         </td>

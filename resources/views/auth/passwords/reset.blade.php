@@ -5,7 +5,7 @@
 <section class="register">
     <div class="register-wrapper">
         <h1>{{ __('Reset Password') }}</h1>
-        <form method="POST" action="{{ route('password.update') }}">
+        <form action="{{ route('password.update') }}" method="POST">
             @csrf
             <div class="form-group">
                 <div class="group-holder">

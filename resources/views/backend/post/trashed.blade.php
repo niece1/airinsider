@@ -31,26 +31,37 @@
                     @forelse ($posts as $post)
                     <tr>
                         <td>{{ $post->id }}</td>
-                        <td>@if($post->photo)<img src="{{ asset('storage/'.$post->photo->path) }}" height="60" width="90" alt="Photo">@endif</td>
+                        <td>
+                            @if($post->photo)
+                            <img src="{{ asset('storage/' . $post->photo->path) }}" height="60" width="90" alt="Photo">
+                            @endif
+                        </td>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->deleted_at }}</td>
                         <td>{{ $post->viewed }}</td>
-                        <td>@if($post->category){{ $post->category->title }}@endif</td>
+                        <td>
+                            @if($post->category)
+                            {{ $post->category->title }}
+                            @endif
+                        </td>
                         <td>
                             @can('post_restore')
-                            <form action="{{ route('restore', $post->id) }}" method="post">							
+                            <form action="{{ route('restore', $post->id) }}" method="POST">							
                                 @csrf
-                                <button type="submit" class="action-button-green">Restore</button>
+                                <button type="submit" class="action-button-green">
+                                    Restore
+                                </button>
                             </form>
                             @endcan
                             @can('post_delete')
-                            <form action="{{ route('expunge', $post->id) }}" method="post" onsubmit="return confirm('Delete post?')">
+                            <form action="{{ route('expunge', $post->id) }}" method="POST" onsubmit="return confirm('Delete post?')">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="action-button-red">Delete</button>
+                                <button type="submit" class="action-button-red">
+                                    Delete
+                                </button>
                             </form>
                             @endcan
-                            <!--Modal-->
                         </td>
                     </tr>
                     @empty

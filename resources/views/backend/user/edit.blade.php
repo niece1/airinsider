@@ -18,7 +18,7 @@
                 <h5>Edit User</h5>
             </div>
             <div class="well-content">
-                <form action="{{ route('users.update', $user->id) }}" class="create-update" method="post" enctype="multipart/form-data">
+                <form action="{{ route('users.update', $user->id) }}" method="POST" class="create-update" enctype="multipart/form-data">
                     @method('PATCH')
                     <div class="form-wrapper">
                         <label for="title">Title</label>
@@ -28,7 +28,7 @@
                         <p class="attach-role">Attach role</p>
                         @foreach($roles as $role)
                         <label class="checkbox-container">{{ $role->title }}
-                            <input class="checkbox" type="checkbox" name="role_id[]" value="{{ $role->id }}"{{ in_array($role->id, $user->roles->pluck('id')->toArray()) ? 'checked' : ''}}>
+                            <input type="checkbox" name="role_id[]" class="checkbox" value="{{ $role->id }}"{{ in_array($role->id, $user->roles->pluck('id')->toArray()) ? 'checked' : ''}}>
                             <span class="checkmark"></span>
                         </label><br>
                         @endforeach

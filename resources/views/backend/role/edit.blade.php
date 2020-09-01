@@ -24,7 +24,7 @@
                 <h5>Edit Role</h5>
             </div>
             <div class="well-content">
-                <form action="{{ route('roles.update', $role->id) }}" class="create-update" method="post" enctype="multipart/form-data">
+                <form action="{{ route('roles.update', $role->id) }}" method="POST" class="create-update" enctype="multipart/form-data">
                     @method('PATCH')
                     @include('/backend/role/includes.form')
                     <button type="submit" class="button">Save</button>				

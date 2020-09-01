@@ -32,13 +32,17 @@
                         <td>{{ $category->title }}</td>						
                         <td>
                             @can('category_edit')
-                            <a href="/dashboard/categories/{{ $category->id }}/edit" class="action-button-green">Edit</a>
+                            <a href="/dashboard/categories/{{ $category->id }}/edit" class="action-button-green">
+                                Edit
+                            </a>
                             @endcan
                             @can('category_delete')
-                            <form action="{{ route('categories.destroy', $category->id) }}" method="post" onsubmit="return confirm('Delete category?')">
+                            <form action="{{ route('categories.destroy', $category->id) }}" method="POST" onsubmit="return confirm('Delete category?')">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="action-button-red">Delete</button>
+                                <button type="submit" class="action-button-red">
+                                    Delete
+                                </button>
                             </form>
                             @endcan
                         </td>

@@ -18,7 +18,7 @@
                 <h5>Create Permission</h5>
             </div>
             <div class="well-content">
-                <form action="{{ route('permissions.store') }}" class="create-update" method="post" enctype="multipart/form-data">
+                <form action="{{ route('permissions.store') }}" method="POST" class="create-update" enctype="multipart/form-data">
                     <div class="form-wrapper">
                         <label for="title">Title</label>
                         <input type="text" name="title" value="{{ old('title') }}" class="form-input" autofocus>

@@ -5,7 +5,10 @@
         @if($post->photo)
         <div class="image-holder">
             <a href="{{ route('post.show', [$post->slug]) }}">
-                <img class="lazyload" src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs=" data-src="{{ asset('storage/'.$post->photo->path) }}" width="92" height="69" alt="Photo">
+                <img class="lazyload"
+                    src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs=" 
+                    data-src="{{ asset('storage/'.$post->photo->path) }}" 
+                    width="92" height="69" alt="Photo">
             </a>
         </div>
         @endif

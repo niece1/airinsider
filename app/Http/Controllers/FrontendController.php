@@ -28,7 +28,7 @@ class FrontendController extends Controller {
                     return $query->where('id', '<>', $featured->id);                           
                 })
                 ->orderBy('id', 'desc')
-                ->paginate(8)
+                ->paginate(12)
         );
 
         return view('frontend.index', compact('featured', 'news'));

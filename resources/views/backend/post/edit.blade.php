@@ -23,7 +23,7 @@
 
 <section class="title-jumbotron">
     <div class="parallax-text">
-        <h1>Edit: {{$post->title}}</h1>
+        <h1>Edit post</h1>
     </div>
 </section>
 
@@ -35,7 +35,7 @@
                 <h5>Edit Post</h5>
             </div>
             <div class="well-content">
-                <form action="{{ route('posts.update', $post->id) }}" class="create-update" method="post" enctype="multipart/form-data">
+                <form action="{{ route('posts.update', $post->id) }}" method="POST" class="create-update" enctype="multipart/form-data">
                     @method('PATCH')
                     @include('/backend/post/includes.form')
                     <button type="submit" class="button">Submit</button>

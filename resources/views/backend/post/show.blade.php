@@ -29,7 +29,11 @@
                     </tr>
                     <tr>
                         <td>Image</td>
-                        <td>@if($post->photo)<img src="{{ asset('storage/'.$post->photo->path) }}" height="60" width="90" alt="Photo">@endif</td>
+                        <td>
+                            @if($post->photo)
+                            <img src="{{ asset('storage/'.$post->photo->path) }}" height="60" width="90" alt="Photo">
+                            @endif
+                        </td>
                     </tr>
                     <tr>
                         <td>Photo source</td>
@@ -57,15 +61,27 @@
                     </tr>
                     <tr>
                         <td>User</td>
-                        <td>@if($post->user){{ $post->user->name }}@endif</td>						
+                        <td>
+                            @if($post->user)
+                            {{ $post->user->name }}
+                            @endif
+                        </td>						
                     </tr>
                     <tr>
                         <td>Category</td>
-                        <td>@if($post->category){{ $post->category->title }}@endif</td>						
+                        <td>
+                            @if($post->category)
+                            {{ $post->category->title }}
+                            @endif
+                        </td>						
                     </tr>
                     <tr>
                         <td>Tags</td>
-                        <td>@foreach($post->tags as $tag)<span class="badge">{{ $tag->title . " " }}</span>@endforeach</td>						
+                        <td>
+                            @foreach($post->tags as $tag)
+                            <span class="badge">{{ $tag->title . " " }}</span>
+                            @endforeach
+                        </td>						
                     </tr>
                     <tr>
                         <td>Created</td>
@@ -78,7 +94,7 @@
                 </table>
             </div>
         </div>				
-        <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+        <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
             @method('DELETE')
             @csrf
             <button type="submit" class="delete-show-page">Delete</button>

@@ -24,7 +24,7 @@
                 <h5>Create Role</h5>
             </div>
             <div class="well-content">
-                <form action="{{ route('roles.store') }}" class="create-update" method="post" enctype="multipart/form-data">
+                <form action="{{ route('roles.store') }}" method="POST" class="create-update" enctype="multipart/form-data">
                     @include('/backend/role/includes.form')
                     <button type="submit" class="button">Submit</button>
                     @csrf				

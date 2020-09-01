@@ -18,7 +18,7 @@
                 <h5>Edit Category</h5>
             </div>
             <div class="well-content">
-                <form action="{{ route('categories.update', $category->id) }}" class="create-update" method="post" enctype="multipart/form-data">
+                <form action="{{ route('categories.update', $category->id) }}" method="POST" class="create-update" enctype="multipart/form-data">
                     @method('PATCH')
                     <div class="form-wrapper">
                         <label for="title">Title</label>

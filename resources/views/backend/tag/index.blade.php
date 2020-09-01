@@ -32,13 +32,17 @@
                         <td>{{ $tag->title }}</td>						
                         <td>
                             @can('tag_edit')
-                            <a href="/dashboard/tags/{{ $tag->id }}/edit" class="action-button-green">Edit</a>
+                            <a href="/dashboard/tags/{{ $tag->id }}/edit" class="action-button-green">
+                                Edit
+                            </a>
                             @endcan
                             @can('tag_delete')
-                            <form action="{{ route('tags.destroy', $tag->id) }}" method="post" onsubmit="return confirm('Delete tag?')">
+                            <form action="{{ route('tags.destroy', $tag->id) }}" method="POST" onsubmit="return confirm('Delete tag?')">
                                 @method('DELETE')
                                 @csrf
-                                <button type="submit" class="action-button-red">Delete</button>
+                                <button type="submit" class="action-button-red">
+                                    Delete
+                                </button>
                             </form>
                             @endcan
                         </td>

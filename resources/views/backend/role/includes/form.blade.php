@@ -7,7 +7,9 @@
     <label for="permission_id">Choose permissions</label>
     <select class="permission-select-for-role" name="permission_id[]" multiple="multiple">
         @foreach ($permissions as $permission)
-        <option value="{{ $permission->id }}" {{ in_array($permission->id, $role->permissions->pluck('id')->toArray()) ? 'selected' : '' }}>{{ $permission->title }}</option>
+        <option value="{{ $permission->id }}" {{ in_array($permission->id, $role->permissions->pluck('id')->toArray()) ? 'selected' : '' }}>
+            {{ $permission->title }}
+        </option>
         @endforeach
     </select>
 </div>
