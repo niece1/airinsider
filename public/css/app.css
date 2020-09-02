@@ -797,11 +797,11 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
 }
 
 .news .news-wrapper .item .item-content p.item-blog-comment {
-  margin-left: 32px;
+  margin-left: 35px;
 }
 
 .news .news-wrapper .item .item-content p.item-blog-date {
-  margin-left: 32px;
+  margin-left: 35px;
 }
 
 .news .news-wrapper .item .item-content .blog-line {
@@ -947,7 +947,7 @@ span.page-link {
 }
 
 .news-show .news-show-wrapper .item-itself p.meta {
-  line-height: 30px;
+  line-height: 3rem;
   color: #000;
   position: relative;
   text-transform: uppercase;
@@ -977,7 +977,7 @@ span.page-link {
 }
 
 .news-show .news-show-wrapper .item-itself p.show-body {
-  line-height: 30px;
+  line-height: 2.6rem;
   color: #4e4e4e;
 }
 
@@ -1150,13 +1150,20 @@ span.page-link {
 .about-page .about-page-wrapper {
   width: 90%;
   margin: 60px auto;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-row-gap: 50px;
+}
+
+@media screen and (max-width: 1200px) {
+  .about-page .about-page-wrapper {
+    grid-template-columns: 100%;
+  }
 }
 
 .about-page .about-page-wrapper .thumbnail {
-  display: block;
   overflow: hidden;
   background: #cccccc;
-  margin: 35px 0;
 }
 
 .about-page .about-page-wrapper .thumbnail img {
@@ -1166,13 +1173,23 @@ span.page-link {
   object-fit: cover;
 }
 
-.about-page .about-content h3 {
+.about-page .about-content {
+  margin-left: 100px;
+}
+
+@media screen and (max-width: 1200px) {
+  .about-page .about-content {
+    margin-left: 0;
+  }
+}
+
+.about-page .about-content h2 {
   font-weight: normal;
   margin-bottom: 15px;
 }
 
 .about-page .about-content p {
-  font-size: 1.8rem;
+  line-height: 2.6rem;
 }
 
 .about-page .about-content p a {
@@ -1219,6 +1236,7 @@ span.page-link {
 .contact-page .contact-page-wrapper .contact-us p {
   color: #4e4e4e;
   padding: 0 10px;
+  line-height: 2.6rem;
 }
 
 .contact-page .contact-page-wrapper .contact-us h5 {
@@ -1383,6 +1401,7 @@ span.page-link {
 
 .contact-page .contact-page-wrapper .right-column p {
   color: #4e4e4e;
+  line-height: 2.6rem;
 }
 
 /* Slick slider */
@@ -1499,11 +1518,11 @@ span.page-link {
 }
 
 .slider .contact-slider .contact-slider-wrapper .item .item-content p.item-blog-comment {
-  margin-left: 32px;
+  margin-left: 35px;
 }
 
 .slider .contact-slider .contact-slider-wrapper .item .item-content p.item-blog-date {
-  margin-left: 32px;
+  margin-left: 35px;
 }
 
 .slider .contact-slider .contact-slider-wrapper .item .item-content .blog-line {

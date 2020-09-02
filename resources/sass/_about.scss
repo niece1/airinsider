@@ -6,11 +6,15 @@
     .about-page-wrapper {
         width: 90%;
         margin: 60px auto;
+        display: grid;
+        grid-template-columns: 40% 60%;
+        grid-row-gap: 50px;
+        @media screen and (max-width: 1200px) {
+            grid-template-columns: 100%;
+        }
         .thumbnail {
-            display: block;
             overflow: hidden;
-            background: #cccccc;
-            margin: 35px 0;
+            background: #cccccc;            
             img {
                 width: 100%;
                 display: block;
@@ -19,13 +23,17 @@
             }
         }
     }
-    .about-content {       
-        h3 {
+    .about-content {
+        margin-left: 100px;
+        @media screen and (max-width: 1200px) {
+            margin-left: 0;
+        }
+        h2 {
             font-weight: normal;
             margin-bottom: 15px;
         }
         p {
-            font-size: 1.8rem;
+            line-height: 2.6rem;
             a {
                 color: #0633ff;
             }
