@@ -13,7 +13,7 @@ trait AdminUser
 {
     use DashboardAccess;
     
-    public function createAdminUser() 
+    public function createAdminUser()
     {
         $this->seed(PermissionsTableSeeder::class);
         $this->seed(RolesTableSeeder::class);

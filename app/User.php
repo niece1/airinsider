@@ -10,7 +10,9 @@ use App\Traits\SyncRoles;
 
 class User extends Authenticatable
 {
-    use Notifiable, UserPhotoUpload, SyncRoles;
+    use Notifiable;
+    use UserPhotoUpload;
+    use SyncRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -69,7 +71,6 @@ class User extends Authenticatable
             ]);
 
             return $like->refresh();
-
         } else {
             return $entity->likes()->create([
                 'type' => $type,

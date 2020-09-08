@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Gate;
 
 trait DashboardAccess
 {
-    public function getDashboardAccess() 
+    public function getDashboardAccess()
     {
         $roles = Role::with('permissions')->get();
         $permissionsArray = [];

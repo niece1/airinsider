@@ -6,7 +6,7 @@ use App\Photo;
 use App\Post;
 use Illuminate\Http\Request;
 
-trait PostPhotoUpload 
+trait PostPhotoUpload
 {
     use BasePhotoUpload;
     
@@ -20,10 +20,10 @@ trait PostPhotoUpload
                 $photo->path = $path;
                 $post->photo()->save($photo);
             } else {
-                $photo = new Photo;
+                $photo = new Photo();
                 $photo->path = $path;
                 $post->photo()->save($photo);
             }
         }
-    }    
+    }
 }

@@ -45,7 +45,7 @@
                         {{ $errors->first('message') }}
                     </div>
                 </div>
-                @captcha
+                <!--@captcha-->
                 <button type="submit" class="button">Отправить</button>
                 @csrf
             </form>

@@ -16,7 +16,7 @@ class LikeCommentTest extends TestCase
     
     public function setUp(): void
     {
-        parent::setUp();        
+        parent::setUp();
         $this->user = factory(User::class)->create();
         $this->category = factory(Category::class)->create();
         $this->post = factory(Post::class)->create();
@@ -27,8 +27,7 @@ class LikeCommentTest extends TestCase
     public function auth_users_can_like_a_comment()
     {
         $this->actingAs($this->user);
-        $this->post('/likes/' . $this->comment->id . '/up',
-                $this->createLikeCommentAttributes());
+        $this->post('/likes/' . $this->comment->id . '/up', $this->createLikeCommentAttributes());
         $like = Like::first();
         $this->assertDatabaseHas('likes', [
             'type' => $like->type,
@@ -37,8 +36,7 @@ class LikeCommentTest extends TestCase
             'user_id' => $this->user->id,
         ]);
         $this->assertInstanceOf(Comment::class, $like->likeable);
-        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection',
-                $this->comment->likes);
+        $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->comment->likes);
         $this->assertTrue($this->comment->likes()->exists());
     }
     
@@ -46,20 +44,18 @@ class LikeCommentTest extends TestCase
     public function auth_users_can_dislike_already_liked_comment()
     {
         $this->actingAs($this->user);
-        $this->post('/likes/' . $this->comment->id . '/up',
-                $this->createLikeCommentAttributes());
+        $this->post('/likes/' . $this->comment->id . '/up', $this->createLikeCommentAttributes());
         $this->assertDatabaseHas('likes', [
-            'type' => 'up',           
+            'type' => 'up',
         ]);
-        $this->post('/likes/' . $this->comment->id . '/down', 
-                array_merge($this->createLikeCommentAttributes(), [
+        $this->post('/likes/' . $this->comment->id . '/down', array_merge($this->createLikeCommentAttributes(), [
                     'type' => 'down',
                 ]));
         $this->assertDatabaseHas('likes', [
-            'type' => 'down',           
+            'type' => 'down',
         ]);
         $this->assertDatabaseMissing('likes', [
-            'type' => 'up',           
+            'type' => 'up',
         ]);
     }
     
@@ -67,35 +63,32 @@ class LikeCommentTest extends TestCase
     public function auth_users_can_like_already_disliked_comment()
     {
         $this->actingAs($this->user);
-        $this->post('/likes/' . $this->comment->id . '/down',
-                array_merge($this->createLikeCommentAttributes(), [
+        $this->post('/likes/' . $this->comment->id . '/down', array_merge($this->createLikeCommentAttributes(), [
                     'type' => 'down',
-                ]));                
+                ]));
         $this->assertDatabaseHas('likes', [
-            'type' => 'down',           
+            'type' => 'down',
         ]);
-        $this->post('/likes/' . $this->comment->id . '/up', 
-                $this->createLikeCommentAttributes());
+        $this->post('/likes/' . $this->comment->id . '/up', $this->createLikeCommentAttributes());
         $this->assertDatabaseHas('likes', [
-            'type' => 'up',           
+            'type' => 'up',
         ]);
         $this->assertDatabaseMissing('likes', [
-            'type' => 'down',           
+            'type' => 'down',
         ]);
     }
     
     /** @test */
     public function unauthenticated_users_cannot_like_a_comment()
     {
-        $this->post('/likes/' . $this->comment->id . '/up',
-                $this->createLikeCommentAttributes());
+        $this->post('/likes/' . $this->comment->id . '/up', $this->createLikeCommentAttributes());
         $this->assertDatabaseCount('likes', 0);
         $this->assertFalse($this->comment->likes()->exists());
     }
     
     /**
      * Creates comment attributes for Like entity
-     * 
+     *
      * @return array
      */
     private function createLikeCommentAttributes()

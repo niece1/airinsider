@@ -9,11 +9,12 @@ use App\Tag;
 
 class TagTest extends TestCase
 {
-    use RefreshDatabase, AdminUser;
+    use RefreshDatabase;
+    use AdminUser;
     
     public function setUp(): void
     {
-        parent::setUp();        
+        parent::setUp();
         $this->actingAs($this->createAdminUser());
     }
     
@@ -26,7 +27,7 @@ class TagTest extends TestCase
     }
     
     /** @test */
-    public function title_field_is_required() 
+    public function title_field_is_required()
     {
         $this->post('/dashboard/tags', [
             'title' => '',
@@ -38,7 +39,7 @@ class TagTest extends TestCase
     }
     
     /** @test */
-    public function title_field_should_be_at_least_two_characters() 
+    public function title_field_should_be_at_least_two_characters()
     {
         $this->post('/dashboard/tags', [
             'title' => 'A',
@@ -50,7 +51,7 @@ class TagTest extends TestCase
     }
     
     /** @test */
-    public function title_field_should_be_max_ten_characters() 
+    public function title_field_should_be_max_ten_characters()
     {
         $this->post('/dashboard/tags', ['title' => 'Antananarivo',])
                 ->assertStatus(302)
@@ -60,7 +61,7 @@ class TagTest extends TestCase
     }
     
     /** @test */
-    public function a_tag_can_be_updated() 
+    public function a_tag_can_be_updated()
     {
         $tag = factory(Tag::class)->create();
         $this->patch('/dashboard/tags/' . $tag->id, ['title' => 'Airbus',])
@@ -76,7 +77,7 @@ class TagTest extends TestCase
     public function a_tag_can_be_deleted()
     {
         $tag = factory(Tag::class)->create();
-        $this->assertCount(1, Tag::all());       
+        $this->assertCount(1, Tag::all());
         $this->delete('/dashboard/tags/' . $tag->id);
         $this->assertCount(0, Tag::all());
         $this->assertDeleted($tag);

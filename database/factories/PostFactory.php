@@ -15,10 +15,10 @@ $factory->define(Post::class, function (Faker $faker) {
         'published' => true,
         'viewed' => $faker->numberBetween(1, 1000),
         'time_to_read' => $faker->numberBetween(1, 10),
-        'user_id' => function() {
+        'user_id' => function () {
             return User::all()->random();
         },
-        'category_id' => function() {
+        'category_id' => function () {
             return Category::all()->random();
         },
     ];

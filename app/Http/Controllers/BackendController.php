@@ -10,9 +10,9 @@ class BackendController extends Controller
     {
         $this->middleware(function ($request, $next) {
             if (session('success_message')) {
-            Alert::success(session('success_message'))->toToast();
-        }
-        return $next($request);
-        });        
+                Alert::success(session('success_message'))->toToast();
+            }
+            return $next($request);
+        });
     }
 }

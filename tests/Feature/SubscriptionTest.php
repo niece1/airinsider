@@ -9,7 +9,8 @@ use Tests\TestCase;
 
 class SubscriptionTest extends TestCase
 {
-    use RefreshDatabase, AdminUser;
+    use RefreshDatabase;
+    use AdminUser;
     
     /** @test */
     public function a_user_can_subscribe_for_the_news()
@@ -29,7 +30,7 @@ class SubscriptionTest extends TestCase
                 ->assertSessionHas('errors')
                 ->assertStatus(302);
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['email'][0], 'Поле должно быть корректным.');      
+        $this->assertEquals($messages['email'][0], 'Поле должно быть корректным.');
     }
     
     /** @test */
@@ -41,7 +42,7 @@ class SubscriptionTest extends TestCase
                 ->assertSessionHas('errors')
                 ->assertStatus(302);
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['email'][0], 'Данное поле обязательно.');      
+        $this->assertEquals($messages['email'][0], 'Данное поле обязательно.');
     }
     
     /** @test */
@@ -52,7 +53,7 @@ class SubscriptionTest extends TestCase
         ]);
         $this->assertCount(1, Subscription::all());
         $this->actingAs($this->createAdminUser());
-        $subscription = Subscription::first();        
+        $subscription = Subscription::first();
         $this->delete('/dashboard/subscriptions/' . $subscription->id);
         $this->assertCount(0, Subscription::all());
         $this->assertDeleted($subscription);

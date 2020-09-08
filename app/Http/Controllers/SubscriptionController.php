@@ -27,8 +27,8 @@ class SubscriptionController extends BackendController
      * @return \Illuminate\Http\Response
      */
     public function store(SubscriptionRequest $request)
-    {     
-        Subscription::create($request->all());        
+    {
+        Subscription::create($request->all());
     }
 
     /**
@@ -43,5 +43,5 @@ class SubscriptionController extends BackendController
         $subscription->delete();
 
         return redirect('dashboard/subscriptions')->withSuccessMessage('Email Deleted Successfully!');
-    }    
+    }
 }

@@ -10,7 +10,7 @@ class Role extends Model
     use SyncPermissions;
     
     protected $fillable = ['title'];
-	
+    
     public function permissions()
     {
         return $this->belongsToMany(Permission::class)->withTimestamps();

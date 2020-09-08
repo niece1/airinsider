@@ -12,17 +12,6 @@ use App\User;
 
 class LoginController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-
     use AuthenticatesUsers;
 
     /**
@@ -43,7 +32,7 @@ class LoginController extends Controller
     }
 
     /**
-     * Redirect the user to the Github authentication page.
+     * Redirect user to the provider's authentication page.
      *
      * @return \Illuminate\Http\Response
      */
@@ -53,7 +42,7 @@ class LoginController extends Controller
     }
 
     /**
-     * Obtain the user information from Github.
+     * Obtain the user information from provider.
      *
      * @return \Illuminate\Http\Response
      */
@@ -61,14 +50,11 @@ class LoginController extends Controller
     {
         if ($provider == 'google') {
             $socialUser = Socialite::driver($provider)->stateless()->user();
-        }else {
-        $socialUser = Socialite::driver($provider)->user();
-    }
+        } else {
+            $socialUser = Socialite::driver($provider)->user();
+        }
         $user = User::where('email', $socialUser->getEmail())->first();
-        //dd($socialUser);
-        
-        //add user to the database
-        if(!$user) {
+        if (!$user) {
             $user = User::create([
                 'email' => $socialUser->getEmail(),
                 'name' => $socialUser->getName(),
@@ -76,14 +62,16 @@ class LoginController extends Controller
                 'provider_id' => $socialUser->getId(),
             ]);
         }
-        //login user
         Auth::login($user, true);
-
-        //return redirect($this->redirectTo);
         return redirect('/');
     }
-
-    //Get last login time and IP address. Overrides the authenticated method from AuthenticatesUser trait. Saves only on login not register
+    
+    /**
+     * Get last login time and IP address. Overrides the authenticated method
+     * from AuthenticatesUser trait. Saves only on login not register.
+     *
+     * @return void
+     */
     public function authenticated(Request $request, $user)
     {
         $user->update([

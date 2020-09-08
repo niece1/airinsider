@@ -15,18 +15,17 @@ class LikePostTest extends TestCase
     
     public function setUp(): void
     {
-        parent::setUp();        
-        $this->user = factory(User::class)->create();        
+        parent::setUp();
+        $this->user = factory(User::class)->create();
         $this->category = factory(Category::class)->create();
         $this->post = factory(Post::class)->create();
-    }       
+    }
     
     /** @test */
     public function auth_users_can_like_a_post()
     {
         $this->actingAs($this->user);
-        $this->post('/likes/' . $this->post->id . '/up',
-                $this->createLikePostAttributes());
+        $this->post('/likes/' . $this->post->id . '/up', $this->createLikePostAttributes());
         $like = Like::first();
         $this->assertDatabaseHas('likes', [
             'type' => $like->type,
@@ -43,20 +42,18 @@ class LikePostTest extends TestCase
     public function auth_users_can_dislike_already_liked_post()
     {
         $this->actingAs($this->user);
-        $this->post('/likes/' . $this->post->id . '/up',
-                $this->createLikePostAttributes());
+        $this->post('/likes/' . $this->post->id . '/up', $this->createLikePostAttributes());
         $this->assertDatabaseHas('likes', [
-            'type' => 'up',           
+            'type' => 'up',
         ]);
-        $this->post('/likes/' . $this->post->id . '/down', 
-                array_merge($this->createLikePostAttributes(), [
+        $this->post('/likes/' . $this->post->id . '/down', array_merge($this->createLikePostAttributes(), [
                     'type' => 'down',
                 ]));
         $this->assertDatabaseHas('likes', [
-            'type' => 'down',           
+            'type' => 'down',
         ]);
         $this->assertDatabaseMissing('likes', [
-            'type' => 'up',           
+            'type' => 'up',
         ]);
     }
     
@@ -64,35 +61,32 @@ class LikePostTest extends TestCase
     public function auth_users_can_like_already_disliked_post()
     {
         $this->actingAs($this->user);
-        $this->post('/likes/' . $this->post->id . '/down',
-                array_merge($this->createLikePostAttributes(), [
+        $this->post('/likes/' . $this->post->id . '/down', array_merge($this->createLikePostAttributes(), [
                     'type' => 'down',
-                ]));                
+                ]));
         $this->assertDatabaseHas('likes', [
-            'type' => 'down',           
+            'type' => 'down',
         ]);
-        $this->post('/likes/' . $this->post->id . '/up', 
-                $this->createLikePostAttributes());
+        $this->post('/likes/' . $this->post->id . '/up', $this->createLikePostAttributes());
         $this->assertDatabaseHas('likes', [
-            'type' => 'up',           
+            'type' => 'up',
         ]);
         $this->assertDatabaseMissing('likes', [
-            'type' => 'down',           
+            'type' => 'down',
         ]);
     }
     
     /** @test */
     public function unauthenticated_users_cannot_like_a_post()
     {
-        $this->post('/likes/' . $this->post->id . '/up',
-                $this->createLikePostAttributes());
+        $this->post('/likes/' . $this->post->id . '/up', $this->createLikePostAttributes());
         $this->assertDatabaseCount('likes', 0);
         $this->assertFalse($this->post->likes()->exists());
     }
     
     /**
      * Creates post attributes for Like entity
-     * 
+     *
      * @return array
      */
     private function createLikePostAttributes()
@@ -103,5 +97,5 @@ class LikePostTest extends TestCase
             'likeable_id' => $this->post->id,
             'user_id' => $this->user->id,
         ];
-    }   
+    }
 }

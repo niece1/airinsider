@@ -15,8 +15,8 @@ class CommentTest extends TestCase
     
     public function setUp(): void
     {
-        parent::setUp();        
-        $this->user = factory(User::class)->create(); 
+        parent::setUp();
+        $this->user = factory(User::class)->create();
         $this->actingAs($this->user);
         $this->category = factory(Category::class)->create();
         $this->post = factory(Post::class)->create([
@@ -34,18 +34,17 @@ class CommentTest extends TestCase
     
     /** @test */
     public function unauthenticated_users_cannot_see_a_comment_form()
-    {  
-        $this->get('/post/first-post')->assertDontSee('Ваш комментарий'); 
+    {
+        $this->get('/post/first-post')->assertDontSee('Ваш комментарий');
     }
     
     /** @test */
     public function to_post_a_comment_body_should_be_at_least_two_characters()
-    {       
-        $this->post('/comments/' . $this->post->id,
-                array_merge($this->createCommentAttributes(), [
+    {
+        $this->post('/comments/' . $this->post->id, array_merge($this->createCommentAttributes(), [
                     'body' => 'V',
                 ]))
-                ->assertSessionHas('errors'); 
+                ->assertSessionHas('errors');
         $this->assertCount(0, Comment::all());
     }
     
@@ -53,8 +52,7 @@ class CommentTest extends TestCase
     public function auth_users_can_post_a_comment_reply()
     {
         $comment = factory(Comment::class)->create();
-        $this->post('/comments/' . $this->post->id,
-                array_merge($this->createCommentAttributes(), [
+        $this->post('/comments/' . $this->post->id, array_merge($this->createCommentAttributes(), [
                     'comment_id' => $comment->id,
                 ]));
         $this->assertDatabaseCount('comments', 2);
@@ -63,7 +61,7 @@ class CommentTest extends TestCase
     
     /**
      * Creates attributes for Comment entity
-     * 
+     *
      * @return array
      */
     private function createCommentAttributes()
@@ -73,5 +71,5 @@ class CommentTest extends TestCase
             'post_id' => $this->post->id,
             'user_id' => $this->user->id,
         ];
-    }       
+    }
 }

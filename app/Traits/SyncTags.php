@@ -2,10 +2,11 @@
 
 namespace App\Traits;
 
-trait SyncTags 
-{       
+trait SyncTags
+{
+
     public function syncTags($post)
     {
         $post->tags()->sync(request('tag_id'));
-    }    
+    }
 }

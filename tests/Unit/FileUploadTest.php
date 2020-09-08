@@ -13,11 +13,12 @@ use Tests\TestCase;
 
 class FileUploadTest extends TestCase
 {
-    use RefreshDatabase, AdminUser;
+    use RefreshDatabase;
+    use AdminUser;
     
     public function setUp(): void
     {
-        parent::setUp();        
+        parent::setUp();
         $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
         Storage::fake('public');
@@ -25,13 +26,13 @@ class FileUploadTest extends TestCase
 
     /** @test */
     public function post_photo_uploaded_successfully()
-    {        
+    {
         $file = UploadedFile::fake()->image('logo.jpg');
         $this->createPost($file);
         $this->assertDirectoryExists('public');
         $this->assertDirectoryIsReadable('public');
         $this->assertDirectoryIsWritable('public');
-        Storage::disk('public')->assertExists('posts/' . $file->hashName()); 
+        Storage::disk('public')->assertExists('posts/' . $file->hashName());
         $this->assertFileExists('public');
         $this->assertFileIsReadable('public');
         $this->assertFileIsWritable('public');
@@ -44,13 +45,12 @@ class FileUploadTest extends TestCase
         $this->createPost($file);
         Storage::disk('public')->assertMissing('posts/' . $file->hashName());
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['image'][0],
-                'Файл не должен быть больше 5000 килобайт.');
+        $this->assertEquals($messages['image'][0], 'Файл не должен быть больше 5000 килобайт.');
     }
     
     /** @test */
     public function post_photo_upload_fails_if_file_is_not_image()
-    {     
+    {
         $file = UploadedFile::fake()->image('logo.pdf');
         $this->createPost($file);
         Storage::disk('public')->assertMissing('posts/' . $file->hashName());
@@ -70,7 +70,7 @@ class FileUploadTest extends TestCase
     
     /**
      * Creates post with uploaded file
-     * 
+     *
      * @param type $file
      * @return array
      */

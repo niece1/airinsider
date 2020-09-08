@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
-	protected $with = ['user', 'likes'];
+    protected $with = ['user', 'likes'];
 
-	protected $appends = ['repliesCount'];
+    protected $appends = ['repliesCount'];
 
-	protected $guarded = [];
+    protected $guarded = [];
 
     public function post()
     {
@@ -39,6 +39,6 @@ class Comment extends Model
 
     public function getIfReplyAttribute($value)
     {
-        return $this->comment_id == NULL ? 'No' : 'Yes';
+        return $this->comment_id == null ? 'No' : 'Yes';
     }
 }

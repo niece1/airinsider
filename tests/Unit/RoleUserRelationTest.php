@@ -11,7 +11,9 @@ use App\Role;
 
 class RoleUserRelationTest extends TestCase
 {
-    use RefreshDatabase, AdminUser, SyncRoles;
+    use RefreshDatabase;
+    use AdminUser;
+    use SyncRoles;
     
     /** @test */
     public function role_user_many_to_many_relations()

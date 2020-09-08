@@ -5,7 +5,7 @@ namespace App\Traits;
 use App\Photo;
 use Illuminate\Support\Facades\Storage;
 
-trait BasePhotoUpload 
+trait BasePhotoUpload
 {
     private function getPhoto($id)
     {

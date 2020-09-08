@@ -85,5 +85,5 @@ class TagController extends BackendController
         $tag->delete();
 
         return redirect('dashboard/tags')->withSuccessMessage('Tag Deleted Successfully!');
-    }   
+    }
 }

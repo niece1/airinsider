@@ -46,7 +46,7 @@
                     <input type="password" name="password_confirmation" id="password-confirm" placeholder="Подтвердите пароль" autocomplete="new-password">
                 </div>
             </div>
-           @captcha
+           <!--@captcha-->
             <button type="submit" class="button">
                 Создать
             </button>

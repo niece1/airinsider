@@ -14,14 +14,14 @@ class FrontendTest extends TestCase
     
     public function setUp(): void
     {
-        parent::setUp();        
+        parent::setUp();
         $this->user = factory(User::class)->create();
         factory(Category::class)->create();
     }
     
     /** @test */
     public function all_users_can_see_index_page()
-    {      
+    {
         $this->get('/')
                 ->assertStatus(200)
                 ->assertSee('Последние новости');
@@ -29,11 +29,11 @@ class FrontendTest extends TestCase
     
     /** @test */
     public function authenticated_user_can_see_index_page()
-    {       
+    {
         $this->actingAs($this->user)
                 ->get('/')
                 ->assertStatus(200);
-    }         
+    }
     
     /** @test */
     public function no_posts_on_index_page_when_database_empty()
@@ -55,11 +55,11 @@ class FrontendTest extends TestCase
     
     /** @test */
     public function a_user_can_see_a_show_page()
-    {  
+    {
         factory(Post::class)->create([
             'title' => 'First post',
             'slug' => 'first-post',
         ]);
-        $this->get('/post/first-post')->assertSee('First post');        
-    }  
+        $this->get('/post/first-post')->assertSee('First post');
+    }
 }
