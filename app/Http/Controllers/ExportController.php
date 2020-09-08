@@ -7,17 +7,17 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class ExportController extends Controller
 {
-    public function exportExcel() 
+    public function exportExcel()
     {
         abort_unless(\Gate::allows('subscription_export'), 403);
 
-        return Excel::download(new SubscriptionExport, 'subscriptions.xlsx');
+        return Excel::download(new SubscriptionExport(), 'subscriptions.xlsx');
     }
 
-    public function exportCsv() 
+    public function exportCsv()
     {
         abort_unless(\Gate::allows('subscription_export'), 403);
         
-        return Excel::download(new SubscriptionExport, 'subscriptions.csv');
+        return Excel::download(new SubscriptionExport(), 'subscriptions.csv');
     }
 }

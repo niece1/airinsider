@@ -14,7 +14,7 @@ class DatabaseTest extends TestCase
     public function posts_table_has_expected_columns()
     {
         $this->assertTrue(Schema::hasColumns('posts', [
-            'id', 'title', 'body', 'slug', 'published', 'viewed', 'time_to_read', 
+            'id', 'title', 'body', 'slug', 'published', 'viewed', 'time_to_read',
             'user_id', 'category_id', 'photo_source'
         ]), 1);
     }
@@ -122,5 +122,5 @@ class DatabaseTest extends TestCase
         $this->assertTrue(Schema::hasColumns('password_resets', [
             'email', 'token'
         ]), 1);
-    }   
+    }
 }

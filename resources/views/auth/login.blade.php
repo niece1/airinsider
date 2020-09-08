@@ -40,7 +40,7 @@
                     <span class="checkmark"></span>
                 </label>
             </div>
-            @captcha
+            <!--@captcha-->
             <div class="form-group">
                 <button type="submit" class="button">
                     Войти

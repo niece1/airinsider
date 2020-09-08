@@ -8,6 +8,7 @@ use App\Traits\DashboardAccess;
 class AuthGates
 {
     use DashboardAccess;
+
     /**
      * Handle an incoming request.
      *
@@ -20,7 +21,7 @@ class AuthGates
         $user = \Auth::user();
 
         if (!app()->runningInConsole() && $user) {
-            $this->getDashboardAccess();        
+            $this->getDashboardAccess();
         }
         return $next($request);
     }

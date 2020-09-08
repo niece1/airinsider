@@ -50,7 +50,7 @@ class PostController extends BackendController
         $post = Post::create($request->all());
         $slugService->generateSlug($request, $post);
         $post->saveUserWithPost($post);
-        $post->storePostPhoto($request, $post);       
+        $post->storePostPhoto($request, $post);
         $post->syncTags($post);
 
         return redirect('dashboard/posts')->withSuccessMessage('Created Successfully!');
@@ -115,5 +115,5 @@ class PostController extends BackendController
         $post->delete();
 
         return redirect('dashboard/posts')->withSuccessMessage('Trashed Successfully!');
-    }               
+    }
 }

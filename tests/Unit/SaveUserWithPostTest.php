@@ -12,10 +12,12 @@ use App\Post;
 
 class SaveUserWithPostTest extends TestCase
 {
-    use RefreshDatabase, AdminUser, SaveUser;
+    use RefreshDatabase;
+    use AdminUser;
+    use SaveUser;
             
     /** @test */
-    public function user_id_added_while_creating_post() 
+    public function user_id_added_while_creating_post()
     {
         $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
@@ -27,7 +29,7 @@ class SaveUserWithPostTest extends TestCase
         ]);
         $user = User::first();
         $post = Post::first();
-        $post->saveUserWithPost($post);        
+        $post->saveUserWithPost($post);
         $this->assertSame($user->id, $post->user_id);
         $this->assertTrue($user->posts()->exists());
     }

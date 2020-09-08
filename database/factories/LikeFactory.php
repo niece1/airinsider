@@ -11,8 +11,8 @@ $factory->define(Like::class, function (Faker $faker) {
         'type' => $faker->randomElement(['up', 'down']),
         'likeable_type' => 'App\Post',
         'likeable_id' => 1,
-        'user_id' => function() {
+        'user_id' => function () {
             return User::all()->random();
-        },        
+        },
     ];
 });

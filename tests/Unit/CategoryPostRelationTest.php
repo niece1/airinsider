@@ -14,8 +14,8 @@ class CategoryPostRelationTest extends TestCase
     
     public function setUp(): void
     {
-        parent::setUp();        
-        factory(User::class)->create();       
+        parent::setUp();
+        factory(User::class)->create();
         $this->category = factory(Category::class)->create();
         $this->post = factory(Post::class)->create();
     }

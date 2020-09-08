@@ -90,5 +90,5 @@ class RoleController extends BackendController
         $role->delete();
 
         return redirect('dashboard/roles')->withSuccessMessage('Role Deleted Successfully!');
-    }    
+    }
 }

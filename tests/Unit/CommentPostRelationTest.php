@@ -15,8 +15,8 @@ class CommentPostRelationTest extends TestCase
     
     public function setUp(): void
     {
-        parent::setUp();        
-        $this->user = factory(User::class)->create();       
+        parent::setUp();
+        $this->user = factory(User::class)->create();
         factory(Category::class)->create();
         $this->post = factory(Post::class)->create();
         $this->comment = factory(Comment::class)->create();
@@ -24,7 +24,7 @@ class CommentPostRelationTest extends TestCase
     
     /** @test */
     public function a_comment_belongs_to_user()
-    {        
+    {
         $this->assertInstanceOf(User::class, $this->comment->user);
         $this->assertTrue($this->comment->user()->exists());
     }

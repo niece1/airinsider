@@ -12,7 +12,9 @@ use App\Post;
 
 class PostTagRelationTest extends TestCase
 {
-    use RefreshDatabase, AdminUser, SyncTags;
+    use RefreshDatabase;
+    use AdminUser;
+    use SyncTags;
     
     /** @test */
     public function post_tag_many_to_many_relations()
@@ -33,7 +35,7 @@ class PostTagRelationTest extends TestCase
         $this->assertDatabaseHas('post_tag', [
             'tag_id' => $tag->id,
             'post_id' => $post->id,
-        ]);       
+        ]);
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $post->tags);
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $tag->posts);
         $this->assertTrue($post->tags()->exists());

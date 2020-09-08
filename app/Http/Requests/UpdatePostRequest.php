@@ -24,7 +24,7 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:posts,title,'.request()->route('post')->id,       
+            'title' => 'required|unique:posts,title,' . request()->route('post')->id,
             'body' => 'required',
             'time_to_read' => 'required',
             'photo_source' => 'max:200',

@@ -40,20 +40,20 @@ Route::post('comments/{post}', 'CommentController@store')->middleware(['auth']);
 Route::post('likes/{entityId}/{type}', 'LikeController@like')->middleware(['auth']);
 
 //Dashboard
-Route::group(['prefix'=>'dashboard', 'middleware'=>'auth'],function(){
-	Route::resource('posts', 'PostController');
-	Route::resource('categories', 'CategoryController');
-	Route::resource('tags', 'TagController');
-	Route::resource('roles', 'RoleController');
-	Route::resource('permissions', 'PermissionController');
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
+        Route::resource('posts', 'PostController');
+        Route::resource('categories', 'CategoryController');
+        Route::resource('tags', 'TagController');
+        Route::resource('roles', 'RoleController');
+        Route::resource('permissions', 'PermissionController');
     //Expunge Photo
     Route::get('expungePhoto/{id}', 'PhotoController@expungePhoto')->name('expungePhoto');
-    //User 
+    //User
     Route::get('/users', 'UserController@index')->name('users.index');
     Route::get('/users/{user}/edit', 'UserController@edit')->name('users.edit');
     Route::patch('/users/{user}', 'UserController@update')->name('users.update');
     Route::delete('/users/{user}', 'UserController@destroy')->name('users.destroy');
-    //Trash 
+    //Trash
     Route::get('/trashed', 'TrashPostController@trashed')->name('trashed');
     Route::delete('/expunge/{id}', 'TrashPostController@expunge')->name('expunge');
     Route::post('/restore/{id}', 'TrashPostController@restore')->name('restore');

@@ -11,7 +11,7 @@ class ContactTest extends TestCase
     
     /** @test */
     public function contact_page_works_correctly()
-    {      
+    {
         $this->get('/contact')
                 ->assertSeeText('Заполните форму')
                 ->assertSeeText('Напишите нам');
@@ -24,7 +24,7 @@ class ContactTest extends TestCase
                 ->assertStatus(302)
                 ->assertSessionHas('success');
         $this->assertEquals(session('success'), 'Сообщение успешно отправлено.'
-                . ' Ожидайте ответ.');      
+                . ' Ожидайте ответ.');
     }
     
     /** @test */
@@ -36,7 +36,7 @@ class ContactTest extends TestCase
                 ->assertStatus(302)
                 ->assertSessionHas('errors');
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['name'][0], 'Данное поле обязательно.');      
+        $this->assertEquals($messages['name'][0], 'Данное поле обязательно.');
     }
     
     /** @test */
@@ -48,7 +48,7 @@ class ContactTest extends TestCase
                 ->assertStatus(302)
                 ->assertSessionHas('errors');
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['name'][0], 'Поле должно быть мин 2 символа(ов).');      
+        $this->assertEquals($messages['name'][0], 'Поле должно быть мин 2 символа(ов).');
     }
     
     /** @test */
@@ -60,7 +60,7 @@ class ContactTest extends TestCase
                 ->assertStatus(302)
                 ->assertSessionHas('errors');
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['email'][0], 'Поле должно быть корректным.');      
+        $this->assertEquals($messages['email'][0], 'Поле должно быть корректным.');
     }
     
     /** @test */
@@ -72,12 +72,12 @@ class ContactTest extends TestCase
                 ->assertStatus(302)
                 ->assertSessionHas('errors');
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['message'][0], 'Данное поле обязательно.');      
+        $this->assertEquals($messages['message'][0], 'Данное поле обязательно.');
     }
     
     /**
      * Creates attributes for contact query
-     * 
+     *
      * @return array
      */
     private function createContactAttributes()

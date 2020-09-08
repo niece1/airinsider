@@ -10,7 +10,10 @@ use App\Traits\SaveUser;
 
 class Post extends Model
 {
-    use SoftDeletes, PostPhotoUpload, SyncTags, SaveUser;    
+    use SoftDeletes;
+    use PostPhotoUpload;
+    use SyncTags;
+    use SaveUser;
 
     protected $fillable = [
         'title', 'body', 'slug', 'user_id', 'category_id', 'published', 'photo_source', 'time_to_read',
@@ -64,17 +67,17 @@ class Post extends Model
     
     public function getDashboardShowBodyAttribute()
     {
-        return $this->body ? strip_tags(html_entity_decode($this->body)) : NULL;
+        return $this->body ? strip_tags(html_entity_decode($this->body)) : null;
     }
 
     public function getDescriptionAttribute()
     {
-        return $this->body ? substr(strip_tags(html_entity_decode($this->body)), 0, 85) : NULL;
+        return $this->body ? substr(strip_tags(html_entity_decode($this->body)), 0, 85) : null;
     }
     
     public function getFeaturedDescriptionAttribute()
     {
-        return $this->body ? substr(strip_tags(html_entity_decode($this->body)), 0, 185) : NULL;
+        return $this->body ? substr(strip_tags(html_entity_decode($this->body)), 0, 185) : null;
     }
     
     public function getThreeDotsAttribute()
@@ -90,5 +93,5 @@ class Post extends Model
     public function getIfPublishedAttribute()
     {
         return $this->published == 0 ? 'No' : 'Yes';
-    }    
+    }
 }

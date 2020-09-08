@@ -16,7 +16,7 @@ class LikeController extends Controller
     }
 
     private function getEntity($entityId)
-    {       
+    {
         $comment = Comment::find($entityId);
         if ($comment) {
             return $comment;

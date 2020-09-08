@@ -3,14 +3,15 @@
 use App\Permission;
 use Illuminate\Database\Seeder;
 
-class PermissionsTableSeeder extends Seeder {
-
+class PermissionsTableSeeder extends Seeder
+{
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run() {
+    public function run()
+    {
         $permissions = [
             [
                 'id' => '1',
@@ -205,7 +206,6 @@ class PermissionsTableSeeder extends Seeder {
                 'updated_at' => '2020-02-24 22:34:18',
             ],
         ];
-
         Permission::insert($permissions);
     }
 }

@@ -8,11 +8,12 @@ use App\Http\Requests\ContactFormRequest;
 use App\Jobs\SendContactMailJob;
 use Illuminate\Support\Facades\Cache;
 
-class ContactController extends Controller {
+class ContactController extends Controller
+{
 
     public function createSlider()
     {
-        $random_news = Cache::remember('random_news', now()->addSeconds(config('app.cache')), function() {
+        $random_news = Cache::remember('random_news', now()->addSeconds(config('app.cache')), function () {
             return Post::with(['photo', 'category', 'user', 'comments', 'comments.replies'])
                 ->whereDate('created_at', '>', Carbon::now()->sub(20, 'days'))
                 ->where('published', 1)

@@ -11,7 +11,7 @@ class AboutTest extends TestCase
     
     /** @test */
     public function about_page_works_correctly()
-    {      
+    {
         $this->get('/about')
                 ->assertStatus(200)
                 ->assertSeeText('Стать автором публикаций.');

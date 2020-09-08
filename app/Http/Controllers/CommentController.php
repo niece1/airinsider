@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\CommentRequest;
 use App\Post;
-use App\Comment; 
+use App\Comment;
 
 class CommentController extends BackendController
 {
     public function index(Post $post)
-    {        
-    	return $post->comments()->with(['replies'])->paginate(10);
+    {
+        return $post->comments()->with(['replies'])->paginate(10);
     }
 
     public function store(CommentRequest $request, Post $post)
-    {   	
+    {
         return auth()->user()->comments()->create([
             'body' => $request->body,
             'post_id' => $post->id,
@@ -24,7 +24,7 @@ class CommentController extends BackendController
 
     public function show(Comment $comment)
     {
-    	return $comment->replies()->paginate(10);
+        return $comment->replies()->paginate(10);
     }
 
     public function list()
@@ -38,7 +38,7 @@ class CommentController extends BackendController
     public function destroy(Comment $comment)
     {
         abort_unless(\Gate::allows('comment_delete'), 403);
-        $comment->delete();      
+        $comment->delete();
    
         return redirect('dashboard/comments')->withSuccessMessage('Deleted Successfully!');
     }

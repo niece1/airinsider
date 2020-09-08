@@ -13,7 +13,7 @@ trait GuestUser
 {
     use DashboardAccess;
     
-    public function createGuestUser() 
+    public function createGuestUser()
     {
         factory(Permission::class)->create([
             'title' => 'dashboard_access',
@@ -27,5 +27,5 @@ trait GuestUser
         $user = User::findOrFail(1);
         $this->getDashboardAccess();
         return $user;
-    }        
+    }
 }

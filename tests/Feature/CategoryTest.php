@@ -9,13 +9,14 @@ use App\Category;
 
 class CategoryTest extends TestCase
 {
-    use RefreshDatabase, AdminUser;
+    use RefreshDatabase;
+    use AdminUser;
 
     public function setUp(): void
     {
-        parent::setUp();  
+        parent::setUp();
         $this->actingAs($this->createAdminUser());
-    }    
+    }
     
     /** @test */
     public function a_catagory_can_be_added_to_the_table_through_the_form()
@@ -28,7 +29,7 @@ class CategoryTest extends TestCase
     }
     
     /** @test */
-    public function title_field_is_required() 
+    public function title_field_is_required()
     {
         $this->post('/dashboard/categories', [
             'title' => '',
@@ -40,7 +41,7 @@ class CategoryTest extends TestCase
     }
     
     /** @test */
-    public function title_field_should_be_at_least_two_characters() 
+    public function title_field_should_be_at_least_two_characters()
     {
         $this->post('/dashboard/categories', [
             'title' => 'A',
@@ -52,7 +53,7 @@ class CategoryTest extends TestCase
     }
     
     /** @test */
-    public function title_field_should_be_max_ten_characters() 
+    public function title_field_should_be_max_ten_characters()
     {
         $this->post('/dashboard/categories', [
             'title' => 'Antananarivo',
@@ -64,7 +65,7 @@ class CategoryTest extends TestCase
     }
     
     /** @test */
-    public function a_category_can_be_updated() 
+    public function a_category_can_be_updated()
     {
         $category = factory(Category::class)->create();
         $this->patch('/dashboard/categories/' . $category->id, [
@@ -82,7 +83,7 @@ class CategoryTest extends TestCase
     public function a_category_can_be_deleted()
     {
         $category = factory(Category::class)->create();
-        $this->assertCount(1, Category::all());       
+        $this->assertCount(1, Category::all());
         $this->delete('/dashboard/categories/' . $category->id);
         $this->assertCount(0, Category::all());
         $this->assertDeleted($category);

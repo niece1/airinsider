@@ -11,20 +11,21 @@ use Tests\TestCase;
 
 class RoleTest extends TestCase
 {
-    use RefreshDatabase, AdminUser;
+    use RefreshDatabase;
+    use AdminUser;
     
     public function setUp(): void
     {
-        parent::setUp();        
+        parent::setUp();
         $this->actingAs($this->createAdminUser());
     }
     
     /** @test */
     public function generating_admin_user_via_seeds_works_correctly()
-    {       
+    {
         $this->assertCount(1, Role::all());
         $this->assertCount(1, User::all());
-        $this->assertCount(32, Permission::all());        
+        $this->assertCount(32, Permission::all());
     }
 
     /** @test */
@@ -39,7 +40,7 @@ class RoleTest extends TestCase
     }
     
     /** @test */
-    public function validation_title_is_at_least_two_characters() 
+    public function validation_title_is_at_least_two_characters()
     {
         $this->post('/dashboard/roles', ['title' => 'A',])
                 ->assertSessionHasErrors('title');
@@ -49,7 +50,7 @@ class RoleTest extends TestCase
     }
     
     /** @test */
-    public function validation_a_title_is_required() 
+    public function validation_a_title_is_required()
     {
         $this->post('/dashboard/roles', ['title' => '',])
                 ->assertSessionHasErrors('title');
@@ -57,7 +58,7 @@ class RoleTest extends TestCase
     }
     
     /** @test */
-    public function validation_a_title_should_be_max_30_characters() 
+    public function validation_a_title_should_be_max_30_characters()
     {
         $this->post('/dashboard/roles', [
             'title' => 'Quaerat qui fuga minima sunt voluptatem id',
@@ -69,12 +70,12 @@ class RoleTest extends TestCase
     }
     
     /** @test */
-    public function a_role_can_be_updated() 
+    public function a_role_can_be_updated()
     {
         $role = factory(Role::class)->create();
         $this->patch('/dashboard/roles/' . $role->id, ['title' => 'Guest',])
                 ->assertSessionHas('success_message')
-                ->assertRedirect('/dashboard/roles/');    
+                ->assertRedirect('/dashboard/roles/');
         $this->assertEquals(session('success_message'), 'Role Updated Successfully!');
         $this->assertDatabaseMissing('roles', $role->toArray());
         $this->assertDatabaseHas('roles', ['title' => 'Guest']);
@@ -84,7 +85,7 @@ class RoleTest extends TestCase
     public function a_role_can_be_deleted()
     {
         $role = factory(Role::class)->create();
-        $this->assertCount(2, Role::all());       
+        $this->assertCount(2, Role::all());
         $this->delete('/dashboard/roles/' . $role->id);
         $this->assertCount(1, Role::all());
         $this->assertDeleted($role);

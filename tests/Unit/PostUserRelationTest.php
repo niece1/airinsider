@@ -14,8 +14,8 @@ class PostUserRelationTest extends TestCase
     
     public function setUp(): void
     {
-        parent::setUp();        
-        $this->user = factory(User::class)->create();       
+        parent::setUp();
+        $this->user = factory(User::class)->create();
         factory(Category::class)->create();
         $this->post = factory(Post::class)->create();
     }
@@ -32,5 +32,5 @@ class PostUserRelationTest extends TestCase
     {
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->user->posts);
         $this->assertTrue($this->user->posts->contains($this->post));
-    }       
+    }
 }
