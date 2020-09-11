@@ -12,7 +12,7 @@
 
 <section class="dashboard">
     <div class="dashboard-wrapper">	
-        <a href="/dashboard/posts" class="back">Back</a>	
+        <a href="/dashboard/posts" class="back">To posts</a>
         <div class="well">
             <div class="well-title">
                 <h5>Trashed Post List</h5>
