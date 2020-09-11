@@ -8,6 +8,7 @@ use App\Tag;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Services\SlugService;
+use App\Services\PostPhotoUploader;
 
 class PostController extends BackendController
 {
@@ -43,14 +44,18 @@ class PostController extends BackendController
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StorePostRequest  $request
+     *
      * @return \Illuminate\Http\Response
      */
-    public function store(StorePostRequest $request, SlugService $slugService)
-    {
+    public function store(
+        StorePostRequest $request,
+        SlugService $slugService,
+        PostPhotoUploader $postPhotoUploader
+    ) {
         $post = Post::create($request->all());
         $slugService->generateSlug($request, $post);
         $post->saveUserWithPost($post);
-        $post->storePostPhoto($request, $post);
+        $postPhotoUploader->store($request, $post);
         $post->syncTags($post);
 
         return redirect('dashboard/posts')->withSuccessMessage('Created Successfully!');
@@ -60,6 +65,7 @@ class PostController extends BackendController
      * Display the specified resource.
      *
      * @param  \App\Post  $post
+     *
      * @return \Illuminate\Http\Response
      */
     public function show(Post $post)
@@ -74,6 +80,7 @@ class PostController extends BackendController
      * Show the form for editing the specified resource.
      *
      * @param  \App\Post  $post
+     *
      * @return \Illuminate\Http\Response
      */
     public function edit(Post $post)
@@ -90,12 +97,17 @@ class PostController extends BackendController
      *
      * @param  \App\Http\Requests\UpdatePostRequest  $request
      * @param  \App\Post  $post
+     *
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdatePostRequest $request, Post $post, SlugService $slugService)
-    {
+    public function update(
+        UpdatePostRequest $request,
+        Post $post,
+        SlugService $slugService,
+        PostPhotoUploader $postPhotoUploader
+    ) {
         $post->update($request->all());
-        $post->storePostPhoto($request, $post);
+        $postPhotoUploader->store($request, $post);
         $slugService->generateSlug($request, $post);
         $post->saveUserWithPost($post);
         $post->syncTags($post);
@@ -107,6 +119,7 @@ class PostController extends BackendController
      * Remove the specified resource from storage.
      *
      * @param  \App\Post  $post
+     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Post $post)
