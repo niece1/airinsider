@@ -1,5 +1,7 @@
 @extends('layouts.frontend')
 
+@section('title', 'Авиаинсайдер')
+
 @section('content')
 
 <!-- Jumbotron section -->
