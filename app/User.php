@@ -61,18 +61,13 @@ class User extends Authenticatable
     public function toggleLike($entity, $type)
     {
         $like = $entity->likes->where('user_id', $this->id)->first();
-
         if ($like) {
-            $like->update([
-                'type' => $type
-            ]);
-
+            $like->update(['type' => $type]);
             return $like->refresh();
-        } else {
-            return $entity->likes()->create([
-                'type' => $type,
-                'user_id' => $this->id
-            ]);
         }
+        return $entity->likes()->create([
+            'type' => $type,
+            'user_id' => $this->id,
+        ]);
     }
 }
