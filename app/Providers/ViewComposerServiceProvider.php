@@ -4,7 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\View;
-use App\Http\ViewComposers\FooterComposer;
+use App\Http\ViewComposers\PopularPostsComposer;
 
 class ViewComposerServiceProvider extends ServiceProvider
 {
@@ -25,6 +25,6 @@ class ViewComposerServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        View::composer('layouts.partials.popular-posts', FooterComposer::class);
+        View::composer('layouts.includes.popular-posts', PopularPostsComposer::class);
     }
 }

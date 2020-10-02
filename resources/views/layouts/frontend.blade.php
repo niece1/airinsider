@@ -190,7 +190,7 @@
                         </ul>
                     </div>
                     <div class="popular_posts">
-                        @include('layouts.partials.popular-posts')
+                        @include('layouts.includes.popular-posts')
                     </div>
                 </div>
                 <div class="footer_wrapper_down">
@@ -205,7 +205,7 @@
                     </symbol>
                     </svg>
                     <div class="footer_copyright">
-                        <p> &#169; {{ date('Y') }} Airinsider</p>
+                        <p>&#169; {{ date('Y') }} Airinsider</p>
                         <p>
                             Noa Digital. Made with 
                             <button class="iconbutton">
@@ -218,10 +218,8 @@
                     </div>
                     <div class="footer_newsletter">
                         <h5>Подпишитесь на новости</h5>
-
                         <!-- Vue component -->
                         <subscription></subscription>
-
                         <p>Следите за новостями:</p>
                         <a href="#" id="facebook">fb</a>
                         <a href="#" id="twitter">tw</a>
