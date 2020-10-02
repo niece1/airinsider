@@ -106,7 +106,7 @@ class AdminUserPermissionTest extends TestCase
     /** @test */
     public function admin_user_can_see_trash_page()
     {
-        $this->get('/dashboard/trashed/')
+        $this->get('/dashboard/trash/')
                 ->assertStatus(200)
                 ->assertSee('Trashed');
     }

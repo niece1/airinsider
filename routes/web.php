@@ -14,64 +14,63 @@
 Auth::routes();
 
 //Frontend
-Route::get('/', 'FrontendController@index')->name('home');
-Route::get('/post/{post}', 'FrontendController@show')->name('post.show');
-Route::get('categories/{category}', 'FrontendController@postsByCategory')->name('category');
-Route::get('tags/{tag}', 'FrontendController@postsByTag')->name('tag');
-Route::get('users/{user}', 'FrontendController@postsByUser')->name('user');
-
-//Contact
-Route::get('/contact', 'ContactController@createSlider')->name('contact');
-Route::post('contact', 'ContactController@storeContactForm');
-
-//About
-Route::get('about', 'AboutController')->name('about');
+Route::group(['namespace' => 'Frontend'], function () {
+    //News
+    Route::get('/', 'PostController@index')->name('home');
+    Route::get('post/{post}', 'PostController@show')->name('post.show');
+    Route::get('categories/{category}', 'PostController@postByCategory')->name('post.by.category');
+    Route::get('tags/{tag}', 'PostController@postByTag')->name('post.by.tag');
+    Route::get('users/{user}', 'PostController@postByUser')->name('post.by.user');
+    //Contact
+    Route::get('contact', 'ContactController@index')->name('contact');
+    Route::post('contact', 'ContactController@store');
+    //About
+    Route::get('about', 'AboutController')->name('about');
+    //Comments
+    Route::get('posts/{post}/comments', 'CommentController@index');
+    Route::get('comments/{comment}/replies', 'CommentController@showReplies');
+    Route::post('comments/{post}', 'CommentController@store')->middleware(['auth']);
+    //Likes
+    Route::post('likes/{entityId}/{type}', 'LikeController@like')->middleware(['auth']);
+    //Subscription footer vue component
+    Route::post('subscriptions', 'SubscriptionController@store');
+});
 
 //Laravel Socialite Facebook Google Github
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
 
-//Comments
-Route::get('posts/{post}/comments', 'CommentController@index');
-Route::get('comments/{comment}/replies', 'CommentController@show');
-Route::post('comments/{post}', 'CommentController@store')->middleware(['auth']);
-
-//Likes
-Route::post('likes/{entityId}/{type}', 'LikeController@like')->middleware(['auth']);
-
 //Dashboard
-Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
-        Route::resource('posts', 'PostController');
-        Route::resource('categories', 'CategoryController');
-        Route::resource('tags', 'TagController');
-        Route::resource('roles', 'RoleController');
-        Route::resource('permissions', 'PermissionController');
+Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard', 'middleware' => 'auth'], function () {
+    //Resource
+    Route::resource('posts', 'PostController');
+    Route::resource('categories', 'CategoryController');
+    Route::resource('tags', 'TagController');
+    Route::resource('roles', 'RoleController');
+    Route::resource('permissions', 'PermissionController');
     //Expunge Photo
-    Route::get('expungePhoto/{id}', 'PhotoController@expungePhoto')->name('expungePhoto');
+    Route::get('delete/{id}', 'PhotoController@delete')->name('photo.delete');
     //User
-    Route::get('/users', 'UserController@index')->name('users.index');
-    Route::get('/users/{user}/edit', 'UserController@edit')->name('users.edit');
-    Route::patch('/users/{user}', 'UserController@update')->name('users.update');
-    Route::delete('/users/{user}', 'UserController@destroy')->name('users.destroy');
+    Route::get('users', 'UserController@index')->name('users.index');
+    Route::get('users/{user}/edit', 'UserController@edit')->name('users.edit');
+    Route::patch('users/{user}', 'UserController@update')->name('users.update');
+    Route::delete('users/{user}', 'UserController@destroy')->name('users.destroy');
     //Trash
-    Route::get('/trashed', 'TrashPostController@trashed')->name('trashed');
-    Route::delete('/expunge/{id}', 'TrashPostController@expunge')->name('expunge');
-    Route::post('/restore/{id}', 'TrashPostController@restore')->name('restore');
+    Route::get('trash', 'TrashController@index')->name('trash.index');
+    Route::delete('delete/{id}', 'TrashController@destroy')->name('trash.destroy');
+    Route::post('restore/{id}', 'TrashController@restore')->name('trash.restore');
     //Subscription
-    Route::get('/subscriptions', 'SubscriptionController@index')->name('subscriptions.index');
-    Route::delete('/subscriptions/{subscription}', 'SubscriptionController@destroy')->name('subscriptions.destroy');
+    Route::get('subscriptions', 'SubscriptionController@index')->name('subscriptions.index');
+    Route::delete('subscriptions/{subscription}', 'SubscriptionController@destroy')->name('subscriptions.destroy');
     //Excel and Csv export
-    Route::get('/exportExcel', 'ExportController@exportExcel')->name('export.excel');
-    Route::get('/exportCsv', 'ExportController@exportCsv')->name('export.csv');
+    Route::get('exportExcel', 'ExportController@exportExcel')->name('export.excel');
+    Route::get('exportCsv', 'ExportController@exportCsv')->name('export.csv');
     //Comments list
-    Route::get('comments', 'CommentController@list')->name('comments.list');
+    Route::get('comments', 'CommentController@index')->name('comments.index');
     Route::delete('comments/{comment}', 'CommentController@destroy')->name('comments.destroy');
     //Search
-    Route::get('/search', 'SearchController@search')->name('search');
+    Route::get('search', 'SearchController@search')->name('search');
 });
-
-//Subscription footer vue component
-Route::post('subscriptions/', 'SubscriptionController@store');
 
 /*For error page debug purpose
 Route::fallback(function () {

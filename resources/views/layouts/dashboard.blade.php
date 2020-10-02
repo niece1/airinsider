@@ -94,7 +94,7 @@
                         </li>
                         @can('post_trash_list')
                         <li>
-                            <a href="/dashboard/trashed">Trashed posts</a>
+                            <a href="/dashboard/trash">Trash</a>
                         </li>
                         @endcan
                         @auth
