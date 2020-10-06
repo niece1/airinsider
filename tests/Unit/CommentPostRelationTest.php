@@ -23,21 +23,21 @@ class CommentPostRelationTest extends TestCase
     }
     
     /** @test */
-    public function a_comment_belongs_to_user()
+    public function aCommentBelongsToUser()
     {
         $this->assertInstanceOf(User::class, $this->comment->user);
         $this->assertTrue($this->comment->user()->exists());
     }
     
     /** @test */
-    public function a_user_has_many_comments()
+    public function aUserHasManyComments()
     {
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->user->comments);
         $this->assertTrue($this->user->comments->contains($this->comment));
     }
     
     /** @test */
-    public function a_comment_has_many_replies()
+    public function aCommentHasManyReplies()
     {
         factory(Comment::class)->create([
             'comment_id' => 1,

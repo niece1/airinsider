@@ -21,14 +21,14 @@ class CategoryPostRelationTest extends TestCase
     }
     
     /** @test */
-    public function a_post_belongs_to_category()
+    public function aPostBelongsToCategory()
     {
         $this->assertInstanceOf(Category::class, $this->post->category);
         $this->assertTrue($this->post->category()->exists());
     }
     
     /** @test */
-    public function a_category_has_many_posts()
+    public function aCategoryHasManyPosts()
     {
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->category->posts);
         $this->assertTrue($this->category->posts->contains($this->post));

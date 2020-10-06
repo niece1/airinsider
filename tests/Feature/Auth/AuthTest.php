@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Auth;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\User;
@@ -18,7 +18,7 @@ class AuthTest extends TestCase
     }
 
     /** @test */
-    public function unauthenticated_users_cannot_get_dashboard()
+    public function unauthenticatedUsersCannotGetDashboard()
     {
         $this->get('/dashboard/posts')
                 ->assertStatus(302)
@@ -26,14 +26,14 @@ class AuthTest extends TestCase
     }
     
     /** @test */
-    public function authenticated_users_without_role_cannot_get_dashboard()
+    public function authenticatedUsersWithoutRoleCannotGetDashboard()
     {
         $this->actingAs($this->user);
         $this->get('/dashboard/posts')->assertForbidden();
     }
     
     /** @test */
-    public function authenticated_users_without_role_cannot_see_link_dashboard()
+    public function authenticatedUsersWithoutRoleCannotSeeDashboardLink()
     {
         $this->actingAs($this->user);
         $this->get('/')
@@ -42,7 +42,7 @@ class AuthTest extends TestCase
     }
     
     /** @test */
-    public function login_redirects_successfully()
+    public function loginRedirectsSuccessfully()
     {
         $this->actingAs(factory(User::class)->create([
             'email' => 'admin@admin.com',
@@ -54,7 +54,7 @@ class AuthTest extends TestCase
     }
     
     /** @test */
-    public function a_user_can_be_added_through_register_form()
+    public function aUserCanBeAddedThroughRegisterForm()
     {
         $this->post('/register', $this->createUserAttributes())
                 ->assertRedirect('/');
@@ -62,7 +62,7 @@ class AuthTest extends TestCase
     }
     
     /** @test */
-    public function email_is_required_while_registering_through_the_form()
+    public function emailIsRequiredWhileRegisteringThroughTheForm()
     {
         $this->post('/register', array_merge($this->createUserAttributes(), [
             'email' => '',
@@ -72,7 +72,7 @@ class AuthTest extends TestCase
     }
     
     /** @test */
-    public function password_is_required_while_registering_through_the_form()
+    public function passwordIsRequiredWhileRegisteringThroughTheForm()
     {
         $this->post('/register', array_merge($this->createUserAttributes(), [
             'password' => '',
@@ -82,7 +82,7 @@ class AuthTest extends TestCase
     }
     
     /** @test */
-    public function one_cannot_register_without_password_confirmation()
+    public function oneCannotRegisterWithoutPasswordConfirmation()
     {
         $this->post('/register', array_merge($this->createUserAttributes(), [
             'password_confirmation' => '',

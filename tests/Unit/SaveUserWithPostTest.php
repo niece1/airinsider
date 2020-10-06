@@ -17,7 +17,7 @@ class SaveUserWithPostTest extends TestCase
     use SaveUser;
             
     /** @test */
-    public function user_id_added_while_creating_post()
+    public function userIdAddedWhileCreatingPost()
     {
         $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();

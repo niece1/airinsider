@@ -16,7 +16,7 @@ class PermissionRoleRelationTest extends TestCase
     use SyncPermissions;
     
     /** @test */
-    public function permission_role_many_to_many_relations()
+    public function permissionRoleManyToManyRelations()
     {
         $this->actingAs($this->createAdminUser());
         $permission = factory(Permission::class)->create();

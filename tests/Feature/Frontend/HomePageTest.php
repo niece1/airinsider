@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Frontend;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -8,7 +8,7 @@ use App\Post;
 use App\User;
 use App\Category;
 
-class FrontendTest extends TestCase
+class HomePageTest extends TestCase
 {
     use RefreshDatabase;
     
@@ -20,7 +20,7 @@ class FrontendTest extends TestCase
     }
     
     /** @test */
-    public function all_users_can_see_index_page()
+    public function allUsersCanSeeIndexPage()
     {
         $this->get('/')
                 ->assertStatus(200)
@@ -28,7 +28,7 @@ class FrontendTest extends TestCase
     }
     
     /** @test */
-    public function authenticated_user_can_see_index_page()
+    public function authenticatedUserCanSeeIndexPage()
     {
         $this->actingAs($this->user)
                 ->get('/')
@@ -36,13 +36,13 @@ class FrontendTest extends TestCase
     }
     
     /** @test */
-    public function no_posts_on_index_page_when_database_empty()
+    public function noPostsOnIndexPageWhenDatabaseEmpty()
     {
         $this->get('/')->assertSeeText('Временно недоступны');
     }
     
     /** @test */
-    public function see_one_post_on_index_page_when_there_is_one_in_database()
+    public function seeOnePostOnIndexPageWhenThereIsOneInDatabase()
     {
         factory(Post::class)->create([
             'title' => 'New title',
@@ -54,7 +54,7 @@ class FrontendTest extends TestCase
     }
     
     /** @test */
-    public function a_user_can_see_a_show_page()
+    public function aUserCanSeeAShowPage()
     {
         factory(Post::class)->create([
             'title' => 'First post',

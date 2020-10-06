@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Dashboard;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -21,7 +21,7 @@ class SearchTest extends TestCase
     }
     
     /** @test */
-    public function search_on_title_keyword_is_successfull()
+    public function searchOnTitleKeywordIsSuccessfull()
     {
         factory(Post::class)->create([
             'title' => 'Airbus',
@@ -35,7 +35,7 @@ class SearchTest extends TestCase
     }
     
     /** @test */
-    public function search_on_body_keyword_is_successfull()
+    public function searchOnBodyKeywordIsSuccessfull()
     {
         factory(Post::class)->create([
             'title' => 'Boeing',

@@ -19,11 +19,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (config('app.env') === 'local') {
+        if ($this->app->environment('local', 'testing')) {
             $this->app->bind(PostRepositoryInterface::class, fn () => new PostRepository());
             $this->app->bind(CommentRepositoryInterface::class, fn () => new CommentRepository());
         }
-        if (config('app.env') === 'production') {
+        if ($this->app->environment('production')) {
             $this->app->bind(PostRepositoryInterface::class, fn () => new CachedPostRepository());
             $this->app->bind(CommentRepositoryInterface::class, fn () => new CachedCommentRepository());
         }

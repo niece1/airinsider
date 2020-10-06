@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Frontend;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -26,20 +26,20 @@ class CommentTest extends TestCase
     }
 
     /** @test */
-    public function auth_users_can_post_a_comment()
+    public function authUsersCanPostAComment()
     {
         $this->post('/comments/' . $this->post->id, $this->createCommentAttributes());
         $this->assertCount(1, Comment::all());
     }
     
     /** @test */
-    public function unauthenticated_users_cannot_see_a_comment_form()
+    public function unauthenticatedUsersCannotSeeACommentForm()
     {
         $this->get('/post/first-post')->assertDontSee('Ваш комментарий');
     }
     
     /** @test */
-    public function to_post_a_comment_body_should_be_at_least_two_characters()
+    public function toPostACommentBodyShouldBeAtLeastTwoCharacters()
     {
         $this->post('/comments/' . $this->post->id, array_merge($this->createCommentAttributes(), [
                     'body' => 'V',
@@ -49,7 +49,7 @@ class CommentTest extends TestCase
     }
     
     /** @test */
-    public function auth_users_can_post_a_comment_reply()
+    public function authenticatedUsersCanPostACommentReply()
     {
         $comment = factory(Comment::class)->create();
         $this->post('/comments/' . $this->post->id, array_merge($this->createCommentAttributes(), [

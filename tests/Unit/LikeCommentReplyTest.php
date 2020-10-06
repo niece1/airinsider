@@ -27,7 +27,7 @@ class LikeCommentReplyTest extends TestCase
     }
 
     /** @test */
-    public function auth_users_can_like_a_comment_reply()
+    public function authUsersCanLikeACommentReply()
     {
         $this->actingAs($this->user);
         $this->post('/likes/' . $this->comment_reply->id . '/up', $this->createLikeCommentReplyAttributes());
@@ -48,7 +48,7 @@ class LikeCommentReplyTest extends TestCase
     }
 
     /** @test */
-    public function auth_users_can_dislike_already_liked_comment_reply()
+    public function authUsersCanDislikeAlreadyLikedCommentReply()
     {
         $this->actingAs($this->user);
         $this->post('/likes/' . $this->comment_reply->id . '/up', $this->createLikeCommentReplyAttributes());
@@ -56,9 +56,11 @@ class LikeCommentReplyTest extends TestCase
             'type' => 'up',
         ]);
         $this->post('/likes/' . $this->comment_reply->id . '/down', array_merge(
-                $this->createLikeCommentReplyAttributes(), [
+            $this->createLikeCommentReplyAttributes(),
+            [
                     'type' => 'down',
-                    ]));
+            ]
+        ));
         $this->assertDatabaseHas('likes', [
             'type' => 'down',
         ]);
@@ -68,13 +70,15 @@ class LikeCommentReplyTest extends TestCase
     }
 
     /** @test */
-    public function auth_users_can_like_already_disliked_comment_reply()
+    public function authUsersCanLikeAlreadyDislikedCommentReply()
     {
         $this->actingAs($this->user);
         $this->post('/likes/' . $this->comment_reply->id . '/down', array_merge(
-                $this->createLikeCommentReplyAttributes(), [
+            $this->createLikeCommentReplyAttributes(),
+            [
                     'type' => 'down',
-                    ]));
+            ]
+        ));
         $this->assertDatabaseHas('likes', [
             'type' => 'down',
         ]);
@@ -88,7 +92,7 @@ class LikeCommentReplyTest extends TestCase
     }
 
     /** @test */
-    public function unauthenticated_users_cannot_like_a_comment_reply()
+    public function unauthenticatedUsersCannotLikeACommentReply()
     {
         $this->post('/likes/' . $this->comment_reply->id . '/up', $this->createLikeCommentReplyAttributes());
         $this->assertDatabaseCount('likes', 0);

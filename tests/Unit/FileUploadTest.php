@@ -25,7 +25,7 @@ class FileUploadTest extends TestCase
     }
 
     /** @test */
-    public function post_photo_uploaded_successfully()
+    public function postPhotoUploadedSuccessfully()
     {
         $file = UploadedFile::fake()->image('logo.jpg');
         $this->createPost($file);
@@ -39,7 +39,7 @@ class FileUploadTest extends TestCase
     }
     
     /** @test */
-    public function post_photo_upload_fails_if_image_size_more_than_5mb()
+    public function postPhotoUploadFailsIfImageSizeMoreThan5Mb()
     {
         $file = UploadedFile::fake()->image('logo.jpg')->size(6000);
         $this->createPost($file);
@@ -49,7 +49,7 @@ class FileUploadTest extends TestCase
     }
     
     /** @test */
-    public function post_photo_upload_fails_if_file_is_not_image()
+    public function postPhotoUploadFailsIfFileIsNotImage()
     {
         $file = UploadedFile::fake()->image('logo.pdf');
         $this->createPost($file);
@@ -59,7 +59,7 @@ class FileUploadTest extends TestCase
     }
     
     /** @test */
-    public function a_post_morphs_one_photo()
+    public function aPostMorphsOnePhoto()
     {
         $photo = UploadedFile::fake()->image('logo.jpg');
         $this->createPost($photo);

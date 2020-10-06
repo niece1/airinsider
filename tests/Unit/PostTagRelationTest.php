@@ -17,7 +17,7 @@ class PostTagRelationTest extends TestCase
     use SyncTags;
     
     /** @test */
-    public function post_tag_many_to_many_relations()
+    public function postTagManyToManyRelations()
     {
         $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();

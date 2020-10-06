@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Frontend;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -10,7 +10,7 @@ class ContactTest extends TestCase
     use RefreshDatabase;
     
     /** @test */
-    public function contact_page_works_correctly()
+    public function contactPageWorksCorrectly()
     {
         $this->get('/contact')
                 ->assertSeeText('Заполните форму')
@@ -18,7 +18,7 @@ class ContactTest extends TestCase
     }
     
     /** @test */
-    public function a_user_can_send_mail_through_the_form()
+    public function aUserCanSendMailThroughTheForm()
     {
         $this->post('contact', $this->createContactAttributes())
                 ->assertStatus(302)
@@ -28,7 +28,7 @@ class ContactTest extends TestCase
     }
     
     /** @test */
-    public function to_send_mail_a_name_field_is_required()
+    public function toSendMailANameFieldIsRequired()
     {
         $this->post('contact', array_merge($this->createContactAttributes(), [
             'name' => '',
@@ -40,7 +40,7 @@ class ContactTest extends TestCase
     }
     
     /** @test */
-    public function to_send_mail_name_should_be_at_least_two_characters()
+    public function toSendMailNameShouldBeAtLeastTwoCharacters()
     {
         $this->post('contact', array_merge($this->createContactAttributes(), [
             'name' => 'A',
@@ -52,7 +52,7 @@ class ContactTest extends TestCase
     }
     
     /** @test */
-    public function to_send_mail_an_email_field_should_be_a_valid_email()
+    public function toSendMailAnEmailFieldShouldBeAValidEmail()
     {
         $this->post('contact', array_merge($this->createContactAttributes(), [
             'email' => 'airinsider',
@@ -64,7 +64,7 @@ class ContactTest extends TestCase
     }
     
     /** @test */
-    public function to_send_mail_a_message_is_required()
+    public function toSendMailAMessageIsRequired()
     {
         $this->post('contact', array_merge($this->createContactAttributes(), [
             'message' => '',

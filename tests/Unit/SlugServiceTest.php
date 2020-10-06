@@ -13,7 +13,7 @@ class SlugServiceTest extends TestCase
     use AdminUser;
     
     /** @test */
-    public function slug_generated_while_creating_post()
+    public function slugGeneratedWhileCreatingPost()
     {
         $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
