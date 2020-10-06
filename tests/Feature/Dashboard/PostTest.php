@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Dashboard;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -23,7 +23,7 @@ class PostTest extends TestCase
     }
 
     /** @test */
-    public function a_post_can_be_added_to_the_table_through_the_form()
+    public function aPostCanBeAddedToTheTableThroughTheForm()
     {
         $this->post('/dashboard/posts', $this->createPostAttributes())
                 ->assertRedirect('/dashboard/posts');
@@ -31,7 +31,7 @@ class PostTest extends TestCase
     }
 
     /** @test */
-    public function validation_title_is_required()
+    public function validationTitleIsRequired()
     {
         $this->post('/dashboard/posts', array_merge($this->createPostAttributes(), [
             'title' => '',
@@ -40,7 +40,7 @@ class PostTest extends TestCase
     }
     
     /** @test */
-    public function store_post_validation_fails()
+    public function storePostValidationFails()
     {
         $this->post('/dashboard/posts', array_merge($this->createPostAttributes(), [
             'title' => 'N',
@@ -54,7 +54,7 @@ class PostTest extends TestCase
     }
 
     /** @test */
-    public function validation_title_is_at_least_two_characters()
+    public function validationTitleIsAtLeastTwoCharacters()
     {
         $this->post('/dashboard/posts', array_merge($this->createPostAttributes(), [
             'title' => 'A',
@@ -64,7 +64,7 @@ class PostTest extends TestCase
     }
     
     /** @test */
-    public function validation_a_body_is_required()
+    public function validationBodyIsRequired()
     {
         $this->post('/dashboard/posts', array_merge($this->createPostAttributes(), [
             'body' => '',
@@ -74,7 +74,7 @@ class PostTest extends TestCase
     }
     
     /** @test */
-    public function validation_time_to_read_is_required()
+    public function validationTimeToReadIsRequired()
     {
         $this->post('/dashboard/posts', array_merge($this->createPostAttributes(), [
             'time_to_read' => '',
@@ -84,7 +84,7 @@ class PostTest extends TestCase
     }
     
     /** @test */
-    public function validation_category_id_is_required()
+    public function validationCategoryIdIsRequired()
     {
         $this->post('/dashboard/posts', array_merge($this->createPostAttributes(), [
             'category_id' => '',
@@ -94,7 +94,7 @@ class PostTest extends TestCase
     }
 
     /** @test */
-    public function store_post_validated_successfully()
+    public function storePostValidatedSuccessfully()
     {
         $this->post('/dashboard/posts', $this->createPostAttributes())
                 ->assertStatus(302)
@@ -103,7 +103,7 @@ class PostTest extends TestCase
     }
 
     /** @test */
-    public function a_post_can_be_updated()
+    public function aPostCanBeUpdated()
     {
         $post = factory(Post::class)->create();
         $this->patch('/dashboard/posts/' . $post->id, $this->createPostAttributes())
@@ -117,7 +117,7 @@ class PostTest extends TestCase
     }
 
     /** @test */
-    public function a_post_can_be_trashed()
+    public function aPostCanBeTrashed()
     {
         $this->assertCount(1, Role::all());
         $this->assertCount(32, Permission::all());

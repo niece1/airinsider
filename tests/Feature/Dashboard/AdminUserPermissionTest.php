@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Dashboard;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -19,7 +19,7 @@ class AdminUserPermissionTest extends TestCase
     }
     
     /** @test */
-    public function permission_can_be_added_to_the_table_through_the_form()
+    public function permissionCanBeAddedToTheTableThroughTheForm()
     {
         $this->post('/dashboard/permissions', [
             'title' => 'user_edit',
@@ -32,7 +32,7 @@ class AdminUserPermissionTest extends TestCase
     }
     
     /** @test */
-    public function title_field_is_required()
+    public function titleFieldIsRequired()
     {
         $this->post('/dashboard/permissions', [
             'title' => '',
@@ -44,7 +44,7 @@ class AdminUserPermissionTest extends TestCase
     }
     
     /** @test */
-    public function title_field_should_be_at_least_two_characters()
+    public function titleFieldShouldBeAtLeastTwoCharacters()
     {
         $this->post('/dashboard/permissions', [
             'title' => 'u',
@@ -56,7 +56,7 @@ class AdminUserPermissionTest extends TestCase
     }
     
     /** @test */
-    public function title_field_should_be_max_thirty_characters()
+    public function titleFieldShouldBeMaxThirtyCharacters()
     {
         $this->post('/dashboard/permissions', [
             'title' => 'user_access_role_add_permission_delete',
@@ -68,7 +68,7 @@ class AdminUserPermissionTest extends TestCase
     }
     
     /** @test */
-    public function admin_user_can_see_user_page_and_edit_user_button()
+    public function adminUserCanSeeUserPageAndEditUserButton()
     {
         $this->get('/dashboard/users/')
                 ->assertStatus(200)
@@ -77,7 +77,7 @@ class AdminUserPermissionTest extends TestCase
     }
     
     /** @test */
-    public function admin_user_can_see_category_page_and_add_category_button()
+    public function adminUserCanSeeCategoryPageAndAddCategoryButton()
     {
         $this->get('/dashboard/categories/')
                 ->assertStatus(200)
@@ -86,7 +86,7 @@ class AdminUserPermissionTest extends TestCase
     }
     
     /** @test */
-    public function admin_user_can_see_tag_page_and_add_tag_button()
+    public function adminUserCanSeeTagPageAndAddTagButton()
     {
         $this->get('/dashboard/tags/')
                 ->assertStatus(200)
@@ -95,7 +95,7 @@ class AdminUserPermissionTest extends TestCase
     }
     
     /** @test */
-    public function admin_user_can_see_permission_page_and_add_permission_button()
+    public function adminUserCanSeePermissionPageAndAddPermissionButton()
     {
         $this->get('/dashboard/permissions/')
                 ->assertStatus(200)
@@ -104,7 +104,7 @@ class AdminUserPermissionTest extends TestCase
     }
     
     /** @test */
-    public function admin_user_can_see_trash_page()
+    public function adminUserCanSeeTrashPage()
     {
         $this->get('/dashboard/trash/')
                 ->assertStatus(200)
@@ -112,7 +112,7 @@ class AdminUserPermissionTest extends TestCase
     }
  
     /** @test */
-    public function admin_user_can_see_post_page_add_post_button()
+    public function adminUserCanSeePostPageAddPostButton()
     {
         $this->get('/dashboard/posts/')
                 ->assertStatus(200)
@@ -121,7 +121,7 @@ class AdminUserPermissionTest extends TestCase
     }
     
     /** @test */
-    public function admin_user_can_see_role_page_and_add_role_button()
+    public function adminUserCanSeeRolePageAndAddRoleButton()
     {
         $this->get('/dashboard/roles/')
                 ->assertStatus(200)
@@ -130,7 +130,7 @@ class AdminUserPermissionTest extends TestCase
     }
     
     /** @test */
-    public function admin_user_can_see_comments_page()
+    public function adminUserCanSeeCommentsPage()
     {
         $this->get('/dashboard/comments/')
                 ->assertStatus(200)
@@ -138,7 +138,7 @@ class AdminUserPermissionTest extends TestCase
     }
     
     /** @test */
-    public function admin_user_can_see_subscription_page()
+    public function adminUserCanSeeSubscriptionPage()
     {
         $this->get('/dashboard/subscriptions/')
                 ->assertStatus(200)

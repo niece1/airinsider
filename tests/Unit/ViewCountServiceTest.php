@@ -14,7 +14,7 @@ class ViewCountServiceTest extends TestCase
     use RefreshDatabase;
     
     /** @test */
-    public function post_view_counter_works_properly()
+    public function postViewCounterWorksProperly()
     {
         factory(User::class)->create();
         factory(Category::class)->create();

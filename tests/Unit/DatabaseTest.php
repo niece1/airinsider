@@ -11,7 +11,7 @@ class DatabaseTest extends TestCase
     use RefreshDatabase;
     
     /** @test */
-    public function posts_table_has_expected_columns()
+    public function postsTableHasExpectedColumns()
     {
         $this->assertTrue(Schema::hasColumns('posts', [
             'id', 'title', 'body', 'slug', 'published', 'viewed', 'time_to_read',
@@ -20,7 +20,7 @@ class DatabaseTest extends TestCase
     }
     
     /** @test */
-    public function likes_table_has_expected_columns()
+    public function likesTableHasExpectedColumns()
     {
         $this->assertTrue(Schema::hasColumns('likes', [
             'id', 'type', 'likeable_type', 'likeable_id', 'user_id'
@@ -28,7 +28,7 @@ class DatabaseTest extends TestCase
     }
     
     /** @test */
-    public function users_table_has_expected_columns()
+    public function usersTableHasExpectedColumns()
     {
         $this->assertTrue(Schema::hasColumns('users', [
             'id', 'name', 'email', 'email_verified_at', 'password', 'provider',
@@ -37,7 +37,7 @@ class DatabaseTest extends TestCase
     }
     
     /** @test */
-    public function categories_table_has_expected_columns()
+    public function categoriesTableHasExpectedColumns()
     {
         $this->assertTrue(Schema::hasColumns('categories', [
             'id', 'title'
@@ -45,7 +45,7 @@ class DatabaseTest extends TestCase
     }
     
     /** @test */
-    public function photos_table_has_expected_columns()
+    public function photosTableHasExpectedColumns()
     {
         $this->assertTrue(Schema::hasColumns('photos', [
             'id', 'photoable_type', 'photoable_id', 'path'
@@ -53,7 +53,7 @@ class DatabaseTest extends TestCase
     }
     
     /** @test */
-    public function tags_table_has_expected_columns()
+    public function tagsTableHasExpectedColumns()
     {
         $this->assertTrue(Schema::hasColumns('tags', [
             'id', 'title'
@@ -61,7 +61,7 @@ class DatabaseTest extends TestCase
     }
     
     /** @test */
-    public function comments_table_has_expected_columns()
+    public function commentsTableHasExpectedColumns()
     {
         $this->assertTrue(Schema::hasColumns('comments', [
             'id', 'comment_id', 'body', 'post_id', 'user_id'
@@ -69,7 +69,7 @@ class DatabaseTest extends TestCase
     }
     
     /** @test */
-    public function post_tag_table_has_expected_columns()
+    public function postTagTableHasExpectedColumns()
     {
         $this->assertTrue(Schema::hasColumns('post_tag', [
             'id', 'tag_id', 'post_id'
@@ -77,7 +77,7 @@ class DatabaseTest extends TestCase
     }
     
     /** @test */
-    public function roles_table_has_expected_columns()
+    public function rolesTableHasExpectedColumns()
     {
         $this->assertTrue(Schema::hasColumns('roles', [
             'id', 'title'
@@ -85,7 +85,7 @@ class DatabaseTest extends TestCase
     }
     
     /** @test */
-    public function permissions_table_has_expected_columns()
+    public function permissionsTableHasExpectedColumns()
     {
         $this->assertTrue(Schema::hasColumns('permissions', [
             'id', 'title'
@@ -93,7 +93,7 @@ class DatabaseTest extends TestCase
     }
     
     /** @test */
-    public function permission_role_table_has_expected_columns()
+    public function permissionRoleTableHasExpectedColumns()
     {
         $this->assertTrue(Schema::hasColumns('permission_role', [
             'id', 'permission_id', 'role_id'
@@ -101,7 +101,7 @@ class DatabaseTest extends TestCase
     }
     
     /** @test */
-    public function role_user_tag_table_has_expected_columns()
+    public function roleUserTagTableHasExpectedColumns()
     {
         $this->assertTrue(Schema::hasColumns('role_user', [
             'id', 'role_id', 'user_id'
@@ -109,7 +109,7 @@ class DatabaseTest extends TestCase
     }
     
     /** @test */
-    public function subscriptions_table_has_expected_columns()
+    public function subscriptionsTableHasExpectedColumns()
     {
         $this->assertTrue(Schema::hasColumns('subscriptions', [
             'id', 'email'
@@ -117,7 +117,7 @@ class DatabaseTest extends TestCase
     }
     
     /** @test */
-    public function password_resets_table_has_expected_columns()
+    public function passwordResetsTableHasExpectedColumns()
     {
         $this->assertTrue(Schema::hasColumns('password_resets', [
             'email', 'token'

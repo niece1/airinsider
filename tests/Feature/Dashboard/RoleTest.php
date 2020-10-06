@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Dashboard;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\Traits\AdminUser;
@@ -21,7 +21,7 @@ class RoleTest extends TestCase
     }
     
     /** @test */
-    public function generating_admin_user_via_seeds_works_correctly()
+    public function generationAdminUserViaSeedsWorksCorrectly()
     {
         $this->assertCount(1, Role::all());
         $this->assertCount(1, User::all());
@@ -29,7 +29,7 @@ class RoleTest extends TestCase
     }
 
     /** @test */
-    public function a_role_can_be_added_to_the_table_through_the_form()
+    public function aRoleCanBeAddedToTheTableThroughTheForm()
     {
         $this->post('/dashboard/roles', ['title' => 'Moderator',])
                 ->assertSessionHas('success_message')
@@ -40,7 +40,7 @@ class RoleTest extends TestCase
     }
     
     /** @test */
-    public function validation_title_is_at_least_two_characters()
+    public function validationTitleIsAtLeastTwoCharacters()
     {
         $this->post('/dashboard/roles', ['title' => 'A',])
                 ->assertSessionHasErrors('title');
@@ -50,7 +50,7 @@ class RoleTest extends TestCase
     }
     
     /** @test */
-    public function validation_a_title_is_required()
+    public function validationTitleIsRequired()
     {
         $this->post('/dashboard/roles', ['title' => '',])
                 ->assertSessionHasErrors('title');
@@ -58,7 +58,7 @@ class RoleTest extends TestCase
     }
     
     /** @test */
-    public function validation_a_title_should_be_max_30_characters()
+    public function validationTitleShouldBeMax30Characters()
     {
         $this->post('/dashboard/roles', [
             'title' => 'Quaerat qui fuga minima sunt voluptatem id',
@@ -70,7 +70,7 @@ class RoleTest extends TestCase
     }
     
     /** @test */
-    public function a_role_can_be_updated()
+    public function aRoleCanBeUpdated()
     {
         $role = factory(Role::class)->create();
         $this->patch('/dashboard/roles/' . $role->id, ['title' => 'Guest',])
@@ -82,7 +82,7 @@ class RoleTest extends TestCase
     }
     
     /** @test */
-    public function a_role_can_be_deleted()
+    public function aRoleCanBeDeleted()
     {
         $role = factory(Role::class)->create();
         $this->assertCount(2, Role::all());

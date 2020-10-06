@@ -24,7 +24,7 @@ class LikeCommentTest extends TestCase
     }
     
     /** @test */
-    public function auth_users_can_like_a_comment()
+    public function authUsersCanLikeAComment()
     {
         $this->actingAs($this->user);
         $this->post('/likes/' . $this->comment->id . '/up', $this->createLikeCommentAttributes());
@@ -41,7 +41,7 @@ class LikeCommentTest extends TestCase
     }
     
     /** @test */
-    public function auth_users_can_dislike_already_liked_comment()
+    public function authUsersCanDislikeAlreadyLikedComment()
     {
         $this->actingAs($this->user);
         $this->post('/likes/' . $this->comment->id . '/up', $this->createLikeCommentAttributes());
@@ -60,7 +60,7 @@ class LikeCommentTest extends TestCase
     }
     
     /** @test */
-    public function auth_users_can_like_already_disliked_comment()
+    public function authUsersCanLikeAlreadyDislikedComment()
     {
         $this->actingAs($this->user);
         $this->post('/likes/' . $this->comment->id . '/down', array_merge($this->createLikeCommentAttributes(), [
@@ -79,7 +79,7 @@ class LikeCommentTest extends TestCase
     }
     
     /** @test */
-    public function unauthenticated_users_cannot_like_a_comment()
+    public function unauthenticatedUsersCannotLikeAComment()
     {
         $this->post('/likes/' . $this->comment->id . '/up', $this->createLikeCommentAttributes());
         $this->assertDatabaseCount('likes', 0);

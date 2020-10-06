@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Dashboard;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\Traits\AdminUser;
@@ -19,7 +19,7 @@ class CategoryTest extends TestCase
     }
     
     /** @test */
-    public function a_catagory_can_be_added_to_the_table_through_the_form()
+    public function aCatagoryCanBeAddedToTheTableThroughTheForm()
     {
         $this->post('/dashboard/categories', [
             'title' => 'Airbus',
@@ -29,7 +29,7 @@ class CategoryTest extends TestCase
     }
     
     /** @test */
-    public function title_field_is_required()
+    public function titleFieldIsRequired()
     {
         $this->post('/dashboard/categories', [
             'title' => '',
@@ -41,7 +41,7 @@ class CategoryTest extends TestCase
     }
     
     /** @test */
-    public function title_field_should_be_at_least_two_characters()
+    public function titleFieldShouldBeAtLeastTwoCharacters()
     {
         $this->post('/dashboard/categories', [
             'title' => 'A',
@@ -53,7 +53,7 @@ class CategoryTest extends TestCase
     }
     
     /** @test */
-    public function title_field_should_be_max_ten_characters()
+    public function titleFieldShouldBeMaxTenCharacters()
     {
         $this->post('/dashboard/categories', [
             'title' => 'Antananarivo',
@@ -65,7 +65,7 @@ class CategoryTest extends TestCase
     }
     
     /** @test */
-    public function a_category_can_be_updated()
+    public function aCategoryCanBeUpdated()
     {
         $category = factory(Category::class)->create();
         $this->patch('/dashboard/categories/' . $category->id, [
@@ -80,7 +80,7 @@ class CategoryTest extends TestCase
     }
     
     /** @test */
-    public function a_category_can_be_deleted()
+    public function aCategoryCanBeDeleted()
     {
         $category = factory(Category::class)->create();
         $this->assertCount(1, Category::all());

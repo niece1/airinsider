@@ -16,7 +16,7 @@ class RoleUserRelationTest extends TestCase
     use SyncRoles;
     
     /** @test */
-    public function role_user_many_to_many_relations()
+    public function roleUserManyToManyRelations()
     {
         $this->actingAs($this->createAdminUser());
         $role = factory(Role::class)->create();

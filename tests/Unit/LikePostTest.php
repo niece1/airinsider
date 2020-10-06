@@ -22,7 +22,7 @@ class LikePostTest extends TestCase
     }
     
     /** @test */
-    public function auth_users_can_like_a_post()
+    public function authUsersCanLikeAPost()
     {
         $this->actingAs($this->user);
         $this->post('/likes/' . $this->post->id . '/up', $this->createLikePostAttributes());
@@ -39,7 +39,7 @@ class LikePostTest extends TestCase
     }
    
     /** @test */
-    public function auth_users_can_dislike_already_liked_post()
+    public function authUsersCanDislikeAlreadyLikedPost()
     {
         $this->actingAs($this->user);
         $this->post('/likes/' . $this->post->id . '/up', $this->createLikePostAttributes());
@@ -58,7 +58,7 @@ class LikePostTest extends TestCase
     }
     
     /** @test */
-    public function auth_users_can_like_already_disliked_post()
+    public function authUsersCanLikeAlreadyDislikedPost()
     {
         $this->actingAs($this->user);
         $this->post('/likes/' . $this->post->id . '/down', array_merge($this->createLikePostAttributes(), [
@@ -77,7 +77,7 @@ class LikePostTest extends TestCase
     }
     
     /** @test */
-    public function unauthenticated_users_cannot_like_a_post()
+    public function unauthenticatedUsersCannotLikeAPost()
     {
         $this->post('/likes/' . $this->post->id . '/up', $this->createLikePostAttributes());
         $this->assertDatabaseCount('likes', 0);

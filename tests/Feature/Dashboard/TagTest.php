@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Dashboard;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -19,7 +19,7 @@ class TagTest extends TestCase
     }
     
     /** @test */
-    public function a_tag_can_be_added_to_the_table_through_the_form()
+    public function aTagCanBeAddedToTheTableThroughTheForm()
     {
         $this->post('/dashboard/tags', ['title' => 'Airbus',])
                 ->assertRedirect('/dashboard/tags');
@@ -27,7 +27,7 @@ class TagTest extends TestCase
     }
     
     /** @test */
-    public function title_field_is_required()
+    public function titleFieldIsRequired()
     {
         $this->post('/dashboard/tags', [
             'title' => '',
@@ -39,7 +39,7 @@ class TagTest extends TestCase
     }
     
     /** @test */
-    public function title_field_should_be_at_least_two_characters()
+    public function titleFieldShouldBeAtLeastTwoCharacters()
     {
         $this->post('/dashboard/tags', [
             'title' => 'A',
@@ -51,7 +51,7 @@ class TagTest extends TestCase
     }
     
     /** @test */
-    public function title_field_should_be_max_ten_characters()
+    public function titleFieldShouldBeMaxTenCharacters()
     {
         $this->post('/dashboard/tags', ['title' => 'Antananarivo',])
                 ->assertStatus(302)
@@ -61,7 +61,7 @@ class TagTest extends TestCase
     }
     
     /** @test */
-    public function a_tag_can_be_updated()
+    public function aTagCanBeUpdated()
     {
         $tag = factory(Tag::class)->create();
         $this->patch('/dashboard/tags/' . $tag->id, ['title' => 'Airbus',])
@@ -74,7 +74,7 @@ class TagTest extends TestCase
     }
     
     /** @test */
-    public function a_tag_can_be_deleted()
+    public function aTagCanBeDeleted()
     {
         $tag = factory(Tag::class)->create();
         $this->assertCount(1, Tag::all());

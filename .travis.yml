@@ -4,12 +4,12 @@ php:
   -7.4
 
 before_script:
-  - cp .env.travis .env
   - composer self-update
   - composer install --no-interaction
+  - cp .env.travis .env
+  - php artisan key:generate
 
 script:
-  - php artisan key:generate
   - ./vendor/bin/phpcs
 
 services:

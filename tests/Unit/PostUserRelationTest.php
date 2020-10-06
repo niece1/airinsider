@@ -21,14 +21,14 @@ class PostUserRelationTest extends TestCase
     }
     
     /** @test */
-    public function a_post_belongs_to_user()
+    public function aPostBelongsToUser()
     {
         $this->assertInstanceOf(User::class, $this->post->user);
         $this->assertTrue($this->post->user()->exists());
     }
     
     /** @test */
-    public function a_user_has_many_posts()
+    public function aUserHasManyPosts()
     {
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->user->posts);
         $this->assertTrue($this->user->posts->contains($this->post));

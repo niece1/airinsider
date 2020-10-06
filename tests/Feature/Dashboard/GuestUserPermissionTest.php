@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature;
+namespace Tests\Feature\Dashboard;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
@@ -13,12 +13,12 @@ class GuestUserPermissionTest extends TestCase
     
     public function setUp(): void
     {
-        parent::setUp(); 
+        parent::setUp();
         $this->actingAs($this->createGuestUser());
     }
     
     /** @test */
-    public function guest_user_can_see_post_page()
+    public function guestUserCanSeePostPage()
     {
         $this->get('/dashboard/posts/')
                 ->assertStatus(200)
@@ -26,7 +26,7 @@ class GuestUserPermissionTest extends TestCase
     }
     
     /** @test */
-    public function guest_user_cannot_see_add_post_button()
+    public function guestUserCannotSeeAddPostButton()
     {
         $this->get('/dashboard/posts/')
                 ->assertStatus(200)
@@ -34,7 +34,7 @@ class GuestUserPermissionTest extends TestCase
     }
     
     /** @test */
-    public function guest_user_cannot_see_role_page()
+    public function guestUserCannotSeeRolePage()
     {
         $this->get('/dashboard/roles/')
                 ->assertForbidden();
