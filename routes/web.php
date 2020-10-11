@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+use Illuminate\Support\Facades\Mail;
 Auth::routes();
 
 //Frontend
@@ -76,3 +76,5 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard', 'middleware' 
 Route::fallback(function () {
     return view('errors.503');
 });*/
+Route::get('/email', fn() => new App\Mail\NewsletterMail());
+
