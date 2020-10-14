@@ -5,14 +5,14 @@ namespace App\Repositories\Dashboard;
 use App\Subscription;
 
 /**
- * Subscription entity database query class
+ * Subscription entity database query class.
  *
  * @author Volodymyr Zhonchuk
  */
 class SubscriptionRepository
 {
     /**
-     * Fetch all subscriptions from the database
+     * Fetch all subscriptions from the database.
      *
      * @return \App\Subscription[]
      */
@@ -23,7 +23,7 @@ class SubscriptionRepository
     }
     
     /**
-     * Fetch all subscriptions from the database
+     * Fetch all subscriptions from the database.
      *
      * @return \App\Subscription[]
      */
@@ -33,7 +33,7 @@ class SubscriptionRepository
     }
     
     /**
-     * Delete subscription instance from the database
+     * Delete subscription instance from the database.
      *
      * @param  \App\Subscription  $subscription
      */

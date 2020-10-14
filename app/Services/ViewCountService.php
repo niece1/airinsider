@@ -4,8 +4,19 @@ namespace App\Services;
 
 use App\Post;
 
+/**
+ * Count post views
+ *
+ * @author Volodymyr Zhonchuk
+ */
 class ViewCountService
 {
+    /*
+     * Count post views
+     *
+     * @param  \App\Post  $post
+     * @return \App\Post
+     */
     public function postViewCount(Post $post)
     {
         $post->viewed += 1;

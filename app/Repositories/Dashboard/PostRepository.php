@@ -9,14 +9,14 @@ use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 
 /**
- * Post entity database query class
+ * Post entity database query class.
  *
  * @author Volodymyr Zhonchuk
  */
 class PostRepository
 {
     /**
-     * Fetch all posts from the database
+     * Fetch all posts from the database.
      *
      * @return \App\Post[]
      */
@@ -28,7 +28,7 @@ class PostRepository
     }
     
     /**
-     * Save post instance to the database
+     * Save post instance to the database.
      *
      * @param \App\Http\Requests\PostRequest  $request
      * @return \App\Post
@@ -39,7 +39,7 @@ class PostRepository
     }
     
     /**
-     * Get the specified resource from the database
+     * Get the specified resource from the database.
      *
      * @param \App\Post  $post
      * @return \App\Post
@@ -51,7 +51,7 @@ class PostRepository
     }
     
     /**
-     * Update post instance in the database
+     * Update post instance in the database.
      *
      * @param \App\Http\Requests\PostRequest  $request
      * @param  \App\Post  $post
@@ -62,7 +62,7 @@ class PostRepository
     }
     
     /**
-     * Remove post instance to trash
+     * Remove post instance to trash.
      *
      * @param  \App\Post  $post
      */
@@ -72,7 +72,7 @@ class PostRepository
     }
     
     /**
-     * Fetch all trashed posts from the database
+     * Fetch all trashed posts from the database.
      *
      * @return \App\Post[]
      */
@@ -84,7 +84,7 @@ class PostRepository
     }
     
     /**
-     * Delete post instance from the database
+     * Delete post instance from the database.
      *
      * @param  \App\Post  $id
      * @param  \App\Photo  $photo
@@ -101,7 +101,7 @@ class PostRepository
     }
     
     /**
-     * Return post instance from trash
+     * Return post from trash.
      *
      * @param  \App\Post  $id
      * @return \App\Post
@@ -114,7 +114,7 @@ class PostRepository
     }
     
     /**
-     * Fetch posts for the last 7 days to send newsletter
+     * Fetch posts for the last 7 days to send newsletter.
      *
      * @return \App\Post[]
      */

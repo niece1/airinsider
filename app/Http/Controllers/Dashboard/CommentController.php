@@ -7,6 +7,11 @@ use App\Repositories\Dashboard\CommentRepository;
 
 class CommentController extends DashboardController
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
         abort_unless(\Gate::allows('comment_access'), 403);
@@ -14,7 +19,13 @@ class CommentController extends DashboardController
 
         return view('dashboard.comment.index', compact('comments'));
     }
-
+    
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Comment  $comment
+     * @return \Illuminate\Http\Response
+     */
     public function destroy(Comment $comment)
     {
         abort_unless(\Gate::allows('comment_delete'), 403);

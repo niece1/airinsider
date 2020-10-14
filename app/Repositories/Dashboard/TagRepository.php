@@ -6,14 +6,14 @@ use App\Tag;
 use App\Http\Requests\TagRequest;
 
 /**
- * Tag entity database query class
+ * Tag entity database query class.
  *
  * @author Volodymyr Zhonchuk
  */
 class TagRepository
 {
     /**
-     * Fetch all tags from the database
+     * Fetch all tags from the database.
      *
      * @return \App\Tag[]
      */
@@ -23,7 +23,7 @@ class TagRepository
     }
     
     /**
-     * Save tag instance to the database
+     * Save tag instance to the database.
      *
      * @param \App\Http\Requests\TagRequest  $request
      */
@@ -33,7 +33,7 @@ class TagRepository
     }
     
     /**
-     * Update tag instance in the database
+     * Update tag instance in the database.
      *
      * @param \App\Http\Requests\TagRequest  $request
      * @param  \App\Tag  $tag
@@ -44,7 +44,7 @@ class TagRepository
     }
     
     /**
-     * Delete tag instance from the database
+     * Delete tag instance from the database.
      *
      * @param  \App\Tag  $tag
      */

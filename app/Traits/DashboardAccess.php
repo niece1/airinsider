@@ -7,6 +7,12 @@ use Illuminate\Support\Facades\Gate;
 
 trait DashboardAccess
 {
+    /**
+     * Associate permission to specific role.
+     *
+     * @return void
+     */
+    
     public function getDashboardAccess()
     {
         $roles = Role::with('permissions')->get();

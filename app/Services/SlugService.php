@@ -7,12 +7,19 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 /**
- * Description of GenerateSlugService
+ * Generate slug while creating/updating post
  *
- * @author test
+ * @author Volodymyr Zhonchuk
  */
 class SlugService
 {
+    /*
+     * Generate slug using post title
+     *
+     * @param  Illuminate\Http\Request $request
+     * @param  \App\Post  $post
+     * @return void
+     */
     public function generateSlug(Request $request, Post $post)
     {
         $post->update([

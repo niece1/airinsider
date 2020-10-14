@@ -45,6 +45,8 @@ class PostController extends DashboardController
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\StorePostRequest  $request
+     * @param  \App\Services\SlugService  $slugService
+     * @param  \App\Services\PostPhotoUploader  $postPhotoUploader
      * @return \Illuminate\Http\Response
      */
     public function store(
@@ -95,7 +97,8 @@ class PostController extends DashboardController
      *
      * @param  \App\Http\Requests\UpdatePostRequest  $request
      * @param  \App\Post  $post
-     *
+     * @param  \App\Services\SlugService  $slugService
+     * @param  \App\Services\PostPhotoUploader  $postPhotoUploader
      * @return \Illuminate\Http\Response
      */
     public function update(
@@ -114,7 +117,7 @@ class PostController extends DashboardController
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource to trash.
      *
      * @param  \App\Post  $post
      * @return \Illuminate\Http\Response

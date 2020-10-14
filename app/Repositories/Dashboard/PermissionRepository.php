@@ -6,14 +6,14 @@ use App\Permission;
 use App\Http\Requests\PermissionRequest;
 
 /**
- * Permission entity database query class
+ * Permission entity database query class.
  *
  * @author Volodymyr Zhonchuk
  */
 class PermissionRepository
 {
     /**
-     * Fetch all permissions from the database
+     * Fetch all permissions from the database.
      *
      * @return \App\Permission[]
      */
@@ -23,7 +23,7 @@ class PermissionRepository
     }
     
     /**
-     * Save permission instance to the database
+     * Save permission instance to the database.
      *
      * @param \App\Http\Requests\PermissionRequest  $request
      */
@@ -33,7 +33,7 @@ class PermissionRepository
     }
     
     /**
-     * Delete permission instance from the database
+     * Delete permission instance from the database.
      *
      * @param  \App\Permission  $permission
      */

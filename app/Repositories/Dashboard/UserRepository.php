@@ -5,14 +5,14 @@ namespace App\Repositories\Dashboard;
 use App\User;
 
 /**
- * User entity database query class
+ * User entity database query class.
  *
  * @author Volodymyr Zhonchuk
  */
 class UserRepository
 {
     /**
-     * Fetch all users from the database
+     * Fetch all users from the database.
      *
      * @return \App\User[]
      */
@@ -22,7 +22,7 @@ class UserRepository
     }
     
     /**
-     * Delete user instance from the database
+     * Delete user instance from the database.
      *
      * @param  \App\User  $user
      */

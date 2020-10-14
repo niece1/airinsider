@@ -5,14 +5,14 @@ namespace App\Repositories\Dashboard;
 use App\Comment;
 
 /**
- * Comment entity database query class
+ * Comment entity database query class.
  *
  * @author Volodymyr Zhonchuk
  */
 class CommentRepository
 {
     /**
-     * Fetch all comments from the database
+     * Fetch all comments from the database.
      *
      * @return \App\Comment[]
      */
@@ -24,7 +24,7 @@ class CommentRepository
     }
     
     /**
-     * Delete comment instance from the database
+     * Delete comment instance from the database.
      *
      * @param  \App\Comment  $comment
      */
