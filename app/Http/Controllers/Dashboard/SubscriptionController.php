@@ -24,7 +24,6 @@ class SubscriptionController extends DashboardController
      * Remove the specified resource from storage.
      *
      * @param  \App\Subscription  $subscription
-     *
      * @return \Illuminate\Http\Response
      */
     public function destroy(Subscription $subscription)

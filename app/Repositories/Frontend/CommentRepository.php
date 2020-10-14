@@ -8,14 +8,14 @@ use App\Interfaces\Frontend\CommentRepositoryInterface;
 use App\Http\Requests\CommentRequest;
 
 /**
- * Comment entity database query class
+ * Comment entity database query class.
  *
  * @author Volodymyr Zhonchuk
  */
 class CommentRepository implements CommentRepositoryInterface
 {
     /**
-     * Fetch comments from the database
+     * Fetch comments from the database.
      *
      * @param  \App\Post  $post
      * @return \App\Comment[]
@@ -26,7 +26,7 @@ class CommentRepository implements CommentRepositoryInterface
     }
     
     /**
-     * Save comment instance to the database
+     * Save comment instance to the database.
      *
      * @param \App\Http\Requests\CommentRequest  $request
      * @param  \App\Post  $post
@@ -42,7 +42,7 @@ class CommentRepository implements CommentRepositoryInterface
     }
     
     /**
-     * Fetch replies from the database
+     * Fetch replies from the database.
      *
      * @param  \App\Comment  $comment
      * @return \App\Comment[]

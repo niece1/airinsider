@@ -12,7 +12,7 @@ class SubscriptionController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \App\Http\Requests\SubscriptionRequest  $request
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function store(SubscriptionRequest $request)
     {

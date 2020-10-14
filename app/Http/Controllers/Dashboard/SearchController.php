@@ -9,7 +9,7 @@ use App\Repositories\Dashboard\SearchRepository;
 class SearchController extends Controller
 {
     /**
-     * Display a listing of Post resource by search criteria
+     * Display a listing of Post resource by search criteria.
      *
      * @param  \App\Http\Requests\Request  $request
      * @return \Illuminate\Http\Response

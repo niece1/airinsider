@@ -7,6 +7,11 @@ use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return \Closure  $next
+     */
     public function __construct()
     {
         $this->middleware(function ($request, $next) {

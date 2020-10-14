@@ -6,14 +6,14 @@ use App\Post;
 use Illuminate\Http\Request;
 
 /**
- * Search posts by the given query
+ * Search posts by the given query.
  *
  * @author Volodymyr Zhonchuk
  */
 class SearchRepository
 {
     /**
-     * Fetch all posts from the database by the given query
+     * Fetch all posts from the database by the given query.
      *
      * @param  \App\Http\Requests\Request  $request
      * @return \App\Post[]

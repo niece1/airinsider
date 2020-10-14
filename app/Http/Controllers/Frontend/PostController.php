@@ -10,6 +10,12 @@ class PostController extends Controller
 {
     private $postRepository;
     
+    /**
+     * Create a new Post instance.
+     *
+     * @param  \App\Interfaces\Frontend\PostRepositoryInterface  $postRepository
+     * @return void
+     */
     public function __construct(PostRepositoryInterface $postRepository)
     {
         $this->postRepository = $postRepository;
@@ -86,5 +92,17 @@ class PostController extends Controller
         $chosen_user = $this->postRepository->getUser($user);
 
         return view('frontend.post.post-by-user', compact('posts_by_user', 'chosen_user'));
+    }
+    
+    /**
+     * Display posts in random order in carousel.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function randomPost()
+    {
+        $random_posts = $this->postRepository->getRandom();
+        
+        return view('frontend.contact.index', compact('random_posts'));
     }
 }

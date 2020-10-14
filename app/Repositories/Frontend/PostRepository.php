@@ -10,14 +10,14 @@ use Carbon\Carbon;
 use App\Interfaces\Frontend\PostRepositoryInterface;
 
 /**
- * Post entity database query class
+ * Post entity database query class.
  *
  * @author Volodymyr Zhonchuk
  */
 class PostRepository implements PostRepositoryInterface
 {
     /**
-     * Get last published post from the database
+     * Get last published post from the database.
      *
      * @return \App\Post
      */
@@ -30,7 +30,7 @@ class PostRepository implements PostRepositoryInterface
     }
     
     /**
-     * Fetch all posts except featured one from the database
+     * Fetch all posts except featured one from the database.
      *
      * @param  \App\Post  $featured
      * @return \App\Post[]
@@ -47,7 +47,7 @@ class PostRepository implements PostRepositoryInterface
     }
     
     /**
-     * Get the specified post from the database
+     * Get the specified post from the database.
      *
      * @param \App\Post  $slug
      * @return \App\Post
@@ -58,7 +58,7 @@ class PostRepository implements PostRepositoryInterface
     }
     
     /**
-     * Fetch 5 posts associated with the category one's viewing now
+     * Fetch 5 posts associated with the category one's viewing now.
      *
      * @param  \App\Post  $post
      * @return \App\Post[]
@@ -73,7 +73,7 @@ class PostRepository implements PostRepositoryInterface
     }
     
     /**
-     * Fetch all categories from the database
+     * Fetch all categories from the database.
      *
      * @return \App\Category[]
      */
@@ -83,7 +83,7 @@ class PostRepository implements PostRepositoryInterface
     }
     
     /**
-     * Fetch all tags from the database
+     * Fetch all tags from the database.
      *
      * @return \App\Tag[]
      */
@@ -93,7 +93,7 @@ class PostRepository implements PostRepositoryInterface
     }
     
     /**
-     * Fetch all posts associated with specified category
+     * Fetch all posts associated with specified category.
      *
      * @param  \App\Category  $category
      * @return \App\Post[]
@@ -108,7 +108,7 @@ class PostRepository implements PostRepositoryInterface
     }
     
     /**
-     * Get the specified category from the database
+     * Get the specified category from the database.
      *
      * @param \App\Category  $category
      * @return \App\Category
@@ -119,7 +119,7 @@ class PostRepository implements PostRepositoryInterface
     }
     
     /**
-     * Fetch all posts associated with specified tag
+     * Fetch all posts associated with specified tag.
      *
      * @param  \App\Tag  $tag
      * @return \App\Post[]
@@ -134,7 +134,7 @@ class PostRepository implements PostRepositoryInterface
     }
     
     /**
-     * Get the specified tag from the database
+     * Get the specified tag from the database.
      *
      * @param \App\Tag  $tag
      * @return \App\Tag
@@ -145,7 +145,7 @@ class PostRepository implements PostRepositoryInterface
     }
     
     /**
-     * Fetch all posts associated with specified user
+     * Fetch all posts associated with specified user.
      *
      * @param  \App\User  $user
      * @return \App\Post[]
@@ -160,7 +160,7 @@ class PostRepository implements PostRepositoryInterface
     }
     
     /**
-     * Get the specified user from the database
+     * Get the specified user from the database.
      *
      * @param \App\User  $user
      * @return \App\User
@@ -171,7 +171,7 @@ class PostRepository implements PostRepositoryInterface
     }
     
     /**
-     * Fetch 5 posts in random order published within last 20 days
+     * Fetch 5 posts in random order published within last 20 days.
      *
      * @return \App\Post[]
      */
@@ -186,7 +186,7 @@ class PostRepository implements PostRepositoryInterface
     }
     
     /**
-     * Fetch 3 most often viewed posts
+     * Fetch 3 most often viewed posts.
      *
      * @return \App\Post[]
      */

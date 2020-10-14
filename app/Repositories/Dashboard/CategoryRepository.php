@@ -6,14 +6,14 @@ use App\Category;
 use App\Http\Requests\CategoryRequest;
 
 /**
- * Category entity database query class
+ * Category entity database query class.
  *
  * @author Volodymyr Zhonchuk
  */
 class CategoryRepository
 {
     /**
-     * Fetch all categories from the database
+     * Fetch all categories from the database.
      *
      * @return \App\Category[]
      */
@@ -23,7 +23,7 @@ class CategoryRepository
     }
     
     /**
-     * Save category instance to the database
+     * Save category instance to the database.
      *
      * @param \App\Http\Requests\CategoryRequest  $request
      */
@@ -33,7 +33,7 @@ class CategoryRepository
     }
     
     /**
-     * Update category instance in the database
+     * Update category instance in the database.
      *
      * @param \App\Http\Requests\CategoryRequest  $request
      * @param  \App\Category  $category
@@ -44,7 +44,7 @@ class CategoryRepository
     }
     
     /**
-     * Delete category instance from the database
+     * Delete category instance from the database.
      *
      * @param  \App\Category  $category
      */

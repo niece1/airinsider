@@ -10,19 +10,19 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-use Illuminate\Support\Facades\Mail;
+
 Auth::routes();
 
 //Frontend
 Route::group(['namespace' => 'Frontend'], function () {
-    //News
+    //Posts
     Route::get('/', 'PostController@index')->name('home');
     Route::get('post/{post}', 'PostController@show')->name('post.show');
     Route::get('categories/{category}', 'PostController@postByCategory')->name('post.by.category');
     Route::get('tags/{tag}', 'PostController@postByTag')->name('post.by.tag');
     Route::get('users/{user}', 'PostController@postByUser')->name('post.by.user');
+    Route::get('contact', 'PostController@randomPost')->name('contact');
     //Contact
-    Route::get('contact', 'ContactController@index')->name('contact');
     Route::post('contact', 'ContactController@store');
     //About
     Route::get('about', 'AboutController')->name('about');

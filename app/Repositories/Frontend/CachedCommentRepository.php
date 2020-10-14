@@ -10,14 +10,14 @@ use App\Comment;
 use App\Http\Requests\CommentRequest;
 
 /**
- * Cached comment entity query class
+ * Cached comment entity query class.
  *
  * @author Volodymyr Zhonchuk
  */
 class CachedCommentRepository extends CommentRepository implements CommentRepositoryInterface
 {
     /**
-     * Fetch cached comments
+     * Fetch cached comments.
      *
      * @param  \App\Post  $post
      * @return \App\Comment[]
@@ -32,7 +32,7 @@ class CachedCommentRepository extends CommentRepository implements CommentReposi
     }
     
     /**
-     * Save comment instance to the database
+     * Save comment instance to the database.
      *
      * @param \App\Http\Requests\CommentRequest  $request
      * @param  \App\Post  $post
@@ -44,7 +44,7 @@ class CachedCommentRepository extends CommentRepository implements CommentReposi
     }
     
     /**
-     * Fetch cached replies
+     * Fetch cached replies.
      *
      * @param  \App\Comment  $comment
      * @return \App\Comment[]

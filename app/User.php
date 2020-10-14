@@ -38,26 +38,53 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
     
+    /**
+     * Get photo associated with specified user
+     *
+     * @return MorphOne
+     */
     public function photo()
     {
         return $this->morphOne('App\Photo', 'photoable');
     }
-
+    
+    /**
+     * Get posts associated with specified user
+     *
+     * @return HasMany
+     */
     public function posts()
     {
         return $this->hasMany(Post::class);
     }
-
+    
+    /**
+     * Get comments associated with specified user
+     *
+     * @return HasMany
+     */
     public function comments()
     {
         return $this->hasMany(Comment::class);
     }
-
+    
+    /**
+     * Get roles associated with specified user
+     *
+     * @return BelongsToMany
+     */
     public function roles()
     {
         return $this->belongsToMany(Role::class)->withTimestamps();
     }
-
+    
+    /**
+     * Create or update like
+     *
+     * @param \App\Comment|\App\Post  $entity
+     * @param enum  $type
+     * @return mixed
+     */
     public function toggleLike($entity, $type)
     {
         $like = $entity->likes->where('user_id', $this->id)->first();

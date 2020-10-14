@@ -7,14 +7,14 @@ use App\Interfaces\Frontend\PostRepositoryInterface;
 use App\Repositories\Frontend\PostRepository;
 
 /**
- * Cached post entity query class
+ * Cached post entity query class.
  *
  * @author Volodymyr Zhonchuk
  */
 class CachedPostRepository extends PostRepository implements PostRepositoryInterface
 {
     /**
-     * Get cached last published post from the database
+     * Get cached last published post from the database.
      *
      * @return \App\Post
      */
@@ -28,7 +28,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryInter
     }
     
     /**
-     * Fetch all cached posts except featured one from the database
+     * Fetch all cached posts except featured one from the database.
      *
      * @param  \App\Post  $featured
      * @return \App\Post[]
@@ -43,7 +43,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryInter
     }
     
     /**
-     * Get cached specified post from the database
+     * Get cached specified post from the database.
      *
      * @param \App\Post  $slug
      * @return \App\Post
@@ -58,7 +58,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryInter
     }
     
     /**
-     * Fetch 5 cached posts associated with the category one's viewing now
+     * Fetch 5 cached posts associated with the category one's viewing now.
      *
      * @param  \App\Post  $post
      * @return \App\Post[]
@@ -73,7 +73,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryInter
     }
     
     /**
-     * Fetch all cached categories from the database
+     * Fetch all cached categories from the database.
      *
      * @return \App\Category[]
      */
@@ -87,7 +87,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryInter
     }
     
     /**
-     * Fetch all cached tags from the database
+     * Fetch all cached tags from the database.
      *
      * @return \App\Tag[]
      */
@@ -101,7 +101,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryInter
     }
     
     /**
-     * Fetch all cached posts associated with specified category
+     * Fetch all cached posts associated with specified category.
      *
      * @param  \App\Category  $category
      * @return \App\Post[]
@@ -116,7 +116,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryInter
     }
     
     /**
-     * Get cached specified category from the database
+     * Get cached specified category from the database.
      *
      * @param \App\Category  $category
      * @return \App\Category
@@ -131,7 +131,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryInter
     }
     
     /**
-     * Fetch all cached posts associated with specified tag
+     * Fetch all cached posts associated with specified tag.
      *
      * @param  \App\Tag  $tag
      * @return \App\Post[]
@@ -146,7 +146,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryInter
     }
     
     /**
-     * Get cached specified tag from the database
+     * Get cached specified tag from the database.
      *
      * @param \App\Tag  $tag
      * @return \App\Tag
@@ -161,7 +161,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryInter
     }
     
     /**
-     * Fetch all cached posts associated with specified user
+     * Fetch all cached posts associated with specified user.
      *
      * @param  \App\User  $user
      * @return \App\Post[]
@@ -176,7 +176,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryInter
     }
     
     /**
-     * Get cached specified user from the database
+     * Get cached specified user from the database.
      *
      * @param \App\User  $user
      * @return \App\User
@@ -191,7 +191,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryInter
     }
     
     /**
-     * Fetch 5 cached posts in random order published within last 20 days
+     * Fetch 5 cached posts in random order published within last 20 days.
      *
      * @return \App\Post[]
      */
@@ -205,7 +205,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryInter
     }
     
     /**
-     * Fetch cached 3 most often viewed posts
+     * Fetch cached 3 most often viewed posts.
      *
      * @return \App\Post[]
      */

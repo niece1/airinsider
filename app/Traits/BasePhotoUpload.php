@@ -7,11 +7,23 @@ use Illuminate\Support\Facades\Storage;
 
 trait BasePhotoUpload
 {
+    /**
+     * Get photo of specified resource.
+     *
+     * @param int $id
+     * @return \App\Photo
+     */
     private function getPhoto($id)
     {
         return Photo::find($id);
     }
     
+    /**
+     * Delete photo from folder.
+     *
+     * @param \App\Photo $photo
+     * @return \Illuminate\Http\Response
+     */
     private function deletePhotoFromStorageFolder(Photo $photo)
     {
         return Storage::disk('public')->delete($photo->original_path);

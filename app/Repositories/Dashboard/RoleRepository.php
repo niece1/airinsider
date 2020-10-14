@@ -6,14 +6,14 @@ use App\Role;
 use App\Http\Requests\RoleRequest;
 
 /**
- * Role entity database query class
+ * Role entity database query class.
  *
  * @author Volodymyr Zhonchuk
  */
 class RoleRepository
 {
     /**
-     * Fetch all roles from the database
+     * Fetch all roles from the database.
      *
      * @return \App\Role[]
      */
@@ -23,7 +23,7 @@ class RoleRepository
     }
     
     /**
-     * Save role instance to the database
+     * Save role instance to the database.
      *
      * @param \App\Http\Requests\RoleRequest  $request
      * @return \App\Role
@@ -34,7 +34,7 @@ class RoleRepository
     }
     
     /**
-     * Update role instance in the database
+     * Update role instance in the database.
      *
      * @param \App\Http\Requests\RoleRequest  $request
      * @param  \App\Role  $role
@@ -45,7 +45,7 @@ class RoleRepository
     }
     
     /**
-     * Delete role instance from the database
+     * Delete role instance from the database.
      *
      * @param  \App\Role  $role
      */

@@ -37,7 +37,7 @@ class SendNewsletterCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return string|void
+     * @return string
      */
     public function handle()
     {

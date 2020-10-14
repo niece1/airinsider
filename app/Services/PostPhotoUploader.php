@@ -21,7 +21,6 @@ class PostPhotoUploader
      *
      * @param  Illuminate\Http\Request $request
      * @param  \App\Post $post
-     *
      * @return void
      */
     public function store(Request $request, Post $post)
