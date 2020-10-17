@@ -29,7 +29,7 @@
         <h2>Наши тэги</h2>
         <div class="tag-cloud">
             @foreach ($tags as $tag)
-            <a href="{{ route('post.by.tag', [$tag->id]) }}">{{ $tag->title }}</a>
+            <a href="{{ route('posts.by.tag', [$tag->id]) }}">{{ $tag->title }}</a>
             @endforeach
         </div>
     </div>
@@ -38,7 +38,7 @@
         @foreach ($categories as $category)
         <ul class="category-list">
             <li>
-                <a href="{{ route('post.by.category', [$category->id]) }}">
+                <a href="{{ route('posts.by.category', [$category->id]) }}">
                     {{ $category->title }}
                 </a>
             </li>

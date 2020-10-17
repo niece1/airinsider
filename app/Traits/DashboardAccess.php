@@ -23,9 +23,8 @@ trait DashboardAccess
             }
         }
         foreach ($permissionsArray as $title => $roles) {
-            Gate::define($title, function (\App\User $user) use ($roles) {
-                return count(array_intersect($user->roles->pluck('id')->toArray(), $roles)) > 0;
-            });
+            Gate::define($title, fn (\App\User $user) => count(array_intersect($user->roles->pluck('id')
+                    ->toArray(), $roles)) > 0);
         }
     }
 }

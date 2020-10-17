@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Interfaces\Frontend;
+namespace App\Contracts\Frontend;
 
 use App\Post;
 use App\Comment;
 use App\Http\Requests\CommentRequest;
 
-interface CommentRepositoryInterface
+interface CommentRepositoryContract
 {
     /**
      * Fetch all comments from the database.

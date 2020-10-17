@@ -2,40 +2,23 @@
 
 namespace App\Services;
 
-use App\Photo;
 use App\Post;
-use App\Traits\BasePhotoUpload;
-use Illuminate\Http\Request;
 
 /**
- * Save file to \storage\app\public\posts
+ * Save file to \storage\app\public\photos
  *
  * @author Volodymyr Zhonchuk
  */
-class PostPhotoUploader
+final class PostPhotoUploader extends PhotoUploader
 {
-    use BasePhotoUpload;
-    
     /*
-     * Store photo while creating/updating post
+     * Get post namespace
      *
      * @param  Illuminate\Http\Request $request
-     * @param  \App\Post $post
-     * @return void
+     * @return string
      */
-    public function store(Request $request, Post $post)
+    public function getModelClass()
     {
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('posts', 'public');
-            if ($post->photo) {
-                $photo = $this->getPhoto($post->photo->id);
-                $this->deletePhotoFromStorageFolder($photo);
-                $photo->path = $path;
-                $post->photo()->save($photo);
-            }
-            $photo = new Photo();
-            $photo->path = $path;
-            $post->photo()->save($photo);
-        }
+        return Post::class;
     }
 }

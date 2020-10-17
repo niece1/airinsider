@@ -3,7 +3,7 @@
 namespace App\Repositories\Frontend;
 
 use Illuminate\Support\Facades\Cache;
-use App\Interfaces\Frontend\PostRepositoryInterface;
+use App\Contracts\Frontend\PostRepositoryContract;
 use App\Repositories\Frontend\PostRepository;
 
 /**
@@ -11,7 +11,7 @@ use App\Repositories\Frontend\PostRepository;
  *
  * @author Volodymyr Zhonchuk
  */
-class CachedPostRepository extends PostRepository implements PostRepositoryInterface
+class CachedPostRepository extends PostRepository implements PostRepositoryContract
 {
     /**
      * Get cached last published post from the database.

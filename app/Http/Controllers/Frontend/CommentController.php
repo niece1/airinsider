@@ -6,19 +6,19 @@ use App\Http\Requests\CommentRequest;
 use App\Http\Controllers\Controller;
 use App\Post;
 use App\Comment;
-use App\Interfaces\Frontend\CommentRepositoryInterface;
+use App\Contracts\Frontend\CommentRepositoryContract;
 
 class CommentController extends Controller
 {
     private $commentRepository;
     
     /**
-     * Create a new Comment instance.
+     * Create a new instance.
      *
-     * @param  \App\Interfaces\Frontend\CommentRepositoryInterface  $commentRepository
+     * @param  \App\Contracts\Frontend\CommentRepositoryContract  $commentRepository
      * @return void
      */
-    public function __construct(CommentRepositoryInterface $commentRepository)
+    public function __construct(CommentRepositoryContract $commentRepository)
     {
         $this->commentRepository = $commentRepository;
     }

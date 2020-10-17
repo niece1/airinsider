@@ -2,40 +2,23 @@
 
 namespace App\Services;
 
-use App\Photo;
 use App\User;
-use App\Traits\BasePhotoUpload;
-use Illuminate\Http\Request;
 
 /**
- * Save file to \storage\app\public\users
+ * Save file to \storage\app\public\photos
  *
  * @author Volodymyr Zhonchuk
  */
-class UserPhotoUploader
+final class UserPhotoUploader extends PhotoUploader
 {
-    use BasePhotoUpload;
-    
     /*
-     * Store photo while creating/updating user profile
+     * Get user namespace
      *
      * @param  Illuminate\Http\Request $request
-     * @param  \App\User $user
-     * @return void
+     * @return string
      */
-    public function store(Request $request, User $user)
+    public function getModelClass()
     {
-        if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('users', 'public');
-            if ($user->photo) {
-                $photo = $this->getPhoto($user->photo->id);
-                $this->deletePhotoFromStorageFolder($photo);
-                $photo->path = $path;
-                $user->photo()->save($photo);
-            }
-            $photo = new Photo();
-            $photo->path = $path;
-            $user->photo()->save($photo);
-        }
+        return User::class;
     }
 }
