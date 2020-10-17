@@ -3,10 +3,10 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use App\Interfaces\Frontend\CommentRepositoryInterface;
+use App\Contracts\Frontend\CommentRepositoryContract;
 use App\Repositories\Frontend\CommentRepository;
 use App\Repositories\Frontend\CachedCommentRepository;
-use App\Interfaces\Frontend\PostRepositoryInterface;
+use App\Contracts\Frontend\PostRepositoryContract;
 use App\Repositories\Frontend\PostRepository;
 use App\Repositories\Frontend\CachedPostRepository;
 
@@ -20,12 +20,12 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         if ($this->app->environment('local', 'testing')) {
-            $this->app->bind(PostRepositoryInterface::class, fn () => new PostRepository());
-            $this->app->bind(CommentRepositoryInterface::class, fn () => new CommentRepository());
+            $this->app->bind(PostRepositoryContract::class, fn () => new PostRepository());
+            $this->app->bind(CommentRepositoryContract::class, fn () => new CommentRepository());
         }
         if ($this->app->environment('production')) {
-            $this->app->bind(PostRepositoryInterface::class, fn () => new CachedPostRepository());
-            $this->app->bind(CommentRepositoryInterface::class, fn () => new CachedCommentRepository());
+            $this->app->bind(PostRepositoryContract::class, fn () => new CachedPostRepository());
+            $this->app->bind(CommentRepositoryContract::class, fn () => new CachedCommentRepository());
         }
     }
 

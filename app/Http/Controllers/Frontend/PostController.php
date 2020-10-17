@@ -4,19 +4,19 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Services\ViewCountService;
 use App\Http\Controllers\Controller;
-use App\Interfaces\Frontend\PostRepositoryInterface;
+use App\Contracts\Frontend\PostRepositoryContract;
 
 class PostController extends Controller
 {
     private $postRepository;
     
     /**
-     * Create a new Post instance.
+     * Create a new instance.
      *
-     * @param  \App\Interfaces\Frontend\PostRepositoryInterface  $postRepository
+     * @param  \App\Contracts\Frontend\PostRepositoryContract  $postRepository
      * @return void
      */
-    public function __construct(PostRepositoryInterface $postRepository)
+    public function __construct(PostRepositoryContract $postRepository)
     {
         $this->postRepository = $postRepository;
     }
@@ -63,7 +63,7 @@ class PostController extends Controller
         $posts_by_category = $this->postRepository->getAllByCategory($category);
         $chosen_category = $this->postRepository->getCategory($category);
 
-        return view('frontend.post.post-by-category', compact('posts_by_category', 'chosen_category'));
+        return view('frontend.post.posts-by-category', compact('posts_by_category', 'chosen_category'));
     }
     
     /**
@@ -77,7 +77,7 @@ class PostController extends Controller
         $posts_by_tag = $this->postRepository->getAllByTag($tag);
         $chosen_tag = $this->postRepository->getTag($tag);
 
-        return view('frontend.post.post-by-tag', compact('posts_by_tag', 'chosen_tag'));
+        return view('frontend.post.posts-by-tag', compact('posts_by_tag', 'chosen_tag'));
     }
     
     /**
@@ -91,7 +91,7 @@ class PostController extends Controller
         $posts_by_user = $this->postRepository->getAllByUser($user);
         $chosen_user = $this->postRepository->getUser($user);
 
-        return view('frontend.post.post-by-user', compact('posts_by_user', 'chosen_user'));
+        return view('frontend.post.posts-by-user', compact('posts_by_user', 'chosen_user'));
     }
     
     /**

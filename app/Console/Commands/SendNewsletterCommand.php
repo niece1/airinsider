@@ -5,8 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use App\Repositories\Dashboard\PostRepository;
 use App\Repositories\Dashboard\SubscriptionRepository;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\NewsletterMail;
+use App\Jobs\SendNewsletterJob;
 
 class SendNewsletterCommand extends Command
 {
@@ -44,9 +43,7 @@ class SendNewsletterCommand extends Command
         $posts = PostRepository::getForNewsletters();
         $subscriptions = SubscriptionRepository::getforNewsletters();
         if (!sizeof($posts) == 0 && !sizeof($subscriptions) == 0) {
-            foreach ($subscriptions as $subscription) {
-                Mail::to($subscription->email)->send(new NewsletterMail($posts));
-            }
+            dispatch(new SendNewsletterJob($posts, $subscriptions));
             return $this->info('Newsletter emails are sent!');
         }
         $this->warn('There is nothing to send');

@@ -18,9 +18,9 @@ Route::group(['namespace' => 'Frontend'], function () {
     //Posts
     Route::get('/', 'PostController@index')->name('home');
     Route::get('post/{post}', 'PostController@show')->name('post.show');
-    Route::get('categories/{category}', 'PostController@postByCategory')->name('post.by.category');
-    Route::get('tags/{tag}', 'PostController@postByTag')->name('post.by.tag');
-    Route::get('users/{user}', 'PostController@postByUser')->name('post.by.user');
+    Route::get('categories/{category}', 'PostController@postByCategory')->name('posts.by.category');
+    Route::get('tags/{tag}', 'PostController@postByTag')->name('posts.by.tag');
+    Route::get('users/{user}', 'PostController@postByUser')->name('posts.by.user');
     Route::get('contact', 'PostController@randomPost')->name('contact');
     //Contact
     Route::post('contact', 'ContactController@store');
@@ -76,5 +76,3 @@ Route::group(['prefix' => 'dashboard', 'namespace' => 'Dashboard', 'middleware' 
 Route::fallback(function () {
     return view('errors.503');
 });*/
-Route::get('/email', fn() => new App\Mail\NewsletterMail());
-

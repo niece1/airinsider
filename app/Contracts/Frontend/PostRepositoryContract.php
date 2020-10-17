@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Interfaces\Frontend;
+namespace App\Contracts\Frontend;
 
-interface PostRepositoryInterface
+interface PostRepositoryContract
 {
     /**
      * Get last published post from the database.

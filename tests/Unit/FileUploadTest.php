@@ -32,7 +32,7 @@ class FileUploadTest extends TestCase
         $this->assertDirectoryExists('public');
         $this->assertDirectoryIsReadable('public');
         $this->assertDirectoryIsWritable('public');
-        Storage::disk('public')->assertExists('posts/' . $file->hashName());
+        Storage::disk('public')->assertExists('photos/' . $file->hashName());
         $this->assertFileExists('public');
         $this->assertFileIsReadable('public');
         $this->assertFileIsWritable('public');

@@ -3,7 +3,7 @@
 namespace App\Repositories\Frontend;
 
 use Illuminate\Support\Facades\Cache;
-use App\Interfaces\Frontend\CommentRepositoryInterface;
+use App\Contracts\Frontend\CommentRepositoryContract;
 use App\Repositories\Frontend\CommentRepository;
 use App\Post;
 use App\Comment;
@@ -14,7 +14,7 @@ use App\Http\Requests\CommentRequest;
  *
  * @author Volodymyr Zhonchuk
  */
-class CachedCommentRepository extends CommentRepository implements CommentRepositoryInterface
+class CachedCommentRepository extends CommentRepository implements CommentRepositoryContract
 {
     /**
      * Fetch cached comments.

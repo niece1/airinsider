@@ -3,7 +3,7 @@
 namespace App\Http\ViewComposers;
 
 use Illuminate\View\View;
-use App\Interfaces\Frontend\PostRepositoryInterface;
+use App\Contracts\Frontend\PostRepositoryContract;
 
 class PopularPostsComposer
 {
@@ -12,10 +12,10 @@ class PopularPostsComposer
     /**
      * Create a new popular posts composer.
      *
-     * @param \App\Interfaces\Frontend\PostRepositoryInterface $postRepository
+     * @param \App\Contracts\Frontend\PostRepositoryContract $postRepository
      * @return void
      */
-    public function __construct(PostRepositoryInterface $postRepository)
+    public function __construct(PostRepositoryContract $postRepository)
     {
         $this->postRepository = $postRepository;
     }
@@ -27,6 +27,6 @@ class PopularPostsComposer
       */
     public function compose(View $view)
     {
-        $view->with('popular_post', $this->postRepository->getPopular());
+        $view->with('popular_posts', $this->postRepository->getPopular());
     }
 }

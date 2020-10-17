@@ -4,7 +4,7 @@ namespace App\Repositories\Frontend;
 
 use App\Post;
 use App\Comment;
-use App\Interfaces\Frontend\CommentRepositoryInterface;
+use App\Contracts\Frontend\CommentRepositoryContract;
 use App\Http\Requests\CommentRequest;
 
 /**
@@ -12,7 +12,7 @@ use App\Http\Requests\CommentRequest;
  *
  * @author Volodymyr Zhonchuk
  */
-class CommentRepository implements CommentRepositoryInterface
+class CommentRepository implements CommentRepositoryContract
 {
     /**
      * Fetch comments from the database.

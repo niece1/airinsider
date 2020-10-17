@@ -7,14 +7,14 @@ use App\Category;
 use App\Tag;
 use App\User;
 use Carbon\Carbon;
-use App\Interfaces\Frontend\PostRepositoryInterface;
+use App\Contracts\Frontend\PostRepositoryContract;
 
 /**
  * Post entity database query class.
  *
  * @author Volodymyr Zhonchuk
  */
-class PostRepository implements PostRepositoryInterface
+class PostRepository implements PostRepositoryContract
 {
     /**
      * Get last published post from the database.

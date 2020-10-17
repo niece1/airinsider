@@ -25,7 +25,7 @@
             @endif
             <p class="meta">
                 @if ($post->category)
-                <a href="{{ route('post.by.category', [$post->category->id]) }}" class="show-category">
+                <a href="{{ route('posts.by.category', [$post->category->id]) }}" class="show-category">
                     {{ $post->category->title }}
                 </a>
                 @endif
@@ -36,7 +36,7 @@
                 {{ $post->show_page_time }} /
                 @endif
                 @if ($post->user)
-                <a href="{{ route('post.by.user', [$post->user->id]) }}" class="show-author">
+                <a href="{{ route('posts.by.user', [$post->user->id]) }}" class="show-author">
                     {{ $post->user->name }}
                 </a>
                 @endif
