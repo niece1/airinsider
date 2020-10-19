@@ -4,17 +4,21 @@
 
 @section('content')
 
+<!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
         <h1>Создать аккаунт</h1>
     </div>
 </section>
+<!-- /.Title jumbotron -->
 
-<section class="register">
-    <div class="register-wrapper">
+<!-- Register page -->
+<section class="login-register">
+    <div class="login-register-wrapper">
         <p>Уже есть аккаунт?
             <a href="{{ route('login') }}">войти</a>
         </p>
+        <!-- Form -->
         <form action="{{ route('register') }}" method="POST">
             @csrf
             <div class="form-group">
@@ -51,7 +55,9 @@
                 Создать
             </button>
         </form>
+        <!-- /.Form -->
     </div>
 </section>
+<!-- /.Register page -->
 
 @endsection

@@ -1,7 +1,8 @@
 <!doctype html>
 
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-
+    
+    <!-- Head -->
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,10 +15,16 @@
         <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">           
     </head>
-
+    <!-- /.Head -->
+    
+    <!-- Body -->
     <body>
         @include('cookieConsent::index')
+        
+        <!-- App -->
         <div id="app">
+            
+            <!-- Header -->
             <header>
                 <div class="menu-wrapper">
                     <div class="logo">
@@ -25,6 +32,7 @@
                             авиа<span class="logo-span">инсайдер</span>
                         </a>
                     </div>
+                    <!-- Navigation -->
                     <nav>
                         <ul>
                             <li>
@@ -88,16 +96,20 @@
                             </li>
                         </ul>
                     </nav>
+                    <!-- /.Navigation -->
                     <div class="menu-toggle">
                         <div class="hamburger-menu">
                         </div>
                     </div>
                 </div>
             </header>
-
+            <!-- /.Header -->
+            
+             <!-- Main -->
             <main>
                 @yield('content')
             </main>
+             <!-- /.Main -->
 
             <!--Footer-->
             <footer>
@@ -227,9 +239,11 @@
                     </div>
                 </div>
             </footer>       
-            <!--/.Footer-->
+            <!-- /.Footer -->
         </div>
-        <!-- Scripts -->
+        <!-- /.App -->
+        
+        <!--Scripts -->
         <script>
             window.AuthUser = '{!! auth()->user() !!}'
             window.__auth = function () {
@@ -245,6 +259,9 @@
         @stack('scripts')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <!-- /.Scripts -->
+        
     </body>
-
+    <!-- /.Body -->
+    
 </html>

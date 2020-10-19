@@ -4,12 +4,15 @@
 
 @section('content')
 
+<!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
         <h1>Edit Tag</h1>
     </div>
 </section>
+<!-- /.Title jumbotron -->
 
+<!-- Dashboard -->
 <section class="dashboard">
     <div class="dashboard-wrapper">
         <a href="/dashboard/tags" class="back">Back</a>
@@ -20,11 +23,7 @@
             <div class="well-content">
                 <form action="{{ route('tags.update', $tag->id) }}" method="POST" class="create-update" enctype="multipart/form-data">
                     @method('PATCH')
-                    <div class="form-wrapper">
-                        <label for="title">Title</label>
-                        <input type="text" name="title" value="{{ old('title') ?? $tag->title }}" class="form-input" autofocus>
-                        <div class="form-error">{{ $errors->first('title') }}</div>
-                    </div>
+                    @include('/dashboard/tag/includes.form')
                     <button type="submit" class="button">Save</button>
                     @csrf				
                 </form>	
@@ -32,5 +31,6 @@
         </div>
     </div>
 </section>
+<!-- /.Dashboard -->
 
 @endsection

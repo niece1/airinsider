@@ -4,12 +4,15 @@
 
 @section('content')
 
+<!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
         <h1>Subscriptions</h1>
     </div>
 </section>
+<!-- /.Title jumbotron -->
 
+<!-- Dashboard -->
 <section class="dashboard">
     <div class="dashboard-wrapper">
         @can('subscription_export')
@@ -21,13 +24,14 @@
                 <h5>Subscription List</h5>
             </div>
             <div class="well-content">
+                <!-- Table -->
                 <table>
                     <tr>
                         <th>ID</th>						
                         <th>Email</th>	
                         <th></th>					
                     </tr>
-                    @foreach ($subscriptions as $subscription)
+                    @forelse ($subscriptions as $subscription)
                     <tr>
                         <td>{{ $subscription->id }}</td>						
                         <td>{{ $subscription->email }}</td>						
@@ -42,16 +46,24 @@
                             </form>
                             @endcan
                         </td>
-                    </tr>				
-                    @endforeach
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="3">No subscriptions found</td>
+                    </tr>
+                    @endforelse
                 </table>
+                <!-- /.Table -->
             </div>
         </div>
     </div>
 </section>
+<!-- /.Dashboard -->
 
+<!-- Pagination -->
 <section class="news-pagination">
     <div class="news-pagination-wrapper">{{ $subscriptions->links() }}</div>
 </section>
+<!-- /.Pagination -->
 
 @endsection

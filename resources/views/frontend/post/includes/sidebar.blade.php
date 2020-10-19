@@ -1,4 +1,5 @@
 <aside class="sidebar">
+    <!-- Related posts -->
     <div class="related-posts-widget">
         <h2>Похожие статьи</h2>
         @foreach ($related as $post)
@@ -25,6 +26,9 @@
         </ul>
         @endforeach
     </div>
+    <!-- /.Related posts -->
+    
+    <!-- Tag widget -->
     <div class="tag-widget">
         <h2>Наши тэги</h2>
         <div class="tag-cloud">
@@ -33,6 +37,9 @@
             @endforeach
         </div>
     </div>
+    <!-- /.Tag widget -->
+    
+    <!-- Category widget -->
     <div class="category-widget">
         <h2>Категории</h2>
         @foreach ($categories as $category)
@@ -45,4 +52,5 @@
         </ul>
         @endforeach
     </div>
+    <!-- /.Category widget -->
 </aside>

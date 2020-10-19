@@ -4,12 +4,15 @@
 
 @section('content')
 
+<!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
         <h1>Trash</h1>
     </div>
 </section>
+<!-- /.Title jumbotron -->
 
+<!-- Dashboard -->
 <section class="dashboard">
     <div class="dashboard-wrapper">	
         <a href="/dashboard/posts" class="back">To posts</a>
@@ -18,6 +21,7 @@
                 <h5>Trashed Post List</h5>
             </div>
             <div class="well-content">
+                <!-- Table -->
                 <table>
                     <tr>
                         <th>ID</th>
@@ -70,9 +74,11 @@
                     </tr>
                     @endforelse
                 </table>
+                <!-- /.Table -->
             </div>
         </div>
     </div>
 </section>
+<!-- /.Dashboard -->
 
 @endsection
