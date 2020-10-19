@@ -4,19 +4,23 @@
 
 @section('content')
 
+<!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
         <h1>Сбросить пароль</h1>
     </div>
 </section>
+<!-- /.Title jumbotron -->
 
-<section class="register">
-    <div class="register-wrapper">
+<!-- Reset page -->
+<section class="login-register">
+    <div class="login-register-wrapper">
         @if (session('status'))
         <div class="alert alert-success" role="alert">
             {{ session('status') }}
         </div>
         @endif
+        <!-- Form -->
         <form action="{{ route('password.email') }}" method="POST">
             @csrf
             <div class="form-group">
@@ -33,7 +37,9 @@
                 Отправить ссылку
             </button>
         </form>
+        <!-- /.Form -->
     </div>
 </section>
+<!-- /.Reset page -->
 
 @endsection

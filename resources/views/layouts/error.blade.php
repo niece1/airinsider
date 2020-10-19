@@ -2,6 +2,7 @@
 
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
+    <!-- Head -->
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,8 +12,12 @@
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">           
     </head>
+    <!-- /.Head -->
 
+    <!-- Body -->
     <body>
+        
+        <!-- Header -->
         <header>
             <div class="menu-wrapper">
                 <div class="logo">
@@ -20,9 +25,15 @@
                 </div>
             </div>
         </header>
+        <!-- /.Header -->
+        
+        <!-- Main -->
         <main>
             @yield('content')
         </main>
+        <!-- /.Main -->
+        
     </body>
+    <!-- /.Body -->
 
 </html>

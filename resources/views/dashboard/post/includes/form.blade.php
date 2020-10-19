@@ -71,4 +71,3 @@
         @endforeach
     </select>
 </div>
-@csrf

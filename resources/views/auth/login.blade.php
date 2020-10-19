@@ -4,17 +4,21 @@
 
 @section('content')
 
+<!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
         <h1>Войти</h1>
     </div>
 </section>
+<!-- /.Title jumbotron -->
 
-<section class="register">
-    <div class="register-wrapper">
+<!-- Login page -->
+<section class="login-register">
+    <div class="login-register-wrapper">
         <p>Нет аккаунта?
             <a href="{{ route('register') }}">создать</a>
         </p>
+        <!-- Form -->
         <form action="{{ route('login') }}" method="POST">
             @csrf
             <div class="form-group">
@@ -52,6 +56,9 @@
                 @endif
             </div>
         </form>
+        <!-- /.Form -->
+        
+        <!-- Social login -->
         <p class="social-proceed">Продолжить с помощью вашей соцсети</p>
         <p>
             <a href="{{ url('login/facebook') }}">
@@ -64,7 +71,9 @@
                 <i class="fab fa-github"></i>
             </a>
         </p>
+        <!-- /.Social login -->
     </div>
 </section>
+<!-- /.Login page -->
 
 @endsection

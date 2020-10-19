@@ -4,12 +4,15 @@
 
 @section('content')
 
+<!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
         <h1>{{ $post->title }}</h1>
     </div>
 </section>
+<!-- /.Title jumbotron -->
 
+<!-- Show post page -->
 <section class="news-show">
     <div class="news-show-wrapper">
         <div class="item-itself">
@@ -56,17 +59,22 @@
             <!-- Comments Vue Component -->
             <comments :post="{{ $post }}"></comments>
         </div>
+        <!-- Sidebar -->
         @include('frontend.post.includes.sidebar')
+        <!-- /.Sidebar -->
         <div class="clear"></div>
     </div>
 </section>
+<!-- /.Show post page -->
 
 @endsection
 
 @push('scripts')
 
+<!-- Scripts -->
 <script type="text/javascript" src="{{ asset('js/sticky-kit.min.js') }}"></script>
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5de3d2128881893a"></script>
+<!-- /.Scripts -->
 
 @endpush

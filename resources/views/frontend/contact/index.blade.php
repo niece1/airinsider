@@ -4,17 +4,21 @@
 
 @section('content')
 
+<!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
         <h1>Напишите нам</h1>
     </div>
 </section>
+<!-- /.Title jumbotron -->
 
+<!-- Contact page -->
 <section class="contact-page">
     <div class="contact-page-wrapper">
         <div class="contact-us">
             <h2>Не стесняйтесь...</h2>
-            <p>Если Вас что-то интересует или беспокоит в пределах тематики
+            <p>
+                Если Вас что-то интересует или беспокоит в пределах тематики
                 сайта - смело адресуйте Ваш вопрос.
             </p>
             <h5>мы в соцсетях</h5>
@@ -28,6 +32,7 @@
             <h2>Заполните форму</h2>
             @include('frontend.contact.includes.flash')
             @if (!session()->has('success'))
+            <!-- Contact form -->
             <form action="/contact" method="POST">
                 <div class="contact-form-group">
                     <input type="text" name="name" value="{{ old('name') }}" placeholder="Имя" autocomplete="name" required>
@@ -49,18 +54,22 @@
                 <button type="submit" class="button">Отправить</button>
                 @csrf
             </form>
+            <!-- /.Contact form -->
             @endif
         </div>
         <div class="right-column">
             <h2>Сотрудничество</h2>
-            <p>Если Вы желаете разместить рекламу на нашем сайте или у Вас есть
+            <p>
+                Если Вы желаете разместить рекламу на нашем сайте или у Вас есть
                 иное предложение коммерческого характера - мы также готовы обсудить
                 Ваше с нами сотрудничество.
             </p>
         </div>
     </div>
 </section>
+<!-- /.Contact page -->
 
+<!-- Random posts slider -->
 <section class="slider">
     <h2>Возможно вас заинтересует</h2>
     <div class="contact-slider">
@@ -87,7 +96,7 @@
                     @if ($posts_item->user)
                     <p class="item-blog-author">
                         <i class="fas fa-user-edit"></i>
-                        <a href="{{ route('post.by.user', [$posts_item->user->id]) }}">
+                        <a href="{{ route('posts.by.user', [$posts_item->user->id]) }}">
                             {{ $posts_item->user->name }}
                         </a>
                     </p>
@@ -110,7 +119,7 @@
                         @if ($posts_item->category)
                         <p>
                             <i class="fas fa-tags"></i>
-                            <a href="{{ route('post.by.category', [$posts_item->category->id]) }}">
+                            <a href="{{ route('posts.by.category', [$posts_item->category->id]) }}">
                                 {{ $posts_item->category->title }}
                             </a>
                         </p>
@@ -122,10 +131,14 @@
         </div>
     </div>
 </section>
+<!-- /.Random posts slider -->
+
 @endsection
 
 @push('scripts')
 
+<!-- Scripts -->
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!-- /.Scripts -->
 
 @endpush

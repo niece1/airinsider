@@ -4,12 +4,15 @@
 
 @section('content')
 
+<!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
         <h1>Edit User</h1>
     </div>
 </section>
+<!-- /.Title jumbotron -->
 
+<!-- Dashboard -->
 <section class="dashboard">
     <div class="dashboard-wrapper">
         <a href="/dashboard/users" class="back">Back</a>
@@ -40,5 +43,6 @@
         </div>
     </div>
 </section>
+<!-- /.Dashboard -->
 
 @endsection

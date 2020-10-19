@@ -4,12 +4,15 @@
 
 @section('content')
 
+<!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
         <h1>Users</h1>
     </div>
 </section>
+<!-- /.Title jumbotron -->
 
+<!-- Dashboard -->
 <section class="dashboard">
     <div class="dashboard-wrapper">
         <div class="well">
@@ -17,6 +20,7 @@
                 <h5>User List</h5>
             </div>
             <div class="well-content">
+                <!-- Table -->
                 <table>
                     <tr>
                         <th>ID</th>
@@ -66,9 +70,11 @@
                     </tr>				
                     @endforeach
                 </table>
+                <!-- /.Table -->
             </div>
         </div>
     </div>
 </section>
+<!-- /.Dashboard -->
 
 @endsection

@@ -2,8 +2,8 @@
 
 @section('content')
 
-<section class="register">
-    <div class="register-wrapper">
+<section class="login-register">
+    <div class="login-register-wrapper">
         <h1>{{ __('Reset Password') }}</h1>
         <form action="{{ route('password.update') }}" method="POST">
             @csrf

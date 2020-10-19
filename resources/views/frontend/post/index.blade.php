@@ -27,8 +27,9 @@
     </div>
     @endif
 </section>
+<!-- /.Jumbotron section -->
 
-<!-- News section -->
+<!-- Posts section -->
 <section class="news">
     <h1>Последние новости</h1>
     <div class="news-wrapper">
@@ -89,6 +90,7 @@
         @endforelse
     </div>
 </section>
+<!-- /.Posts section -->
 
 <!-- Pagination section -->
 <section class="news-pagination">
@@ -96,5 +98,6 @@
         {{ $posts->links() }}
     </div>
 </section>
+<!-- /.Pagination section -->
 
 @endsection

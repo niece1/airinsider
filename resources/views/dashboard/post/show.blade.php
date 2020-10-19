@@ -4,12 +4,15 @@
 
 @section('content')
 
+<!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
         <h1>{{ $post_item->title }}</h1>
     </div>
 </section>
+<!-- /.Title jumbotron -->
 
+<!-- Dashboard -->
 <section class="dashboard">
     <div class="dashboard-wrapper">
         <a href="/dashboard/posts/" class="back">Back</a>
@@ -18,6 +21,7 @@
                 <h5>{{ $post_item->title }}</h5>
             </div>
             <div class="well-content">
+                <!-- Table -->
                 <table>
                     <tr>
                         <td>ID</td>
@@ -92,6 +96,7 @@
                         <td>{{ $post_item->updated_at }}</td>						
                     </tr>							
                 </table>
+                <!-- /.Table -->
             </div>
         </div>				
         <form action="{{ route('posts.destroy', $post_item->id) }}" method="POST">
@@ -101,5 +106,6 @@
         </form>
     </div>
 </section>
+<!-- /.Dashboard -->
 
 @endsection

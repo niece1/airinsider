@@ -4,11 +4,13 @@
 
 @section('content')
 
+<!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
         <h1>{{ $chosen_category->title }}</h1>
     </div>
 </section>
+<!-- /.Title jumbotron -->
 
 <!-- Posts by category section -->
 <section class="news">
@@ -67,11 +69,14 @@
         @endforeach
     </div>
 </section>
+<!-- /.Posts by category section -->
 
+<!-- Pagination -->
 <section class="news-pagination">
     <div class="news-pagination-wrapper">
         {{ $posts_by_category->links() }}
     </div>
 </section>
+<!-- /.Pagination -->
 
 @endsection
