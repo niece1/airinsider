@@ -40,8 +40,6 @@ class User extends Authenticatable
     
     /**
      * Get photo associated with specified user
-     *
-     * @return MorphOne
      */
     public function photo()
     {
@@ -50,8 +48,6 @@ class User extends Authenticatable
     
     /**
      * Get posts associated with specified user
-     *
-     * @return HasMany
      */
     public function posts()
     {
@@ -60,8 +56,6 @@ class User extends Authenticatable
     
     /**
      * Get comments associated with specified user
-     *
-     * @return HasMany
      */
     public function comments()
     {
@@ -70,8 +64,6 @@ class User extends Authenticatable
     
     /**
      * Get roles associated with specified user
-     *
-     * @return BelongsToMany
      */
     public function roles()
     {
@@ -82,7 +74,7 @@ class User extends Authenticatable
      * Create or update like
      *
      * @param \App\Comment|\App\Post  $entity
-     * @param enum  $type
+     * @param string  $type
      * @return mixed
      */
     public function toggleLike($entity, $type)

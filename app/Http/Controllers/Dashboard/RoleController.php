@@ -6,6 +6,7 @@ use App\Role;
 use App\Http\Requests\RoleRequest;
 use App\Repositories\Dashboard\RoleRepository;
 use App\Repositories\Dashboard\PermissionRepository;
+use Illuminate\Support\Facades\Gate;
 
 class RoleController extends DashboardController
 {
@@ -16,7 +17,7 @@ class RoleController extends DashboardController
      */
     public function index()
     {
-        abort_unless(\Gate::allows('role_access'), 403);
+        abort_unless(Gate::allows('role_access'), 403);
         $roles = RoleRepository::getAll();
 
         return view('dashboard.role.index', compact('roles'));
@@ -29,7 +30,7 @@ class RoleController extends DashboardController
      */
     public function create()
     {
-        abort_unless(\Gate::allows('role_create'), 403);
+        abort_unless(Gate::allows('role_create'), 403);
         $role = new Role();
         $permissions = PermissionRepository::getAll();
 
@@ -58,7 +59,7 @@ class RoleController extends DashboardController
      */
     public function edit(Role $role)
     {
-        abort_unless(\Gate::allows('role_edit'), 403);
+        abort_unless(Gate::allows('role_edit'), 403);
         $permissions = PermissionRepository::getAll();
 
         return view('dashboard.role.edit', compact('role', 'permissions'));
@@ -87,7 +88,7 @@ class RoleController extends DashboardController
      */
     public function destroy(Role $role)
     {
-        abort_unless(\Gate::allows('role_delete'), 403);
+        abort_unless(Gate::allows('role_delete'), 403);
         RoleRepository::delete($role);
 
         return redirect('dashboard/roles')->withSuccessMessage('Role Deleted Successfully!');

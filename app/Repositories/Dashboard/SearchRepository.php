@@ -15,7 +15,7 @@ class SearchRepository
     /**
      * Fetch all posts from the database by the given query.
      *
-     * @param  \App\Http\Requests\Request  $request
+     * @param  Request $request  $request
      * @return \App\Post[]
      */
     public static function search(Request $request)

@@ -11,7 +11,7 @@ class SearchController extends Controller
     /**
      * Display a listing of Post resource by search criteria.
      *
-     * @param  \App\Http\Requests\Request  $request
+     * @param  Request  $request
      * @return \Illuminate\Http\Response
      */
     public function search(Request $request)

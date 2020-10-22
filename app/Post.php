@@ -24,8 +24,6 @@ class Post extends Model
     
     /**
      * Get photo associated with specified post
-     *
-     * @return MorphOne
      */
     public function photo()
     {
@@ -34,8 +32,6 @@ class Post extends Model
     
     /**
      * Get category record associated with specified post
-     *
-     * @return BelongsTo
      */
     public function category()
     {
@@ -44,8 +40,6 @@ class Post extends Model
     
     /**
      * Get user record associated with specified post
-     *
-     * @return BelongsTo
      */
     public function user()
     {
@@ -54,8 +48,6 @@ class Post extends Model
     
     /**
      * Get comments associated with specified post
-     *
-     * @return HasMany
      */
     public function comments()
     {
@@ -64,8 +56,6 @@ class Post extends Model
     
     /**
      * Get likes associated with specified post
-     *
-     * @return MorphMany
      */
     public function likes()
     {
@@ -74,8 +64,6 @@ class Post extends Model
     
     /**
      * Get tags associated with specified post
-     *
-     * @return BelongsToMany
      */
     public function tags()
     {

@@ -22,7 +22,7 @@ trait BasePhotoUpload
      * Delete photo from folder.
      *
      * @param \App\Photo $photo
-     * @return \Illuminate\Http\Response
+     * @return bool
      */
     private function deletePhotoFromStorageFolder(Photo $photo)
     {

@@ -15,8 +15,6 @@ class Like extends Model
     
     /**
      * Get the owning likeable model
-     *
-     * @return MorphTo
      */
     public function likeable()
     {

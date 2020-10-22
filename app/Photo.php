@@ -10,9 +10,7 @@ class Photo extends Model
     use DeletePhoto;
     
     /**
-     * Get the owning photoable model
-     *
-     * @return MorphTo
+     * Get the owning photoable model.
      */
     public function photoable()
     {
