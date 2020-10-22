@@ -36,7 +36,7 @@ class SendNewsletterCommand extends Command
     /**
      * Execute the console command.
      *
-     * @return string
+     * @return void
      */
     public function handle()
     {
@@ -44,8 +44,7 @@ class SendNewsletterCommand extends Command
         $subscriptions = SubscriptionRepository::getforNewsletters();
         if (!sizeof($posts) == 0 && !sizeof($subscriptions) == 0) {
             dispatch(new SendNewsletterJob($posts, $subscriptions));
-            return $this->info('Newsletter emails are sent!');
+            $this->info('Newsletter emails are sent!');
         }
-        $this->warn('There is nothing to send');
     }
 }

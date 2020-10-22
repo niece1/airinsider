@@ -29,8 +29,6 @@ class Comment extends Model
     
     /**
      * Get post record associated with specified comment
-     *
-     * @return BelongsTo
      */
     public function post()
     {
@@ -39,8 +37,6 @@ class Comment extends Model
     
     /**
      * Get user record associated with specified comment
-     *
-     * @return BelongsTo
      */
     public function user()
     {
@@ -49,8 +45,6 @@ class Comment extends Model
     
     /**
      * Get replies associated with specified comment
-     *
-     * @return HasMany
      */
     public function replies()
     {
@@ -59,8 +53,6 @@ class Comment extends Model
 
     /**
      * Get likes associated with specified comment
-     *
-     * @return MorphMany
      */
     public function likes()
     {

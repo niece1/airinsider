@@ -15,8 +15,6 @@ class Permission extends Model
     
     /**
      * Get roles associated with specified permission
-     *
-     * @return BelongsToMany
      */
     public function roles()
     {

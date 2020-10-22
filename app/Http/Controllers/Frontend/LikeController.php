@@ -10,10 +10,10 @@ use Illuminate\Database\Eloquent\ModelNotFoundException;
 class LikeController extends Controller
 {
     /**
-     * Like or dislike entity
+     * Like or dislike entity.
      *
-     * @param  \App\Comment|\App\Post  $entityId
-     * @param  enum  $type
+     * @param  Comment|Post  $entityId
+     * @param  \App\Like  $type
      * @return \App\Like
      */
     public function like($entityId, $type)
@@ -24,11 +24,11 @@ class LikeController extends Controller
     }
     
     /**
-     * Get entity of likeable instance
+     * Get entity of likeable instance.
      *
-     * @param  \App\Comment|\App\Post  $entityId
+     * @param  Comment|Post  $entityId
      * @return mixed
-     * @throws \Illuminate\Database\Eloquent\ModelNotFoundException
+     * @throws ModelNotFoundException
      */
     private function getEntity($entityId)
     {

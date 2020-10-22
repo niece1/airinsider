@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Tag;
 use App\Http\Requests\TagRequest;
 use App\Repositories\Dashboard\TagRepository;
+use Illuminate\Support\Facades\Gate;
 
 class TagController extends DashboardController
 {
@@ -15,7 +16,7 @@ class TagController extends DashboardController
      */
     public function index()
     {
-        abort_unless(\Gate::allows('tag_access'), 403);
+        abort_unless(Gate::allows('tag_access'), 403);
         $tags = TagRepository::getAll();
 
         return view('dashboard.tag.index', compact('tags'));
@@ -28,7 +29,7 @@ class TagController extends DashboardController
      */
     public function create()
     {
-        abort_unless(\Gate::allows('tag_create'), 403);
+        abort_unless(Gate::allows('tag_create'), 403);
         $tag = new Tag();
 
         return view('dashboard.tag.create', compact('tag'));
@@ -55,7 +56,7 @@ class TagController extends DashboardController
      */
     public function edit(Tag $tag)
     {
-        abort_unless(\Gate::allows('tag_edit'), 403);
+        abort_unless(Gate::allows('tag_edit'), 403);
 
         return view('dashboard.tag.edit', compact('tag'));
     }
@@ -82,7 +83,7 @@ class TagController extends DashboardController
      */
     public function destroy(Tag $tag)
     {
-        abort_unless(\Gate::allows('tag_delete'), 403);
+        abort_unless(Gate::allows('tag_delete'), 403);
         TagRepository::delete($tag);
 
         return redirect('dashboard/tags')->withSuccessMessage('Tag Deleted Successfully!');

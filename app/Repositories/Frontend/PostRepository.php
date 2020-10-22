@@ -19,7 +19,7 @@ class PostRepository implements PostRepositoryContract
     /**
      * Get last published post from the database.
      *
-     * @return \App\Post
+     * @return Post
      */
     public function getFeatured()
     {
@@ -32,8 +32,8 @@ class PostRepository implements PostRepositoryContract
     /**
      * Fetch all posts except featured one from the database.
      *
-     * @param  \App\Post  $featured
-     * @return \App\Post[]
+     * @param  Post  $featured
+     * @return Post[]
      */
     public function getAll($featured)
     {
@@ -49,8 +49,8 @@ class PostRepository implements PostRepositoryContract
     /**
      * Get the specified post from the database.
      *
-     * @param \App\Post  $slug
-     * @return \App\Post
+     * @param Post  $slug
+     * @return Post
      */
     public function getOne($slug)
     {
@@ -60,8 +60,8 @@ class PostRepository implements PostRepositoryContract
     /**
      * Fetch 5 posts associated with the category one's viewing now.
      *
-     * @param  \App\Post  $post
-     * @return \App\Post[]
+     * @param  Post  $post
+     * @return Post[]
      */
     public function getRelated($post)
     {
@@ -75,7 +75,7 @@ class PostRepository implements PostRepositoryContract
     /**
      * Fetch all categories from the database.
      *
-     * @return \App\Category[]
+     * @return Category[]
      */
     public function getCategories()
     {
@@ -85,7 +85,7 @@ class PostRepository implements PostRepositoryContract
     /**
      * Fetch all tags from the database.
      *
-     * @return \App\Tag[]
+     * @return Tag[]
      */
     public function getTags()
     {
@@ -95,8 +95,8 @@ class PostRepository implements PostRepositoryContract
     /**
      * Fetch all posts associated with specified category.
      *
-     * @param  \App\Category  $category
-     * @return \App\Post[]
+     * @param  Category  $category
+     * @return Post[]
      */
     public function getAllByCategory($category)
     {
@@ -110,8 +110,8 @@ class PostRepository implements PostRepositoryContract
     /**
      * Get the specified category from the database.
      *
-     * @param \App\Category  $category
-     * @return \App\Category
+     * @param Category  $category
+     * @return Category
      */
     public function getCategory($category)
     {
@@ -121,8 +121,8 @@ class PostRepository implements PostRepositoryContract
     /**
      * Fetch all posts associated with specified tag.
      *
-     * @param  \App\Tag  $tag
-     * @return \App\Post[]
+     * @param  Tag  $tag
+     * @return Post[]
      */
     public function getAllByTag($tag)
     {
@@ -136,8 +136,8 @@ class PostRepository implements PostRepositoryContract
     /**
      * Get the specified tag from the database.
      *
-     * @param \App\Tag  $tag
-     * @return \App\Tag
+     * @param Tag  $tag
+     * @return Tag
      */
     public function getTag($tag)
     {
@@ -147,8 +147,8 @@ class PostRepository implements PostRepositoryContract
     /**
      * Fetch all posts associated with specified user.
      *
-     * @param  \App\User  $user
-     * @return \App\Post[]
+     * @param  User  $user
+     * @return Post[]
      */
     public function getAllByUser($user)
     {
@@ -162,8 +162,8 @@ class PostRepository implements PostRepositoryContract
     /**
      * Get the specified user from the database.
      *
-     * @param \App\User  $user
-     * @return \App\User
+     * @param User  $user
+     * @return User
      */
     public function getUser($user)
     {
@@ -173,7 +173,7 @@ class PostRepository implements PostRepositoryContract
     /**
      * Fetch 5 posts in random order published within last 20 days.
      *
-     * @return \App\Post[]
+     * @return Post[]
      */
     public function getRandom()
     {
@@ -188,7 +188,7 @@ class PostRepository implements PostRepositoryContract
     /**
      * Fetch 3 most often viewed posts.
      *
-     * @return \App\Post[]
+     * @return Post[]
      */
     public function getPopular()
     {

@@ -15,8 +15,6 @@ class Category extends Model
     
     /**
      * Get posts associated with specified category
-     *
-     * @return HasMany
      */
     public function posts()
     {

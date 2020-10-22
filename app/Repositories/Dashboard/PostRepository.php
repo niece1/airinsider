@@ -30,7 +30,7 @@ class PostRepository
     /**
      * Save post instance to the database.
      *
-     * @param \App\Http\Requests\PostRequest  $request
+     * @param StorePostRequest  $request
      * @return \App\Post
      */
     public static function save(StorePostRequest $request)
@@ -41,7 +41,7 @@ class PostRepository
     /**
      * Get the specified resource from the database.
      *
-     * @param \App\Post  $post
+     * @param Post  $post
      * @return \App\Post
      */
     public static function show(Post $post)
@@ -53,8 +53,8 @@ class PostRepository
     /**
      * Update post instance in the database.
      *
-     * @param \App\Http\Requests\PostRequest  $request
-     * @param  \App\Post  $post
+     * @param UpdatePostRequest  $request
+     * @param Post  $post
      */
     public static function update(UpdatePostRequest $request, Post $post)
     {
@@ -64,7 +64,7 @@ class PostRepository
     /**
      * Remove post instance to trash.
      *
-     * @param  \App\Post  $post
+     * @param Post  $post
      */
     public static function removeToTrash(Post $post)
     {
@@ -86,8 +86,8 @@ class PostRepository
     /**
      * Delete post instance from the database.
      *
-     * @param  \App\Post  $id
-     * @param  \App\Photo  $photo
+     * @param  Post  $id
+     * @param  Photo  $photo
      */
     public static function expunge($id, Photo $photo)
     {
@@ -103,7 +103,7 @@ class PostRepository
     /**
      * Return post from trash.
      *
-     * @param  \App\Post  $id
+     * @param  Post  $id
      * @return \App\Post
      */
     public static function returnFromTrash($id)
