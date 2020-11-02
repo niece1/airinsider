@@ -1,49 +1,52 @@
 @extends('layouts.frontend')
 
+@section('title', 'Сбросить пароль')
+
 @section('content')
 
+<!-- Title jumbotron -->
+<section class="title-jumbotron">
+    <div class="parallax-text">
+        <h1>Сбросить пароль</h1>
+    </div>
+</section>
+<!-- /.Title jumbotron -->
+
+<!-- Reset page -->
 <section class="login-register">
     <div class="login-register-wrapper">
-        <h1>{{ __('Reset Password') }}</h1>
+        <!-- Form -->
         <form action="{{ route('password.update') }}" method="POST">
             @csrf
             <div class="form-group">
                 <div class="group-holder">
                     <input type="hidden" name="token" value="{{ $token }}">
-                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                    <input id="email" type="email" name="email" value="{{ $email ?? old('email') }}" placeholder="Email" autocomplete="email" required>
                     @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        {{ $message }}
-                    </span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-                <div class="col-md-6">
-                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="new-password">
+            <div class="form-group">
+                <div class="group-holder">
+                    <input id="password" type="password" name="password" placeholder="Пароль" autocomplete="new-password" required>
                     @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        {{ $message }}
-                    </span>
+                    <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-                <div class="col-md-6">
-                    <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+            <div class="form-group">
+                <div class="group-holder">
+                    <input id="password-confirm" type="password" name="password_confirmation" placeholder="Подтвердите пароль" autocomplete="new-password" required>
                 </div>
             </div>
-            <div class="form-group row mb-0">
-                <div class="col-md-6 offset-md-4">
-                    <button type="submit" class="btn btn-primary">
-                        {{ __('Reset Password') }}
-                    </button>
-                </div>
-            </div>
+            <button type="submit" class="button">
+                Сбросить пароль
+            </button>
         </form>
+        <!-- /.Form -->
     </div>
 </section>
+<!-- /.Reset page -->
 
 @endsection

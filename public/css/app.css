@@ -1286,7 +1286,7 @@ span.page-link {
   margin: 0;
 }
 
-.contact-page .contact-page-wrapper .contact-form .alert {
+.contact-page .contact-page-wrapper .contact-form .alert-success {
   font-size: 1.6rem;
   color: #4e4e4e;
   margin: 35px 50px 0 50px;
@@ -1784,16 +1784,16 @@ span.page-link {
 }
 
 .login-register .login-register-wrapper .alert-success {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   color: #4e4e4e;
   border: 2px solid #0633ff;
   background-color: #f5f8fa;
-  padding: 8px 12px;
+  padding: 10px 15px;
   border-radius: 3px;
   display: inline-block;
 }
 
-/*Overlay Search Dashboard Styles*/
+/* Overlay Search Dashboard Styles */
 
 .search-overlay {
   top: 0;
@@ -1865,7 +1865,7 @@ span.page-link {
   opacity: 1;
 }
 
-/*Dashboard styles*/
+/* Dashboard styles */
 
 .dashboard {
   width: 100%;

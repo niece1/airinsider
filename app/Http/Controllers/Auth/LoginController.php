@@ -6,28 +6,42 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
-use Illuminate\Support\Facades\Auth;
+use App\Services\RedirectService;
+use App\Services\SocialAuthService;
 use Carbon\Carbon;
-use App\User;
 
 class LoginController extends Controller
 {
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
+     * Number of login attempts.
      *
-     * @var string
+     * @var int
      */
-    protected $redirectTo = '/';
+    protected $maxAttempts = 3;
+    
+    /**
+     * Login time range.
+     *
+     * @var int
+     */
+    protected $decayMinutes = 5;
+    
+    /**
+     * Redirect to previous page after login.
+     */
+    private $redirectService;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(RedirectService $redirect)
     {
+        $this->redirectService = $redirect;
+        $this->redirectService->redirectToPreviousPage();
         $this->middleware('guest')->except('logout');
     }
 
@@ -46,28 +60,14 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback($provider)
+    public function handleProviderCallback($provider, SocialAuthService $socialAuthService)
     {
-        if ($provider == 'google') {
-            $socialUser = Socialite::driver($provider)->stateless()->user();
-        }
-        $socialUser = Socialite::driver($provider)->user();
-        $user = User::where('email', $socialUser->getEmail())->first();
-        if (!$user) {
-            $user = User::create([
-                'email' => $socialUser->getEmail(),
-                'name' => $socialUser->getName(),
-                'provider' => $provider,
-                'provider_id' => $socialUser->getId(),
-            ]);
-        }
-        Auth::login($user, true);
-        return redirect('/');
+        $socialAuthService->store($provider);
+        return redirect()->intended('/');
     }
     
     /**
-     * Get last login time and IP address. Overrides the authenticated method
-     * from AuthenticatesUser trait. Saves only on login not register.
+     * Get last login time and IP address.
      *
      * @return void
      */
