@@ -19,10 +19,10 @@ class LikeController extends Controller
     public function like($entityId, $type)
     {
         $entity = $this->getEntity($entityId);
-        
+
         return auth()->user()->toggleLike($entity, $type);
     }
-    
+
     /**
      * Get entity of likeable instance.
      *

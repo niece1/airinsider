@@ -12,7 +12,7 @@ trait DashboardAccess
      *
      * @return void
      */
-    
+
     public function getDashboardAccess()
     {
         $roles = Role::with('permissions')->get();

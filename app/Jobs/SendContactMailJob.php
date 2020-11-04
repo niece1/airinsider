@@ -16,7 +16,7 @@ class SendContactMailJob implements ShouldQueue
     use InteractsWithQueue;
     use Queueable;
     use SerializesModels;
-    
+
     public $data;
 
     /**

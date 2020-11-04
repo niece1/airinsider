@@ -14,9 +14,9 @@ use App\Traits\BasePhotoUpload;
 abstract class PhotoUploader
 {
     use BasePhotoUpload;
-    
+
     protected $model;
-    
+
     /**
      * Create a new instance.
      *
@@ -26,14 +26,14 @@ abstract class PhotoUploader
     {
         $this->model = app($this->getModelClass());
     }
-    
+
     /*
      * Get model namespace
      *
      * @return string
      */
     abstract public function getModelClass();
-    
+
     /*
      * Store photo while creating/updating post/user entity
      *

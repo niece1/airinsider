@@ -15,7 +15,7 @@ class FileUploadTest extends TestCase
 {
     use RefreshDatabase;
     use AdminUser;
-    
+
     public function setUp(): void
     {
         parent::setUp();
@@ -37,7 +37,7 @@ class FileUploadTest extends TestCase
         $this->assertFileIsReadable('public');
         $this->assertFileIsWritable('public');
     }
-    
+
     /** @test */
     public function postPhotoUploadFailsIfImageSizeMoreThan5Mb()
     {
@@ -47,7 +47,7 @@ class FileUploadTest extends TestCase
         $messages = session('errors')->getMessages();
         $this->assertEquals($messages['image'][0], 'Файл не должен быть больше 5000 килобайт.');
     }
-    
+
     /** @test */
     public function postPhotoUploadFailsIfFileIsNotImage()
     {
@@ -57,7 +57,7 @@ class FileUploadTest extends TestCase
         $messages = session('errors')->getMessages();
         $this->assertEquals($messages['image'][0], 'Файл должен быть изображением.');
     }
-    
+
     /** @test */
     public function aPostMorphsOnePhoto()
     {
@@ -67,7 +67,7 @@ class FileUploadTest extends TestCase
         $this->assertInstanceOf(Photo::class, $post->photo);
         $this->assertTrue($post->photo()->exists());
     }
-    
+
     /**
      * Creates post with uploaded file
      *

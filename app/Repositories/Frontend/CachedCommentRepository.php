@@ -30,7 +30,7 @@ class CachedCommentRepository extends CommentRepository implements CommentReposi
             fn() => parent::getAll($post)
         );
     }
-    
+
     /**
      * Save comment instance to the database.
      *
@@ -42,7 +42,7 @@ class CachedCommentRepository extends CommentRepository implements CommentReposi
     {
         return parent::save($request, $post);
     }
-    
+
     /**
      * Fetch cached replies.
      *

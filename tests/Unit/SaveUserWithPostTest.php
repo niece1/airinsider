@@ -15,7 +15,7 @@ class SaveUserWithPostTest extends TestCase
     use RefreshDatabase;
     use AdminUser;
     use SaveUser;
-            
+
     /** @test */
     public function userIdAddedWhileCreatingPost()
     {

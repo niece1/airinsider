@@ -16,7 +16,7 @@ class SendNewsletterJob implements ShouldQueue
     use InteractsWithQueue;
     use Queueable;
     use SerializesModels;
-    
+
     public $posts;
     public $subscriptions;
 

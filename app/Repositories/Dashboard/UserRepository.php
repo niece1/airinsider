@@ -20,7 +20,7 @@ class UserRepository
     {
         return User::with(['roles'])->get();
     }
-    
+
     /**
      * Delete user instance from the database.
      *

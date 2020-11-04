@@ -17,7 +17,7 @@ trait BasePhotoUpload
     {
         return Photo::find($id);
     }
-    
+
     /**
      * Delete photo from folder.
      *

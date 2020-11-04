@@ -23,7 +23,7 @@ class PostController extends DashboardController
     {
         abort_unless(Gate::allows('dashboard_access'), 403);
         $posts = PostRepository::getAll();
-        
+
         return view('dashboard.post.index', compact('posts'));
     }
 
@@ -74,7 +74,7 @@ class PostController extends DashboardController
     {
         abort_unless(Gate::allows('post_view'), 403);
         $post_item = PostRepository::show($post);
-        
+
         return view('dashboard.post.show', compact('post_item'));
     }
 

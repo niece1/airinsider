@@ -9,7 +9,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class DatabaseTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     /** @test */
     public function postsTableHasExpectedColumns()
     {
@@ -18,7 +18,7 @@ class DatabaseTest extends TestCase
             'user_id', 'category_id', 'photo_source'
         ]), 1);
     }
-    
+
     /** @test */
     public function likesTableHasExpectedColumns()
     {
@@ -26,7 +26,7 @@ class DatabaseTest extends TestCase
             'id', 'type', 'likeable_type', 'likeable_id', 'user_id'
         ]), 1);
     }
-    
+
     /** @test */
     public function usersTableHasExpectedColumns()
     {
@@ -35,7 +35,7 @@ class DatabaseTest extends TestCase
             'provider_id', 'last_login_at', 'last_login_ip_address'
         ]), 1);
     }
-    
+
     /** @test */
     public function categoriesTableHasExpectedColumns()
     {
@@ -43,7 +43,7 @@ class DatabaseTest extends TestCase
             'id', 'title'
         ]), 1);
     }
-    
+
     /** @test */
     public function photosTableHasExpectedColumns()
     {
@@ -51,7 +51,7 @@ class DatabaseTest extends TestCase
             'id', 'photoable_type', 'photoable_id', 'path'
         ]), 1);
     }
-    
+
     /** @test */
     public function tagsTableHasExpectedColumns()
     {
@@ -59,7 +59,7 @@ class DatabaseTest extends TestCase
             'id', 'title'
         ]), 1);
     }
-    
+
     /** @test */
     public function commentsTableHasExpectedColumns()
     {
@@ -67,7 +67,7 @@ class DatabaseTest extends TestCase
             'id', 'comment_id', 'body', 'post_id', 'user_id'
         ]), 1);
     }
-    
+
     /** @test */
     public function postTagTableHasExpectedColumns()
     {
@@ -75,7 +75,7 @@ class DatabaseTest extends TestCase
             'id', 'tag_id', 'post_id'
         ]), 1);
     }
-    
+
     /** @test */
     public function rolesTableHasExpectedColumns()
     {
@@ -83,7 +83,7 @@ class DatabaseTest extends TestCase
             'id', 'title'
         ]), 1);
     }
-    
+
     /** @test */
     public function permissionsTableHasExpectedColumns()
     {
@@ -91,7 +91,7 @@ class DatabaseTest extends TestCase
             'id', 'title'
         ]), 1);
     }
-    
+
     /** @test */
     public function permissionRoleTableHasExpectedColumns()
     {
@@ -99,7 +99,7 @@ class DatabaseTest extends TestCase
             'id', 'permission_id', 'role_id'
         ]), 1);
     }
-    
+
     /** @test */
     public function roleUserTagTableHasExpectedColumns()
     {
@@ -107,7 +107,7 @@ class DatabaseTest extends TestCase
             'id', 'role_id', 'user_id'
         ]), 1);
     }
-    
+
     /** @test */
     public function subscriptionsTableHasExpectedColumns()
     {
@@ -115,7 +115,7 @@ class DatabaseTest extends TestCase
             'id', 'email'
         ]), 1);
     }
-    
+
     /** @test */
     public function passwordResetsTableHasExpectedColumns()
     {

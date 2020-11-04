@@ -13,7 +13,7 @@ use App\Comment;
 class LikeCommentTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     public function setUp(): void
     {
         parent::setUp();
@@ -22,7 +22,7 @@ class LikeCommentTest extends TestCase
         $this->post = factory(Post::class)->create();
         $this->comment = factory(Comment::class)->create();
     }
-    
+
     /** @test */
     public function authUsersCanLikeAComment()
     {
@@ -39,7 +39,7 @@ class LikeCommentTest extends TestCase
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->comment->likes);
         $this->assertTrue($this->comment->likes()->exists());
     }
-    
+
     /** @test */
     public function authUsersCanDislikeAlreadyLikedComment()
     {
@@ -58,7 +58,7 @@ class LikeCommentTest extends TestCase
             'type' => 'up',
         ]);
     }
-    
+
     /** @test */
     public function authUsersCanLikeAlreadyDislikedComment()
     {
@@ -77,7 +77,7 @@ class LikeCommentTest extends TestCase
             'type' => 'down',
         ]);
     }
-    
+
     /** @test */
     public function unauthenticatedUsersCannotLikeAComment()
     {
@@ -85,7 +85,7 @@ class LikeCommentTest extends TestCase
         $this->assertDatabaseCount('likes', 0);
         $this->assertFalse($this->comment->likes()->exists());
     }
-    
+
     /**
      * Creates comment attributes for Like entity
      *

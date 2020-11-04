@@ -11,7 +11,7 @@ use App\Post;
 class PostUserRelationTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     public function setUp(): void
     {
         parent::setUp();
@@ -19,14 +19,14 @@ class PostUserRelationTest extends TestCase
         factory(Category::class)->create();
         $this->post = factory(Post::class)->create();
     }
-    
+
     /** @test */
     public function aPostBelongsToUser()
     {
         $this->assertInstanceOf(User::class, $this->post->user);
         $this->assertTrue($this->post->user()->exists());
     }
-    
+
     /** @test */
     public function aUserHasManyPosts()
     {

@@ -11,7 +11,7 @@ class NewsletterMail extends Mailable implements ShouldQueue
 {
     use Queueable;
     use SerializesModels;
-    
+
     public $posts;
 
     /**

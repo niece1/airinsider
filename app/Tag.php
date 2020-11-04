@@ -12,7 +12,7 @@ class Tag extends Model
      * @var array
      */
     protected $fillable = ['title'];
-    
+
     /**
      * Get posts associated with specified tag
      */

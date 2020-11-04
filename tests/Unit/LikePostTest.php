@@ -12,7 +12,7 @@ use App\Like;
 class LikePostTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     public function setUp(): void
     {
         parent::setUp();
@@ -20,7 +20,7 @@ class LikePostTest extends TestCase
         $this->category = factory(Category::class)->create();
         $this->post = factory(Post::class)->create();
     }
-    
+
     /** @test */
     public function authUsersCanLikeAPost()
     {
@@ -37,7 +37,7 @@ class LikePostTest extends TestCase
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->post->likes);
         $this->assertTrue($this->post->likes()->exists());
     }
-   
+
     /** @test */
     public function authUsersCanDislikeAlreadyLikedPost()
     {
@@ -56,7 +56,7 @@ class LikePostTest extends TestCase
             'type' => 'up',
         ]);
     }
-    
+
     /** @test */
     public function authUsersCanLikeAlreadyDislikedPost()
     {
@@ -75,7 +75,7 @@ class LikePostTest extends TestCase
             'type' => 'down',
         ]);
     }
-    
+
     /** @test */
     public function unauthenticatedUsersCannotLikeAPost()
     {
@@ -83,7 +83,7 @@ class LikePostTest extends TestCase
         $this->assertDatabaseCount('likes', 0);
         $this->assertFalse($this->post->likes()->exists());
     }
-    
+
     /**
      * Creates post attributes for Like entity
      *

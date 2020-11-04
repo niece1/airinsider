@@ -14,7 +14,7 @@ class RoleUserRelationTest extends TestCase
     use RefreshDatabase;
     use AdminUser;
     use SyncRoles;
-    
+
     /** @test */
     public function roleUserManyToManyRelations()
     {

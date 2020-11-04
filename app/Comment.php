@@ -12,21 +12,21 @@ class Comment extends Model
      * @var array
      */
     protected $with = ['user', 'likes'];
-    
+
     /**
      * The attribute to append the model's array.
      *
      * @var array
      */
     protected $appends = ['repliesCount'];
-    
+
     /**
      * The attributes that aren't mass assignable.
      *
      * @var array
      */
     protected $guarded = [];
-    
+
     /**
      * Get post record associated with specified comment
      */
@@ -34,7 +34,7 @@ class Comment extends Model
     {
         return $this->belongsTo(Post::class);
     }
-    
+
     /**
      * Get user record associated with specified comment
      */
@@ -42,7 +42,7 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
+
     /**
      * Get replies associated with specified comment
      */
@@ -58,7 +58,7 @@ class Comment extends Model
     {
         return $this->morphMany('App\Like', 'likeable');
     }
-    
+
     /**
      * Check wether comment has a reply
      *
@@ -68,7 +68,7 @@ class Comment extends Model
     {
         return $this->comment_id == null ? 'No' : 'Yes';
     }
-    
+
     /**
      * Count replies
      *

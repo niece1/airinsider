@@ -11,7 +11,7 @@ class SlugServiceTest extends TestCase
 {
     use RefreshDatabase;
     use AdminUser;
-    
+
     /** @test */
     public function slugGeneratedWhileCreatingPost()
     {

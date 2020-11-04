@@ -1,8 +1,8 @@
-/*Fonts*/
+/* Fonts */
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
 
-/*Files*/
+/* Files */
 @import "general";
 @import "header";
 @import "footer";
@@ -16,7 +16,7 @@
 @import "errors";
 @import "select2";
 
-/*Jumbotron styles for all pages except index*/
+/* Jumbotron styles for all pages except index */
 
 .title-jumbotron {
     width: 100%;
@@ -64,7 +64,7 @@
     font-size: 20px !important;
 }
 
-/* Pulsing heart GSAP footer animation*/
+/* Pulsing heart GSAP footer animation */
 
 .hidden {
     position: absolute;
@@ -93,7 +93,7 @@
     color: #e71d43;
 }
 
-/*Cookie consent styles*/
+/* Cookie consent styles */
 
 .js-cookie-consent {
     position: fixed;

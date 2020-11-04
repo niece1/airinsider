@@ -11,14 +11,14 @@ use App\Category;
 class PostShowPageTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     public function setUp(): void
     {
         parent::setUp();
         $this->user = factory(User::class)->create();
         factory(Category::class)->create();
     }
-    
+
     /** @test */
     public function aUserCanSeeShowPage()
     {

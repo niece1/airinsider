@@ -11,14 +11,14 @@ use App\Category;
 class HomePageTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     public function setUp(): void
     {
         parent::setUp();
         $this->user = factory(User::class)->create();
         factory(Category::class)->create();
     }
-    
+
     /** @test */
     public function allUsersCanSeeIndexPage()
     {
@@ -26,7 +26,7 @@ class HomePageTest extends TestCase
                 ->assertStatus(200)
                 ->assertSee('Последние новости');
     }
-    
+
     /** @test */
     public function authenticatedUserCanSeeIndexPage()
     {
@@ -34,13 +34,13 @@ class HomePageTest extends TestCase
                 ->get('/')
                 ->assertStatus(200);
     }
-    
+
     /** @test */
     public function noPostsOnIndexPageWhenDatabaseEmpty()
     {
         $this->get('/')->assertSeeText('Временно недоступны');
     }
-    
+
     /** @test */
     public function seeOnePostOnIndexPageWhenThereIsOneInDatabase()
     {
@@ -52,7 +52,7 @@ class HomePageTest extends TestCase
             'title' => 'New title'
         ]);
     }
-    
+
     /** @test */
     public function aUserCanSeeAShowPage()
     {

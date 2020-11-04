@@ -21,7 +21,7 @@ class RoleRepository
     {
         return Role::with(['permissions'])->get();
     }
-    
+
     /**
      * Save role instance to the database.
      *
@@ -32,7 +32,7 @@ class RoleRepository
     {
         return Role::create($request->all());
     }
-    
+
     /**
      * Update role instance in the database.
      *
@@ -43,7 +43,7 @@ class RoleRepository
     {
         $role->update($request->all());
     }
-    
+
     /**
      * Delete role instance from the database.
      *

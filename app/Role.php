@@ -8,14 +8,14 @@ use App\Traits\SyncPermissions;
 class Role extends Model
 {
     use SyncPermissions;
-    
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = ['title'];
-    
+
     /**
      * Get permissions associated with specified role
      */
@@ -23,7 +23,7 @@ class Role extends Model
     {
         return $this->belongsToMany(Permission::class)->withTimestamps();
     }
-    
+
     /**
      * Get users associated with specified role
      */

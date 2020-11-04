@@ -15,7 +15,7 @@ class PostTagRelationTest extends TestCase
     use RefreshDatabase;
     use AdminUser;
     use SyncTags;
-    
+
     /** @test */
     public function postTagManyToManyRelations()
     {

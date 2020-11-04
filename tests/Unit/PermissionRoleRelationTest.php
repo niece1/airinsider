@@ -14,7 +14,7 @@ class PermissionRoleRelationTest extends TestCase
     use RefreshDatabase;
     use AdminUser;
     use SyncPermissions;
-    
+
     /** @test */
     public function permissionRoleManyToManyRelations()
     {

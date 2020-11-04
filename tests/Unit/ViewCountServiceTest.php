@@ -12,7 +12,7 @@ use App\Services\ViewCountService;
 class ViewCountServiceTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     /** @test */
     public function postViewCounterWorksProperly()
     {

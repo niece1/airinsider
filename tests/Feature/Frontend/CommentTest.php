@@ -12,7 +12,7 @@ use App\Comment;
 class CommentTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     public function setUp(): void
     {
         parent::setUp();
@@ -31,13 +31,13 @@ class CommentTest extends TestCase
         $this->post('/comments/' . $this->post->id, $this->createCommentAttributes());
         $this->assertCount(1, Comment::all());
     }
-    
+
     /** @test */
     public function unauthenticatedUsersCannotSeeACommentForm()
     {
         $this->get('/post/first-post')->assertDontSee('Ваш комментарий');
     }
-    
+
     /** @test */
     public function toPostACommentBodyShouldBeAtLeastTwoCharacters()
     {
@@ -47,7 +47,7 @@ class CommentTest extends TestCase
                 ->assertSessionHas('errors');
         $this->assertCount(0, Comment::all());
     }
-    
+
     /** @test */
     public function authenticatedUsersCanPostACommentReply()
     {
@@ -58,7 +58,7 @@ class CommentTest extends TestCase
         $this->assertDatabaseCount('comments', 2);
         $this->assertDatabaseHas('comments', ['comment_id' => $comment->id]);
     }
-    
+
     /**
      * Creates attributes for Comment entity
      *

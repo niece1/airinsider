@@ -7,14 +7,12 @@ use Tests\TestCase;
 use Tests\Traits\AdminUser;
 use App\Category;
 use App\Post;
-use App\Role;
-use App\Permission;
 
 class PostTest extends TestCase
 {
     use RefreshDatabase;
     use AdminUser;
-    
+
     public function setUp(): void
     {
         parent::setUp();
@@ -38,7 +36,7 @@ class PostTest extends TestCase
         ]))
                 ->assertSessionHasErrors('title');
     }
-    
+
     /** @test */
     public function storePostValidationFails()
     {
@@ -62,7 +60,7 @@ class PostTest extends TestCase
                 ->assertSessionHasErrors('title');
         $this->assertCount(0, Post::all());
     }
-    
+
     /** @test */
     public function validationBodyIsRequired()
     {
@@ -72,7 +70,7 @@ class PostTest extends TestCase
                 ->assertSessionHasErrors('body');
         $this->assertCount(0, Post::all());
     }
-    
+
     /** @test */
     public function validationTimeToReadIsRequired()
     {
@@ -82,7 +80,7 @@ class PostTest extends TestCase
                 ->assertSessionHasErrors('time_to_read');
         $this->assertCount(0, Post::all());
     }
-    
+
     /** @test */
     public function validationCategoryIdIsRequired()
     {
@@ -119,15 +117,13 @@ class PostTest extends TestCase
     /** @test */
     public function aPostCanBeTrashed()
     {
-        $this->assertCount(1, Role::all());
-        $this->assertCount(32, Permission::all());
         $post = factory(Post::class)->create();
         $this->assertCount(1, Post::all());
         $this->delete('/dashboard/posts/' . $post->id);
         $this->assertCount(0, Post::all());
         $this->assertSoftDeleted($post);
     }
-    
+
     /**
      * Creates attributes for Post entity
      *
