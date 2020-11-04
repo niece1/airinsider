@@ -22,7 +22,7 @@ class CategoryRepository
     {
         return Category::all();
     }
-    
+
     /**
      * Save category instance to the database.
      *
@@ -32,7 +32,7 @@ class CategoryRepository
     {
         Category::create($request->all());
     }
-    
+
     /**
      * Update category instance in the database.
      *
@@ -43,7 +43,7 @@ class CategoryRepository
     {
         $category->update($request->all());
     }
-    
+
     /**
      * Delete category instance from the database.
      *

@@ -18,7 +18,7 @@ class CategoryController extends DashboardController
     {
         abort_unless(Gate::allows('category_access'), 403);
         $categories = CategoryRepository::getAll();
-        
+
         return view('dashboard.category.index', compact('categories'));
     }
 

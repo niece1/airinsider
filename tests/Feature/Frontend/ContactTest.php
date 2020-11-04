@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class ContactTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     /** @test */
     public function contactPageWorksCorrectly()
     {
@@ -16,7 +16,7 @@ class ContactTest extends TestCase
                 ->assertSeeText('Заполните форму')
                 ->assertSeeText('Напишите нам');
     }
-    
+
     /** @test */
     public function aUserCanSendMailThroughTheForm()
     {
@@ -26,7 +26,7 @@ class ContactTest extends TestCase
         $this->assertEquals(session('success'), 'Сообщение успешно отправлено.'
                 . ' Ожидайте ответ.');
     }
-    
+
     /** @test */
     public function toSendMailANameFieldIsRequired()
     {
@@ -38,7 +38,7 @@ class ContactTest extends TestCase
         $messages = session('errors')->getMessages();
         $this->assertEquals($messages['name'][0], 'Данное поле обязательно.');
     }
-    
+
     /** @test */
     public function toSendMailNameShouldBeAtLeastTwoCharacters()
     {
@@ -50,7 +50,7 @@ class ContactTest extends TestCase
         $messages = session('errors')->getMessages();
         $this->assertEquals($messages['name'][0], 'Поле должно быть мин 2 символа(ов).');
     }
-    
+
     /** @test */
     public function toSendMailAnEmailFieldShouldBeAValidEmail()
     {
@@ -62,7 +62,7 @@ class ContactTest extends TestCase
         $messages = session('errors')->getMessages();
         $this->assertEquals($messages['email'][0], 'Поле должно быть корректным.');
     }
-    
+
     /** @test */
     public function toSendMailAMessageIsRequired()
     {
@@ -74,7 +74,7 @@ class ContactTest extends TestCase
         $messages = session('errors')->getMessages();
         $this->assertEquals($messages['message'][0], 'Данное поле обязательно.');
     }
-    
+
     /**
      * Creates attributes for contact query
      *

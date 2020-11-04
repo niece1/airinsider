@@ -20,7 +20,7 @@ class CommentController extends DashboardController
 
         return view('dashboard.comment.index', compact('comments'));
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *
@@ -31,7 +31,7 @@ class CommentController extends DashboardController
     {
         abort_unless(Gate::allows('comment_delete'), 403);
         CommentRepository::delete($comment);
-   
+
         return redirect('dashboard/comments')->withSuccessMessage('Deleted Successfully!');
     }
 }

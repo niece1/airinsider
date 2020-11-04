@@ -21,7 +21,7 @@ class SearchRepository
     public static function search(Request $request)
     {
         $keyword = $request->input('keyword');
-        
+
         return Post::with(['photo', 'category'])
                 ->where('title', 'like', "%$keyword%")
                 ->orWhere('body', 'like', "%$keyword%")

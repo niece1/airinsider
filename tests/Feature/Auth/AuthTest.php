@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Hash;
 class AuthTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     public function setUp(): void
     {
         parent::setUp();
@@ -24,14 +24,14 @@ class AuthTest extends TestCase
                 ->assertStatus(302)
                 ->assertRedirect('/login');
     }
-    
+
     /** @test */
     public function authenticatedUsersWithoutRoleCannotGetDashboard()
     {
         $this->actingAs($this->user);
         $this->get('/dashboard/posts')->assertForbidden();
     }
-    
+
     /** @test */
     public function authenticatedUsersWithoutRoleCannotSeeDashboardLink()
     {
@@ -40,7 +40,7 @@ class AuthTest extends TestCase
                 ->assertDontSee('Dashboard')
                 ->assertSee('Выйти');
     }
-    
+
     /** @test */
     public function loginRedirectsSuccessfully()
     {
@@ -52,7 +52,7 @@ class AuthTest extends TestCase
                 ->assertStatus(302)
                 ->assertRedirect('/');
     }
-    
+
     /** @test */
     public function aUserCanBeAddedThroughRegisterForm()
     {
@@ -60,7 +60,7 @@ class AuthTest extends TestCase
                 ->assertRedirect('/');
         $this->assertCount(2, User::all());
     }
-    
+
     /** @test */
     public function emailIsRequiredWhileRegisteringThroughTheForm()
     {
@@ -70,7 +70,7 @@ class AuthTest extends TestCase
                 ->assertSessionHasErrors('email');
         $this->assertCount(1, User::all());
     }
-    
+
     /** @test */
     public function passwordIsRequiredWhileRegisteringThroughTheForm()
     {
@@ -80,7 +80,7 @@ class AuthTest extends TestCase
                 ->assertSessionHasErrors('password');
         $this->assertCount(1, User::all());
     }
-    
+
     /** @test */
     public function oneCannotRegisterWithoutPasswordConfirmation()
     {
@@ -90,7 +90,7 @@ class AuthTest extends TestCase
                 ->assertSessionHasErrors('password');
         $this->assertCount(1, User::all());
     }
-    
+
     /**
      * Creates attributes for User entity
      *

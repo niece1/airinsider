@@ -12,7 +12,7 @@ class Like extends Model
      * @var array
      */
     protected $guarded = [];
-    
+
     /**
      * Get the owning likeable model
      */

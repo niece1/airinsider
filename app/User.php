@@ -38,7 +38,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    
+
     /**
      * Get photo associated with specified user
      */
@@ -46,7 +46,7 @@ class User extends Authenticatable
     {
         return $this->morphOne('App\Photo', 'photoable');
     }
-    
+
     /**
      * Get posts associated with specified user
      */
@@ -54,7 +54,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
-    
+
     /**
      * Get comments associated with specified user
      */
@@ -62,7 +62,7 @@ class User extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
-    
+
     /**
      * Get roles associated with specified user
      */
@@ -70,7 +70,7 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Role::class)->withTimestamps();
     }
-    
+
     /**
      * Create or update like
      *
@@ -90,7 +90,7 @@ class User extends Authenticatable
             'user_id' => $this->id,
         ]);
     }
-    
+
     /**
      * Send the password reset notification.
      *

@@ -12,14 +12,14 @@ class SearchTest extends TestCase
 {
     use RefreshDatabase;
     use AdminUser;
-    
+
     public function setUp(): void
     {
         parent::setUp();
         $this->actingAs($this->createAdminUser());
         factory(Category::class)->create();
     }
-    
+
     /** @test */
     public function searchOnTitleKeywordIsSuccessfull()
     {
@@ -33,7 +33,7 @@ class SearchTest extends TestCase
                 ->assertStatus(200)
                 ->assertSee('Airbus');
     }
-    
+
     /** @test */
     public function searchOnBodyKeywordIsSuccessfull()
     {

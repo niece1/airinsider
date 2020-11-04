@@ -21,7 +21,7 @@ class SubscriptionRepository
         return Subscription::orderBy('id', 'desc')
                 ->paginate(25);
     }
-    
+
     /**
      * Fetch all subscriptions from the database.
      *
@@ -31,7 +31,7 @@ class SubscriptionRepository
     {
         return Subscription::all();
     }
-    
+
     /**
      * Delete subscription instance from the database.
      *

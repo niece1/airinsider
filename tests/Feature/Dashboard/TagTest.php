@@ -11,13 +11,13 @@ class TagTest extends TestCase
 {
     use RefreshDatabase;
     use AdminUser;
-    
+
     public function setUp(): void
     {
         parent::setUp();
         $this->actingAs($this->createAdminUser());
     }
-    
+
     /** @test */
     public function aTagCanBeAddedToTheTableThroughTheForm()
     {
@@ -25,7 +25,7 @@ class TagTest extends TestCase
                 ->assertRedirect('/dashboard/tags');
         $this->assertCount(1, Tag::all());
     }
-    
+
     /** @test */
     public function titleFieldIsRequired()
     {
@@ -37,7 +37,7 @@ class TagTest extends TestCase
         $messages = session('errors')->getMessages();
         $this->assertEquals($messages['title'][0], 'Данное поле обязательно.');
     }
-    
+
     /** @test */
     public function titleFieldShouldBeAtLeastTwoCharacters()
     {
@@ -49,7 +49,7 @@ class TagTest extends TestCase
         $messages = session('errors')->getMessages();
         $this->assertEquals($messages['title'][0], 'Поле должно быть мин 2 символа(ов).');
     }
-    
+
     /** @test */
     public function titleFieldShouldBeMaxTenCharacters()
     {
@@ -59,7 +59,7 @@ class TagTest extends TestCase
         $messages = session('errors')->getMessages();
         $this->assertEquals($messages['title'][0], 'Поле не должно быть больше 10 символа(ов).');
     }
-    
+
     /** @test */
     public function aTagCanBeUpdated()
     {
@@ -72,7 +72,7 @@ class TagTest extends TestCase
         $this->assertDatabaseMissing('tags', $tag->toArray());
         $this->assertDatabaseHas('tags', ['title' => 'Airbus']);
     }
-    
+
     /** @test */
     public function aTagCanBeDeleted()
     {

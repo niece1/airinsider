@@ -22,7 +22,7 @@ class CommentRepository
                 ->orderBy('id', 'desc')
                 ->paginate(50);
     }
-    
+
     /**
      * Delete comment instance from the database.
      *

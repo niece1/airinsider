@@ -18,10 +18,10 @@ class UserController extends DashboardController
     {
         abort_unless(Gate::allows('user_access'), 403);
         $users = UserRepository::getAll();
-        
+
         return view('dashboard.user.index', compact('users'));
     }
-    
+
     /**
      * Show the form for editing the specified resource.
      *
@@ -35,7 +35,7 @@ class UserController extends DashboardController
 
         return view('dashboard.user.edit', compact('user', 'roles'));
     }
-    
+
     /**
      * Update the specified resource in storage.
      *
@@ -48,7 +48,7 @@ class UserController extends DashboardController
 
         return redirect('dashboard/users')->withSuccessMessage('User Updated Successfully!');
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *

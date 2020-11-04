@@ -17,7 +17,7 @@ class RedirectService
      * @var string
      */
     protected $redirectTo = RouteServiceProvider::HOME;
-    
+
     /**
      * Redirect to previous page after login.
      *

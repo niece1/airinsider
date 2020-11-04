@@ -11,7 +11,7 @@ use App\Post;
 class CategoryPostRelationTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     public function setUp(): void
     {
         parent::setUp();
@@ -19,14 +19,14 @@ class CategoryPostRelationTest extends TestCase
         $this->category = factory(Category::class)->create();
         $this->post = factory(Post::class)->create();
     }
-    
+
     /** @test */
     public function aPostBelongsToCategory()
     {
         $this->assertInstanceOf(Category::class, $this->post->category);
         $this->assertTrue($this->post->category()->exists());
     }
-    
+
     /** @test */
     public function aCategoryHasManyPosts()
     {

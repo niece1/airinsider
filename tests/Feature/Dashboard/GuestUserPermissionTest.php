@@ -10,13 +10,13 @@ class GuestUserPermissionTest extends TestCase
 {
     use RefreshDatabase;
     use GuestUser;
-    
+
     public function setUp(): void
     {
         parent::setUp();
         $this->actingAs($this->createGuestUser());
     }
-    
+
     /** @test */
     public function guestUserCanSeePostPage()
     {
@@ -24,7 +24,7 @@ class GuestUserPermissionTest extends TestCase
                 ->assertStatus(200)
                 ->assertSee('Post List');
     }
-    
+
     /** @test */
     public function guestUserCannotSeeAddPostButton()
     {
@@ -32,7 +32,7 @@ class GuestUserPermissionTest extends TestCase
                 ->assertStatus(200)
                 ->assertDontSee('Add Post');
     }
-    
+
     /** @test */
     public function guestUserCannotSeeRolePage()
     {

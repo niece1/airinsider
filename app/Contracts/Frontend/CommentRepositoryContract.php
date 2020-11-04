@@ -15,7 +15,7 @@ interface CommentRepositoryContract
      * @return \App\Comment[]
      */
     public function getAll(Post $post);
-    
+
     /**
      * Save comment instance to the database.
      *
@@ -24,7 +24,7 @@ interface CommentRepositoryContract
      * @return \App\Comment[]
      */
     public function save(CommentRequest $request, Post $post);
-    
+
     /**
      * Fetch replies from the database.
      *

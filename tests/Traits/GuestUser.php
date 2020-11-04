@@ -12,7 +12,7 @@ use App\Traits\DashboardAccess;
 trait GuestUser
 {
     use DashboardAccess;
-    
+
     public function createGuestUser()
     {
         factory(Permission::class)->create([

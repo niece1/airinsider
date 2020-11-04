@@ -11,7 +11,7 @@ class SubscriptionTest extends TestCase
 {
     use RefreshDatabase;
     use AdminUser;
-    
+
     /** @test */
     public function subscriptionCanBeDeleted()
     {

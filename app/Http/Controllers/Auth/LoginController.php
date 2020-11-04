@@ -20,14 +20,14 @@ class LoginController extends Controller
      * @var int
      */
     protected $maxAttempts = 3;
-    
+
     /**
      * Login time range.
      *
      * @var int
      */
     protected $decayMinutes = 5;
-    
+
     /**
      * Redirect to previous page after login.
      */
@@ -65,7 +65,7 @@ class LoginController extends Controller
         $socialAuthService->store($provider);
         return redirect()->intended('/');
     }
-    
+
     /**
      * Get last login time and IP address.
      *

@@ -21,7 +21,7 @@ class PermissionRepository
     {
         return Permission::all();
     }
-    
+
     /**
      * Save permission instance to the database.
      *
@@ -31,7 +31,7 @@ class PermissionRepository
     {
         Permission::create($request->all());
     }
-    
+
     /**
      * Delete permission instance from the database.
      *

@@ -11,7 +11,7 @@ use App\Contracts\Frontend\CommentRepositoryContract;
 class CommentController extends Controller
 {
     private $commentRepository;
-    
+
     /**
      * Create a new instance.
      *
@@ -22,7 +22,7 @@ class CommentController extends Controller
     {
         $this->commentRepository = $commentRepository;
     }
-    
+
     /**
      * Show comments associated with specific post.
      *
@@ -33,7 +33,7 @@ class CommentController extends Controller
     {
         return $this->commentRepository->getAll($post);
     }
-    
+
     /**
      * Store comment instance.
      *
@@ -45,7 +45,7 @@ class CommentController extends Controller
     {
         return $this->commentRepository->save($request, $post);
     }
-    
+
     /**
      * Show replies associated with specific comment.
      *

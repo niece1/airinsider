@@ -12,7 +12,7 @@ class Post extends Model
     use SoftDeletes;
     use SyncTags;
     use SaveUser;
-    
+
     /**
      * The attributes that are mass assignable.
      *
@@ -21,7 +21,7 @@ class Post extends Model
     protected $fillable = [
         'title', 'body', 'slug', 'user_id', 'category_id', 'published', 'photo_source', 'time_to_read',
     ];
-    
+
     /**
      * Get photo associated with specified post
      */
@@ -29,7 +29,7 @@ class Post extends Model
     {
         return $this->morphOne('App\Photo', 'photoable');
     }
-    
+
     /**
      * Get category record associated with specified post
      */
@@ -37,7 +37,7 @@ class Post extends Model
     {
         return $this->belongsTo(Category::class);
     }
-    
+
     /**
      * Get user record associated with specified post
      */
@@ -45,7 +45,7 @@ class Post extends Model
     {
         return $this->belongsTo(User::class);
     }
-    
+
     /**
      * Get comments associated with specified post
      */
@@ -53,7 +53,7 @@ class Post extends Model
     {
         return $this->hasMany(Comment::class)->whereNull('comment_id')->orderBy('created_at', 'DESC');
     }
-    
+
     /**
      * Get likes associated with specified post
      */
@@ -61,7 +61,7 @@ class Post extends Model
     {
         return $this->morphMany('App\Like', 'likeable');
     }
-    
+
     /**
      * Get tags associated with specified post
      */
@@ -69,7 +69,7 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class)->withTimestamps();
     }
-    
+
     /**
      * Get date in convenient for humans format
      *
@@ -79,7 +79,7 @@ class Post extends Model
     {
         return is_null($this->updated_at) ? '' : $this->updated_at->diffForHumans();
     }
-    
+
     /**
      * Get date in specific format
      *
@@ -90,7 +90,7 @@ class Post extends Model
         setlocale(LC_TIME, config('app.locale'));
         return is_null($this->updated_at) ? '' : strftime('%d %B %G года', strtotime($this->updated_at));
     }
-    
+
     /**
      * Get time in specific format
      *
@@ -100,7 +100,7 @@ class Post extends Model
     {
         return is_null($this->updated_at) ? '' : date('H:i', strtotime($this->updated_at));
     }
-    
+
     /**
      * Get body attribute, safe to publish
      *
@@ -110,7 +110,7 @@ class Post extends Model
     {
         return $this->body ? strip_tags(html_entity_decode($this->body)) : null;
     }
-    
+
     /**
      * Get description
      *
@@ -120,7 +120,7 @@ class Post extends Model
     {
         return $this->body ? substr(strip_tags(html_entity_decode($this->body)), 0, 85) : null;
     }
-    
+
     /**
      * Get featured post description
      *
@@ -130,7 +130,7 @@ class Post extends Model
     {
         return $this->body ? substr(strip_tags(html_entity_decode($this->body)), 0, 185) : null;
     }
-    
+
     /**
      * Add 3 dots at the end of description
      *
@@ -140,7 +140,7 @@ class Post extends Model
     {
         return strlen(strip_tags(html_entity_decode($this->body))) > 85 ? " ..." : "";
     }
-    
+
     /**
      * Add 3 dots at the end of featured post description
      *
@@ -150,7 +150,7 @@ class Post extends Model
     {
         return strlen(strip_tags(html_entity_decode($this->body))) > 185 ? " ..." : "";
     }
-    
+
     /**
      * Add 'yes' if true and 'no' if false
      *

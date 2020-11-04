@@ -9,7 +9,7 @@ use App\Contracts\Frontend\PostRepositoryContract;
 class PostController extends Controller
 {
     private $postRepository;
-    
+
     /**
      * Create a new instance.
      *
@@ -20,7 +20,7 @@ class PostController extends Controller
     {
         $this->postRepository = $postRepository;
     }
-    
+
     /**
      * Display post listing and featured post.
      *
@@ -33,7 +33,7 @@ class PostController extends Controller
 
         return view('frontend.post.index', compact('featured', 'posts'));
     }
-    
+
     /*
      * Display the specified post.
      *
@@ -51,7 +51,7 @@ class PostController extends Controller
 
         return view('frontend.post.show', compact('post', 'categories', 'tags', 'related'));
     }
-    
+
     /**
      * Display posts associated with specified category.
      *
@@ -65,7 +65,7 @@ class PostController extends Controller
 
         return view('frontend.post.posts-by-category', compact('posts_by_category', 'chosen_category'));
     }
-    
+
     /**
      * Display posts associated with specified tag.
      *
@@ -79,7 +79,7 @@ class PostController extends Controller
 
         return view('frontend.post.posts-by-tag', compact('posts_by_tag', 'chosen_tag'));
     }
-    
+
     /**
      * Display posts associated with specified user.
      *
@@ -93,7 +93,7 @@ class PostController extends Controller
 
         return view('frontend.post.posts-by-user', compact('posts_by_user', 'chosen_user'));
     }
-    
+
     /**
      * Display posts in random order in carousel.
      *
@@ -102,7 +102,7 @@ class PostController extends Controller
     public function randomPost()
     {
         $random_posts = $this->postRepository->getRandom();
-        
+
         return view('frontend.contact.index', compact('random_posts'));
     }
 }

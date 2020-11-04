@@ -11,7 +11,7 @@ class ContactMail extends Mailable implements ShouldQueue
 {
     use Queueable;
     use SerializesModels;
-    
+
     public $data;
 
     /**

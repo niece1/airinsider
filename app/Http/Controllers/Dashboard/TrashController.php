@@ -20,7 +20,7 @@ class TrashController extends DashboardController
 
         return view('dashboard.trash.index', compact('posts'));
     }
-    
+
     /**
      * Remove the specified resource from storage.
      *

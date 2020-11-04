@@ -21,7 +21,7 @@ class TagRepository
     {
         return Tag::all();
     }
-    
+
     /**
      * Save tag instance to the database.
      *
@@ -31,7 +31,7 @@ class TagRepository
     {
         Tag::create($request->all());
     }
-    
+
     /**
      * Update tag instance in the database.
      *
@@ -42,7 +42,7 @@ class TagRepository
     {
         $tag->update($request->all());
     }
-    
+
     /**
      * Delete tag instance from the database.
      *

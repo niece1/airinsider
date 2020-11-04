@@ -5,7 +5,7 @@ namespace App\Traits;
 trait DeletePhoto
 {
     use BasePhotoUpload;
-    
+
     /**
      * Delete photo from database.
      *

@@ -15,7 +15,7 @@ class PhotoController extends DashboardController
     public function delete($id, Photo $photo)
     {
         $photo->deletePhoto($id);
-        
+
         return redirect()->back()->withSuccessMessage('Photo Deleted!');
     }
 }

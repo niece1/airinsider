@@ -8,7 +8,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class AboutTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     /** @test */
     public function aboutPageWorksCorrectly()
     {

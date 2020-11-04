@@ -24,7 +24,7 @@ class CommentRepository implements CommentRepositoryContract
     {
         return $post->comments()->with(['replies'])->paginate(10);
     }
-    
+
     /**
      * Save comment instance to the database.
      *
@@ -40,7 +40,7 @@ class CommentRepository implements CommentRepositoryContract
             'comment_id' => $request->comment_id
         ])->fresh();
     }
-    
+
     /**
      * Fetch replies from the database.
      *

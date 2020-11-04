@@ -17,7 +17,7 @@ class CategoryTest extends TestCase
         parent::setUp();
         $this->actingAs($this->createAdminUser());
     }
-    
+
     /** @test */
     public function aCatagoryCanBeAddedToTheTableThroughTheForm()
     {
@@ -27,7 +27,7 @@ class CategoryTest extends TestCase
                 ->assertRedirect('/dashboard/categories');
         $this->assertCount(1, Category::all());
     }
-    
+
     /** @test */
     public function titleFieldIsRequired()
     {
@@ -39,7 +39,7 @@ class CategoryTest extends TestCase
         $messages = session('errors')->getMessages();
         $this->assertEquals($messages['title'][0], 'Данное поле обязательно.');
     }
-    
+
     /** @test */
     public function titleFieldShouldBeAtLeastTwoCharacters()
     {
@@ -51,7 +51,7 @@ class CategoryTest extends TestCase
         $messages = session('errors')->getMessages();
         $this->assertEquals($messages['title'][0], 'Поле должно быть мин 2 символа(ов).');
     }
-    
+
     /** @test */
     public function titleFieldShouldBeMaxTenCharacters()
     {
@@ -63,7 +63,7 @@ class CategoryTest extends TestCase
         $messages = session('errors')->getMessages();
         $this->assertEquals($messages['title'][0], 'Поле не должно быть больше 10 символа(ов).');
     }
-    
+
     /** @test */
     public function aCategoryCanBeUpdated()
     {
@@ -78,7 +78,7 @@ class CategoryTest extends TestCase
         $this->assertDatabaseMissing('categories', $category->toArray());
         $this->assertDatabaseHas('categories', ['title' => 'Airbus']);
     }
-    
+
     /** @test */
     public function aCategoryCanBeDeleted()
     {

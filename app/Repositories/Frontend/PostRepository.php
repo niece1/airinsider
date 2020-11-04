@@ -28,7 +28,7 @@ class PostRepository implements PostRepositoryContract
                 ->orderBy('id', 'desc')
                 ->first();
     }
-    
+
     /**
      * Fetch all posts except featured one from the database.
      *
@@ -45,7 +45,7 @@ class PostRepository implements PostRepositoryContract
                     ->orderBy('id', 'desc')
                     ->paginate(12);
     }
-    
+
     /**
      * Get the specified post from the database.
      *
@@ -56,7 +56,7 @@ class PostRepository implements PostRepositoryContract
     {
         return Post::where('slug', $slug)->firstOrFail();
     }
-    
+
     /**
      * Fetch 5 posts associated with the category one's viewing now.
      *
@@ -71,7 +71,7 @@ class PostRepository implements PostRepositoryContract
                 ->limit(5)
                 ->get();
     }
-    
+
     /**
      * Fetch all categories from the database.
      *
@@ -81,7 +81,7 @@ class PostRepository implements PostRepositoryContract
     {
         return Category::all();
     }
-    
+
     /**
      * Fetch all tags from the database.
      *
@@ -91,7 +91,7 @@ class PostRepository implements PostRepositoryContract
     {
         return Tag::all();
     }
-    
+
     /**
      * Fetch all posts associated with specified category.
      *
@@ -106,7 +106,7 @@ class PostRepository implements PostRepositoryContract
                 ->where('published', 1)
                 ->paginate(12);
     }
-    
+
     /**
      * Get the specified category from the database.
      *
@@ -117,7 +117,7 @@ class PostRepository implements PostRepositoryContract
     {
         return Category::find($category);
     }
-    
+
     /**
      * Fetch all posts associated with specified tag.
      *
@@ -132,7 +132,7 @@ class PostRepository implements PostRepositoryContract
                 ->orderBy('id', 'desc')
                 ->paginate(12);
     }
-    
+
     /**
      * Get the specified tag from the database.
      *
@@ -143,7 +143,7 @@ class PostRepository implements PostRepositoryContract
     {
         return Tag::find($tag);
     }
-    
+
     /**
      * Fetch all posts associated with specified user.
      *
@@ -158,7 +158,7 @@ class PostRepository implements PostRepositoryContract
                 ->orderBy('id', 'desc')
                 ->paginate(12);
     }
-    
+
     /**
      * Get the specified user from the database.
      *
@@ -169,7 +169,7 @@ class PostRepository implements PostRepositoryContract
     {
         return User::find($user);
     }
-    
+
     /**
      * Fetch 5 posts in random order published within last 20 days.
      *
@@ -184,7 +184,7 @@ class PostRepository implements PostRepositoryContract
                 ->limit(5)
                 ->get();
     }
-    
+
     /**
      * Fetch 3 most often viewed posts.
      *

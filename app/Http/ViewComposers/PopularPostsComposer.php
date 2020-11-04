@@ -8,7 +8,7 @@ use App\Contracts\Frontend\PostRepositoryContract;
 class PopularPostsComposer
 {
     private $postRepository;
-    
+
     /**
      * Create a new popular posts composer.
      *

@@ -9,7 +9,7 @@ use Tests\TestCase;
 class SubscriptionTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     /** @test */
     public function aUserCanSubscribeForTheNews()
     {
@@ -18,7 +18,7 @@ class SubscriptionTest extends TestCase
         ]);
         $this->assertCount(1, Subscription::all());
     }
-    
+
     /** @test */
     public function toSubscribeYouNeedToEnterAValidEmail()
     {
@@ -30,7 +30,7 @@ class SubscriptionTest extends TestCase
         $messages = session('errors')->getMessages();
         $this->assertEquals($messages['email'][0], 'Поле должно быть корректным.');
     }
-    
+
     /** @test */
     public function toSubscribeAnEmailFieldIsRequired()
     {

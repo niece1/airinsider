@@ -26,7 +26,7 @@ class PostRepository
                 ->orderBy('id', 'desc')
                 ->paginate(25);
     }
-    
+
     /**
      * Save post instance to the database.
      *
@@ -37,7 +37,7 @@ class PostRepository
     {
         return Post::create($request->all());
     }
-    
+
     /**
      * Get the specified resource from the database.
      *
@@ -49,7 +49,7 @@ class PostRepository
         return Post::where('id', $post->id)
                 ->firstOrFail();
     }
-    
+
     /**
      * Update post instance in the database.
      *
@@ -60,7 +60,7 @@ class PostRepository
     {
         $post->update($request->all());
     }
-    
+
     /**
      * Remove post instance to trash.
      *
@@ -70,7 +70,7 @@ class PostRepository
     {
         $post->delete();
     }
-    
+
     /**
      * Fetch all trashed posts from the database.
      *
@@ -82,7 +82,7 @@ class PostRepository
                 ->onlyTrashed()
                 ->get();
     }
-    
+
     /**
      * Delete post instance from the database.
      *
@@ -99,7 +99,7 @@ class PostRepository
         }
         $post->forceDelete();
     }
-    
+
     /**
      * Return post from trash.
      *
@@ -112,7 +112,7 @@ class PostRepository
                 ->where('id', $id)
                 ->first();
     }
-    
+
     /**
      * Fetch posts for the last 7 days to send newsletter.
      *

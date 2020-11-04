@@ -26,7 +26,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
             fn() => parent::getFeatured()
         );
     }
-    
+
     /**
      * Fetch all cached posts except featured one from the database.
      *
@@ -41,7 +41,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
             fn() => parent::getAll($featured)
         );
     }
-    
+
     /**
      * Get cached specified post from the database.
      *
@@ -56,7 +56,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
             fn() => parent::getOne($slug)
         );
     }
-    
+
     /**
      * Fetch 5 cached posts associated with the category one's viewing now.
      *
@@ -71,7 +71,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
             fn() => parent::getRelated($post)
         );
     }
-    
+
     /**
      * Fetch all cached categories from the database.
      *
@@ -85,7 +85,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
             fn() => parent::getCategories()
         );
     }
-    
+
     /**
      * Fetch all cached tags from the database.
      *
@@ -99,7 +99,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
             fn() => parent::getTags()
         );
     }
-    
+
     /**
      * Fetch all cached posts associated with specified category.
      *
@@ -114,7 +114,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
             fn() => parent::getAllByCategory($category)
         );
     }
-    
+
     /**
      * Get cached specified category from the database.
      *
@@ -129,7 +129,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
             fn() => parent::getCategory($category)
         );
     }
-    
+
     /**
      * Fetch all cached posts associated with specified tag.
      *
@@ -144,7 +144,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
             fn() => parent::getAllByTag($tag)
         );
     }
-    
+
     /**
      * Get cached specified tag from the database.
      *
@@ -159,7 +159,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
             fn() => parent::getTag($tag)
         );
     }
-    
+
     /**
      * Fetch all cached posts associated with specified user.
      *
@@ -174,7 +174,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
             fn() => parent::getAllByUser($user)
         );
     }
-    
+
     /**
      * Get cached specified user from the database.
      *
@@ -189,7 +189,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
             fn() => parent::getUser($user)
         );
     }
-    
+
     /**
      * Fetch 5 cached posts in random order published within last 20 days.
      *
@@ -203,7 +203,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
             fn() => parent::getRandom()
         );
     }
-    
+
     /**
      * Fetch cached 3 most often viewed posts.
      *

@@ -12,7 +12,7 @@ class Permission extends Model
      * @var array
      */
     protected $fillable = ['title'];
-    
+
     /**
      * Get roles associated with specified permission
      */

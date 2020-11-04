@@ -12,7 +12,7 @@ use App\Post;
 class CommentPostRelationTest extends TestCase
 {
     use RefreshDatabase;
-    
+
     public function setUp(): void
     {
         parent::setUp();
@@ -21,21 +21,21 @@ class CommentPostRelationTest extends TestCase
         $this->post = factory(Post::class)->create();
         $this->comment = factory(Comment::class)->create();
     }
-    
+
     /** @test */
     public function aCommentBelongsToUser()
     {
         $this->assertInstanceOf(User::class, $this->comment->user);
         $this->assertTrue($this->comment->user()->exists());
     }
-    
+
     /** @test */
     public function aUserHasManyComments()
     {
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->user->comments);
         $this->assertTrue($this->user->comments->contains($this->comment));
     }
-    
+
     /** @test */
     public function aCommentHasManyReplies()
     {

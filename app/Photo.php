@@ -8,7 +8,7 @@ use App\Traits\DeletePhoto;
 class Photo extends Model
 {
     use DeletePhoto;
-    
+
     /**
      * Get the owning photoable model.
      */
@@ -16,7 +16,7 @@ class Photo extends Model
     {
         return $this->morphTo();
     }
-    
+
     /**
      * Get original photo path
      *
