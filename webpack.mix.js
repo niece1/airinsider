@@ -12,12 +12,18 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+   .js('resources/js/sticky-kit_users.js', 'public/js')
+   .js('resources/js/lazyload_users.js', 'public/js')
+   .copy([
+   'node_modules/jquery/dist/jquery.min.js',
+   'node_modules/sticky-kit/dist/sticky-kit.min.js'
+   ], 'public/js')
    .sass('resources/sass/app.scss', 'public/css')
    .options({
        autoprefixer: {
            options: {
                browsers: [
-                   'last 6 versions',
+                   'last 6 versions'
                ]
            }
        }

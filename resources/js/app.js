@@ -1,134 +1,18 @@
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require("./bootstrap");
 
 window.Vue = require("vue");
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
-
-// const files = require.context('./', true, /\.vue$/i)
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
 Vue.component("comments", require("./components/comments.vue").default);
 Vue.component("likes", require("./components/likes.vue").default);
 Vue.component("subscription", require("./components/subscription.vue").default);
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-
 const app = new Vue({
     el: "#app"
 });
 
-/**
- * nearby.js
- * http://www.codrops.com
- *
- * Licensed under the MIT license.
- * http://www.opensource.org/licenses/mit-license.php
- *
- * Copyright 2018, Codrops
- * http://www.codrops.com
- */
-{
-    /**
-     * Distance between two points P1 (x1,y1) and P2 (x2,y2).
-     */
-    const distancePoints = (x1, y1, x2, y2) =>
-        Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
-
-    // from http://www.quirksmode.org/js/events_properties.html#position
-    const getMousePos = e => {
-        var posx = 0,
-            posy = 0;
-        if (!e) var e = window.event;
-        if (e.pageX || e.pageY) {
-            posx = e.pageX;
-            posy = e.pageY;
-        } else if (e.clientX || e.clientY) {
-            posx =
-                e.clientX +
-                document.body.scrollLeft +
-                document.documentElement.scrollLeft;
-            posy =
-                e.clientY +
-                document.body.scrollTop +
-                document.documentElement.scrollTop;
-        }
-        return { x: posx, y: posy };
-    };
-
-    class Nearby {
-        constructor(el, options) {
-            this.DOM = { el: el };
-            this.options = options;
-            this.init();
-        }
-        init() {
-            this.mousemoveFn = ev =>
-                requestAnimationFrame(() => {
-                    const mousepos = getMousePos(ev);
-                    const docScrolls = {
-                        left:
-                            document.body.scrollLeft +
-                            document.documentElement.scrollLeft,
-                        top:
-                            document.body.scrollTop +
-                            document.documentElement.scrollTop
-                    };
-                    const elRect = this.DOM.el.getBoundingClientRect();
-                    const elCoords = {
-                        x1: elRect.left + docScrolls.left,
-                        x2: elRect.width + elRect.left + docScrolls.left,
-                        y1: elRect.top + docScrolls.top,
-                        y2: elRect.height + elRect.top + docScrolls.top
-                    };
-                    const closestPoint = { x: mousepos.x, y: mousepos.y };
-
-                    if (mousepos.x < elCoords.x1) {
-                        closestPoint.x = elCoords.x1;
-                    } else if (mousepos.x > elCoords.x2) {
-                        closestPoint.x = elCoords.x2;
-                    }
-                    if (mousepos.y < elCoords.y1) {
-                        closestPoint.y = elCoords.y1;
-                    } else if (mousepos.y > elCoords.y2) {
-                        closestPoint.y = elCoords.y2;
-                    }
-                    if (this.options.onProgress) {
-                        this.options.onProgress(
-                            distancePoints(
-                                mousepos.x,
-                                mousepos.y,
-                                closestPoint.x,
-                                closestPoint.y
-                            )
-                        );
-                    }
-                });
-
-            window.addEventListener("mousemove", this.mousemoveFn);
-        }
-    }
-
-    window.Nearby = Nearby;
-}
+import nearby from "./nearby.js";
 
 // Pulsing heart footer animation Green Sock Animation platform
-
 const lineEq = (y2, y1, x2, x1, currentVal) => {
     // y = mx + b
     var m = (y2 - y1) / (x2 - x1),
@@ -203,19 +87,17 @@ new Nearby(iconHeartButton, {
     }
 });
 
-//Navigation
 $(document).ready(function() {
+    //Navigation
     $(".menu-toggle").click(function() {
         $("nav").toggleClass("active");
     });
-
     $("ul li").click(function() {
         $(this)
             .siblings()
             .removeClass("active");
         $(this).toggleClass("active");
     });
-
     $(document).mouseup(function(e) {
         var div = $("ul li");
         if (!div.is(e.target) && div.has(e.target).length === 0) {
@@ -232,7 +114,6 @@ $(document).ready(function() {
     $("#search").click(function() {
         $(".search-overlay").css("width", "100%");
     });
-
     $(".close-search").click(function() {
         $(".search-overlay").css("width", "0%");
     });
@@ -243,15 +124,6 @@ $(document).ready(function() {
         $(".parallax-text").css({
             transform: "translate(0%, " + st + "%"
         });
-    });
-
-    //Sticky Navigation
-    $(window).scroll(function(event) {
-        if ($(this).scrollTop() > 300) {
-            $("header").addClass("fixed");
-        } else {
-            $("header").removeClass("fixed");
-        }
     });
 
     //Slick slider
@@ -296,8 +168,11 @@ $(document).ready(function() {
     });
 });
 
-//Lazyload
-lazyload();
-
-//Sticky sidebar
-$(".sidebar").stick_in_parent({ offset_top: 120 });
+//Sticky Navigation
+$(window).scroll(function(event) {
+    if ($(this).scrollTop() > 300) {
+        $("header").addClass("fixed");
+    } else {
+        $("header").removeClass("fixed");
+    }
+});
