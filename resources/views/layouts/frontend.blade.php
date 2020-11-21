@@ -254,11 +254,12 @@
                 }
             }
         </script>
-        <script src="{{ asset('js/jquery3.4.1.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/lazyload.min.js') }}" defer></script>
         @stack('scripts')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
         <script src="{{ asset('js/app.js') }}" defer></script>
+        <script src="{{ asset('js/lazyload_users.js') }}"></script>
         <!-- /.Scripts -->
         
     </body>

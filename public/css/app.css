@@ -1,10 +1,15 @@
-@import url(https://fonts.googleapis.com/css?family=Open+Sans&display=swap);@charset "UTF-8";
+@charset "UTF-8";
 
-/*Fonts*/
+/* Fonts */
 
-/*Files*/
+@font-face {
+  font-family: "Open Sans";
+  src: url(/fonts/OpenSans-Regular.ttf?3ed9575dcc488c3e3a5bd66620bdf5a4) format("truetype");
+}
 
-/*General styles*/
+/* Files */
+
+/* General styles */
 
 * {
   box-sizing: border-box;
@@ -60,9 +65,11 @@ ul {
   list-style: none;
 }
 
-/*Variables*/
+/* Variables */
 
-/*Header and Navigation styles*/
+/* Hamburger icon */
+
+/* Header and Navigation styles */
 
 header {
   top: 0;
@@ -170,7 +177,7 @@ header .menu-wrapper nav ul li ul li a.sub-item {
   height: 60px;
 }
 
-/* Hamburger icon*/
+/* Hamburger icon */
 
 .menu-toggle {
   display: none;
@@ -322,7 +329,7 @@ header .menu-wrapper nav ul li.active.sub-menu:before {
   }
 }
 
-/*Footer styles*/
+/* Footer styles */
 
 footer {
   width: 100%;
@@ -577,7 +584,7 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   width: 26px;
 }
 
-/*Index page styles*/
+/* Index page styles */
 
 .jumbothron {
   width: 100%;
@@ -670,7 +677,7 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   object-fit: cover;
 }
 
-/*News section*/
+/* News section */
 
 .news {
   width: 100%;
@@ -857,7 +864,7 @@ footer .footer_wrapper_down .footer_newsletter a#twitter:after {
   transition: all 0.3s ease-in-out;
 }
 
-/*Pagination styles*/
+/* Pagination styles */
 
 .news-pagination {
   width: 100%;
@@ -901,7 +908,7 @@ span.page-link {
   cursor: not-allowed;
 }
 
-/*Show page styles*/
+/* Show page styles */
 
 .news-show {
   width: 100%;
@@ -1140,7 +1147,7 @@ span.page-link {
   clear: both;
 }
 
-/*About page styles*/
+/* About page styles */
 
 .about-page {
   width: 100%;
@@ -1196,7 +1203,7 @@ span.page-link {
   color: #0633ff;
 }
 
-/*Contact page styles*/
+/* Contact page styles */
 
 .contact-page {
   width: 100%;
@@ -1605,7 +1612,7 @@ span.page-link {
   cursor: pointer;
 }
 
-/*Auth (register and login pages) styles*/
+/* Auth (register and login pages) styles */
 
 .login-register {
   width: 100%;
@@ -2304,7 +2311,7 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
   color: #e71d43;
 }
 
-/*Error pages styles*/
+/* Error pages styles */
 
 .error-page {
   width: 100%;
@@ -2359,7 +2366,7 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
   transition: all 0.3s ease-in-out;
 }
 
-/*Select2*/
+/* Select2 */
 
 .select2-container {
   box-sizing: border-box;
@@ -2592,7 +2599,7 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
   border-width: 0 4px 5px 4px;
 }
 
-/*Changed*/
+/* Changed */
 
 .select2-container--default .select2-selection--multiple {
   background-color: white;
@@ -2702,7 +2709,7 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
   -webkit-appearance: textfield;
 }
 
-/*Changed*/
+/* Changed */
 
 .select2-container--default .select2-results > .select2-results__options {
   max-height: 200px;
@@ -3002,7 +3009,7 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
   border-color: #5897fb;
 }
 
-/*Jumbotron styles for all pages except index*/
+/* Jumbotron styles for all pages except index */
 
 .title-jumbotron {
   width: 100%;
@@ -3070,7 +3077,7 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
   font-size: 20px !important;
 }
 
-/* Pulsing heart GSAP footer animation*/
+/* Pulsing heart GSAP footer animation */
 
 .hidden {
   position: absolute;
@@ -3103,7 +3110,7 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
   color: #e71d43;
 }
 
-/*Cookie consent styles*/
+/* Cookie consent styles */
 
 .js-cookie-consent {
   position: fixed;
