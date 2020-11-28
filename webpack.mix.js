@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+require('laravel-mix-purgecss');
 
 /*
  |--------------------------------------------------------------------------
@@ -12,19 +13,26 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
-   .js('resources/js/sticky-kit_users.js', 'public/js')
-   .js('resources/js/lazyload_users.js', 'public/js')
-   .copy([
-   'node_modules/jquery/dist/jquery.min.js',
-   'node_modules/sticky-kit/dist/sticky-kit.min.js'
-   ], 'public/js')
-   .sass('resources/sass/app.scss', 'public/css')
-   .options({
-       autoprefixer: {
-           options: {
-               browsers: [
-                   'last 6 versions'
-               ]
-           }
-       }
-   });
+        .js('resources/js/sticky-kit_users.js', 'public/js')
+        .js('resources/js/lazyload_users.js', 'public/js')
+        .js('resources/js/slick_users.js', 'public/js')
+        .copy([
+            'node_modules/jquery/dist/jquery.min.js',
+            'node_modules/sticky-kit/dist/sticky-kit.min.js',
+            'node_modules/slick-carousel/slick/slick.min.js'
+        ], 'public/js')
+        .copy('node_modules/slick-carousel/slick/slick.scss', 'resources/sass/_slick.scss')
+        .sass('resources/sass/app.scss', 'public/css')
+        .purgeCss({
+            enabled: true
+        })
+        .options({
+            autoprefixer: {
+                options: {
+                    browsers: [
+                        'last 6 versions'
+                    ]
+                }
+            },
+            processCssUrls: true
+        });

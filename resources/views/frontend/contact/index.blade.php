@@ -138,7 +138,8 @@
 @push('scripts')
 
 <!-- Scripts -->
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<script src="{{ asset('js/slick.min.js') }}"></script>
+<script src="{{ asset('js/slick_users.js') }}"></script>
 <!-- /.Scripts -->
 
 @endpush

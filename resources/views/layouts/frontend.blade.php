@@ -11,8 +11,7 @@
         <title>@yield('title', config('app.name'))</title>
         <!-- Fontawesome -->
         <script src="https://kit.fontawesome.com/0f7f320048.js" crossorigin="anonymous"></script>        
-        <!-- Styles -->
-        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+        <!-- Styles -->        
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">           
     </head>
     <!-- /.Head -->
