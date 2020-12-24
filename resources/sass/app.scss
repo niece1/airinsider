@@ -1,21 +1,20 @@
 /* Fonts */
-
-@import "_opensans.scss";
+@import "opensans.scss";
 
 /* Files */
 @import "general";
 @import "header";
 @import "footer";
 @import "index";
-@import "pagination";
 @import "show";
 @import "about";
+@import "slick";
 @import "contact";
 @import "auth";
 @import "dashboard";
 @import "errors";
 @import "select2";
-@import "slick";
+@import "pagination";
 
 /* Jumbotron styles for all pages except index */
 

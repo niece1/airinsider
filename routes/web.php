@@ -34,6 +34,8 @@ Route::group(['namespace' => 'Frontend'], function () {
     Route::post('likes/{entityId}/{type}', 'LikeController@like')->middleware(['auth']);
     //Subscription footer vue component
     Route::post('subscriptions', 'SubscriptionController@store');
+    //Search
+    Route::get('search', 'SearchController@search')->name('search.index');
 });
 
 //Laravel Socialite Facebook Google Github

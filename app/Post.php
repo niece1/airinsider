@@ -6,13 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\SyncTags;
 use App\Traits\SaveUser;
+use App\Traits\Searchable;
 
 class Post extends Model
 {
     use SoftDeletes;
     use SyncTags;
     use SaveUser;
+    use Searchable;
 
+    //protected $casts = ['published' => 'boolean'];
     /**
      * The attributes that are mass assignable.
      *
@@ -159,5 +162,29 @@ class Post extends Model
     public function getIfPublishedAttribute()
     {
         return $this->published == 0 ? 'No' : 'Yes';
+    }
+
+    /*public function toSearchableArray()
+    {
+        return [
+            'id' => $this->id,
+            'title' => $this->title,
+            'body' => $this->body,
+            'published' => $this->published,
+            'category' => $this->category->title,
+        ];
+    }
+
+
+    public function shouldBeSearchable()
+    {
+        return $this->published;
+    }*/
+    public function toSearchArray()
+    {
+        return [
+            'title' => $this->title,
+            'body' => $this->body,
+        ];
     }
 }

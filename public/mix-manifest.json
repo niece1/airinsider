@@ -6,6 +6,5 @@
     "/js/sticky-kit_users.js": "/js/sticky-kit_users.js",
     "/js/jquery.min.js": "/js/jquery.min.js",
     "/js/sticky-kit.min.js": "/js/sticky-kit.min.js",
-    "/js/slick.min.js": "/js/slick.min.js",
-    "/resources/sass/_slick.scss": "/resources/sass/_slick.scss"
+    "/js/slick.min.js": "/js/slick.min.js"
 }

@@ -4,7 +4,6 @@ namespace App\Repositories\Dashboard;
 
 use App\Category;
 use App\Http\Requests\CategoryRequest;
-use App\Repositories\Dashboard\BaseRepository;
 
 /**
  * Category entity database query class.

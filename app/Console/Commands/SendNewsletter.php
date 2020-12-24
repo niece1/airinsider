@@ -7,7 +7,7 @@ use App\Repositories\Dashboard\PostRepository;
 use App\Repositories\Dashboard\SubscriptionRepository;
 use App\Jobs\SendNewsletterJob;
 
-class SendNewsletterCommand extends Command
+class SendNewsletter extends Command
 {
     /**
      * The name and signature of the console command.

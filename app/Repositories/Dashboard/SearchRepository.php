@@ -25,7 +25,7 @@ class SearchRepository
         return Post::with(['photo', 'category'])
                 ->where('title', 'like', "%$keyword%")
                 ->orWhere('body', 'like', "%$keyword%")
-                ->limit(10)
+                ->limit(12)
                 ->get();
     }
 }

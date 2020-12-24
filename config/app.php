@@ -184,6 +184,7 @@ return [
         Laravel\Socialite\SocialiteServiceProvider::class,  
         App\Providers\ViewComposerServiceProvider::class,
         AlbertCht\InvisibleReCaptcha\InvisibleReCaptchaServiceProvider::class,
+        App\Providers\SearchServiceProvider::class,
     ],
 
     /*
