@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Contracts\SearchRepositoryContract;
@@ -34,6 +34,6 @@ class SearchController extends Controller
     {
         $posts = $this->searchRepository->search(request('keyword'));
 
-        return view('dashboard.search.search-results', compact('posts'));
+        return view('frontend.search.index', compact('posts'));
     }
 }

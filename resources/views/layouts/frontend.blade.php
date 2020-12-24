@@ -11,9 +11,9 @@
         <title>@yield('title', config('app.name'))</title>
         <!-- Fontawesome -->
         <script src="https://kit.fontawesome.com/0f7f320048.js" crossorigin="anonymous"></script>        
-        <!-- Styles -->        
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">           
-    </head>
+        <!-- Styles -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    </head>   
     <!-- /.Head -->
     
     <!-- Body -->
@@ -89,7 +89,7 @@
                             </li>
                             @endauth
                             <li>
-                                <a href="">
+                                <a href="{{ route('search.index') }}">
                                     <i class="fas fa-search"></i>
                                 </a>
                             </li>
@@ -194,7 +194,7 @@
                             </li>
                             @endauth
                             <li>
-                                <a href="blog.html">
+                                <a href="{{ route('search.index') }}">
                                     <span>Поиск</span>
                                 </a>
                             </li>

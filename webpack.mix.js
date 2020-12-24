@@ -21,10 +21,9 @@ mix.js('resources/js/app.js', 'public/js')
             'node_modules/sticky-kit/dist/sticky-kit.min.js',
             'node_modules/slick-carousel/slick/slick.min.js'
         ], 'public/js')
-        .copy('node_modules/slick-carousel/slick/slick.scss', 'resources/sass/_slick.scss')
         .sass('resources/sass/app.scss', 'public/css')
         .purgeCss({
-            enabled: true
+            enabled: false
         })
         .options({
             autoprefixer: {
