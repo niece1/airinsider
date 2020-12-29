@@ -17,12 +17,25 @@ class SendNewsletterJob implements ShouldQueue
     use Queueable;
     use SerializesModels;
 
+    /**
+     * Posts to be send.
+     *
+     * @var array
+     */
     public $posts;
+
+    /**
+     * Subscribers to receive newsletter mail.
+     *
+     * @var array
+     */
     public $subscriptions;
 
     /**
      * Create a new job instance.
      *
+     * @param $posts
+     * @param $subscriptions
      * @return void
      */
     public function __construct($posts, $subscriptions)
@@ -32,7 +45,7 @@ class SendNewsletterJob implements ShouldQueue
     }
 
     /**
-     * Execute the job.
+     * Send newsletter mail.
      *
      * @return void
      */

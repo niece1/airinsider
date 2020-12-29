@@ -32,6 +32,7 @@ class CreateIndices extends Command
     /**
      * Create a new command instance.
      *
+     * @param Client $client
      * @return void
      */
     public function __construct(Client $client)

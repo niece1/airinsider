@@ -7,10 +7,10 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactMail;
+use App\Post;
+use Elasticsearch\Client;
 
-class SendContactMailJob implements ShouldQueue
+class AddElasticsearchIndexJob implements ShouldQueue
 {
     use Dispatchable;
     use InteractsWithQueue;
@@ -18,30 +18,33 @@ class SendContactMailJob implements ShouldQueue
     use SerializesModels;
 
     /**
-     * Contact form input data.
+     * Post model.
      *
-     * @var array
+     * @var object
      */
-    public $data;
+    public $post;
 
     /**
      * Create a new job instance.
      *
-     * @param $data
+     * @param Post $post
      * @return void
      */
-    public function __construct($data)
+    public function __construct(Post $post)
     {
-        $this->data = $data;
+        $this->post = $post;
     }
 
     /**
-     * Send a contact mail.
+     * Add index to Elasticsearch.
      *
+     * @param Client $client
      * @return void
      */
-    public function handle()
+    public function handle(Client $client)
     {
-        Mail::to('test@test.com')->send(new ContactMail($this->data));
+        $client->index(array_merge($this->post->params(), [
+            'body' => $this->post->toSearchArray()
+        ]));
     }
 }

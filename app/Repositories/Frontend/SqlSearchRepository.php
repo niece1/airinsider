@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Frontend;
 
 use App\Contracts\SearchRepositoryContract;
 use App\Post;
@@ -22,6 +22,7 @@ class SqlSearchRepository implements SearchRepositoryContract
     {
         return Post::query()
             ->with(['photo', 'category'])
+            ->where('published', 1)
             ->where('title', 'like', "%{$keyword}%")
             ->orWhere('body', 'like', "%$keyword%")
             ->limit(12)

@@ -15,7 +15,6 @@ class Post extends Model
     use SaveUser;
     use Searchable;
 
-    //protected $casts = ['published' => 'boolean'];
     /**
      * The attributes that are mass assignable.
      *
@@ -164,22 +163,11 @@ class Post extends Model
         return $this->published == 0 ? 'No' : 'Yes';
     }
 
-    /*public function toSearchableArray()
-    {
-        return [
-            'id' => $this->id,
-            'title' => $this->title,
-            'body' => $this->body,
-            'published' => $this->published,
-            'category' => $this->category->title,
-        ];
-    }
-
-
-    public function shouldBeSearchable()
-    {
-        return $this->published;
-    }*/
+    /**
+     * Define table fields to be searchable.
+     *
+     * @return array
+     */
     public function toSearchArray()
     {
         return [

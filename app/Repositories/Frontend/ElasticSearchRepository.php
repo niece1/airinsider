@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repositories;
+namespace App\Repositories\Frontend;
 
 use App\Contracts\SearchRepositoryContract;
 use App\Post;
@@ -80,6 +80,8 @@ class ElasticSearchRepository implements SearchRepositoryContract
     {
         $ids = Arr::pluck($items['hits']['hits'], '_id');
 
-        return Post::findMany($ids)->sortBy(fn ($post) => array_search($post->getKey(), $ids));
+        return Post::with(['photo', 'category', 'user', 'comments'])
+                ->findMany($ids)
+                ->sortBy(fn ($post) => array_search($post->getKey(), $ids));
     }
 }

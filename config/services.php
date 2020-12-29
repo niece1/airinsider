@@ -49,7 +49,7 @@ return [
     ],
     
     'elasticsearch' => [
-        'enabled' => env('ELASTICSEARCH_ENABLED', false),
+        'enabled' => env('ELASTICSEARCH_ENABLED', true),
         'hosts' => explode(',', env('ELASTICSEARCH_HOSTS')),
     ],
 
