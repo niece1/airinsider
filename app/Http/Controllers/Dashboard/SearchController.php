@@ -3,28 +3,10 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Contracts\SearchRepositoryContract;
+use App\Repositories\Dashboard\PostRepository;
 
 class SearchController extends Controller
 {
-    /**
-     * SearchRepository instance.
-     *
-     * @var type object
-     */
-    private $searchRepository;
-
-    /**
-     * Create a new instance.
-     *
-     * @param  \App\Contracts\Frontend\SearchRepositoryContract  $searchRepository
-     * @return void
-     */
-    public function __construct(SearchRepositoryContract $searchRepository)
-    {
-        $this->searchRepository = $searchRepository;
-    }
-
     /**
      * Display a listing of Post resource by search criteria.
      *
@@ -32,7 +14,7 @@ class SearchController extends Controller
      */
     public function search()
     {
-        $posts = $this->searchRepository->search(request('keyword'));
+        $posts = PostRepository::search(request('keyword'));
 
         return view('dashboard.search.search-results', compact('posts'));
     }

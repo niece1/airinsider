@@ -114,6 +114,22 @@ class PostRepository
     }
 
     /**
+     * Fetch posts from the database by the given query.
+     *
+     * @param  $keyword
+     * @return \Illuminate\Http\Response
+     */
+    public static function search($keyword)
+    {
+        return Post::query()
+            ->with(['photo', 'category'])
+            ->where('title', 'like', "%{$keyword}%")
+            ->orWhere('body', 'like', "%$keyword%")
+            ->limit(4)
+            ->get();
+    }
+
+    /**
      * Fetch posts for the last 7 days to send newsletter.
      *
      * @return \App\Post[]

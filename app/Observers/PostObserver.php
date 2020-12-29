@@ -4,8 +4,8 @@ namespace App\Observers;
 
 use App\Post;
 use Elasticsearch\Client;
-use Illuminate\Support\Facades\Log;
-use Elasticsearch\Common\Exceptions\Missing404Exception;
+use App\Jobs\AddElasticsearchIndexJob;
+use App\Jobs\DeleteElasticsearchIndexJob;
 
 class PostObserver
 {
@@ -35,7 +35,7 @@ class PostObserver
     public function created(Post $post)
     {
         if ($post->published) {
-            $this->addIndex($post);
+            dispatch(new AddElasticsearchIndexJob($post));
         }
     }
 
@@ -48,9 +48,9 @@ class PostObserver
     public function updated(Post $post)
     {
         if ($post->published) {
-            return $this->addIndex($post);
+            return dispatch(new AddElasticsearchIndexJob($post));
         }
-        $this->deleteIndex($post);
+        dispatch(new DeleteElasticsearchIndexJob($post));
     }
 
     /**
@@ -62,7 +62,7 @@ class PostObserver
     public function deleted(Post $post)
     {
         if ($post->published) {
-            $this->deleteIndex($post);
+            dispatch(new DeleteElasticsearchIndexJob($post));
         }
     }
 
@@ -75,48 +75,7 @@ class PostObserver
     public function restored(Post $post)
     {
         if ($post->published) {
-            $this->addIndex($post);
+            dispatch(new AddElasticsearchIndexJob($post));
         }
-    }
-
-    /**
-     * Add index to Elasticsearch.
-     *
-     * @param \App\Post $post
-     */
-    private function addIndex(Post $post)
-    {
-        $this->client->index(array_merge($this->params($post), [
-            'body' => $post->toSearchArray()
-        ]));
-    }
-
-    /**
-     * Delete index from Elasticsearch.
-     *
-     * @param \App\Post $post
-     */
-    private function deleteIndex(Post $post)
-    {
-        try {
-            $this->client->delete($this->params($post));
-        } catch (Missing404Exception $e) {
-            Log::info($e->getMessage());
-        }
-    }
-
-    /**
-     * Elasticsearch query attributes.
-     *
-     * @param \App\Post $post
-     * return array
-     */
-    private function params(Post $post)
-    {
-        return [
-            'index' => $post->getSearchIndex(),
-            'type' => $post->getSearchType(),
-            'id' => $post->getKey(),
-        ];
     }
 }
