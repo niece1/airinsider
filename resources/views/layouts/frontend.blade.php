@@ -89,7 +89,7 @@
                             </li>
                             @endauth
                             <li>
-                                <a href="{{ route('search.index') }}">
+                                <a href="javascript:void(0)" id="search">
                                     <i class="fas fa-search"></i>
                                 </a>
                             </li>
@@ -101,6 +101,14 @@
                         </div>
                     </div>
                 </div>
+                <!-- Search overlay -->
+                <div class="search-overlay">
+                    <span class="close-search">&times;</span>
+                    <form action="{{ route('search.index') }}" method="GET" class="search-input" autocomplete="off">
+                        @include('layouts.includes.fullscreen-search')
+                    </form>
+                </div>
+                <!-- /.Search overlay -->
             </header>
             <!-- /.Header -->
             
@@ -200,9 +208,11 @@
                             </li>
                         </ul>
                     </div>
+                    <!--Popular posts-->
                     <div class="popular_posts">
                         @include('layouts.includes.popular-posts')
                     </div>
+                    <!-- /.Popular posts -->
                 </div>
                 <div class="footer_wrapper_down">
                     <svg class="hidden">

@@ -134,14 +134,14 @@
                     </div>
                 </div>
             </div>
-            <!-- Search_overlay -->
+            <!-- Search overlay -->
             <div class="search-overlay">
                 <span class="close-search">&times;</span>
                 <form action="{{ route('search') }}" method="GET"  class="search-input" autocomplete="off">
-                    <input type="text" name="keyword" value="{{ request()->input('keyword') }}" placeholder="Search..." required>
+                    @include('layouts.includes.fullscreen-search')
                 </form>
             </div>
-            <!-- /.Search_overlay -->
+            <!-- /.Search overlay -->
         </header>
         <!-- /.Header -->
         

@@ -12,14 +12,8 @@
 </section>
 <!-- /.Title jumbotron -->
 
-<!-- Search page -->
 <!-- Posts section -->
 <section class="news">
-    <div>
-        <form action="{{ route('search.index') }}" method="GET"  class="search-input" autocomplete="off">
-            <input type="text" name='keyword' placeholder="Search..." required>
-        </form>
-    </div>
     <div class="news-wrapper">
         @forelse ($posts as $post_item)
         <div class="item">
@@ -74,11 +68,10 @@
             </div>
         </div>
         @empty
-        <h1>Временно недоступны</h1>
+        <h1>Начните поиск</h1>
         @endforelse
     </div>
 </section>
 <!-- /.Posts section -->
-<!-- /.Search page -->
 
 @endsection

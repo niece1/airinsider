@@ -1,11 +1,10 @@
 require("./bootstrap");
-import InstantSearch from "vue-instantsearch";
+
 window.Vue = require("vue");
-Vue.use(InstantSearch);
+
 Vue.component("comments", require("./components/comments.vue").default);
 Vue.component("likes", require("./components/likes.vue").default);
 Vue.component("subscription", require("./components/subscription.vue").default);
-Vue.component("search", require("./components/search.vue").default);
 
 const app = new Vue({
     el: "#app"
@@ -113,10 +112,10 @@ $(document).ready(function() {
 
     //Fullscreen search menu
     $("#search").click(function() {
-        $(".search-overlay").css("width", "100%");
+        $(".search-overlay").css("display", "block");
     });
     $(".close-search").click(function() {
-        $(".search-overlay").css("width", "0%");
+        $(".search-overlay").css("display", "none");
     });
 
     //Parallax
@@ -135,4 +134,11 @@ $(window).scroll(function(event) {
     } else {
         $("header").removeClass("fixed");
     }
+});
+
+//Fullscreen search underline animation
+const wrapper = document.querySelector(".input-wrapper"),
+textInput = document.querySelector("input#search");        
+textInput.addEventListener("keyup", event => {
+    wrapper.setAttribute("data-text", event.target.value);
 });
