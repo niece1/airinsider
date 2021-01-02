@@ -16,6 +16,6 @@ class SearchController extends Controller
     {
         $posts = PostRepository::search(request('keyword'));
 
-        return view('dashboard.search.search-results', compact('posts'));
+        return view('dashboard.search.index', compact('posts'));
     }
 }

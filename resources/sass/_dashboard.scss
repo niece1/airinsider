@@ -1,63 +1,3 @@
-/* Overlay Search Dashboard Styles */
-
-.search-overlay {
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    position: fixed;
-    background-color: #000;
-    z-index: 99;
-    overflow-x: hidden;
-    transition: 0.5s;
-    span.close-search {
-        position: absolute;
-        top: 15px;
-        right: 45px;
-        cursor: pointer;
-        font-size: 6rem;
-        color: #9c9c9c;
-        &:hover {
-            color: #e71d43;
-            transition: all 0.3s ease-in-out;
-        }
-    }
-    form.search-input {
-        position: relative;
-        top: 50%;
-        width: 100%;
-        text-align: center;
-        @media screen and (max-width: 600px) {
-            top: 30%;
-        }
-        input {
-            border: none;
-            border-bottom: 3px solid #9c9c9c;
-            outline: none;
-            background-color: transparent;
-            color: #9c9c9c;
-            text-align: left;
-            padding-bottom: 5px;
-            font-size: 4rem;
-            overflow: hidden;
-            width: 50%;
-            @media screen and (max-width: 600px) {
-                width: 65%;
-            }
-            &::placeholder {
-                color: #9c9c9c;
-                font-size: 4rem;
-                opacity: 1;
-            }
-            &::-webkit-input-placeholder {
-                color: #9c9c9c;
-                font-size: 4rem;
-                opacity: 1;
-            }
-        }
-    }
-}
-
 /* Dashboard styles */
 
 .dashboard {
@@ -424,7 +364,7 @@ footer#dashboard-footer {
     min-height: initial;
     width: 100%;
     text-align: center;
-    background-color: rgb(26, 26, 26);
+    background-color: #000;
     .dashboard-footer-wrapper {
         width: 90%;
         margin: auto;
