@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Frontend;
 
-use App\Contracts\SearchRepositoryContract;
+use App\Contracts\Frontend\SearchRepositoryContract;
 use App\Post;
 
 /**

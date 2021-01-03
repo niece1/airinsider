@@ -8,6 +8,7 @@ before_script:
   - composer install --no-interaction
   - cp .env.travis .env
   - php artisan key:generate
+  - sleep 10
 
 script:
   - ./vendor/bin/phpcs
@@ -15,3 +16,4 @@ script:
 
 services:
   - redis-server
+  - elasticsearch

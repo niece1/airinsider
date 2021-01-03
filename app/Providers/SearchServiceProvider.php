@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use Elasticsearch\Client;
 use Elasticsearch\ClientBuilder;
-use App\Contracts\SearchRepositoryContract;
+use App\Contracts\Frontend\SearchRepositoryContract;
 use App\Repositories\Frontend\SqlSearchRepository;
 use App\Repositories\Frontend\ElasticSearchRepository;
 

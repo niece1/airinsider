@@ -9,7 +9,7 @@ use App\Post;
  *
  * @author Volodymyr Zhonchuk
  */
-final class PostPhotoUploader extends PhotoUploader
+final class PostPhotoUploadService extends PhotoUploadService
 {
     /*
      * Get post namespace

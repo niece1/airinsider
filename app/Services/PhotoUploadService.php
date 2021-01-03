@@ -11,10 +11,15 @@ use App\Traits\BasePhotoUpload;
  *
  * @author Volodymyr Zhonchuk
  */
-abstract class PhotoUploader
+abstract class PhotoUploadService
 {
     use BasePhotoUpload;
 
+    /**
+     * Model instance.
+     *
+     * @var object
+     */
     protected $model;
 
     /**

@@ -8,6 +8,11 @@ use App\Contracts\Frontend\PostRepositoryContract;
 
 class PostController extends Controller
 {
+    /**
+     * PostRepository instance.
+     *
+     * @var type object
+     */
     private $postRepository;
 
     /**
