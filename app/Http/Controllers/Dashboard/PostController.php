@@ -6,7 +6,7 @@ use App\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 use App\Services\SlugService;
-use App\Services\PostPhotoUploader;
+use App\Services\PostPhotoUploadService;
 use App\Repositories\Dashboard\PostRepository;
 use App\Repositories\Dashboard\CategoryRepository;
 use App\Repositories\Dashboard\TagRepository;
@@ -47,18 +47,18 @@ class PostController extends DashboardController
      *
      * @param  \App\Http\Requests\StorePostRequest  $request
      * @param  \App\Services\SlugService  $slugService
-     * @param  \App\Services\PostPhotoUploader  $postPhotoUploader
+     * @param  \App\Services\PostPhotoUploadService  $postPhotoUploadService
      * @return \Illuminate\Http\Response
      */
     public function store(
         StorePostRequest $request,
         SlugService $slugService,
-        PostPhotoUploader $postPhotoUploader
+        PostPhotoUploadService $postPhotoUploadService
     ) {
         $post = PostRepository::save($request);
         $slugService->generateSlug($request, $post);
         $post->saveUserWithPost($post);
-        $postPhotoUploader->store($request, $post);
+        $postPhotoUploadService->store($request, $post);
         $post->syncTags($post);
 
         return redirect('dashboard/posts')->withSuccessMessage('Created Successfully!');
@@ -99,17 +99,17 @@ class PostController extends DashboardController
      * @param  \App\Http\Requests\UpdatePostRequest  $request
      * @param  \App\Post  $post
      * @param  \App\Services\SlugService  $slugService
-     * @param  \App\Services\PostPhotoUploader  $postPhotoUploader
+     * @param  \App\Services\PostPhotoUploadService  $postPhotoUploadService
      * @return \Illuminate\Http\Response
      */
     public function update(
         UpdatePostRequest $request,
         Post $post,
         SlugService $slugService,
-        PostPhotoUploader $postPhotoUploader
+        PostPhotoUploadService $postPhotoUploadService
     ) {
         PostRepository::update($request, $post);
-        $postPhotoUploader->store($request, $post);
+        $postPhotoUploadService->store($request, $post);
         $slugService->generateSlug($request, $post);
         $post->saveUserWithPost($post);
         $post->syncTags($post);

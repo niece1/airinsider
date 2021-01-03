@@ -12,6 +12,11 @@ class ContactMail extends Mailable implements ShouldQueue
     use Queueable;
     use SerializesModels;
 
+    /**
+     * Contact form input data.
+     *
+     * @var array
+     */
     public $data;
 
     /**

@@ -10,6 +10,11 @@ use App\Contracts\Frontend\CommentRepositoryContract;
 
 class CommentController extends Controller
 {
+    /**
+     * CommentRepository instance.
+     *
+     * @var type object
+     */
     private $commentRepository;
 
     /**

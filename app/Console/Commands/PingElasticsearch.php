@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Elasticsearch\Client;
+use Elasticsearch\Common\Exceptions\NoNodesAvailableException;
 
 class PingElasticsearch extends Command
 {
@@ -38,10 +39,12 @@ class PingElasticsearch extends Command
      */
     public function handle(Client $client)
     {
-        if ($client->ping()) {
-            $this->info('pong');
-            return;
+        try {
+            if ($client->ping()) {
+                $this->info('pong');
+            }
+        } catch (NoNodesAvailableException $e) {
+            $this->error($e->getMessage());
         }
-        $this->error('Fail to connect to Elasticsearch.');
     }
 }

@@ -7,6 +7,11 @@ use App\Contracts\Frontend\PostRepositoryContract;
 
 class PopularPostsComposer
 {
+    /**
+     * PostRepository instance.
+     *
+     * @var type object
+     */
     private $postRepository;
 
     /**

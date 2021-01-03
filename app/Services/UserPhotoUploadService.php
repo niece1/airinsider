@@ -9,7 +9,7 @@ use App\User;
  *
  * @author Volodymyr Zhonchuk
  */
-final class UserPhotoUploader extends PhotoUploader
+final class UserPhotoUploadService extends PhotoUploadService
 {
     /*
      * Get user namespace
