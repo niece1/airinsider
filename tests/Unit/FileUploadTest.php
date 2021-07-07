@@ -6,9 +6,9 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\UploadedFile;
 use Tests\Traits\AdminUser;
-use App\Category;
-use App\Post;
-use App\Photo;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\Photo;
 use Tests\TestCase;
 
 class FileUploadTest extends TestCase
@@ -20,7 +20,7 @@ class FileUploadTest extends TestCase
     {
         parent::setUp();
         $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
+        Category::factory()->create();
         Storage::fake('public');
     }
 

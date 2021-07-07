@@ -5,8 +5,8 @@ namespace Tests\Feature\Dashboard;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use Tests\Traits\AdminUser;
-use App\Category;
-use App\Post;
+use App\Models\Category;
+use App\Models\Post;
 
 class TrashTest extends TestCase
 {
@@ -17,13 +17,13 @@ class TrashTest extends TestCase
     {
         parent::setUp();
         $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
+        Category::factory()->create();
     }
 
     /** @test */
     public function aPostCanBeDeleted()
     {
-        $post = factory(Post::class)->create();
+        $post = Post::factory()->create();
         $post->forceDelete('/dashboard/posts/' . $post->id);
         $this->assertDeleted($post);
     }
@@ -31,7 +31,7 @@ class TrashTest extends TestCase
     /** @test */
     public function aPostCanBeRestored()
     {
-        $post = factory(Post::class)->create();
+        $post = Post::factory()->create();
         $this->delete('/dashboard/posts/' . $post->id);
         $this->assertCount(0, Post::all());
         $this->post('/dashboard/restore/' . $post->id);

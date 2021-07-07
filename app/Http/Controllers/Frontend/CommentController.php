@@ -4,8 +4,8 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Requests\CommentRequest;
 use App\Http\Controllers\Controller;
-use App\Post;
-use App\Comment;
+use App\Models\Post;
+use App\Models\Comment;
 use App\Contracts\Frontend\CommentRepositoryContract;
 
 class CommentController extends Controller

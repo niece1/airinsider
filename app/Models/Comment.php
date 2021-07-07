@@ -1,11 +1,14 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Comment extends Model
 {
+    use HasFactory;
+
     /**
      * Default eager loaded relationship to fetch with every comment.
      *
@@ -56,7 +59,7 @@ class Comment extends Model
      */
     public function likes()
     {
-        return $this->morphMany('App\Like', 'likeable');
+        return $this->morphMany(Like::class, 'likeable');
     }
 
     /**

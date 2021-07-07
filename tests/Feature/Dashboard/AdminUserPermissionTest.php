@@ -5,7 +5,7 @@ namespace Tests\Feature\Dashboard;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use Tests\Traits\AdminUser;
-use App\Permission;
+use App\Models\Permission;
 
 class AdminUserPermissionTest extends TestCase
 {

@@ -1,8 +1,11 @@
 <?php
 
-use Illuminate\Database\Seeder;
+namespace Database\Seeders;
 
-class PostsTableSeeder extends Seeder
+use Illuminate\Database\Seeder;
+use App\Models\User;
+
+class RoleUserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +14,6 @@ class PostsTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Post::class, 100)->create();
+        User::findOrFail(1)->roles()->sync(1);
     }
 }

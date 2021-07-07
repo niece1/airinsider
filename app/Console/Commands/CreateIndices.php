@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Elasticsearch\Client;
-use App\Post;
+use App\Models\Post;
 
 class CreateIndices extends Command
 {

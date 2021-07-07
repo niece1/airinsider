@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Dashboard;
 
-use App\Permission;
+use App\Models\Permission;
 use App\Http\Requests\PermissionRequest;
 
 /**

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Subscription;
+use App\Models\Subscription;
 use App\Repositories\Dashboard\SubscriptionRepository;
 use Illuminate\Support\Facades\Gate;
 

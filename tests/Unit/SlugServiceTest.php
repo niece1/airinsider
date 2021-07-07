@@ -4,7 +4,7 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Category;
+use App\Models\Category;
 use Tests\Traits\AdminUser;
 
 class SlugServiceTest extends TestCase
@@ -16,7 +16,7 @@ class SlugServiceTest extends TestCase
     public function slugGeneratedWhileCreatingPost()
     {
         $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
+        Category::factory()->create();
         $this->post('/dashboard/posts', [
             'title' => 'New Title',
             'body' => 'New body',

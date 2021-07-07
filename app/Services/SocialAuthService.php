@@ -4,7 +4,7 @@ namespace App\Services;
 
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
-use App\User;
+use App\Models\User;
 
 /**
  * Store social network user.

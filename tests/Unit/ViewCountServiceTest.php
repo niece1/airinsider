@@ -4,9 +4,9 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Category;
-use App\Post;
-use App\User;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\User;
 use App\Services\ViewCountService;
 
 class ViewCountServiceTest extends TestCase
@@ -16,9 +16,9 @@ class ViewCountServiceTest extends TestCase
     /** @test */
     public function postViewCounterWorksProperly()
     {
-        factory(User::class)->create();
-        factory(Category::class)->create();
-        $post = factory(Post::class)->create([
+        User::factory()->create();
+        Category::factory()->create();
+        $post = Post::factory()->create([
             'viewed' => 0,
         ]);
         $this->assertDatabaseHas('posts', ['viewed' => 0]);

@@ -4,11 +4,11 @@ namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\Category;
+use App\Models\Category;
 use Tests\Traits\AdminUser;
 use App\Traits\SyncTags;
-use App\Tag;
-use App\Post;
+use App\Models\Tag;
+use App\Models\Post;
 
 class PostTagRelationTest extends TestCase
 {
@@ -20,8 +20,8 @@ class PostTagRelationTest extends TestCase
     public function postTagManyToManyRelations()
     {
         $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
-        $tag = factory(Tag::class)->create();
+        Category::factory()->create();
+        $tag = Tag::factory()->create();
         $this->post('/dashboard/posts', [
             'title' => 'New Title',
             'body' => 'New body',

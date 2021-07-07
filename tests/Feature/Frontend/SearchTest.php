@@ -4,9 +4,9 @@ namespace Tests\Feature\Frontend;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\Category;
-use App\User;
-use App\Post;
+use App\Models\Category;
+use App\Models\User;
+use App\Models\Post;
 
 class SearchTest extends TestCase
 {
@@ -15,14 +15,14 @@ class SearchTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        factory(Category::class)->create();
-        factory(User::class)->create();
+        Category::factory()->create();
+        User::factory()->create();
     }
 
     /** @test */
     public function searchOnTitleKeywordIsSuccessfull()
     {
-        factory(Post::class)->create([
+        Post::factory()->create([
             'title' => 'Airbus',
             'body' => 'Airbus is a new market winner.',
         ]);
@@ -36,7 +36,7 @@ class SearchTest extends TestCase
     /** @test */
     public function searchOnBodyKeywordIsSuccessfull()
     {
-        factory(Post::class)->create([
+        Post::factory()->create([
             'title' => 'Boeing',
             'body' => 'Airbus is a new market winner.',
         ]);

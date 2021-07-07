@@ -3,9 +3,9 @@
 namespace Tests\Feature\Frontend;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Post;
-use App\User;
-use App\Category;
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Category;
 use Tests\TestCase;
 
 class PopularPostsTest extends TestCase
@@ -15,21 +15,21 @@ class PopularPostsTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->user = factory(User::class)->create();
-        factory(Category::class)->create();
-        factory(Post::class)->create([
+        $this->user = User::factory()->create();
+        Category::factory()->create();
+        Post::factory()->create([
             'title' => 'First post',
             'viewed' => '100',
         ]);
-        factory(Post::class)->create([
+        Post::factory()->create([
             'title' => 'Second post',
             'viewed' => '200',
         ]);
-        factory(Post::class)->create([
+        Post::factory()->create([
             'title' => 'Third post',
             'viewed' => '300',
         ]);
-        factory(Post::class)->create([
+        Post::factory()->create([
             'title' => 'Fourth post',
             'viewed' => '400',
         ]);

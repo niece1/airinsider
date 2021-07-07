@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Dashboard;
 
-use App\User;
+use App\Models\User;
 
 /**
  * User entity database query class.

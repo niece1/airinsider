@@ -5,8 +5,8 @@ namespace App\Repositories\Frontend;
 use Illuminate\Support\Facades\Cache;
 use App\Contracts\Frontend\CommentRepositoryContract;
 use App\Repositories\Frontend\CommentRepository;
-use App\Post;
-use App\Comment;
+use App\Models\Post;
+use App\Models\Comment;
 use App\Http\Requests\CommentRequest;
 
 /**

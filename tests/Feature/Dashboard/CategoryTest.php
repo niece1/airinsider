@@ -5,7 +5,7 @@ namespace Tests\Feature\Dashboard;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\Traits\AdminUser;
 use Tests\TestCase;
-use App\Category;
+use App\Models\Category;
 
 class CategoryTest extends TestCase
 {
@@ -67,7 +67,7 @@ class CategoryTest extends TestCase
     /** @test */
     public function aCategoryCanBeUpdated()
     {
-        $category = factory(Category::class)->create();
+        $category = Category::factory()->create();
         $this->patch('/dashboard/categories/' . $category->id, [
             'title' => 'Airbus',
         ])
@@ -82,7 +82,7 @@ class CategoryTest extends TestCase
     /** @test */
     public function aCategoryCanBeDeleted()
     {
-        $category = factory(Category::class)->create();
+        $category = Category::factory()->create();
         $this->assertCount(1, Category::all());
         $this->delete('/dashboard/categories/' . $category->id);
         $this->assertCount(0, Category::all());

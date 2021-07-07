@@ -1,12 +1,13 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\SyncTags;
 use App\Traits\SaveUser;
 use App\Traits\Searchable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
 {
@@ -14,6 +15,7 @@ class Post extends Model
     use SyncTags;
     use SaveUser;
     use Searchable;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -21,7 +23,14 @@ class Post extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'body', 'slug', 'user_id', 'category_id', 'published', 'photo_source', 'time_to_read',
+        'title',
+        'body',
+        'slug',
+        'user_id',
+        'category_id',
+        'published',
+        'photo_source',
+        'time_to_read',
     ];
 
     /**
@@ -29,7 +38,7 @@ class Post extends Model
      */
     public function photo()
     {
-        return $this->morphOne('App\Photo', 'photoable');
+        return $this->morphOne(Photo::class, 'photoable');
     }
 
     /**
@@ -61,7 +70,7 @@ class Post extends Model
      */
     public function likes()
     {
-        return $this->morphMany('App\Like', 'likeable');
+        return $this->morphMany(Like::class, 'likeable');
     }
 
     /**

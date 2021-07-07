@@ -3,7 +3,7 @@
 namespace Tests\Feature\Frontend;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Subscription;
+use App\Models\Subscription;
 use Tests\TestCase;
 
 class SubscriptionTest extends TestCase

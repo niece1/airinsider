@@ -5,8 +5,8 @@ namespace Tests\Feature\Dashboard;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use Tests\Traits\AdminUser;
-use App\Category;
-use App\Post;
+use App\Models\Category;
+use App\Models\Post;
 
 class PostTest extends TestCase
 {
@@ -17,7 +17,7 @@ class PostTest extends TestCase
     {
         parent::setUp();
         $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
+        Category::factory()->create();
     }
 
     /** @test */
@@ -103,7 +103,7 @@ class PostTest extends TestCase
     /** @test */
     public function aPostCanBeUpdated()
     {
-        $post = factory(Post::class)->create();
+        $post = Post::factory()->create();
         $this->patch('/dashboard/posts/' . $post->id, $this->createPostAttributes())
                 ->assertSessionHas('success_message')
                 ->assertRedirect('/dashboard/posts/');
@@ -117,7 +117,7 @@ class PostTest extends TestCase
     /** @test */
     public function aPostCanBeTrashed()
     {
-        $post = factory(Post::class)->create();
+        $post = Post::factory()->create();
         $this->assertCount(1, Post::all());
         $this->delete('/dashboard/posts/' . $post->id);
         $this->assertCount(0, Post::all());

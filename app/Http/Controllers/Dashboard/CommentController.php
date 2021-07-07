@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Comment;
+use App\Models\Comment;
 use App\Repositories\Dashboard\CommentRepository;
 use Illuminate\Support\Facades\Gate;
 

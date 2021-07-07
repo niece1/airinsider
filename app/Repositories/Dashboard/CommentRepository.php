@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Dashboard;
 
-use App\Comment;
+use App\Models\Comment;
 
 /**
  * Comment entity database query class.

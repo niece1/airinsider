@@ -4,11 +4,11 @@ namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\Category;
-use App\Post;
-use App\User;
-use App\Like;
-use App\Comment;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Like;
+use App\Models\Comment;
 
 class LikeCommentTest extends TestCase
 {
@@ -17,10 +17,10 @@ class LikeCommentTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->user = factory(User::class)->create();
-        $this->category = factory(Category::class)->create();
-        $this->post = factory(Post::class)->create();
-        $this->comment = factory(Comment::class)->create();
+        $this->user = User::factory()->create();
+        $this->category = Category::factory()->create();
+        $this->post = Post::factory()->create();
+        $this->comment = Comment::factory()->create();
     }
 
     /** @test */
@@ -31,7 +31,7 @@ class LikeCommentTest extends TestCase
         $like = Like::first();
         $this->assertDatabaseHas('likes', [
             'type' => $like->type,
-            'likeable_type' => 'App\Comment',
+            'likeable_type' => 'App\Models\Comment',
             'likeable_id' => $this->comment->id,
             'user_id' => $this->user->id,
         ]);
@@ -95,7 +95,7 @@ class LikeCommentTest extends TestCase
     {
         return [
             'type' => 'up',
-            'likeable_type' => 'App\Comment',
+            'likeable_type' => 'App\Models\Comment',
             'likeable_id' => $this->comment->id,
             'user_id' => $this->user->id,
         ];

@@ -1,13 +1,15 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Traits\SyncPermissions;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Role extends Model
 {
     use SyncPermissions;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.

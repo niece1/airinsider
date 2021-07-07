@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Photo;
+use App\Models\Photo;
 use App\Repositories\Dashboard\PostRepository;
 use Illuminate\Support\Facades\Gate;
 

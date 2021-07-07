@@ -18,7 +18,7 @@
     
     <!-- Body -->
     <body>
-        @include('cookieConsent::index')
+        @include('cookie-consent::index')
         
         <!-- App -->
         <div id="app">

@@ -1,9 +1,11 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use App\User;
+namespace Database\Seeders;
 
-class RoleUserTableSeeder extends Seeder
+use Illuminate\Database\Seeder;
+use App\Models\User;
+
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -12,6 +14,6 @@ class RoleUserTableSeeder extends Seeder
      */
     public function run()
     {
-        User::findOrFail(1)->roles()->sync(1);
+        User::factory()->count(100)->create();
     }
 }

@@ -2,11 +2,11 @@
 
 namespace Tests\Traits;
 
-use App\User;
-use RolesTableSeeder;
-use PermissionsTableSeeder;
-use PermissionRoleTableSeeder;
-use RoleUserTableSeeder;
+use App\Models\User;
+use RoleSeeder;
+use PermissionSeeder;
+use PermissionRoleSeeder;
+use RoleUserSeeder;
 use App\Traits\DashboardAccess;
 
 trait AdminUser
@@ -15,11 +15,11 @@ trait AdminUser
 
     public function createAdminUser()
     {
-        $this->seed(PermissionsTableSeeder::class);
-        $this->seed(RolesTableSeeder::class);
-        factory(User::class)->create();
-        $this->seed(PermissionRoleTableSeeder::class);
-        $this->seed(RoleUserTableSeeder::class);
+        $this->seed(PermissionSeeder::class);
+        $this->seed(RoleSeeder::class);
+        User::factory()->create();
+        $this->seed(PermissionRoleSeeder::class);
+        $this->seed(RoleUserSeeder::class);
         $user = User::findOrFail(1);
         $this->getDashboardAccess();
         return $user;

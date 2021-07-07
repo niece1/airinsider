@@ -4,10 +4,10 @@ namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\Category;
-use App\Post;
-use App\User;
-use App\Like;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Like;
 
 class LikePostTest extends TestCase
 {
@@ -16,9 +16,9 @@ class LikePostTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->user = factory(User::class)->create();
-        $this->category = factory(Category::class)->create();
-        $this->post = factory(Post::class)->create();
+        $this->user = User::factory()->create();
+        $this->category = Category::factory()->create();
+        $this->post = Post::factory()->create();
     }
 
     /** @test */
@@ -29,7 +29,7 @@ class LikePostTest extends TestCase
         $like = Like::first();
         $this->assertDatabaseHas('likes', [
             'type' => $like->type,
-            'likeable_type' => 'App\Post',
+            'likeable_type' => 'App\Models\Post',
             'likeable_id' => $this->post->id,
             'user_id' => $this->user->id,
         ]);
@@ -93,7 +93,7 @@ class LikePostTest extends TestCase
     {
         return [
             'type' => 'up',
-            'likeable_type' => 'App\Post',
+            'likeable_type' => 'App\Models\Post',
             'likeable_id' => $this->post->id,
             'user_id' => $this->user->id,
         ];
