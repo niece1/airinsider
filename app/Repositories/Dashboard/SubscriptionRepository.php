@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Dashboard;
 
-use App\Subscription;
+use App\Models\Subscription;
 
 /**
  * Subscription entity database query class.

@@ -3,7 +3,7 @@
 namespace Tests\Feature\Auth;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\User;
+use App\Models\User;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Hash;
 
@@ -14,7 +14,7 @@ class AuthTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->user = factory(User::class)->create();
+        $this->user = User::factory()->create();
     }
 
     /** @test */
@@ -44,7 +44,7 @@ class AuthTest extends TestCase
     /** @test */
     public function loginRedirectsSuccessfully()
     {
-        $this->actingAs(factory(User::class)->create([
+        $this->actingAs(User::factory()->create([
             'email' => 'admin@admin.com',
             'password' => Hash::make('passw'),
         ]));

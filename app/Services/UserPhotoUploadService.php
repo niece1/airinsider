@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\User;
+use App\Models\User;
 
 /**
  * Save file to \storage\app\public\photos

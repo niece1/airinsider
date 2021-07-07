@@ -4,10 +4,10 @@ namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\Permission;
+use App\Models\Permission;
 use Tests\Traits\AdminUser;
 use App\Traits\SyncPermissions;
-use App\Role;
+use App\Models\Role;
 
 class PermissionRoleRelationTest extends TestCase
 {
@@ -19,7 +19,7 @@ class PermissionRoleRelationTest extends TestCase
     public function permissionRoleManyToManyRelations()
     {
         $this->actingAs($this->createAdminUser());
-        $permission = factory(Permission::class)->create();
+        $permission = Permission::factory()->create();
         $this->post('/dashboard/roles', [
             'title' => 'Guest',
             'permission_id' => $permission->id,

@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Photo;
+use App\Models\Photo;
 use Illuminate\Http\Request;
 use App\Traits\BasePhotoUpload;
 

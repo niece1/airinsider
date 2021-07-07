@@ -2,10 +2,10 @@
 
 namespace App\Repositories\Frontend;
 
-use App\Post;
-use App\Category;
-use App\Tag;
-use App\User;
+use App\Models\Post;
+use App\Models\Category;
+use App\Models\Tag;
+use App\Models\User;
 use Carbon\Carbon;
 use App\Contracts\Frontend\PostRepositoryContract;
 

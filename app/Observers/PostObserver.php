@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Post;
+use App\Models\Post;
 use Elasticsearch\Client;
 use App\Jobs\AddElasticsearchIndexJob;
 use App\Jobs\DeleteElasticsearchIndexJob;

@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Subscription;
+use App\Models\Subscription;
 use Maatwebsite\Excel\Concerns\FromCollection;
 
 class SubscriptionExport implements FromCollection

@@ -2,7 +2,7 @@
 
 namespace App\Traits;
 
-use App\Role;
+use App\Models\Role;
 use Illuminate\Support\Facades\Gate;
 
 trait DashboardAccess
@@ -23,7 +23,7 @@ trait DashboardAccess
             }
         }
         foreach ($permissionsArray as $title => $roles) {
-            Gate::define($title, fn (\App\User $user) => count(array_intersect($user->roles->pluck('id')
+            Gate::define($title, fn (\App\Models\User $user) => count(array_intersect($user->roles->pluck('id')
                     ->toArray(), $roles)) > 0);
         }
     }

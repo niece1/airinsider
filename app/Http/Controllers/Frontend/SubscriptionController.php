@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Subscription;
+use App\Models\Subscription;
 use App\Http\Requests\SubscriptionRequest;
 use App\Http\Controllers\Controller;
 

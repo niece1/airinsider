@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Dashboard;
 
-use App\Tag;
+use App\Models\Tag;
 use App\Http\Requests\TagRequest;
 
 /**

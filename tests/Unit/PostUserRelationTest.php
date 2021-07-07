@@ -4,9 +4,9 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Category;
-use App\User;
-use App\Post;
+use App\Models\Category;
+use App\Models\User;
+use App\Models\Post;
 
 class PostUserRelationTest extends TestCase
 {
@@ -15,9 +15,9 @@ class PostUserRelationTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->user = factory(User::class)->create();
-        factory(Category::class)->create();
-        $this->post = factory(Post::class)->create();
+        $this->user = User::factory()->create();
+        Category::factory()->create();
+        $this->post = Post::factory()->create();
     }
 
     /** @test */

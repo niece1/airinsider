@@ -3,7 +3,7 @@
 namespace Tests\Feature\Dashboard;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Subscription;
+use App\Models\Subscription;
 use Tests\Traits\AdminUser;
 use Tests\TestCase;
 

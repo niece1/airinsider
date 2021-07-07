@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Category;
+use App\Models\Category;
 use App\Repositories\Dashboard\CategoryRepository;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Support\Facades\Gate;

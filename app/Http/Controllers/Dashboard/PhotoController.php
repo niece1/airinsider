@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Photo;
+use App\Models\Photo;
 
 class PhotoController extends DashboardController
 {

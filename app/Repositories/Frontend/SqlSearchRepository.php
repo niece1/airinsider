@@ -3,7 +3,7 @@
 namespace App\Repositories\Frontend;
 
 use App\Contracts\Frontend\SearchRepositoryContract;
-use App\Post;
+use App\Models\Post;
 
 /**
  * Description of SqlSearchRepository

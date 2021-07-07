@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\User;
+use App\Models\User;
 use App\Repositories\Dashboard\RoleRepository;
 use App\Repositories\Dashboard\UserRepository;
 use Illuminate\Support\Facades\Gate;

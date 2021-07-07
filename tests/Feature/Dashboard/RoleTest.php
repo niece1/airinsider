@@ -4,9 +4,9 @@ namespace Tests\Feature\Dashboard;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\Traits\AdminUser;
-use App\User;
-use App\Role;
-use App\Permission;
+use App\Models\User;
+use App\Models\Role;
+use App\Models\Permission;
 use Tests\TestCase;
 
 class RoleTest extends TestCase
@@ -72,7 +72,7 @@ class RoleTest extends TestCase
     /** @test */
     public function aRoleCanBeUpdated()
     {
-        $role = factory(Role::class)->create();
+        $role = Role::factory()->create();
         $this->patch('/dashboard/roles/' . $role->id, ['title' => 'Guest',])
                 ->assertSessionHas('success_message')
                 ->assertRedirect('/dashboard/roles/');
@@ -84,7 +84,7 @@ class RoleTest extends TestCase
     /** @test */
     public function aRoleCanBeDeleted()
     {
-        $role = factory(Role::class)->create();
+        $role = Role::factory()->create();
         $this->assertCount(2, Role::all());
         $this->delete('/dashboard/roles/' . $role->id);
         $this->assertCount(1, Role::all());

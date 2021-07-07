@@ -1,16 +1,18 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use App\Traits\SyncRoles;
 use App\Notifications\CustomResetPasswordNotification;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class User extends Authenticatable
 {
     use Notifiable;
     use SyncRoles;
+    use HasFactory;
 
     /**
      * The attributes that are mass assignable.
@@ -18,7 +20,13 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'last_login_at', 'password', 'last_login_ip_address', 'provider', 'provider_id',
+        'name',
+        'email',
+        'last_login_at',
+        'password',
+        'last_login_ip_address',
+        'provider',
+        'provider_id',
     ];
 
     /**
@@ -27,7 +35,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**

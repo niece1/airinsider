@@ -2,8 +2,8 @@
 
 namespace App\Repositories\Dashboard;
 
-use App\Post;
-use App\Photo;
+use App\Models\Post;
+use App\Models\Photo;
 use Carbon\Carbon;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;

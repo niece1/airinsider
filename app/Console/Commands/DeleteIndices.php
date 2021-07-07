@@ -3,7 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Post;
+use App\Models\Post;
 use Elasticsearch\Client;
 
 class DeleteIndices extends Command

@@ -4,11 +4,11 @@ namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\User;
+use App\Models\User;
 use Tests\Traits\AdminUser;
 use App\Traits\SaveUser;
-use App\Category;
-use App\Post;
+use App\Models\Category;
+use App\Models\Post;
 
 class SaveUserWithPostTest extends TestCase
 {
@@ -20,7 +20,7 @@ class SaveUserWithPostTest extends TestCase
     public function userIdAddedWhileCreatingPost()
     {
         $this->actingAs($this->createAdminUser());
-        factory(Category::class)->create();
+        Category::factory()->create();
         $this->post('/dashboard/posts', [
             'title' => 'New Title',
             'body' => 'New body',

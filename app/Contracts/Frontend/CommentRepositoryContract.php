@@ -2,8 +2,8 @@
 
 namespace App\Contracts\Frontend;
 
-use App\Post;
-use App\Comment;
+use App\Models\Post;
+use App\Models\Comment;
 use App\Http\Requests\CommentRequest;
 
 interface CommentRepositoryContract

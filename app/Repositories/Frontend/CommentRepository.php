@@ -2,8 +2,8 @@
 
 namespace App\Repositories\Frontend;
 
-use App\Post;
-use App\Comment;
+use App\Models\Post;
+use App\Models\Comment;
 use App\Contracts\Frontend\CommentRepositoryContract;
 use App\Http\Requests\CommentRequest;
 

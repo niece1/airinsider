@@ -4,10 +4,10 @@ namespace Tests\Feature\Frontend;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\Category;
-use App\Post;
-use App\User;
-use App\Comment;
+use App\Models\Category;
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Comment;
 
 class CommentTest extends TestCase
 {
@@ -16,10 +16,10 @@ class CommentTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->user = factory(User::class)->create();
+        $this->user = User::factory()->create();
         $this->actingAs($this->user);
-        $this->category = factory(Category::class)->create();
-        $this->post = factory(Post::class)->create([
+        $this->category = Category::factory()->create();
+        $this->post = Post::factory()->create([
             'title' => 'First post',
             'slug' => 'first-post',
         ]);
@@ -51,7 +51,7 @@ class CommentTest extends TestCase
     /** @test */
     public function authenticatedUsersCanPostACommentReply()
     {
-        $comment = factory(Comment::class)->create();
+        $comment = Comment::factory()->create();
         $this->post('/comments/' . $this->post->id, array_merge($this->createCommentAttributes(), [
                     'comment_id' => $comment->id,
                 ]));

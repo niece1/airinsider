@@ -1,25 +1,41 @@
 <?php
 
-/** @var \Illuminate\Database\Eloquent\Factory $factory */
+namespace Database\Factories;
 
-use App\Post;
-use App\User;
-use App\Category;
-use Faker\Generator as Faker;
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Category;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
-$factory->define(Post::class, function (Faker $faker) {
-    return [
-        'title' => $faker->unique()->text(20),
-        'body' => $faker->text(7000),
-        'slug' => $faker->text(20),
-        'published' => true,
-        'viewed' => $faker->numberBetween(1, 1000),
-        'time_to_read' => $faker->numberBetween(1, 10),
-        'user_id' => function () {
-            return User::all()->random();
-        },
-        'category_id' => function () {
-            return Category::all()->random();
-        },
-    ];
-});
+class PostFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Post::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        return [
+            'title' => $this->faker->unique()->text(20),
+            'body' => $this->faker->text(7000),
+            'slug' => $this->faker->text(20),
+            'published' => true,
+            'viewed' => $this->faker->numberBetween(1, 1000),
+            'time_to_read' => $this->faker->numberBetween(1, 10),
+            'user_id' => function () {
+                return User::all()->random();
+            },
+            'category_id' => function () {
+                return Category::all()->random();
+            },
+        ];
+    }
+}

@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-use App\Post;
+use App\Models\Post;
 
 /**
  * Save file to \storage\app\public\photos

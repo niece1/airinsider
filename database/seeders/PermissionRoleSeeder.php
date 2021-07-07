@@ -1,10 +1,12 @@
 <?php
 
-use Illuminate\Database\Seeder;
-use App\Permission;
-use App\Role;
+namespace Database\Seeders;
 
-class PermissionRoleTableSeeder extends Seeder
+use Illuminate\Database\Seeder;
+use App\Models\Permission;
+use App\Models\Role;
+
+class PermissionRoleSeeder extends Seeder
 {
     /**
      * Run the database seeds.

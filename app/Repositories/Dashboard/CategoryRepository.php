@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Dashboard;
 
-use App\Category;
+use App\Models\Category;
 use App\Http\Requests\CategoryRequest;
 
 /**

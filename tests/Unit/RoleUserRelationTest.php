@@ -4,10 +4,10 @@ namespace Tests\Unit;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\User;
+use App\Models\User;
 use Tests\Traits\AdminUser;
 use App\Traits\SyncRoles;
-use App\Role;
+use App\Models\Role;
 
 class RoleUserRelationTest extends TestCase
 {
@@ -19,8 +19,8 @@ class RoleUserRelationTest extends TestCase
     public function roleUserManyToManyRelations()
     {
         $this->actingAs($this->createAdminUser());
-        $role = factory(Role::class)->create();
-        $user = factory(User::class)->create();
+        $role = Role::factory()->create();
+        $user = User::factory()->create();
         $this->patch('/dashboard/users/' . $user->id, [
             'role_id' => $role->id,
         ]);

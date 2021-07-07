@@ -2,11 +2,11 @@
 
 namespace Tests\Traits;
 
-use App\User;
-use App\Role;
-use App\Permission;
-use PermissionRoleTableSeeder;
-use RoleUserTableSeeder;
+use App\Models\User;
+use App\Models\Role;
+use App\Models\Permission;
+use PermissionRoleSeeder;
+use RoleUserSeeder;
 use App\Traits\DashboardAccess;
 
 trait GuestUser
@@ -15,15 +15,15 @@ trait GuestUser
 
     public function createGuestUser()
     {
-        factory(Permission::class)->create([
+        Permission::factory()->create([
             'title' => 'dashboard_access',
         ]);
-        factory(Role::class)->create([
+        Role::factory()->create([
             'title' => 'Guest',
         ]);
-        factory(User::class)->create();
-        $this->seed(PermissionRoleTableSeeder::class);
-        $this->seed(RoleUserTableSeeder::class);
+        User::factory()->create();
+        $this->seed(PermissionRoleSeeder::class);
+        $this->seed(RoleUserSeeder::class);
         $user = User::findOrFail(1);
         $this->getDashboardAccess();
         return $user;

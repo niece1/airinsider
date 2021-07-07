@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Dashboard;
 
-use App\Role;
+use App\Models\Role;
 use App\Http\Requests\RoleRequest;
 
 /**

@@ -5,7 +5,7 @@ namespace Tests\Feature\Dashboard;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 use Tests\Traits\AdminUser;
-use App\Tag;
+use App\Models\Tag;
 
 class TagTest extends TestCase
 {
@@ -63,7 +63,7 @@ class TagTest extends TestCase
     /** @test */
     public function aTagCanBeUpdated()
     {
-        $tag = factory(Tag::class)->create();
+        $tag = Tag::factory()->create();
         $this->patch('/dashboard/tags/' . $tag->id, ['title' => 'Airbus',])
                 ->assertSessionHas('success_message')
                 ->assertRedirect('/dashboard/tags/');
@@ -76,7 +76,7 @@ class TagTest extends TestCase
     /** @test */
     public function aTagCanBeDeleted()
     {
-        $tag = factory(Tag::class)->create();
+        $tag = Tag::factory()->create();
         $this->assertCount(1, Tag::all());
         $this->delete('/dashboard/tags/' . $tag->id);
         $this->assertCount(0, Tag::all());

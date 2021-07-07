@@ -4,9 +4,9 @@ namespace Tests\Feature\Frontend;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
-use App\Post;
-use App\User;
-use App\Category;
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Category;
 
 class HomePageTest extends TestCase
 {
@@ -15,8 +15,8 @@ class HomePageTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->user = factory(User::class)->create();
-        factory(Category::class)->create();
+        $this->user = User::factory()->create();
+        Category::factory()->create();
     }
 
     /** @test */
@@ -44,7 +44,7 @@ class HomePageTest extends TestCase
     /** @test */
     public function seeOnePostOnIndexPageWhenThereIsOneInDatabase()
     {
-        factory(Post::class)->create([
+        Post::factory()->create([
             'title' => 'New title',
         ]);
         $this->get('/')->assertSeeText('New title');
@@ -56,7 +56,7 @@ class HomePageTest extends TestCase
     /** @test */
     public function aUserCanSeeAShowPage()
     {
-        factory(Post::class)->create([
+        Post::factory()->create([
             'title' => 'First post',
             'slug' => 'first-post',
         ]);

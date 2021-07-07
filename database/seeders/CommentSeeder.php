@@ -1,8 +1,11 @@
 <?php
 
-use Illuminate\Database\Seeder;
+namespace Database\Seeders;
 
-class CategoriesTableSeeder extends Seeder
+use Illuminate\Database\Seeder;
+use App\Models\Comment;
+
+class CommentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +14,6 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        factory(App\Category::class, 7)->create();
+        Comment::factory()->count(7)->create();
     }
 }

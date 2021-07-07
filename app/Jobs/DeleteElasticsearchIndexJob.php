@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use App\Post;
+use App\Models\Post;
 use Elasticsearch\Client;
 use Illuminate\Support\Facades\Log;
 use Elasticsearch\Common\Exceptions\Missing404Exception;

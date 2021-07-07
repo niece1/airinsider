@@ -4,10 +4,10 @@ namespace Tests\Unit;
 
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Category;
-use App\Comment;
-use App\User;
-use App\Post;
+use App\Models\Category;
+use App\Models\Comment;
+use App\Models\User;
+use App\Models\Post;
 
 class CommentPostRelationTest extends TestCase
 {
@@ -16,10 +16,10 @@ class CommentPostRelationTest extends TestCase
     public function setUp(): void
     {
         parent::setUp();
-        $this->user = factory(User::class)->create();
-        factory(Category::class)->create();
-        $this->post = factory(Post::class)->create();
-        $this->comment = factory(Comment::class)->create();
+        $this->user = User::factory()->create();
+        Category::factory()->create();
+        $this->post = Post::factory()->create();
+        $this->comment = Comment::factory()->create();
     }
 
     /** @test */
@@ -39,7 +39,7 @@ class CommentPostRelationTest extends TestCase
     /** @test */
     public function aCommentHasManyReplies()
     {
-        factory(Comment::class)->create([
+        Comment::factory()->create([
             'comment_id' => 1,
         ]);
         $this->assertInstanceOf('Illuminate\Database\Eloquent\Collection', $this->comment->replies);
