@@ -4,7 +4,7 @@ namespace App\Services;
 
 use App\Models\Photo;
 use Illuminate\Http\Request;
-use App\Traits\BasePhotoUpload;
+use App\Traits\DeletePhoto;
 
 /**
  * Save file to \storage\app\public\photos
@@ -13,7 +13,7 @@ use App\Traits\BasePhotoUpload;
  */
 abstract class PhotoUploadService
 {
-    use BasePhotoUpload;
+    use DeletePhoto;
 
     /**
      * Model instance.
@@ -51,10 +51,7 @@ abstract class PhotoUploadService
         if ($request->hasFile('image')) {
             $path = $request->file('image')->store('photos', 'public');
             if ($model->photo) {
-                $photo = $this->getPhoto($model->photo->id);
-                $this->deletePhotoFromStorageFolder($photo);
-                $photo->path = $path;
-                $model->photo()->save($photo);
+                $this->deletePhoto($model->photo->id);
             }
             $photo = new Photo();
             $photo->path = $path;
