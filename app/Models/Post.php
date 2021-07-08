@@ -6,7 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\SyncTags;
 use App\Traits\SaveUser;
-use App\Traits\Searchable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Post extends Model
@@ -14,7 +13,6 @@ class Post extends Model
     use SoftDeletes;
     use SyncTags;
     use SaveUser;
-    use Searchable;
     use HasFactory;
 
     /**
@@ -170,18 +168,5 @@ class Post extends Model
     public function getIfPublishedAttribute()
     {
         return $this->published == 0 ? 'No' : 'Yes';
-    }
-
-    /**
-     * Define table fields to be searchable.
-     *
-     * @return array
-     */
-    public function toSearchArray()
-    {
-        return [
-            'title' => $this->title,
-            'body' => $this->body,
-        ];
     }
 }
