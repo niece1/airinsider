@@ -3011,30 +3011,43 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
   text-align: center;
 }
 
-.news-pagination .news-pagination-wrapper ul.pagination {
+.news-pagination .news-pagination-wrapper nav ul.pagination {
   display: inline-block;
   margin-bottom: 20px;
 }
 
-.news-pagination .news-pagination-wrapper ul.pagination li {
+.news-pagination .news-pagination-wrapper nav ul.pagination li {
   float: left;
   padding: 7px;
   margin: 0 5px 0 0;
 }
 
-.news-pagination .news-pagination-wrapper ul.pagination li a {
+.news-pagination .news-pagination-wrapper nav ul.pagination li a {
   color: #000;
   font-size: 1.6rem;
 }
 
-.news-pagination .news-pagination-wrapper ul.pagination li a:hover {
+.news-pagination .news-pagination-wrapper nav ul.pagination li a:hover {
   color: #e71d43;
   transition: all 0.2s ease-in-out;
 }
 
-.news-pagination .news-pagination-wrapper ul.pagination li a:not(:hover) {
+.news-pagination .news-pagination-wrapper nav ul.pagination li a:not(:hover) {
   color: #000;
   transition: all 0.2s ease-in-out;
+}
+
+.news-pagination .news-pagination-wrapper nav ul.pagination li.disabled {
+  cursor: not-allowed;
+}
+
+.news-pagination .news-pagination-wrapper nav ul.pagination li.disabled span {
+  font-size: 1.6rem;
+}
+
+.news-pagination .news-pagination-wrapper nav ul.pagination li.active span {
+  font-size: 1.6rem;
+  color: #e71d43;
 }
 
 span.page-link {

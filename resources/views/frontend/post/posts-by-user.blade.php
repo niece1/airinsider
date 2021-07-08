@@ -74,7 +74,7 @@
 <!-- Pagination -->
 <section class="news-pagination">
     <div class="news-pagination-wrapper">
-        {{ $posts_by_user->links() }}
+        {{ $posts_by_user->links('vendor.pagination.default') }}
     </div>
 </section>
 <!-- /.Pagination -->

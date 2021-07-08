@@ -95,7 +95,7 @@
 <!-- Pagination section -->
 <section class="news-pagination">
     <div class="news-pagination-wrapper">
-        {{ $posts->links() }}
+        {{ $posts->links('vendor.pagination.default') }}
     </div>
 </section>
 <!-- /.Pagination section -->
