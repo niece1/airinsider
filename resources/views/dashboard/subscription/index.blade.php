@@ -62,7 +62,7 @@
 
 <!-- Pagination -->
 <section class="news-pagination">
-    <div class="news-pagination-wrapper">{{ $subscriptions->links() }}</div>
+    <div class="news-pagination-wrapper">{{ $subscriptions->links('vendor.pagination.default') }}</div>
 </section>
 <!-- /.Pagination -->
 
