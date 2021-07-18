@@ -90,6 +90,29 @@ class PostTest extends TestCase
                 ->assertSessionHasErrors('category_id');
         $this->assertCount(0, Post::all());
     }
+    
+    /** @test */
+    public function validationPublishTimeIsRequiredIfPublishedStatusTrue()
+    {
+        $this->post('/dashboard/posts', array_merge($this->createPostAttributes(), [
+            'published' => 1,
+            'publish_time' => '',
+        ]))
+                ->assertSessionHasErrors('publish_time');
+        $this->assertCount(0, Post::all());
+    }
+    
+    /** @test */
+    public function validationPublishTimeIsNotRequiredIfPublishedStatusFalse()
+    {
+        $this->post('/dashboard/posts', array_merge($this->createPostAttributes(), [
+            'published' => 0,
+            'publish_time' => '',
+        ]))
+                ->assertStatus(302)
+                ->assertSessionHas('success_message');
+        $this->assertEquals(session('success_message'), 'Created Successfully!');
+    }
 
     /** @test */
     public function storePostValidatedSuccessfully()

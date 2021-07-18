@@ -71,3 +71,8 @@
         @endforeach
     </select>
 </div>
+<div class="form-wrapper">
+    <label for="publish_time">Publish time</label>
+    <input type="datetime-local" name="publish_time" value="{{ $post->publish_time !== null ? date('Y-m-d\TH:i', strtotime($post->publish_time)) : date('Y-m-d\TH:i') }}" class="form-input">
+    <div class="form-error">{{ $errors->first('publish_time') }}</div>
+</div>

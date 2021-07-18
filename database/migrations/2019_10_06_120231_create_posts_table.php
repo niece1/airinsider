@@ -26,6 +26,7 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('photo_source')->nullable();
+            $table->dateTime('publish_time')->nullable();
             $table->softDeletes()->nullable();
             $table->timestamps();
         });

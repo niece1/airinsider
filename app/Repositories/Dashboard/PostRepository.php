@@ -137,7 +137,7 @@ class PostRepository
     public static function getForNewsletters()
     {
         return Post::with(['photo', 'category', 'user'])
-                ->whereDate('updated_at', '>', Carbon::now()->sub(7, 'days'))
+                ->whereDate('publish_time', '>', Carbon::now()->sub(7, 'days'))
                 ->where('published', 1)
                 ->get();
     }

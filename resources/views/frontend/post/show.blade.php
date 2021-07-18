@@ -32,12 +32,7 @@
                     {{ $post->category->title }}
                 </a>
                 @endif
-                @if ($post->updated_at)
-                {{ $post->show_page_date }} /
-                @endif
-                @if ($post->updated_at)
-                {{ $post->show_page_time }} /
-                @endif
+                {{ $post->publish_date_time }}
                 @if ($post->user)
                 <a href="{{ route('posts.by.user', [$post->user->id]) }}" class="show-author">
                     {{ $post->user->name }}

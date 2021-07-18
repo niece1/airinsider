@@ -88,6 +88,12 @@
                         </td>						
                     </tr>
                     <tr>
+                        <td>Publish time</td>
+                        <td>
+                            {{ $post_item->publish_date_time }}
+                        </td>						
+                    </tr>
+                    <tr>
                         <td>Created</td>
                         <td>{{ $post_item->created_at }}</td>						
                     </tr>

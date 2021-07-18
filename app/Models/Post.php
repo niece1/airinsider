@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Traits\SyncTags;
 use App\Traits\SaveUser;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use DateTimeInterface;
 
 class Post extends Model
 {
@@ -29,10 +30,11 @@ class Post extends Model
         'published',
         'photo_source',
         'time_to_read',
+        'publish_time',
     ];
 
     /**
-     * Get photo associated with specified post
+     * Get photo associated with specified post.
      */
     public function photo()
     {
@@ -40,7 +42,7 @@ class Post extends Model
     }
 
     /**
-     * Get category record associated with specified post
+     * Get category record associated with specified post.
      */
     public function category()
     {
@@ -48,7 +50,7 @@ class Post extends Model
     }
 
     /**
-     * Get user record associated with specified post
+     * Get user record associated with specified post.
      */
     public function user()
     {
@@ -56,7 +58,7 @@ class Post extends Model
     }
 
     /**
-     * Get comments associated with specified post
+     * Get comments associated with specified post.
      */
     public function comments()
     {
@@ -64,7 +66,7 @@ class Post extends Model
     }
 
     /**
-     * Get likes associated with specified post
+     * Get likes associated with specified post.
      */
     public function likes()
     {
@@ -72,7 +74,7 @@ class Post extends Model
     }
 
     /**
-     * Get tags associated with specified post
+     * Get tags associated with specified post.
      */
     public function tags()
     {
@@ -80,7 +82,7 @@ class Post extends Model
     }
 
     /**
-     * Get date in convenient for humans format
+     * Get date in convenient for humans format.
      *
      * @return string
      */
@@ -90,28 +92,18 @@ class Post extends Model
     }
 
     /**
-     * Get date in specific format
+     * Get time in specific format.
      *
      * @return string
      */
-    public function getShowPageDateAttribute()
+    public function getPublishDateTimeAttribute()
     {
         setlocale(LC_TIME, config('app.locale'));
-        return is_null($this->updated_at) ? '' : strftime('%d %B %G года', strtotime($this->updated_at));
+        return is_null($this->publish_time) ? '' : strftime('%d %B %G года, %H:%M', strtotime($this->publish_time));
     }
 
     /**
-     * Get time in specific format
-     *
-     * @return string
-     */
-    public function getShowPageTimeAttribute()
-    {
-        return is_null($this->updated_at) ? '' : date('H:i', strtotime($this->updated_at));
-    }
-
-    /**
-     * Get body attribute, safe to publish
+     * Get body attribute, safe to publish.
      *
      * @return string
      */
@@ -121,7 +113,7 @@ class Post extends Model
     }
 
     /**
-     * Get description
+     * Get description.
      *
      * @return string
      */
@@ -131,7 +123,7 @@ class Post extends Model
     }
 
     /**
-     * Get featured post description
+     * Get featured post description.
      *
      * @return string
      */
@@ -141,7 +133,7 @@ class Post extends Model
     }
 
     /**
-     * Add 3 dots at the end of description
+     * Add 3 dots at the end of description.
      *
      * @return string
      */
@@ -151,7 +143,7 @@ class Post extends Model
     }
 
     /**
-     * Add 3 dots at the end of featured post description
+     * Add 3 dots at the end of featured post description.
      *
      * @return string
      */
@@ -161,12 +153,23 @@ class Post extends Model
     }
 
     /**
-     * Add 'yes' if true and 'no' if false
+     * Add 'yes' if true and 'no' if false.
      *
      * @return string
      */
     public function getIfPublishedAttribute()
     {
         return $this->published == 0 ? 'No' : 'Yes';
+    }
+
+    /**
+     * Prepare a date for array / JSON serialization.
+     *
+     * @param  \DateTimeInterface  $date
+     * @return string
+     */
+    protected function serializeDate(DateTimeInterface $date)
+    {
+        return $date->format('Y-m-d H:i:s');
     }
 }

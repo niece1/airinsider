@@ -30,6 +30,7 @@ class UpdatePostRequest extends FormRequest
             'photo_source' => 'max:200',
             'published' => '',
             'category_id' => 'required',
+            'publish_time' => 'required_if:published,1',
             'image' => 'sometimes|file|mimes:jpeg,png|max:5000',
         ];
     }
