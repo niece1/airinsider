@@ -30,6 +30,7 @@ class StorePostRequest extends FormRequest
             'photo_source' => 'max:200',
             'published' => '',
             'category_id' => 'required',
+            'publish_time' => 'required_if:published,1',
             'image' => 'sometimes|file|image|max:5000',
         ];
     }
