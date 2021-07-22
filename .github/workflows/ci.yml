@@ -7,7 +7,7 @@ on:
     branches: [ master ]
 
 jobs:
-  run-tests/static analysis:
+  run-tests_and_static-analysis:
 
     runs-on: ubuntu-latest
 
