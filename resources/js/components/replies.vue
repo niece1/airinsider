@@ -11,7 +11,7 @@
             <likes :default_likes="reply.likes" :entity_id="reply.id" :entity_owner="reply.user.id"></likes>
         </div>
         <div v-if="comment.repliesCount > 0 && replies.next_page_url" class="load-replies">
-            <button @click="fetchReplies" class="button">Загрузить ответы</button>
+            <button @click="fetchReplies" class="button">Load replies</button>
         </div>
     </div>
 </template>
@@ -63,7 +63,7 @@ export default {
 }
 .reply .load-replies button.button {
     cursor: pointer;
-    color: #e71d43;
+    color: #f75679;
     font-size: 1.3rem;
     letter-spacing: 1px;
     border: none;
@@ -72,7 +72,7 @@ export default {
     outline: none;
 }
 .reply .load-replies button.button:hover {
-    color: #0633ff;
+    color: #0084ff;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;

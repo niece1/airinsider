@@ -1,13 +1,13 @@
 @extends('layouts.frontend')
 
-@section('title', 'О нас')
+@section('title', 'About')
 
 @section('content')
 
 <!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
-        <h1>О нас</h1>
+        <h1>About</h1>
     </div>
 </section>
 <!-- /.Title jumbotron -->
@@ -22,15 +22,11 @@
         </div>
         <div class="about-content">
             <h2>
-                Авиаинсайдер - авиационный новостной портал, освещающий
-                события в мире гражданской авиации.
+                Who we are
             </h2>
             <p>
-                На страницах нашего сайта вы найдете новости основных производителей
-                авиационной техники, анализ рынка отрасли, авиапроисшествия,
-                а также скидки и акционные предложения авиакомпаний. Веб приложение
-                имеет удобный пользовательский интерфейс, а информация всегда
-                подана в доступной форме.
+                We are small team of aviation educated specialists working in cooperation with web developers.
+                We create and deliver an expert level publications on subject of civil aviation. 
             </p>
         </div>
         <div class="thumbnail">
@@ -39,13 +35,11 @@
                 data-src="{{ asset('images/cargolux.jpg') }}" alt="Photo">
         </div>
         <div class="about-content">
-            <h2>Стать автором публикаций.</h2>
+            <h2>Our mission</h2>
             <p>
-                Если вы хотите стать одним из авторов Авиаинсайдера - отправьте
-                соответствующий запрос на странице 
-                <a href="{{ route('contact') }}">Контакты</a>. 
-                Также на нашем сайте доступен API, предоставляющий информацию о 
-                новостях приложения.
+                Aviation closeup is online content provider aspiring to become the industry leader for online
+                information in aviation. Topics we cover: information, analytics, events and news delivered in
+                convenient for the reader way in intuitive interface.
             </p>
         </div>
     </div>

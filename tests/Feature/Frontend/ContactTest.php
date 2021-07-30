@@ -13,8 +13,8 @@ class ContactTest extends TestCase
     public function contactPageWorksCorrectly()
     {
         $this->get('/contact')
-                ->assertSeeText('Заполните форму')
-                ->assertSeeText('Напишите нам');
+                ->assertSeeText('Fill in the form')
+                ->assertSeeText('Get in touch');
     }
 
     /** @test */
@@ -23,8 +23,7 @@ class ContactTest extends TestCase
         $this->post('contact', $this->createContactAttributes())
                 ->assertStatus(302)
                 ->assertSessionHas('success');
-        $this->assertEquals(session('success'), 'Сообщение успешно отправлено.'
-                . ' Ожидайте ответ.');
+        $this->assertEquals(session('success'), 'Your message send successfully.');
     }
 
     /** @test */
@@ -36,7 +35,7 @@ class ContactTest extends TestCase
                 ->assertStatus(302)
                 ->assertSessionHas('errors');
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['name'][0], 'Данное поле обязательно.');
+        $this->assertEquals($messages['name'][0], 'The name field is required.');
     }
 
     /** @test */
@@ -48,7 +47,7 @@ class ContactTest extends TestCase
                 ->assertStatus(302)
                 ->assertSessionHas('errors');
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['name'][0], 'Поле должно быть мин 2 символа(ов).');
+        $this->assertEquals($messages['name'][0], 'The name must be at least 2 characters.');
     }
 
     /** @test */
@@ -60,7 +59,7 @@ class ContactTest extends TestCase
                 ->assertStatus(302)
                 ->assertSessionHas('errors');
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['email'][0], 'Поле должно быть корректным.');
+        $this->assertEquals($messages['email'][0], 'The email must be a valid email address.');
     }
 
     /** @test */
@@ -72,7 +71,7 @@ class ContactTest extends TestCase
                 ->assertStatus(302)
                 ->assertSessionHas('errors');
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['message'][0], 'Данное поле обязательно.');
+        $this->assertEquals($messages['message'][0], 'The message field is required.');
     }
 
     /**

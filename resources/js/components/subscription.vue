@@ -77,13 +77,13 @@ export default {
     padding: 0 3px;
 }
 .input-wrapper .invalid-feedback {
-    color: #e71d43;
+    color: #f75679;
     font-size: 1.2rem;
     text-align: left;
 }
 .sent-success {
     font-weight: normal;
-    color: #0633ff;
+    color: #0084ff;
 }
 
 </style>

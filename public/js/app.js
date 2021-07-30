@@ -2344,7 +2344,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.comment[data-v-1d15af38] {\n    width: 100%;\n    margin: 30px 0;\n}\n.comment .comment-itself h6[data-v-1d15af38] {\n    font-weight: normal;\n}\n.comment .replies[data-v-1d15af38] {\n    margin-top: 7px;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38] {\n    cursor: pointer;\n    font-size: 1.3rem;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border: none;\n    background-color: transparent;\n    outline: none;\n    color: #0633ff;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38]:hover {\n    color: #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comment .replies .add-reply[data-v-1d15af38] {\n    margin: 40px 0 0 0;\n}\n.comment .replies .login-to-answer[data-v-1d15af38] {\n    color: #e71d43;\n}\n.comment .replies .add-reply textarea[data-v-1d15af38] {\n    margin: 0 0 0 65px;\n    border: none;\n    border-bottom: 2px solid #000;\n    outline: none;\n    width: 100%;\n    font-size: 1.6rem;\n    font-family: \"Open Sans\", sans-serif;\n}\n.comment .replies .comment-likes[data-v-1d15af38] {\n    margin: 0 10px 0 0;\n    float: left;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38] {\n    border: 2px solid #e71d43;\n    padding: 14px 25px 12px 25px;\n    cursor: pointer;\n    font-size: 1.3rem;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border-radius: 3px;\n    background-color: transparent;\n    color: #000;\n    margin: 10px 0 20px 65px;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38]:hover {\n    background-color: #e71d43;\n    color: #fff;\n    border: 2px solid #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comment .comment-itself .avatar-label[data-v-1d15af38] {\n    float: left;\n    margin-right: 15px;\n}\n.comment .replies .invalid-feedback[data-v-1d15af38] {\n    color: #e71d43;\n    font-size: 1.2rem;\n    text-align: left;\n    margin-left: 65px;\n}\n", ""]);
+exports.push([module.i, "\n.comment[data-v-1d15af38] {\n    width: 100%;\n    margin: 30px 0;\n}\n.comment .comment-itself h6[data-v-1d15af38] {\n    font-weight: normal;\n}\n.comment .replies[data-v-1d15af38] {\n    margin-top: 7px;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38] {\n    cursor: pointer;\n    font-size: 1.3rem;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border: none;\n    background-color: transparent;\n    outline: none;\n    color: #0084ff;\n}\n.comment .replies button.add-reply-button[data-v-1d15af38]:hover {\n    color: #f75679;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comment .replies .add-reply[data-v-1d15af38] {\n    margin: 40px 0 0 0;\n}\n.comment .replies .login-to-answer[data-v-1d15af38] {\n    color: #f75679;\n}\n.comment .replies .add-reply textarea[data-v-1d15af38] {\n    margin: 0 0 0 65px;\n    border: none;\n    border-bottom: 1px solid #000;\n    outline: none;\n    width: 100%;\n    font-size: 1.6rem;\n    font-family: \"Open Sans\", sans-serif;\n}\n.comment .replies .comment-likes[data-v-1d15af38] {\n    margin: 0 10px 0 0;\n    float: left;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38] {\n    border: 2px solid #f75679;\n    padding: 12px 20px;\n    cursor: pointer;\n    font-size: 1.3rem;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border-radius: 3px;\n    background-color: transparent;\n    color: #000;\n    margin: 10px 0 20px 65px;\n}\n.comment .replies .add-reply button.button[data-v-1d15af38]:hover {\n    background-color: #f75679;\n    color: #fff;\n    border: 2px solid #f75679;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comment .comment-itself .avatar-label[data-v-1d15af38] {\n    float: left;\n    margin-right: 15px;\n}\n.comment .replies .invalid-feedback[data-v-1d15af38] {\n    color: #f75679;\n    font-size: 1.2rem;\n    text-align: left;\n    margin-left: 65px;\n}\n", ""]);
 
 // exports
 
@@ -2363,7 +2363,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.comments p.auth-condition[data-v-40db853f] {\n    color: #e71d43;\n}\n.comments .comments-form textarea[data-v-40db853f] {\n    border: none;\n    border-bottom: 2px solid #000;\n    outline: none;\n    width: 100%;\n    font-size: 1.6rem;\n    font-family: \"Open Sans\", sans-serif;\n}\n.comments .comments-form textarea[data-v-40db853f]::placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-webkit-input-placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n}\n.comments .comments-form button.button[data-v-40db853f] {\n    border: 2px solid #e71d43;\n    padding: 14px 25px 12px 25px;\n    cursor: pointer;\n    font-size: 1.3rem;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border-radius: 3px;\n    background-color: transparent;\n    color: #000;\n    outline: none;\n    margin: 10px 0 20px 0;\n}\n.comments .comments-form button.button[data-v-40db853f]:hover {\n    background-color: #e71d43;\n    color: #fff;\n    border: 2px solid #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comments .comments-form button.button[data-v-40db853f]:not(:hover) {\n    background-color: transparent;\n    color: #000;\n    transition: all 0.3s ease-in-out;\n}\n.comments .more-comments button.button[data-v-40db853f] {\n    cursor: pointer;\n    border: 2px solid #e71d43;\n    padding: 14px 25px 12px 25px;\n    font-size: 1.3rem;\n    outline: none;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border-radius: 3px;\n    background-color: transparent;\n    color: #000;\n    margin: 5px 0;\n}\n.comments .more-comments button.button[data-v-40db853f]:hover {\n    background-color: #e71d43;\n    color: #fff;\n    border: 2px solid #e71d43;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comments .comments-form .invalid-feedback[data-v-40db853f] {\n    color: #e71d43;\n    font-size: 1.2rem;\n    text-align: left;\n}\n", ""]);
+exports.push([module.i, "\n.comments p.auth-condition[data-v-40db853f] {\n    color: #f75679;\n}\n.comments .comments-form textarea[data-v-40db853f] {\n    border: none;\n    border-bottom: 1px solid #000;\n    outline: none;\n    width: 100%;\n    font-size: 1.6rem;\n    font-family: \"Open Sans\", sans-serif;\n}\n.comments .comments-form textarea[data-v-40db853f]::placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n    opacity: 1;\n}\n.comments .comments-form textarea[data-v-40db853f]::-webkit-input-placeholder {\n    color: #4e4e4e;\n    font-size: 1.6rem;\n}\n.comments .comments-form button.button[data-v-40db853f] {\n    border: 2px solid #f75679;\n    padding: 12px 20px;\n    cursor: pointer;\n    font-size: 1.3rem;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border-radius: 3px;\n    background-color: transparent;\n    color: #000;\n    outline: none;\n    margin: 10px 0 20px 0;\n}\n.comments .comments-form button.button[data-v-40db853f]:hover {\n    background-color: #f75679;\n    color: #fff;\n    border: 2px solid #f75679;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comments .comments-form button.button[data-v-40db853f]:not(:hover) {\n    background-color: transparent;\n    color: #000;\n    transition: all 0.3s ease-in-out;\n}\n.comments .more-comments button.button[data-v-40db853f] {\n    cursor: pointer;\n    border: 2px solid #f75679;\n    padding: 14px 25px 12px 25px;\n    font-size: 1.3rem;\n    outline: none;\n    text-transform: uppercase;\n    letter-spacing: 1px;\n    border-radius: 3px;\n    background-color: transparent;\n    color: #000;\n    margin: 5px 0;\n}\n.comments .more-comments button.button[data-v-40db853f]:hover {\n    background-color: #f75679;\n    color: #fff;\n    border: 2px solid #f75679;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n.comments .comments-form .invalid-feedback[data-v-40db853f] {\n    color: #f75679;\n    font-size: 1.2rem;\n    text-align: left;\n}\n", ""]);
 
 // exports
 
@@ -2382,7 +2382,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.thumbs-up[data-v-522f5e81],\n.thumbs-down[data-v-522f5e81] {\n    width: 18px;\n    height: 18px;\n    cursor: pointer;\n    fill: currentColor;\n}\n.thumbs-down[data-v-522f5e81] {\n    margin-left: 10px;\n}\n.thumbs-up-active[data-v-522f5e81],\n.thumbs-down-active[data-v-522f5e81] {\n    color: blue;\n}\n", ""]);
+exports.push([module.i, "\n.thumbs-up[data-v-522f5e81],\n.thumbs-down[data-v-522f5e81] {\n    width: 18px;\n    height: 18px;\n    cursor: pointer;\n    fill: currentColor;\n}\n.thumbs-down[data-v-522f5e81] {\n    margin-left: 10px;\n}\n.thumbs-up-active[data-v-522f5e81],\n.thumbs-down-active[data-v-522f5e81] {\n    color: #0084ff;\n}\n", ""]);
 
 // exports
 
@@ -2401,7 +2401,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.reply .reply-itself[data-v-39188e8d] {\n    margin: 20px 0 10px 65px;\n}\n.reply .reply-itself .avatar-label[data-v-39188e8d] {\n    float: left;\n    margin-right: 10px;\n}\n.reply .reply-itself .reply-body h6[data-v-39188e8d] {\n    font-weight: normal;\n}\n.reply .load-replies button.button[data-v-39188e8d] {\n    cursor: pointer;\n    color: #e71d43;\n    font-size: 1.3rem;\n    letter-spacing: 1px;\n    border: none;\n    background-color: transparent;\n    margin: 10px 0 0 0;\n    outline: none;\n}\n.reply .load-replies button.button[data-v-39188e8d]:hover {\n    color: #0633ff;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n", ""]);
+exports.push([module.i, "\n.reply .reply-itself[data-v-39188e8d] {\n    margin: 20px 0 10px 65px;\n}\n.reply .reply-itself .avatar-label[data-v-39188e8d] {\n    float: left;\n    margin-right: 10px;\n}\n.reply .reply-itself .reply-body h6[data-v-39188e8d] {\n    font-weight: normal;\n}\n.reply .load-replies button.button[data-v-39188e8d] {\n    cursor: pointer;\n    color: #f75679;\n    font-size: 1.3rem;\n    letter-spacing: 1px;\n    border: none;\n    background-color: transparent;\n    margin: 10px 0 0 0;\n    outline: none;\n}\n.reply .load-replies button.button[data-v-39188e8d]:hover {\n    color: #0084ff;\n    transition: all 0.3s ease-in-out;\n    -webkit-transition: all 0.3s ease-in-out;\n    -o-transition: all 0.3s ease-in-out;\n}\n", ""]);
 
 // exports
 
@@ -2420,7 +2420,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.input-wrapper[data-v-7e49b268] {\n    width: 100%;\n    margin: 5px auto;\n    position: relative;\n}\n.input-wrapper input[data-v-7e49b268] {\n    color: #9c9c9c;\n    border-radius: 0;\n    outline: none;\n    width: 100%;\n    border: none;\n    padding: 10px 0;\n    border-bottom: 2px solid #9c9c9c;\n    background-color: transparent;\n    font-size: 1.6rem;\n}\n.input-wrapper input[data-v-7e49b268]::placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper button[data-v-7e49b268] {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    right: 0;\n    border: none;\n    background: transparent;\n    outline: none;\n    font-size: 1.8rem;\n    color: #9c9c9c;\n    cursor: pointer;\n    padding: 0 3px;\n}\n.input-wrapper .invalid-feedback[data-v-7e49b268] {\n    color: #e71d43;\n    font-size: 1.2rem;\n    text-align: left;\n}\n.sent-success[data-v-7e49b268] {\n    font-weight: normal;\n    color: #0633ff;\n}\n\n", ""]);
+exports.push([module.i, "\n.input-wrapper[data-v-7e49b268] {\n    width: 100%;\n    margin: 5px auto;\n    position: relative;\n}\n.input-wrapper input[data-v-7e49b268] {\n    color: #9c9c9c;\n    border-radius: 0;\n    outline: none;\n    width: 100%;\n    border: none;\n    padding: 10px 0;\n    border-bottom: 2px solid #9c9c9c;\n    background-color: transparent;\n    font-size: 1.6rem;\n}\n.input-wrapper input[data-v-7e49b268]::placeholder {\n    color: #9c9c9c;\n    opacity: 1;\n}\n.input-wrapper button[data-v-7e49b268] {\n    position: absolute;\n    top: 0;\n    bottom: 0;\n    right: 0;\n    border: none;\n    background: transparent;\n    outline: none;\n    font-size: 1.8rem;\n    color: #9c9c9c;\n    cursor: pointer;\n    padding: 0 3px;\n}\n.input-wrapper .invalid-feedback[data-v-7e49b268] {\n    color: #f75679;\n    font-size: 1.2rem;\n    text-align: left;\n}\n.sent-success[data-v-7e49b268] {\n    font-weight: normal;\n    color: #0084ff;\n}\n\n", ""]);
 
 // exports
 
@@ -21925,7 +21925,7 @@ var render = function() {
               }
             }
           },
-          [_vm._v("Добавить ответ")]
+          [_vm._v("Add reply")]
         ),
         _vm._v(" "),
         _vm.addingReply
@@ -21941,7 +21941,7 @@ var render = function() {
                           expression: "body"
                         }
                       ],
-                      attrs: { type: "text", placeholder: "Ваш ответ" },
+                      attrs: { type: "text", placeholder: "Reply here" },
                       domProps: { value: _vm.body },
                       on: {
                         input: function($event) {
@@ -21966,12 +21966,12 @@ var render = function() {
                     _c(
                       "button",
                       { staticClass: "button", on: { click: _vm.addReply } },
-                      [_vm._v("Ответить")]
+                      [_vm._v("Reply")]
                     )
                   ])
                 : _c("div", [
                     _c("p", { staticClass: "login-to-answer" }, [
-                      _vm._v("Авторизируйтесь, чтобы ответить")
+                      _vm._v("Sign in to reply")
                     ])
                   ])
             ])
@@ -22020,7 +22020,7 @@ var render = function() {
                   expression: "newComment"
                 }
               ],
-              attrs: { type: "text", placeholder: "Ваш комментарий" },
+              attrs: { type: "text", placeholder: "Comment here" },
               domProps: { value: _vm.newComment },
               on: {
                 input: function($event) {
@@ -22043,12 +22043,12 @@ var render = function() {
             _c(
               "button",
               { staticClass: "button", on: { click: _vm.addComment } },
-              [_vm._v("Добавить комментарий")]
+              [_vm._v("Add comment")]
             )
           ])
         : _c("div", [
             _c("p", { staticClass: "auth-condition" }, [
-              _vm._v("Авторизируйтесь, чтобы оставить комментарий")
+              _vm._v("Sign in to comment")
             ])
           ]),
       _vm._v(" "),
@@ -22233,7 +22233,7 @@ var render = function() {
             _c(
               "button",
               { staticClass: "button", on: { click: _vm.fetchReplies } },
-              [_vm._v("Загрузить ответы")]
+              [_vm._v("Load replies")]
             )
           ])
         : _vm._e()

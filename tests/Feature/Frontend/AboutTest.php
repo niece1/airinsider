@@ -14,6 +14,6 @@ class AboutTest extends TestCase
     {
         $this->get('/about')
                 ->assertStatus(200)
-                ->assertSeeText('Стать автором публикаций.');
+                ->assertSeeText('Who we are');
     }
 }

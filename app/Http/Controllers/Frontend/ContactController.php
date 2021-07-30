@@ -8,6 +8,10 @@ use App\Http\Controllers\Controller;
 
 class ContactController extends Controller
 {
+    public function create()
+    {
+        return view('frontend.contact.create');
+    }
     /**
      * Dispatch a job to send a contact mail.
      *
@@ -19,6 +23,6 @@ class ContactController extends Controller
         $data = $request->all();
         dispatch(new SendContactMailJob($data));
 
-        return redirect('contact')->withSuccess('Сообщение успешно отправлено. Ожидайте ответ.');
+        return redirect('contact')->withSuccess('Your message send successfully.');
     }
 }

@@ -298,7 +298,7 @@
     .select2-selection--multiple
     .select2-selection__choice {
     background-color: #fff;
-    border: 2px solid #e71d43;
+    border: 2px solid #f75679;
     color: #000;
     border-radius: 5px;
     cursor: default;
@@ -311,7 +311,7 @@
 .select2-container--default
     .select2-selection--multiple
     .select2-selection__choice__remove {
-    color: #0633ff;
+    color: #0084ff;
     cursor: pointer;
     display: inline-block;
     font-weight: bold;
@@ -321,7 +321,7 @@
 .select2-container--default
     .select2-selection--multiple
     .select2-selection__choice__remove:hover {
-    color: #e71d43;
+    color: #f75679;
 }
 
 .select2-container--default[dir="rtl"]
@@ -409,7 +409,7 @@
 }
 
 .select2-container--default .select2-results__option[aria-selected="true"] {
-    background-color: #e71d43;
+    background-color: #f75679;
 }
 
 .select2-container--default .select2-results__option .select2-results__option {

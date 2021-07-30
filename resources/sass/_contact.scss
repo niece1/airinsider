@@ -37,7 +37,7 @@
                 position: relative;
                 margin: 0 45px 0 0;
                 &:hover {
-                    color: #e71d43;
+                    color: #f75679;
                     transition: all 0.5s ease-in-out;
                 }
             }
@@ -70,7 +70,7 @@
                 font-size: 1.6rem;
                 color: #4e4e4e;
                 margin: 35px 50px 0 50px;
-                border: 2px solid #0633ff;
+                border: 2px solid #0084ff;
                 background-color: #f5f8fa;
                 padding: 10px 15px;
                 border-radius: 3px;
@@ -123,13 +123,24 @@
                         }
                     }
                     .invalid-feedback {
-                        color: #e71d43;
+                        color: #f75679;
                         font-size: 1.4rem;
                         text-align: left;
                     }
+                    .policy-consent {
+                        text-align: left;
+                        margin-top: 4px;
+                        small {
+                            font-size: 1.3rem;
+                            color: #4e4e4e;
+                            a {
+                                color: #0084ff;
+                            }
+                        }
+                    }
                 }
                 button.button {
-                    border: 2px solid #e71d43;
+                    border: 2px solid #f75679;
                     padding: 14px 25px 12px 25px;
                     cursor: pointer;
                     font-size: 1.3rem;
@@ -140,9 +151,9 @@
                     background-color: transparent;
                     color: #000;
                     &:hover {
-                        background-color: #e71d43;
+                        background-color: #f75679;
                         color: #fff;
-                        border: 2px solid #e71d43;
+                        border: 2px solid #f75679;
                         transition: all 0.3s ease-in-out;
                     }
                     &:not(:hover) {
@@ -163,186 +174,6 @@
                 color: #4e4e4e;
                 line-height: 2.6rem;
             }
-        }
-    }
-}
-
-/* Slick slider */
-
-.slider {
-    width: 100%;
-    height: auto;
-    h2 {
-        font-weight: normal;
-        text-align: center;
-    }
-    .contact-slider {
-        width: 90%;
-        margin: 60px auto;
-        position: relative;
-        overflow-x: hidden;
-        .contact-slider-wrapper {
-            .item {
-                width: 100%;
-                border-radius: 0 0 5px 5px;
-                border: 1px solid #f5f8fa;
-                border-radius: 5px;
-                outline: none;
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06),
-                    0 1px 2px rgba(0, 0, 0, 0.12);
-                margin: 0 15px;
-                .image-holder {
-                    overflow: hidden;
-                    border-radius: 5px 5px 0 0;
-                    position: relative;
-                    display: block;
-                    a {
-                        img {
-                            width: 100%;
-                            height: 100%;
-                            display: block;
-                            object-fit: cover;
-                            transition: transform 0.5s ease-in-out;
-                        }
-                        .image-overlay {
-                            position: absolute;
-                            top: 0;
-                            right: 0;
-                            width: 100%;
-                            height: 100%;
-                        }
-                        &:hover {
-                            img {
-                                transform: scale(1.15);
-                            }
-                            .image-overlay {
-                                background-color: rgba(0, 0, 0, 0.4);
-                                transition: background-color 0.5s ease-in-out;
-                            }
-                        }
-                        &:not(:hover) {
-                            .image-overlay {
-                                background-color: transparent;
-                                transition: background-color 0.5s ease-in-out;
-                            }
-                        }
-                    }
-                }
-                .item-content {
-                    margin: 0 20px;
-                    a {
-                        color: #000;
-                        h6 {
-                            margin: 10px 0 0 0;
-                        }
-                    }
-                    p {
-                        margin: 5px 0;
-                        i {
-                            margin-right: 15px;
-                            color: #4e4e4e;
-                        }
-                    }
-                    p.item-blog-author {
-                        margin: 15px 0;
-                        i {
-                            margin: 0 10px 0 0;
-                        }
-                        a {
-                            color: #4e4e4e;
-                            &:hover {
-                                color: #e71d43;
-                                transition: all 0.3s ease-in-out;
-                            }
-                            &:not(:hover) {
-                                color: #4e4e4e;
-                                transition: all 0.3s ease-in-out;
-                            }
-                        }
-                    }
-                    p.item-blog-text {
-                        color: #4e4e4e;
-                    }
-                    p.item-blog-comment {
-                        margin-left: 35px;
-                    }
-                    p.item-blog-date {
-                        margin-left: 35px;
-                    }
-                    .blog-line {
-                        margin: 20px 20px 20px 0;
-                        background-color: #dedede;
-                        width: 100%;
-                        height: 2px;
-                    }
-                    .item-blog-bottom {
-                        a.button {
-                            border: 2px solid #e71d43;
-                            padding: 14px 22px 12px 22px;
-                            display: inline-block;
-                            margin: 0 0 20px 0;
-                            font-size: 1.3rem;
-                            text-transform: uppercase;
-                            letter-spacing: 1px;
-                            border-radius: 3px;
-                            background-color: transparent;
-                            color: #000;
-                            &:hover {
-                                background-color: #e71d43;
-                                color: #fff;
-                                border: 2px solid #e71d43;
-                                transition: all 0.3s ease-in-out;
-                            }
-                            &:not(:hover) {
-                                background-color: transparent;
-                                color: #000;
-                                transition: all 0.3s ease-in-out;
-                            }
-                        }
-                        p {
-                            float: right;
-                            padding: 14px 0;
-                            a {
-                                color: #0633ff;
-                                font-weight: 600;
-                                &:hover {
-                                    color: #e71d43;
-                                    transition: all 0.3s ease-in-out;
-                                }
-                                &:not(:hover) {
-                                    color: #0633ff;
-                                    transition: all 0.3s ease-in-out;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        ul.slick-dots {
-            text-align: center;
-            margin-top: 32px;
-            li {
-                display: inline-block;               
-                button {
-                    background-color: #cccccc;
-                    text-indent: -9999px;
-                    margin: 0 5px;
-                    border: 1px solid #cccccc;
-                    padding: 2px 5px;
-                    outline: none;
-                    font-size: 5px;
-                    border-radius: 50%;
-                    cursor: pointer;
-                }
-            }
-            li.slick-active {
-                button {
-                    background-color: #e71d43;
-                    border: 1px solid #e71d43;
-                    cursor: pointer;
-                }
-            }    
         }
     }
 }

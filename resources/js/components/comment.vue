@@ -12,17 +12,17 @@
                 <!-- Likes Vue Component -->
                 <likes :default_likes="comment.likes" :entity_id="comment.id" :entity_owner="comment.user.id"></likes>
             </div>
-            <button @click="addingReply = !addingReply" class="add-reply-button">Добавить ответ</button>
+            <button @click="addingReply = !addingReply" class="add-reply-button">Add reply</button>
             <div v-if="addingReply" class="add-reply">
                 <div v-if="auth">
-                    <textarea v-model="body" type="text" placeholder="Ваш ответ"></textarea>
+                    <textarea v-model="body" type="text" placeholder="Reply here"></textarea>
                     <div v-if="errors && errors.body" class="invalid-feedback">
                         {{ errors.body[0] }}
                     </div>
-                    <button @click="addReply" class="button">Ответить</button>
+                    <button @click="addReply" class="button">Reply</button>
                 </div>
                 <div v-else>
-                    <p class="login-to-answer">Авторизируйтесь, чтобы ответить</p>
+                    <p class="login-to-answer">Sign in to reply</p>
                 </div>
             </div>
         </div>
@@ -104,10 +104,10 @@ export default {
     border: none;
     background-color: transparent;
     outline: none;
-    color: #0633ff;
+    color: #0084ff;
 }
 .comment .replies button.add-reply-button:hover {
-    color: #e71d43;
+    color: #f75679;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -116,12 +116,12 @@ export default {
     margin: 40px 0 0 0;
 }
 .comment .replies .login-to-answer {
-    color: #e71d43;
+    color: #f75679;
 }
 .comment .replies .add-reply textarea {
     margin: 0 0 0 65px;
     border: none;
-    border-bottom: 2px solid #000;
+    border-bottom: 1px solid #000;
     outline: none;
     width: 100%;
     font-size: 1.6rem;
@@ -132,8 +132,8 @@ export default {
     float: left;
 }
 .comment .replies .add-reply button.button {
-    border: 2px solid #e71d43;
-    padding: 14px 25px 12px 25px;
+    border: 2px solid #f75679;
+    padding: 12px 20px;
     cursor: pointer;
     font-size: 1.3rem;
     text-transform: uppercase;
@@ -144,9 +144,9 @@ export default {
     margin: 10px 0 20px 65px;
 }
 .comment .replies .add-reply button.button:hover {
-    background-color: #e71d43;
+    background-color: #f75679;
     color: #fff;
-    border: 2px solid #e71d43;
+    border: 2px solid #f75679;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -157,7 +157,7 @@ export default {
 }
 
 .comment .replies .invalid-feedback {
-    color: #e71d43;
+    color: #f75679;
     font-size: 1.2rem;
     text-align: left;
     margin-left: 65px;

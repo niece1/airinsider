@@ -144,6 +144,6 @@ export default {
 }
 .thumbs-up-active,
 .thumbs-down-active {
-    color: blue;
+    color: #0084ff;
 }
 </style>

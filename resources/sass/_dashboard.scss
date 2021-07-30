@@ -7,7 +7,7 @@
         width: 90%;
         margin: 60px auto;
         a.button {
-            border: 2px solid #e71d43;
+            border: 2px solid #f75679;
             padding: 14px 25px 12px 25px;
             display: inline-block;
             margin: 0 0 20px 0;
@@ -18,9 +18,9 @@
             background-color: transparent;
             color: #000;
             &:hover {
-                background-color: #e71d43;
+                background-color: #f75679;
                 color: #fff;
-                border: 2px solid #e71d43;
+                border: 2px solid #f75679;
                 transition: all 0.3s ease-in-out;
             }
             &:not(:hover) {
@@ -30,7 +30,7 @@
             }
         }
         a.back {
-            border: 2px solid #0633ff;
+            border: 2px solid #0084ff;
             padding: 14px 25px 12px 25px;
             display: inline-block;
             margin: 20px 0;
@@ -41,9 +41,9 @@
             background-color: transparent;
             color: #000;
             &:hover {
-                background-color: #0633ff;
+                background-color: #0084ff;
                 color: #fff;
-                border: 2px solid #0633ff;
+                border: 2px solid #0084ff;
                 transition: all 0.3s ease-in-out;
             }
             &:not(:hover) {
@@ -53,7 +53,7 @@
             }
         }
         button.delete-show-page {
-            border: 2px solid #e71d43;
+            border: 2px solid #f75679;
             padding: 14px 25px 12px 25px;
             cursor: pointer;
             font-size: 1.3rem;
@@ -65,9 +65,9 @@
             margin: 20px 0 0 0;
             color: #000;
             &:hover {
-                background-color: #e71d43;
+                background-color: #f75679;
                 color: #fff;
-                border: 2px solid #e71d43;
+                border: 2px solid #f75679;
                 transition: all 0.3s ease-in-out;
             }
             &:not(:hover) {
@@ -147,10 +147,10 @@
     }
     button.action-button-red {
         color: #fff;
-        background-color: #e71d43;
+        background-color: #f75679;
         padding: 1px 5px;
         border-radius: 5px;
-        border: 1px solid #e71d43;
+        border: 1px solid #f75679;
         margin: 4px;
         display: inline-block;
         outline: none;
@@ -164,7 +164,7 @@
         display: inline-block;
     }
     button.button {
-        border: 2px solid #e71d43;
+        border: 2px solid #f75679;
         padding: 14px 25px 12px 25px;
         cursor: pointer;
         font-size: 1.3rem;
@@ -175,9 +175,9 @@
         color: #000;
         outline: none;
         &:hover {
-            background-color: #e71d43;
+            background-color: #f75679;
             color: #fff;
-            border: 2px solid #e71d43;
+            border: 2px solid #f75679;
             transition: all 0.3s ease-in-out;
         }
         &:not(:hover) {
@@ -192,7 +192,7 @@
             margin: 10px 0;
             width: 100%;
             .form-error {
-                color: #e71d43;
+                color: #f75679;
                 font-size: 1.2rem;
             }
             label {
@@ -253,7 +253,7 @@
                     a.action-button-delete {
                         margin: 10px 0 0 10px;
                         color: #fff;
-                        background-color: #e71d43;
+                        background-color: #f75679;
                         padding: 2px 5px;
                         border-radius: 5px;
                         display: inline-block;
@@ -295,7 +295,7 @@
             label.radio-container
                 input.form-radio:checked
                 ~ span.radio-checkmark {
-                background-color: #e71d43;
+                background-color: #f75679;
                 &:after {
                     display: block;
                 }
@@ -325,7 +325,7 @@
                     height: 0;
                     width: 0;
                     &:checked ~ .checkmark {
-                        background-color: #e71d43;
+                        background-color: #f75679;
                         &:after {
                             display: block;
                         }
@@ -373,7 +373,7 @@ footer#dashboard-footer {
             color: #9c9c9c;
             padding: 15px 0;
             a {
-                color: #e71d43;
+                color: #f75679;
             }
         }
     }

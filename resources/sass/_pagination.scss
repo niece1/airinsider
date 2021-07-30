@@ -15,28 +15,28 @@
                     padding: 7px;
                     margin: 0 5px 0 0;
                     a {
-                    color: #000;
-                    font-size: 1.6rem;
-                    &:hover {
-                        color: #e71d43;
-                        transition: all 0.2s ease-in-out;
-                    }
-                    &:not(:hover) {
                         color: #000;
-                        transition: all 0.2s ease-in-out;
+                        font-size: 1.6rem;
+                        &:hover {
+                            color: #f75679;
+                            transition: all 0.2s ease-in-out;
+                        }
+                        &:not(:hover) {
+                            color: #000;
+                            transition: all 0.2s ease-in-out;
+                        }
                     }
-                }
+                    span {
+                        font-size: 1.6rem;
+                        color: #f75679;
+                        cursor: not-allowed;
+                    }
                 }
                 li.disabled {
                     cursor: not-allowed;
                     span {
                         font-size: 1.6rem;
-                    }
-                }
-                li.active {
-                    span {
-                        font-size: 1.6rem;
-                        color: #e71d43;
+                        color: #000;
                     }
                 }
             }
@@ -46,6 +46,6 @@
 
 span.page-link {
     font-size: 1.8rem;
-    color: #e71d43;
+    color: #f75679;
     cursor: not-allowed;
 }
