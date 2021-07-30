@@ -45,8 +45,8 @@ Route::get('post/{post}', [PostController::class, 'show'])->name('post.show');
 Route::get('categories/{category}', [PostController::class, 'postByCategory'])->name('posts.by.category');
 Route::get('tags/{tag}', [PostController::class, 'postByTag'])->name('posts.by.tag');
 Route::get('users/{user}', [PostController::class, 'postByUser'])->name('posts.by.user');
-Route::get('contact', [PostController::class, 'randomPost'])->name('contact');
 //Contact
+Route::get('contact', [ContactController::class, 'create'])->name('contact');
 Route::post('contact', [ContactController::class, 'store']);
 //About
 Route::get('about', AboutController::class)->name('about');

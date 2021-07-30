@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', 'Авиаинсайдер')
+@section('title', 'Aviation closeup')
 
 @section('content')
 
@@ -14,14 +14,16 @@
                 {{ $featured->featured_description }}{{ $featured->featured_three_dots }}
             </p>
             <a href="{{ route('post.show', [$featured->slug]) }}" class="button">
-                Читать
+                Read more
             </a>            
         </div>
         @if ($featured->photo)
         <div class="photo">
-            <img class="lazyload" 
-                src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs="
-                data-src="{{ asset('storage/' . $featured->photo->path) }}" alt="News">
+            <a href="{{ route('post.show', [$featured->slug]) }}">
+                <img class="lazyload" 
+                    src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs="
+                    data-src="{{ asset('storage/' . $featured->photo->path) }}" alt="News">
+            </a>
         </div>
         @endif        
     </div>
@@ -31,7 +33,7 @@
 
 <!-- Posts section -->
 <section class="news">
-    <h1>Последние новости</h1>
+    <h1>Latest news</h1>
     <div class="news-wrapper">
         @forelse ($posts as $post_item)
         <div class="item">
@@ -62,17 +64,14 @@
                 @endif
                 <p>
                     <i class="fas fa-clock"></i>
-                    Время чтения: {{ $post_item->time_to_read }} мин.
-                </p>
-                <p class="item-blog-comment">
-                    Комментарии: {{ $post_item->comments->count() }}
+                    {{ $post_item->time_to_read }} minutes to read
                 </p>
                 <p class="item-blog-date">{{ $post_item->date }}</p>                
                 <div class="blog-line">
                 </div>
                 <div class="item-blog-bottom">
                     <a href="{{ route('post.show', [$post_item->slug]) }}" class="button">
-                        Читать
+                        Read more
                     </a>
                     @if ($post_item->category)
                     <p>
@@ -86,7 +85,7 @@
             </div>
         </div>
         @empty
-        <h1>Временно недоступны</h1>
+        <h1>Temporarily unavailable</h1>
         @endforelse
     </div>
 </section>
@@ -100,4 +99,74 @@
 </section>
 <!-- /.Pagination section -->
 
+<!-- Random posts slider -->
+<section class="slider">
+    <h2>Read next</h2>
+    <div class="contact-slider">
+        <div class="contact-slider-wrapper">
+            @foreach ($random_posts as $posts_item)
+            <div class="item">
+                @if ($posts_item->photo)
+                <div class="image-holder">
+                    <a href="{{ route('post.show', [$posts_item->slug]) }}">
+                        <img class="lazyload" 
+                            src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs="
+                            data-src="{{ asset('storage/' . $posts_item->photo->path) }}" alt="Photo">
+                        <div class="image-overlay"></div>
+                    </a>
+                </div>
+                @endif
+                <div class="item-content">
+                    <a href="{{ route('post.show', [$posts_item->slug]) }}">
+                        <h6>{{ $posts_item->title }}</h6>
+                    </a>
+                    <p class="item-blog-text">
+                        {{ $posts_item->description }}{{ $posts_item->three_dots }}
+                    </p>
+                    @if ($posts_item->user)
+                    <p class="item-blog-author">
+                        <i class="fas fa-user-edit"></i>
+                        <a href="{{ route('posts.by.user', [$posts_item->user->id]) }}">
+                            {{ $posts_item->user->name }}
+                        </a>
+                    </p>
+                    @endif
+                    <p>
+                        <i class="fas fa-clock"></i>
+                        {{ $posts_item->time_to_read }} minutes to read
+                    </p>
+                    <p class="item-blog-date">
+                        {{ $posts_item->date }}
+                    </p>
+                    <div class="blog-line"></div>
+                    <div class="item-blog-bottom">
+                        <a href="{{ route('post.show', [$posts_item->slug]) }}" class="button">
+                            Read more
+                        </a>
+                        @if ($posts_item->category)
+                        <p>
+                            <i class="fas fa-tags"></i>
+                            <a href="{{ route('posts.by.category', [$posts_item->category->id]) }}">
+                                {{ $posts_item->category->title }}
+                            </a>
+                        </p>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+    </div>
+</section>
+<!-- /.Random posts slider -->
+
 @endsection
+
+@push('scripts')
+
+<!-- Scripts -->
+<script src="{{ asset('js/slick.min.js') }}"></script>
+<script src="{{ asset('js/slick_users.js') }}"></script>
+<!-- /.Scripts -->
+
+@endpush

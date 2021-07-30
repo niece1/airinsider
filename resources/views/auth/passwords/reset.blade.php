@@ -1,13 +1,13 @@
 @extends('layouts.frontend')
 
-@section('title', 'Сбросить пароль')
+@section('title', 'Reset password')
 
 @section('content')
 
 <!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
-        <h1>Сбросить пароль</h1>
+        <h1>Reset password</h1>
     </div>
 </section>
 <!-- /.Title jumbotron -->
@@ -29,7 +29,7 @@
             </div>
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="password" type="password" name="password" placeholder="Пароль" autocomplete="new-password" required>
+                    <input id="password" type="password" name="password" placeholder="Password" autocomplete="new-password" required>
                     @error('password')
                     <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
@@ -37,11 +37,11 @@
             </div>
             <div class="form-group">
                 <div class="group-holder">
-                    <input id="password-confirm" type="password" name="password_confirmation" placeholder="Подтвердите пароль" autocomplete="new-password" required>
+                    <input id="password-confirm" type="password" name="password_confirmation" placeholder="Confirm password" autocomplete="new-password" required>
                 </div>
             </div>
             <button type="submit" class="button">
-                Сбросить пароль
+                Reset password
             </button>
         </form>
         <!-- /.Form -->

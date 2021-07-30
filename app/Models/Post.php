@@ -99,7 +99,7 @@ class Post extends Model
     public function getPublishDateTimeAttribute()
     {
         setlocale(LC_TIME, config('app.locale'));
-        return is_null($this->publish_time) ? '' : strftime('%d %B %G года, %H:%M', strtotime($this->publish_time));
+        return is_null($this->publish_time) ? '' : strftime('%B %d, %G, %H:%M', strtotime($this->publish_time));
     }
 
     /**
@@ -119,7 +119,7 @@ class Post extends Model
      */
     public function getDescriptionAttribute()
     {
-        return $this->body ? substr(strip_tags(html_entity_decode($this->body)), 0, 85) : null;
+        return $this->body ? substr(strip_tags(html_entity_decode($this->body)), 0, 95) : null;
     }
 
     /**

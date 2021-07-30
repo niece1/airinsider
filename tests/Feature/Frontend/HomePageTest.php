@@ -24,7 +24,7 @@ class HomePageTest extends TestCase
     {
         $this->get('/')
                 ->assertStatus(200)
-                ->assertSee('Последние новости');
+                ->assertSee('Latest news');
     }
 
     /** @test */
@@ -38,7 +38,7 @@ class HomePageTest extends TestCase
     /** @test */
     public function noPostsOnIndexPageWhenDatabaseEmpty()
     {
-        $this->get('/')->assertSeeText('Временно недоступны');
+        $this->get('/')->assertSeeText('Temporarily unavailable');
     }
 
     /** @test */

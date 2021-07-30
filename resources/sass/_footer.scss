@@ -3,7 +3,7 @@
 footer {
     width: 100%;
     min-height: 250px;
-    background-color: #000;
+    background-color: #f5f8fa;
     overflow: hidden;
     .footer_wrapper_upper {
         width: 90%;
@@ -32,7 +32,7 @@ footer {
                 color: #9c9c9c;
             }
             a {
-                color: #0633ff;
+                color: #0084ff;
                 font-size: 1.3rem;
                 margin-left: -20px;
                 letter-spacing: 1px;
@@ -42,7 +42,6 @@ footer {
                     transition: 0.5s;
                     &:before {
                         content: "→";
-                        font-size: 2rem;
                         opacity: 0;
                         transition: 0.5s;
                     }
@@ -50,21 +49,21 @@ footer {
             }
             a:hover span {
                 padding-left: 20px;
-                color: #e71d43;
+                color: #f75679;
                 transition: all 0.5s ease-in-out;
             }
             a:hover span:before {
                 opacity: 1;
                 padding-right: 5px;
                 transition: all 0.5s ease-in-out;
-                color: #e71d43;
+                color: #f75679;
             }
         }
         .footer_links {
             padding: 30px 0 0 0;
             h5 {
                 margin: 0 0 10px 0;
-                color: #fff;
+                color: #000;
                 font-weight: normal;
             }
             ul {
@@ -73,31 +72,10 @@ footer {
                 li {
                     padding: 0;
                     a {
-                        color: #9c9c9c;
+                        color: #3d3d4e;
                         font-size: 1.6rem;
-                        span {
-                            position: relative;
-                            transition: 0.5s;
-                            &:before {
-                                font-size: 2rem;
-                                content: "→";
-                                opacity: 0;
-                                transition: 0.5s;
-                            }
-                        }
                     }
                 }
-            }
-            a:hover span {
-                padding-left: 18px;
-                color: #e71d43;
-                transition: all 0.5s ease-in-out;
-            }
-            a:hover span:before {
-                opacity: 1;
-                padding-right: 5px;
-                transition: all 0.5s ease-in-out;
-                color: #e71d43;
             }
         }
         .popular_posts {
@@ -136,7 +114,7 @@ footer {
                         margin-top: 3px;
                         font-size: 1.6rem;
                         &:hover {
-                            color: #e71d43;
+                            color: #f75679;
                             transition: all 0.5s ease-in-out;
                         }
                     }
@@ -147,7 +125,7 @@ footer {
     .footer_wrapper_down {
         width: 90%;
         margin: 30px auto;
-        border-top: 1px solid #9c9c9c;
+        border-top: 1px solid #3d3d4e;
         display: grid;
         grid-template-columns: 75% 25%;
         @media screen and (max-width: 1100px) {
@@ -183,7 +161,7 @@ footer {
                 position: relative;
                 margin: 0 45px 0 0;
                 &:hover {
-                    color: #e71d43;
+                    color: #f75679;
                     transition: all 0.5s ease-in-out;
                 }
             }

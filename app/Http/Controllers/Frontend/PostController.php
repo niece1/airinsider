@@ -35,8 +35,9 @@ class PostController extends Controller
     {
         $featured = $this->postRepository->getFeatured();
         $posts = $this->postRepository->getAll($featured);
+        $random_posts = $this->postRepository->getRandom();
 
-        return view('frontend.post.index', compact('featured', 'posts'));
+        return view('frontend.post.index', compact('featured', 'posts', 'random_posts'));
     }
 
     /*
@@ -106,8 +107,5 @@ class PostController extends Controller
      */
     public function randomPost()
     {
-        $random_posts = $this->postRepository->getRandom();
-
-        return view('frontend.contact.index', compact('random_posts'));
     }
 }

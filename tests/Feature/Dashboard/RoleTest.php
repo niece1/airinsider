@@ -45,7 +45,7 @@ class RoleTest extends TestCase
         $this->post('/dashboard/roles', ['title' => 'A',])
                 ->assertSessionHasErrors('title');
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['title'][0], 'Поле должно быть мин 2 символа(ов).');
+        $this->assertEquals($messages['title'][0], 'The title must be at least 2 characters.');
         $this->assertCount(1, Role::all());
     }
 
@@ -65,7 +65,7 @@ class RoleTest extends TestCase
             ])
                 ->assertSessionHasErrors('title');
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['title'][0], 'Поле не должно быть больше 30 символа(ов).');
+        $this->assertEquals($messages['title'][0], 'The title may not be greater than 30 characters.');
         $this->assertCount(1, Role::all());
     }
 

@@ -1,13 +1,13 @@
 @extends('layouts.frontend')
 
-@section('title', 'Войти')
+@section('title', 'Sign in')
 
 @section('content')
 
 <!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
-        <h1>Войти</h1>
+        <h1>Sign in</h1>
     </div>
 </section>
 <!-- /.Title jumbotron -->
@@ -15,8 +15,8 @@
 <!-- Login page -->
 <section class="login-register">
     <div class="login-register-wrapper">
-        <p>Нет аккаунта?
-            <a href="{{ route('register') }}">создать</a>
+        <p>Don't have account?
+            <a href="{{ route('register') }}">create</a>
         </p>
         <!-- Form -->
         <form action="{{ route('login') }}" method="POST">
@@ -31,7 +31,7 @@
             </div>
             <div class="form-group">
                 <div class="group-holder">
-                    <input type="password" name="password" id="password" placeholder="Пароль" autocomplete="current-password" required>
+                    <input type="password" name="password" id="password" placeholder="Password" autocomplete="current-password" required>
                     @error('password')
                     <span class="invalid-feedback">{{ $message }}</span>
                     @enderror
@@ -39,7 +39,7 @@
             </div>
             <div class="form-group">
                 <label class="checkbox-container" for="remember">
-                    Запомнить меня
+                    Remember me
                     <input type="checkbox" name="remember" id="remember" class="checkbox" {{ old('remember') ? 'checked' : '' }}>
                     <span class="checkmark"></span>
                 </label>
@@ -47,11 +47,11 @@
             <!--@captcha-->
             <div class="form-group">
                 <button type="submit" class="button">
-                    Войти
+                    Sign in
                 </button>
                 @if (Route::has('password.request'))
                 <a href="{{ route('password.request') }}" class="reset-link">
-                    Забыли пароль?
+                    Forgot your password?
                 </a>
                 @endif
             </div>
@@ -59,7 +59,7 @@
         <!-- /.Form -->
         
         <!-- Social login -->
-        <p class="social-proceed">Продолжить с помощью вашей соцсети</p>
+        <p class="social-proceed">Proceed with your social network</p>
         <p>
             <a href="{{ url('login/facebook') }}">
                 <i class="fab fa-facebook-f"></i>

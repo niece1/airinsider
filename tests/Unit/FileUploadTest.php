@@ -45,7 +45,7 @@ class FileUploadTest extends TestCase
         $this->createPost($file);
         Storage::disk('public')->assertMissing('posts/' . $file->hashName());
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['image'][0], 'Файл не должен быть больше 5000 килобайт.');
+        $this->assertEquals($messages['image'][0], 'The image may not be greater than 5000 kilobytes.');
     }
 
     /** @test */
@@ -55,7 +55,7 @@ class FileUploadTest extends TestCase
         $this->createPost($file);
         Storage::disk('public')->assertMissing('posts/' . $file->hashName());
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['image'][0], 'Файл должен быть изображением.');
+        $this->assertEquals($messages['image'][0], 'The image must be an image.');
     }
 
     /** @test */

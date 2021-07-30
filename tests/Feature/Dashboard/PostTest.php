@@ -47,8 +47,8 @@ class PostTest extends TestCase
                 ->assertStatus(302)
                 ->assertSessionHas('errors');
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['title'][0], 'Поле должно быть мин 2 символа(ов).');
-        $this->assertEquals($messages['body'][0], 'Данное поле обязательно.');
+        $this->assertEquals($messages['title'][0], 'The title must be at least 2 characters.');
+        $this->assertEquals($messages['body'][0], 'The body field is required.');
     }
 
     /** @test */

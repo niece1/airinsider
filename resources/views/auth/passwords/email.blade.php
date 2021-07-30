@@ -1,13 +1,13 @@
 @extends('layouts.frontend')
 
-@section('title', 'Сбросить пароль')
+@section('title', 'Reset password')
 
 @section('content')
 
 <!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
-        <h1>Сбросить пароль</h1>
+        <h1>Reset password</h1>
     </div>
 </section>
 <!-- /.Title jumbotron -->
@@ -28,7 +28,7 @@
                 </div>
             </div>
             <button type="submit" class="button">
-                Отправить ссылку
+                Send password reset link
             </button>
         </form>
         <!-- /.Form -->

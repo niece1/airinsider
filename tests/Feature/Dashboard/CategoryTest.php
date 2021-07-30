@@ -37,7 +37,7 @@ class CategoryTest extends TestCase
                 ->assertStatus(302)
                 ->assertSessionHas('errors');
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['title'][0], 'Данное поле обязательно.');
+        $this->assertEquals($messages['title'][0], 'The title field is required.');
     }
 
     /** @test */
@@ -49,7 +49,7 @@ class CategoryTest extends TestCase
                 ->assertStatus(302)
                 ->assertSessionHas('errors');
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['title'][0], 'Поле должно быть мин 2 символа(ов).');
+        $this->assertEquals($messages['title'][0], 'The title must be at least 2 characters.');
     }
 
     /** @test */
@@ -61,7 +61,7 @@ class CategoryTest extends TestCase
                 ->assertStatus(302)
                 ->assertSessionHas('errors');
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['title'][0], 'Поле не должно быть больше 10 символа(ов).');
+        $this->assertEquals($messages['title'][0], 'The title may not be greater than 10 characters.');
     }
 
     /** @test */

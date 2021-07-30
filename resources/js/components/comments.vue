@@ -1,14 +1,14 @@
 <template>
     <div class="comments">        
         <div v-if="auth" class="comments-form">
-            <textarea v-model="newComment" type="text" placeholder="Ваш комментарий"></textarea>
+            <textarea v-model="newComment" type="text" placeholder="Comment here"></textarea>
             <div v-if="errors && errors.body" class="invalid-feedback">
                 {{ errors.body[0] }}
             </div>
-            <button class="button" @click="addComment">Добавить комментарий</button>
+            <button class="button" @click="addComment">Add comment</button>
         </div>
         <div v-else>
-            <p class="auth-condition">Авторизируйтесь, чтобы оставить комментарий</p>
+            <p class="auth-condition">Sign in to comment</p>
         </div>
         <!-- Comment Vue Component -->
         <comment v-for="comment in comments.data" :key="comment.id" :comment="comment" :post="post"></comment>
@@ -77,11 +77,11 @@ export default {
 
 <style scoped>
 .comments p.auth-condition {
-    color: #e71d43;
+    color: #f75679;
 }
 .comments .comments-form textarea {
     border: none;
-    border-bottom: 2px solid #000;
+    border-bottom: 1px solid #000;
     outline: none;
     width: 100%;
     font-size: 1.6rem;
@@ -97,8 +97,8 @@ export default {
     font-size: 1.6rem;
 }
 .comments .comments-form button.button {
-    border: 2px solid #e71d43;
-    padding: 14px 25px 12px 25px;
+    border: 2px solid #f75679;
+    padding: 12px 20px;
     cursor: pointer;
     font-size: 1.3rem;
     text-transform: uppercase;
@@ -110,9 +110,9 @@ export default {
     margin: 10px 0 20px 0;
 }
 .comments .comments-form button.button:hover {
-    background-color: #e71d43;
+    background-color: #f75679;
     color: #fff;
-    border: 2px solid #e71d43;
+    border: 2px solid #f75679;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
@@ -124,7 +124,7 @@ export default {
 }
 .comments .more-comments button.button {
     cursor: pointer;
-    border: 2px solid #e71d43;
+    border: 2px solid #f75679;
     padding: 14px 25px 12px 25px;
     font-size: 1.3rem;
     outline: none;
@@ -136,15 +136,15 @@ export default {
     margin: 5px 0;
 }
 .comments .more-comments button.button:hover {
-    background-color: #e71d43;
+    background-color: #f75679;
     color: #fff;
-    border: 2px solid #e71d43;
+    border: 2px solid #f75679;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
 }
 .comments .comments-form .invalid-feedback {
-    color: #e71d43;
+    color: #f75679;
     font-size: 1.2rem;
     text-align: left;
 }

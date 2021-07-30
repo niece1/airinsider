@@ -28,7 +28,7 @@ class SubscriptionTest extends TestCase
                 ->assertSessionHas('errors')
                 ->assertStatus(302);
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['email'][0], 'Поле должно быть корректным.');
+        $this->assertEquals($messages['email'][0], 'The email must be a valid email address.');
     }
 
     /** @test */
@@ -40,6 +40,6 @@ class SubscriptionTest extends TestCase
                 ->assertSessionHas('errors')
                 ->assertStatus(302);
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['email'][0], 'Данное поле обязательно.');
+        $this->assertEquals($messages['email'][0], 'The email field is required.');
     }
 }

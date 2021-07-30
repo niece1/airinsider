@@ -44,17 +44,14 @@
                 @endif
                 <p>
                     <i class="fas fa-clock"></i>
-                    Время чтения: {{ $post_item->time_to_read }} мин.
+                    {{ $post_item->time_to_read }} minutes to read
                 </p>
                 <p class="item-blog-date">{{ $post_item->date }}</p>
-                <p class="item-blog-comment">
-                    Комментарии: {{ $post_item->comments->count() }}
-                </p>
                 <div class="blog-line">
                 </div>
                 <div class="item-blog-bottom">
                     <a href="{{ route('post.show', [$post_item->slug]) }}" class="button">
-                        Читать
+                        Read more
                     </a>
                     @if ($post_item->category)
                     <p>

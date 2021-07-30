@@ -28,41 +28,41 @@
                 <div class="menu-wrapper">
                     <div class="logo">
                         <a href="{{ url('/') }}">
-                            авиа<span class="logo-span">инсайдер</span>
+                            aviation<span class="logo-span">closeup</span>
                         </a>
                     </div>
                     <!-- Navigation -->
                     <nav>
                         <ul>
                             <li>
-                                <a href="{{ route('about') }}">О нас</a>
+                                <a href="{{ route('about') }}">About</a>
                             </li>
                             <li>
-                                <a href="{{ route('contact') }}">Контакты</a>
+                                <a href="{{ route('contact') }}">Contacts</a>
                             </li>
                             <li class="sub-menu">
-                                <a href="javascript:void(0)">Категории</a>
+                                <a href="javascript:void(0)">Categories</a>
                                 <ul>
                                     <li>
                                         <a href="#" class="sub-item">
-                                            <span>История</span>
+                                            <span>History</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#"  class="sub-item">
-                                            <span>Проишествия</span>
+                                            <span>Accidents</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#"  class="sub-item">
-                                            <span>Скидки</span>
+                                            <span>Discounts</span>
                                         </a>
                                     </li>
                                 </ul>
                             </li>
                             @guest
                             <li>
-                                <a href="{{ route('login') }}">Войти</a>
+                                <a href="{{ route('login') }}">Sign in</a>
                             </li>
                             @endguest
                             @auth
@@ -72,7 +72,7 @@
                                     <li>
                                         <a href="{{ route('logout') }}" class="sub-item" onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                            <span>Выйти</span>
+                                            <span>Logout</span>
                                         </a>
                                         <form action="{{ route('logout') }}" method="POST" id="logout-form" style="display: none;">
                                             @csrf
@@ -161,27 +161,27 @@
                         </ul>
                     </div>
                     <div class="footer_links">
-                        <h5>Меню</h5>
+                        <h5>Menu</h5>
                         <ul>
                             <li>
                                 <a href="{{ url('/') }}">
-                                    <span>На главную</span>
+                                    <span>Home</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('about') }}">
-                                    <span>О нас</span>
+                                    <span>About</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('contact') }}">
-                                    <span>Контакты</span>
+                                    <span>Contacts</span>
                                 </a>
                             </li>
                             @guest
                             <li>
                                 <a href="{{ route('login') }}">
-                                    <span>Войти</span>
+                                    <span>Sign in</span>
                                 </a>
                             </li>
                             <li>

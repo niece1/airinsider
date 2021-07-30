@@ -50,7 +50,7 @@
                    :entity_owner="{{ $post->user_id }}">
             </likes>
             </p>
-            <h4>Комментарии: {{ $post->comments->count() }}</h4>
+            <h4>Comments: {{ $post->comments->count() }}</h4>
             <!-- Comments Vue Component -->
             <comments :post="{{ $post }}"></comments>
         </div>
