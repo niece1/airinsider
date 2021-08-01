@@ -9,8 +9,6 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>@yield('title', config('app.name'))</title>
-        <!-- Fontawesome -->
-        <script src="https://kit.fontawesome.com/0f7f320048.js" crossorigin="anonymous"></script>
         @stack('styles')
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -28,7 +26,7 @@
             <div class="menu-wrapper">
                 <div class="logo">
                     <a href="{{ url('/') }}">
-                        авиа<span class="logo-span">инсайдер</span>
+                        aviation<span class="logo-span">closeup</span>
                     </a>
                 </div>
                 <!-- Navigation -->
@@ -165,7 +163,7 @@
             </svg>
             <div class="dashboard-footer-wrapper">
                 <p>
-                    <a href="{{ url('/') }}">Airinsider.</a>
+                    <a href="{{ url('/') }}">Aviationcloseup.</a>
                     Made with
                     <button class="iconbutton">
                         <svg class="icon icon--heart">
