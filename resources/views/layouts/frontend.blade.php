@@ -9,8 +9,6 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>@yield('title', config('app.name'))</title>
-        <!-- Fontawesome -->
-        <script src="https://kit.fontawesome.com/0f7f320048.js" crossorigin="anonymous"></script>        
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>   
