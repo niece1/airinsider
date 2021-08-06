@@ -7,7 +7,7 @@
 <!-- Jumbotron section -->
 <section class="jumbothron">
     @if ($featured)
-    <div class="jumbothron-wrapper">        
+    <div class="jumbothron-wrapper">
         <div class="content">            
             <h1>{{ $featured->title }}</h1>
             <p>
@@ -98,6 +98,22 @@
     </div>
 </section>
 <!-- /.Pagination section -->
+
+<!-- Newsletter widget -->
+<section class="newsletter">
+    <div class="newsletter-wrapper">
+        <div class="newsletter-info">
+            <h2>Stay in the know</h2>
+            <p>Get updates on industry events and latest news: subscribe to our newsletters.</p>
+            <p>Issued weekly.</p>
+        </div>
+        <div class="newsletter-widget">
+            <!-- Vue component -->
+            <subscription></subscription>
+        </div>
+    </div>
+</section>
+<!-- /.Newsletter widget -->
 
 <!-- Random posts slider -->
 <section class="slider">

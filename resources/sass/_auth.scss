@@ -63,7 +63,6 @@
                     position: relative;
                     padding-left: 30px;
                     font-size: 1.4rem;
-                    cursor: pointer;
                     user-select: none;
                     input {
                         position: absolute;
@@ -100,6 +99,17 @@
                     border: solid white;
                     border-width: 0 3px 3px 0;
                     transform: rotate(45deg);
+                }
+            }
+            .policy-consent {
+                text-align: left;
+                margin-top: 4px;
+                small {
+                    font-size: 1.3rem;
+                    color: #4e4e4e;
+                    a {
+                        color: #0084ff;
+                    }
                 }
             }
             button.button {

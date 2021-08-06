@@ -237,8 +237,7 @@
                     </div>
                     <div class="footer_newsletter">
                         <h5>Подпишитесь на новости</h5>
-                        <!-- Vue component -->
-                        <subscription></subscription>
+                        
                         <p>Следите за новостями:</p>
                         <a href="#" id="facebook">fb</a>
                         <a href="#" id="twitter">tw</a>
