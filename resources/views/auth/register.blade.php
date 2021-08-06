@@ -50,6 +50,11 @@
                     <input type="password" name="password_confirmation" id="password-confirm" placeholder="Confirm password" autocomplete="new-password">
                 </div>
             </div>
+            <div class="policy-consent">
+                <small>
+                    By signing up you accept the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy.</a>
+                </small>
+            </div>
            <!--@captcha-->
             <button type="submit" class="button">
                 Sign up

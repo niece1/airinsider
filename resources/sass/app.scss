@@ -69,35 +69,6 @@
     font-size: 20px !important;
 }
 
-/* Pulsing heart GSAP footer animation */
-
-.hidden {
-    position: absolute;
-    overflow: hidden;
-    width: 0;
-    height: 0;
-    pointer-events: none;
-}
-.icon {
-    display: block;
-    width: 2rem;
-    height: 2rem;
-    margin: 0 auto;
-    fill: currentColor;
-}
-.iconbutton {
-    background: none;
-    border: 0;
-    padding: 0 0.8rem;
-    cursor: pointer;
-}
-.iconbutton:focus {
-    outline: none;
-}
-.icon--heart {
-    color: #f75679;
-}
-
 /* Cookie consent styles */
 
 .js-cookie-consent {
