@@ -26,37 +26,79 @@
                 <div class="menu-wrapper">
                     <div class="logo">
                         <a href="{{ url('/') }}">
-                            aviation<span class="logo-span">closeup</span>
+                            theairways<span class="logo-span">news</span>
                         </a>
                     </div>
                     <!-- Navigation -->
                     <nav>
                         <ul>
-                            <li>
-                                <a href="{{ route('about') }}">About</a>
-                            </li>
-                            <li>
-                                <a href="{{ route('contact') }}">Contacts</a>
-                            </li>
                             <li class="sub-menu">
-                                <a href="javascript:void(0)">Categories</a>
+                                <a href="javascript:void(0)">News</a>
                                 <ul>
                                     <li>
                                         <a href="#" class="sub-item">
-                                            <span>History</span>
+                                            <span>Airlines</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#"  class="sub-item">
-                                            <span>Accidents</span>
+                                            <span>Airports</span>
                                         </a>
                                     </li>
                                     <li>
                                         <a href="#"  class="sub-item">
-                                            <span>Discounts</span>
+                                            <span>Events</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"  class="sub-item">
+                                            <span>Incidents</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"  class="sub-item">
+                                            <span>Cargo</span>
                                         </a>
                                     </li>
                                 </ul>
+                            </li>
+                            <li class="sub-menu">
+                                <a href="javascript:void(0)">By region</a>
+                                <ul>
+                                    <li>
+                                        <a href="#" class="sub-item">
+                                            <span>Worldwide</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"  class="sub-item">
+                                            <span>Europe</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"  class="sub-item">
+                                            <span>America</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"  class="sub-item">
+                                            <span>Pacific</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"  class="sub-item">
+                                            <span>Asia</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#"  class="sub-item">
+                                            <span>Africa</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="{{ route('contact') }}">Contacts</a>
                             </li>
                             @guest
                             <li>
@@ -120,55 +162,49 @@
             <footer>
                 <div class="footer_wrapper_upper">
                     <div class="footer_about">
-                        <a href="{{ url('/') }}" class="logo-footer">Авиаинсайдер</a>
-                        <p>Авиационный новостной портал, освещающий 
-                            события в мире гражданской авиации.
-                        </p>
-                        <a href="{{ route('about') }}">
-                            <span>Читать далее</span>
-                        </a>
+                        <div class="logo">
+                            <a href="{{ url('/') }}">
+                                theairways<span class="logo-span">news</span>
+                            </a>
+                            <p>A home for essential content in<i class="fas fa-plane"></i></p>
+                        </div>
                     </div>
                     <div class="footer_links">
-                        <h5>Категории</h5>
+                        <p>News</p>
                         <ul>
                             <li>
                                 <a href="index.html">
-                                    <span>Проишествия</span>
+                                    <span>Airlines</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="about.html">
-                                    <span>Скидки</span>
+                                <a href="{{ url('/categories/9') }}">
+                                    <span>Airports</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="contact.html">
-                                    <span>Эрбас</span>
+                                    <span>Events</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="albums.html">
-                                    <span>Боинг</span>
+                                    <span>Incidents</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="blog.html">
-                                    <span>Авиасалон</span>
+                                    <span>Cargo</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <div class="footer_links">
-                        <h5>Menu</h5>
+                        <p>Navigation</p>
                         <ul>
                             <li>
                                 <a href="{{ url('/') }}">
                                     <span>Home</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ route('about') }}">
-                                    <span>About</span>
                                 </a>
                             </li>
                             <li>
@@ -184,7 +220,7 @@
                             </li>
                             <li>
                                 <a href="{{ route('register') }}">
-                                    <span>Регистрация</span>
+                                    <span>Sign up</span>
                                 </a>
                             </li>
                             @endguest
@@ -192,7 +228,7 @@
                             <li>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
-                                    <span>Выйти</span>
+                                    <span>Logout</span>
                                 </a>
                                 <form action="{{ route('logout') }}" method="POST" id="logout-form" style="display: none;">
                                     @csrf
@@ -200,17 +236,28 @@
                             </li>
                             @endauth
                             <li>
-                                <a href="{{ route('search.index') }}">
-                                    <span>Поиск</span>
+                                <a href="javascript:void(0)">
+                                    <span>Search</span>
                                 </a>
                             </li>
                         </ul>
                     </div>
                     <!--Popular posts-->
-                    <div class="popular_posts">
-                        @include('layouts.includes.popular-posts')
+                    <div class="footer_links">
+                        <p>Legal</p>
+                        <ul>
+                            <li>
+                                <a href="index.html">
+                                    <span>Terms and Conditions</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ url('/categories/9') }}">
+                                    <span>Privacy Policy</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
-                    <!-- /.Popular posts -->
                 </div>
                 <div class="footer_wrapper_down">
                     <svg class="hidden">
@@ -224,24 +271,17 @@
                     </symbol>
                     </svg>
                     <div class="footer_copyright">
-                        <p>&#169; {{ date('Y') }} Airinsider</p>
-                        <p>
-                            Noa Digital. Made with 
+                        <p>&#169;{{ date('Y') }} - The airways news - Made with 
                             <button class="iconbutton">
                                 <svg class="icon icon--heart">
                                 <use xlink:href="#icon-heart"></use>
                                 </svg>
                             </button>
-                            for a better web.
+                            for a better web
                         </p>
                     </div>
-                    <div class="footer_newsletter">
-                        <h5>Подпишитесь на новости</h5>
+                    <div class="footer_feedback">
                         
-                        <p>Следите за новостями:</p>
-                        <a href="#" id="facebook">fb</a>
-                        <a href="#" id="twitter">tw</a>
-                        <a href="#">pt</a>
                     </div>
                 </div>
             </footer>       

@@ -101,6 +101,9 @@
                     transform: rotate(45deg);
                 }
             }
+            .confirm-password {
+                margin-bottom: 4px;
+            }
             .policy-consent {
                 text-align: left;
                 margin-top: 4px;
@@ -116,6 +119,7 @@
                 border: 2px solid #f75679;
                 padding: 12px 20px;
                 cursor: pointer;
+                margin-top: 3rem;
                 font-size: 1.3rem;
                 text-transform: uppercase;
                 outline: none;

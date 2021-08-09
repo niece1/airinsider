@@ -99,13 +99,4 @@ class PostController extends Controller
 
         return view('frontend.post.posts-by-user', compact('posts_by_user', 'chosen_user'));
     }
-
-    /**
-     * Display posts in random order in carousel.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function randomPost()
-    {
-    }
 }
