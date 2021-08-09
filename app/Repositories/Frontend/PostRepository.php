@@ -184,18 +184,4 @@ class PostRepository implements PostRepositoryContract
                 ->limit(5)
                 ->get();
     }
-
-    /**
-     * Fetch 3 most often viewed posts.
-     *
-     * @return Post[]
-     */
-    public function getPopular()
-    {
-        return Post::with(['photo'])
-                ->where('published', 1)
-                ->orderBy('viewed', 'desc')
-                ->limit(3)
-                ->get();
-    }
 }

@@ -103,11 +103,4 @@ interface PostRepositoryContract
      * @return \App\Post[]
      */
     public function getRandom();
-
-    /**
-     * Fetch 3 most often viewed posts.
-     *
-     * @return \App\Post[]
-     */
-    public function getPopular();
 }

@@ -45,7 +45,7 @@
                     @enderror
                 </div>
             </div>
-            <div class="form-group">
+            <div class="form-group confirm-password">
                 <div class="group-holder">
                     <input type="password" name="password_confirmation" id="password-confirm" placeholder="Confirm password" autocomplete="new-password">
                 </div>
