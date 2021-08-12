@@ -37,7 +37,7 @@
                 @if ($post_item->user)
                 <p class="item-blog-author">
                     <i class="fas fa-user-edit"></i>
-                    <a href="{{ route('posts.by.user', [$post_item->user->id]) }}">
+                    <a href="{{ $post_item->user->slug }}">
                         {{ $post_item->user->name }}
                     </a>
                 </p>
@@ -55,7 +55,7 @@
                     @if ($post_item->category)
                     <p>
                         <i class="fas fa-tags"></i>
-                        <a href="{{ route('posts.by.category', [$post_item->category->id]) }}">
+                        <a href="{{ $post_item->category->slug }}">
                             {{ $post_item->category->title }}
                         </a>
                     </p>

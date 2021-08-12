@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 
 class Tag extends Model
 {
@@ -22,5 +23,13 @@ class Tag extends Model
     public function posts()
     {
         return $this->belongsToMany(Post::class);
+    }
+
+    /**
+     * Get tag slug
+     */
+    public function getSlugAttribute()
+    {
+        return url("tags/{$this->id}-" . Str::slug($this->title));
     }
 }

@@ -22,7 +22,7 @@ class CategoryTest extends TestCase
     public function aCatagoryCanBeAddedToTheTableThroughTheForm()
     {
         $this->post('/dashboard/categories', [
-            'title' => 'Airbus',
+            'title' => 'airbus',
         ])
                 ->assertRedirect('/dashboard/categories');
         $this->assertCount(1, Category::all());
@@ -69,14 +69,14 @@ class CategoryTest extends TestCase
     {
         $category = Category::factory()->create();
         $this->patch('/dashboard/categories/' . $category->id, [
-            'title' => 'Airbus',
+            'title' => 'airbus',
         ])
                 ->assertSessionHas('success_message')
                 ->assertRedirect('/dashboard/categories/');
-        $this->assertEquals('Airbus', Category::first()->title);
+        $this->assertEquals('airbus', Category::first()->title);
         $this->assertEquals(session('success_message'), 'Category Updated Successfully!');
         $this->assertDatabaseMissing('categories', $category->toArray());
-        $this->assertDatabaseHas('categories', ['title' => 'Airbus']);
+        $this->assertDatabaseHas('categories', ['title' => 'airbus']);
     }
 
     /** @test */

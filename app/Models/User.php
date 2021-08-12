@@ -7,6 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use App\Traits\SyncRoles;
 use App\Notifications\CustomResetPasswordNotification;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Str;
 
 class User extends Authenticatable
 {
@@ -109,5 +110,13 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new CustomResetPasswordNotification($token));
+    }
+
+    /**
+     * Get user slug
+     */
+    public function getSlugAttribute()
+    {
+        return url("users/{$this->id}-" . Str::slug($this->name));
     }
 }
