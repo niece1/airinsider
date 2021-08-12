@@ -36,27 +36,27 @@
                                 <a href="javascript:void(0)">News</a>
                                 <ul>
                                     <li>
-                                        <a href="#" class="sub-item">
+                                        <a href="{{ url('/categories/1-airlines') }}" class="sub-item">
                                             <span>Airlines</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"  class="sub-item">
+                                        <a href="{{ url('/categories/2-airports') }}" class="sub-item">
                                             <span>Airports</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"  class="sub-item">
+                                        <a href="{{ url('/categories/3-events') }}" class="sub-item">
                                             <span>Events</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"  class="sub-item">
+                                        <a href="{{ url('/categories/4-incidents') }}" class="sub-item">
                                             <span>Incidents</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"  class="sub-item">
+                                        <a href="{{ url('/categories/5-cargo') }}" class="sub-item">
                                             <span>Cargo</span>
                                         </a>
                                     </li>
@@ -66,32 +66,32 @@
                                 <a href="javascript:void(0)">By region</a>
                                 <ul>
                                     <li>
-                                        <a href="#" class="sub-item">
+                                        <a href="{{ url('/tags/1-worldwide') }}" class="sub-item">
                                             <span>Worldwide</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"  class="sub-item">
+                                        <a href="{{ url('/tags/2-europe') }}"  class="sub-item">
                                             <span>Europe</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"  class="sub-item">
+                                        <a href="{{ url('/tags/3-america') }}"  class="sub-item">
                                             <span>America</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"  class="sub-item">
+                                        <a href="{{ url('/tags/4-pacific') }}"  class="sub-item">
                                             <span>Pacific</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"  class="sub-item">
+                                        <a href="{{ url('/tags/5-asia') }}"  class="sub-item">
                                             <span>Asia</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="#"  class="sub-item">
+                                        <a href="{{ url('/tags/6-africa') }}"  class="sub-item">
                                             <span>Africa</span>
                                         </a>
                                     </li>
@@ -173,27 +173,27 @@
                         <p>News</p>
                         <ul>
                             <li>
-                                <a href="index.html">
+                                <a href="{{ url('/categories/1-airlines') }}">
                                     <span>Airlines</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/categories/9') }}">
+                                <a href="{{ url('/categories/2-airports') }}">
                                     <span>Airports</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="contact.html">
+                                <a href="{{ url('/categories/3-events') }}">
                                     <span>Events</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="albums.html">
+                                <a href="{{ url('/categories/4-incidents') }}">
                                     <span>Incidents</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="blog.html">
+                                <a href="{{ url('/categories/5-cargo') }}">
                                     <span>Cargo</span>
                                 </a>
                             </li>
@@ -247,12 +247,12 @@
                         <p>Legal</p>
                         <ul>
                             <li>
-                                <a href="index.html">
+                                <a href="#">
                                     <span>Terms and Conditions</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ url('/categories/9') }}">
+                                <a href="#">
                                     <span>Privacy Policy</span>
                                 </a>
                             </li>

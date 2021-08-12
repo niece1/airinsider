@@ -21,7 +21,7 @@ class TagTest extends TestCase
     /** @test */
     public function aTagCanBeAddedToTheTableThroughTheForm()
     {
-        $this->post('/dashboard/tags', ['title' => 'Airbus',])
+        $this->post('/dashboard/tags', ['title' => 'airbus',])
                 ->assertRedirect('/dashboard/tags');
         $this->assertCount(1, Tag::all());
     }
@@ -64,13 +64,13 @@ class TagTest extends TestCase
     public function aTagCanBeUpdated()
     {
         $tag = Tag::factory()->create();
-        $this->patch('/dashboard/tags/' . $tag->id, ['title' => 'Airbus',])
+        $this->patch('/dashboard/tags/' . $tag->id, ['title' => 'airbus',])
                 ->assertSessionHas('success_message')
                 ->assertRedirect('/dashboard/tags/');
-        $this->assertEquals('Airbus', Tag::first()->title);
+        $this->assertEquals('airbus', Tag::first()->title);
         $this->assertEquals(session('success_message'), 'Tag Updated Successfully!');
         $this->assertDatabaseMissing('tags', $tag->toArray());
-        $this->assertDatabaseHas('tags', ['title' => 'Airbus']);
+        $this->assertDatabaseHas('tags', ['title' => 'airbus']);
     }
 
     /** @test */

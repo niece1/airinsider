@@ -38,7 +38,7 @@ class AuthTest extends TestCase
         $this->actingAs($this->user);
         $this->get('/')
                 ->assertDontSee('Dashboard')
-                ->assertSee('Выйти');
+                ->assertSee('Logout');
     }
 
     /** @test */

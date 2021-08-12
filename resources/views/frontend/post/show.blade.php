@@ -28,13 +28,13 @@
             @endif
             <p class="meta">
                 @if ($post->category)
-                <a href="{{ route('posts.by.category', [$post->category->id]) }}" class="show-category">
+                <a href="{{ $post->category->slug }}" class="show-category">
                     {{ $post->category->title }}
                 </a>
                 @endif
                 {{ $post->publish_date_time }}
                 @if ($post->user)
-                <a href="{{ route('posts.by.user', [$post->user->id]) }}" class="show-author">
+                <a href="{{ $post->user->slug }}" class="show-author">
                     {{ $post->user->name }}
                 </a>
                 @endif
