@@ -50,7 +50,8 @@
                     </div>
                     <div class="policy-consent">
                         <small>
-                            By sending the form you accept the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy.</a>
+                            By sending the form you accept the <a href="#">Terms and Conditions</a> and
+                            <a href="{{ route('privacy-policy') }}">Privacy Policy.</a>
                         </small>
                     </div>
                 </div>
