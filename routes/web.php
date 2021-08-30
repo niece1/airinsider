@@ -60,6 +60,8 @@ Route::post('likes/{entityId}/{type}', [LikeController::class, 'like'])->middlew
 Route::post('subscriptions', [SubscriptionController::class, 'store']);
 //Search
 Route::get('search', [SearchController::class, 'search'])->name('search.index');
+//Legal
+Route::view('privacy-policy', 'frontend.legal.privacy-policy')->name('privacy-policy');
 
 //Dashboard
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {

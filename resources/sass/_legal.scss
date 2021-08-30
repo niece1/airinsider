@@ -1,0 +1,49 @@
+/* Legal pages styles */
+
+.legal {
+    width: 100%;
+    overflow: hidden;
+    .legal-wrapper {
+        width: 90%;
+        margin: 60px auto;
+        p {
+            font-size: 1.8rem;
+            line-height: 3.5rem;
+            margin-bottom: 1rem;
+            a {
+                color: #0084ff;
+                text-decoration: underline;
+            }
+            span.bold {
+                font-weight: 600;
+            }
+        }
+        p.italic {
+            font-style: italic;
+        }
+        h2 {
+            font-weight: normal;
+            text-transform: uppercase;
+            margin: 1.5rem 0;
+        }
+        h5 {
+            margin: 1.5rem 0;
+            font-size: 2.2rem;
+            font-weight: normal;
+        }
+        ul {
+            list-style: circle inside;
+            font-size: 1.8rem;
+            li {
+                margin: 1rem 0;
+            }
+        }
+        ol {
+            list-style-position: inside;
+            font-size: 1.8rem;
+            li {
+                margin: 1rem 0;
+            }
+        }
+    }
+}

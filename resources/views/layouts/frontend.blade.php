@@ -26,7 +26,7 @@
                 <div class="menu-wrapper">
                     <div class="logo">
                         <a href="{{ url('/') }}">
-                            theairways<span class="logo-span">news</span>
+                            news<span class="logo-span">airways</span>
                         </a>
                     </div>
                     <!-- Navigation -->
@@ -164,9 +164,9 @@
                     <div class="footer_about">
                         <div class="logo">
                             <a href="{{ url('/') }}">
-                                theairways<span class="logo-span">news</span>
+                                news<span class="logo-span">airways</span>
                             </a>
-                            <p>A home for essential content in<i class="fas fa-plane"></i></p>
+                            <p>A home for essential news in<i class="fas fa-plane"></i></p>
                         </div>
                     </div>
                     <div class="footer_links">
@@ -247,13 +247,13 @@
                         <p>Legal</p>
                         <ul>
                             <li>
-                                <a href="#">
-                                    <span>Terms and Conditions</span>
+                                <a href="{{ route('privacy-policy') }}">
+                                    <span>Privacy Policy</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    <span>Privacy Policy</span>
+                                    <span>Terms and Conditions</span>
                                 </a>
                             </li>
                         </ul>
@@ -271,7 +271,7 @@
                     </symbol>
                     </svg>
                     <div class="footer_copyright">
-                        <p>&#169;{{ date('Y') }} - The airways news - Made with 
+                        <p>&#169;{{ date('Y') }} - news airways - Made with 
                             <button class="iconbutton">
                                 <svg class="icon icon--heart">
                                 <use xlink:href="#icon-heart"></use>

@@ -37,7 +37,7 @@
         <div class="about-content">
             <h2>Our mission</h2>
             <p>
-                Aviation closeup is online content provider aspiring to become the industry leader for online
+                News Airways is online content provider aspiring to become the industry leader for online
                 information in aviation. Topics we cover: information, analytics, events and news delivered in
                 convenient for the reader way in intuitive interface.
             </p>
