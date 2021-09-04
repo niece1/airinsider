@@ -32,10 +32,10 @@
             font-weight: normal;
         }
         ul {
-            list-style: circle inside;
+            list-style-type: square;
             font-size: 1.8rem;
             li {
-                margin: 1rem 0;
+                margin: 1rem 0 1rem 3rem;
             }
         }
         ol {

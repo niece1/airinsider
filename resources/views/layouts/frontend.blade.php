@@ -252,7 +252,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#">
+                                <a href="{{ route('terms-and-conditions') }}">
                                     <span>Terms and Conditions</span>
                                 </a>
                             </li>

@@ -62,6 +62,7 @@ Route::post('subscriptions', [SubscriptionController::class, 'store']);
 Route::get('search', [SearchController::class, 'search'])->name('search.index');
 //Legal
 Route::view('privacy-policy', 'frontend.legal.privacy-policy')->name('privacy-policy');
+Route::view('terms-and-conditions', 'frontend.legal.terms-and-conditions')->name('terms-and-conditions');
 
 //Dashboard
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
