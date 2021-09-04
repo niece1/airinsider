@@ -201,7 +201,7 @@
             shared personal information in the immediately preceding calendar year.
         </p>
         <p>
-            The California Code of Regulations defines a “resident” as:
+            The California Code of Regulations defines a "resident" as:
         </p>
         <ol>
             <li>
@@ -266,7 +266,8 @@
         </p>
         <h2>How to contact us about this privacy policy</h2>
         <p>For any comments, concerns, complaints or questions regarding our privacy policy, please
-            <a href="{{ route('contact') }}">contact us.</a></p>
+            <a href="{{ route('contact') }}">contact us.</a>
+        </p>
     </div>
 </section>
 <!-- /.Privacy policy page -->

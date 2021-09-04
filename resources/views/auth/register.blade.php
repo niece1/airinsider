@@ -52,7 +52,8 @@
             </div>
             <div class="policy-consent">
                 <small>
-                    By signing up you accept the <a href="#">Terms and Conditions</a> and
+                    By signing up you accept 
+                    <a href="{{ route('terms-and-conditions') }}">Terms and Conditions</a> and
                     <a href="{{ route('privacy-policy') }}">Privacy Policy.</a>
                 </small>
             </div>
