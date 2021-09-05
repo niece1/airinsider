@@ -247,13 +247,18 @@
                         <p>Legal</p>
                         <ul>
                             <li>
-                                <a href="{{ route('privacy-policy') }}">
-                                    <span>Privacy Policy</span>
+                                <a href="{{ route('disclaimer') }}">
+                                    <span>Disclaimer</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ route('terms-and-conditions') }}">
                                     <span>Terms and Conditions</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('privacy-policy') }}">
+                                    <span>Privacy Policy</span>
                                 </a>
                             </li>
                         </ul>
