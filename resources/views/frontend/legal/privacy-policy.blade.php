@@ -20,8 +20,8 @@
         <p>Your privacy and trust are important to us. We are committed to protecting your personal information and your
             right to privacy. This Privacy Policy explains how News Airways LLC (we refer to this as "News Airways", "we",
             "us", or "our") collects information from you on <a href="{{ url('/') }}">news-airways.com</a> (hereinafter
-            the "website"),how it is used, and what rights you have in relation to it. The term "you" refers to anyone who
-            uses, visits and/or views the website.
+            the "website" or "service"), how it is used, and what rights you have in relation to it. The term "you" refers
+            to anyone who uses, visits and/or views the website.
         </p>
         <p>Please read this privacy policy carefully as it will help you understand what we do with the
             information that we collect.

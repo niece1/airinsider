@@ -20,7 +20,7 @@
         <p>
             These Terms and conditions ("terms") constitute a legally binding agreement made between you, whether personally
             or on behalf of an entity ("you") and News Airways LLC ("we," "us" or "our"), concerning your access to and
-            use of our website https://news-airways.coms (hereinafter the "website").
+            use of our website https://news-airways.coms (hereinafter the "website" or "service").
         </p>
         <p>By using our website, you accept and agree to be bound by these Terms and conditions including our Disclaimer
             and Privacy policy posted on the website and incorporated herein by reference. We reserve the right, in our
