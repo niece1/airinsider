@@ -9247,6 +9247,10 @@ span.page-link {
   margin: 1rem 0 1rem 3rem;
 }
 
+.legal .legal-wrapper ul li span.bold {
+  font-weight: 600;
+}
+
 .legal .legal-wrapper ol {
   list-style-position: inside;
   font-size: 1.8rem;
