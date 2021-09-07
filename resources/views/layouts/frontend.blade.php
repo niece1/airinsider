@@ -261,6 +261,11 @@
                                     <span>Privacy Policy</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('cookie-policy') }}">
+                                    <span>Cookie Policy</span>
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>

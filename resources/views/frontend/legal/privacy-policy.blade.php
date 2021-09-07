@@ -31,17 +31,17 @@
         <p>The personal information that we collect depends on the context of your interactions with us and the Website.
             Generally, we collect the following categories of personal information:
         </p>
-        <p><span class="bold">Personal Information Provided by You.</span> When you access the website, you may 
-            provide certain personally identifiable information including but not limited to your name, email
-            address, avatar image. This information is collected when you register on the website, subscribe to 
-            a newsletter, contact us, provide comments or any other feedback or enter any other information on
-            the website to communicate with us. From time to time, we may also collect information that you submit
-            when you participate in any online surveys that we may post on our website.
+        <p><span class="bold">Personal Information Provided by You.</span> When you access the website, you may provide
+            certain personally identifiable information including but not limited to your name, email address, avatar
+            image. This information is collected when you register on the website, subscribe to a newsletter, contact us,
+            provide comments or any other feedback or enter any other information on the website to communicate with us.
+            From time to time, we may also collect information that you submit when you participate in any online surveys
+            that we may post on our website.
         </p>
-        <p><span class="bold">Social Media Login Data.</span> We may provide you with the option to register with
-            us using your existing social media account details, like your Facebook, Google, Twitter or Github 
-            account. If you choose to register in this way, we will collect the information described in the section
-            called "How do we handle your social logins?" below.
+        <p><span class="bold">Social Media Login Data.</span> We may provide you with the option to register with us using
+            your existing social media account details, like your Facebook, Google, Twitter or Github account. If you
+            choose to register in this way, we will collect the information described in the section called "How do we
+            handle your social logins?" below.
         </p>
         <h5>Information automatically collected</h5>
         <p>
@@ -167,7 +167,7 @@
         <p>
             We may use cookies and similar tracking technologies (like web beacons and pixels) to access or store information.
             Specific information about how we use such technologies and how you can refuse certain cookies is set out in
-            our <a href="#">Cookie policy.</a>
+            our <a href="{{ route('cookie-policy') }}">Cookie policy</a> that is unalienable part of this Privacy policy.
         </p>
         <h2>Your privacy rights</h2>
         <p>

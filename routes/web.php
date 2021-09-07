@@ -64,6 +64,7 @@ Route::get('search', [SearchController::class, 'search'])->name('search.index');
 Route::view('privacy-policy', 'frontend.legal.privacy-policy')->name('privacy-policy');
 Route::view('terms-and-conditions', 'frontend.legal.terms-and-conditions')->name('terms-and-conditions');
 Route::view('disclaimer', 'frontend.legal.disclaimer')->name('disclaimer');
+Route::view('cookie-policy', 'frontend.legal.cookie-policy')->name('cookie-policy');
 
 //Dashboard
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
