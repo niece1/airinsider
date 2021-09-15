@@ -26,7 +26,7 @@
                 <div class="menu-wrapper">
                     <div class="logo">
                         <a href="{{ url('/') }}">
-                            news<span class="logo-span">airways</span>
+                            airways<span class="logo-span">media</span>
                         </a>
                     </div>
                     <!-- Navigation -->
@@ -164,7 +164,7 @@
                     <div class="footer_about">
                         <div class="logo">
                             <a href="{{ url('/') }}">
-                                news<span class="logo-span">airways</span>
+                                airways<span class="logo-span">media</span>
                             </a>
                             <p>A home for essential news in<i class="fas fa-plane"></i></p>
                         </div>

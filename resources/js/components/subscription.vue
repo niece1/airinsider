@@ -18,7 +18,8 @@
                     <input type="checkbox" v-model="checked">
                     <span class="checkmark"></span>
                     <small>
-                        By sending email you accept the <a href="#">Terms and Conditions</a> and <a href="#">Privacy Policy.</a>
+                        By sending email you accept the <a href="/terms-and-conditions">Terms and Conditions</a> 
+                        and <a href="/privacy-policy">Privacy Policy.</a>
                     </small>
                 </label>
             </div>
