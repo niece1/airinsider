@@ -6211,7 +6211,6 @@ header .menu-wrapper .logo {
 }
 
 header .menu-wrapper .logo a {
-  font-family: sans-serif;
   color: #000;
 }
 
@@ -6456,7 +6455,6 @@ footer .footer_wrapper_upper .footer_about .logo {
 footer .footer_wrapper_upper .footer_about .logo a {
   margin: 0 0 10px 0;
   color: #000;
-  font-family: sans-serif;
 }
 
 footer .footer_wrapper_upper .footer_about .logo a span.logo-span {
@@ -9330,50 +9328,82 @@ span.page-link {
 
 /* Cookie consent styles */
 
-.js-cookie-consent {
+.cookie-consent {
   position: fixed;
   bottom: 15px;
   right: 20px;
   z-index: 9999;
-  width: 200px;
-  padding: 15px;
+  width: 500px;
+  padding: 25px;
   background-color: #fff;
   border: 2px solid #f5f8fa;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
-.js-cookie-consent span.cookie-consent__message {
-  display: block;
+@media screen and (max-width: 600px) {
+  .cookie-consent {
+    width: 400px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .cookie-consent {
+    width: 350px;
+  }
+}
+
+.cookie-consent .text-info p.cookie-consent__message {
   color: #4e4e4e;
-  font-size: 1.4rem;
   line-height: 22px;
+  margin-bottom: 2rem;
 }
 
-.js-cookie-consent button.js-cookie-consent-agree {
+.cookie-consent .text-info a {
+  color: #4e4e4e;
+  font-size: 1.6rem;
+  text-decoration: underline;
+}
+
+.cookie-consent .text-info a i {
+  margin-left: 0.5rem;
+  color: #0084ff;
+}
+
+.cookie-consent .consent {
+  margin-top: 3rem;
+}
+
+.cookie-consent .consent a.button {
   border: 2px solid #f75679;
-  text-align: center;
-  padding: 12px 18px 10px 18px;
-  cursor: pointer;
-  font-size: 1.2rem;
+  padding: 12px 20px;
+  display: inline-block;
+  font-size: 1.3rem;
   text-transform: uppercase;
-  outline: none;
   letter-spacing: 1px;
   border-radius: 3px;
   background-color: transparent;
   color: #000;
-  margin: 15px 0 0 23px;
+  cursor: pointer;
 }
 
-.js-cookie-consent button.js-cookie-consent-agree:hover {
+.cookie-consent .consent a.button:hover {
   background-color: #f75679;
   color: #fff;
   border: 2px solid #f75679;
   transition: all 0.3s ease-in-out;
 }
 
-.js-cookie-consent button.js-cookie-consent-agree:not(:hover) {
+.cookie-consent .consent a.button:not(:hover) {
   background-color: transparent;
   color: #000;
   transition: all 0.3s ease-in-out;
+}
+
+.cookie-consent .consent a.settings {
+  color: #4e4e4e;
+  font-size: 1.6rem;
+  text-decoration: underline;
+  float: right;
+  padding-top: 1.2rem;
 }
 

@@ -2318,6 +2318,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -22432,9 +22433,13 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("small", [
       _vm._v("\n                    By sending email you accept the "),
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Terms and Conditions")]),
-      _vm._v(" and "),
-      _c("a", { attrs: { href: "#" } }, [_vm._v("Privacy Policy.")])
+      _c("a", { attrs: { href: "/terms-and-conditions" } }, [
+        _vm._v("Terms and Conditions")
+      ]),
+      _vm._v(" \n                    and "),
+      _c("a", { attrs: { href: "/privacy-policy" } }, [
+        _vm._v("Privacy Policy.")
+      ])
     ])
   }
 ]
