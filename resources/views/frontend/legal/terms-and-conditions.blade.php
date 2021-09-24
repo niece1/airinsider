@@ -19,8 +19,8 @@
         <h2>Introduction</h2>
         <p>
             These Terms and conditions ("terms") constitute a legally binding agreement made between you, whether personally
-            or on behalf of an entity ("you") and News Airways LLC ("we," "us" or "our"), concerning your access to and
-            use of our website https://news-airways.coms (hereinafter the "website" or "service").
+            or on behalf of an entity ("you") and Airways Media LLC ("we," "us" or "our"), concerning your access to and
+            use of our website https://airways-media.com (hereinafter the "website" or "service").
         </p>
         <p>By using our website, you accept and agree to be bound by these Terms and conditions including our Disclaimer
             and Privacy policy posted on the website and incorporated herein by reference. We reserve the right, in our
@@ -199,7 +199,7 @@
         </p>
         <h2>Indemnification</h2>
         <p>
-            You agree to indemnify and hold the News Airways LLC and/or its officers, employees, successors, shareholders,
+            You agree to indemnify and hold the Airways Media LLC and/or its officers, employees, successors, shareholders,
             joint venture partners or anyone else working with us harmless from all losses, claims, damages, demands,
             actions, suits, proceedings or judgments, including costs, expenses and reasonable attorneys' fees assessed
             against or otherwise incurred by you arising, in whole or in part, from: (a) actions or omissions, whether
@@ -207,7 +207,7 @@
             your actions and use of the website including purchasing products and services; (c) violation of any laws,
             rules, regulations or ordinances by you; or (d) violation of any Terms and conditions of this website by you
             or anyone related to you; e) infringement by you or any other user of your account of any intellectual property
-            or other rights of anyone. The News Airways LLC will notify you promptly of any such claims or liability and
+            or other rights of anyone. The Airways Media LLC will notify you promptly of any such claims or liability and
             reserves the right to defend such claim, liability or damage at your expense. You shall fully cooperate and
             provide assistance to us if requested, without any cost, to defend any such claims.
         </p>

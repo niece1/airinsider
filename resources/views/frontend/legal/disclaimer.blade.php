@@ -17,7 +17,7 @@
     <div class="legal-wrapper">
         <h2>General information</h2>
         <p>
-            This Disclaimer is the agreement between News Airways LLC (we refer to this as "News Airways", "we", "us", or
+            This Disclaimer is the agreement between Airways Media LLC (we refer to this as "Airways Media", "we", "us", or
             "our") and you ("user", "you" or "your"). The term "you" refers to anyone who uses, visits and/or views the
             website. Please read this Disclaimer carefully, and we reserve the right to modify it at any time without
             notice. By visiting and using this website, you accept and agree to be bound by this Disclaimer along with
@@ -78,7 +78,7 @@
         </p>
         <h2>Indemnification</h2>
         <p>
-            You agree to indemnify and hold the News Airways LLC and/or its officers, employees, successors, shareholders,
+            You agree to indemnify and hold the Airways Media LLC and/or its officers, employees, successors, shareholders,
             joint venture partners or anyone else working with us harmless from all losses, claims, damages, demands,
             actions, suits, proceedings or judgments, including costs, expenses and reasonable attorneys' fees assessed
             against or otherwise incurred by you arising, in whole or in part, from: (a) actions or omissions, whether
@@ -86,7 +86,7 @@
             your actions and use of the website including purchasing products and services; (c) violation of any laws,
             rules, regulations or ordinances by you; or (d) violation of any Terms and conditions of this website by you
             or anyone related to you; e) infringement by you or any other user of your account of any intellectual property
-            or other rights of anyone. The News Airways LLC will notify you promptly of any such claims or liability and
+            or other rights of anyone. The Airways Media LLC will notify you promptly of any such claims or liability and
             reserves the right to defend such claim, liability or damage at your expense. You shall fully cooperate and
             provide assistance to us if requested, without any cost, to defend any such claims.
         </p>

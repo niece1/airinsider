@@ -27,34 +27,16 @@
                 padding: 0 10px;
                 line-height: 2.6rem;
             }
-            h5 {
-                margin: 40px 0;
+            h4 {
+                margin: 40px 0 25px;
                 font-weight: normal;
             }
             a {
                 color: #000;
-                font-size: 1.6rem;
+                font-size: 1.8rem;
                 position: relative;
-                margin: 0 45px 0 0;
-                &:hover {
-                    color: #f75679;
-                    transition: all 0.5s ease-in-out;
-                }
-            }
-            p.contact-social {
-                margin-left: 45px;
-            }
-            a#facebook,
-            a#twitter {
-                &:after {
-                    content: "";
-                    background: #000;
-                    position: absolute;
-                    top: 55%;
-                    right: -33px;
-                    height: 1px;
-                    width: 26px;
-                }
+                margin: 0 10px;
+                cursor: not-allowed;
             }
         }
         .contact-form {
@@ -70,10 +52,10 @@
                 font-size: 1.6rem;
                 color: #4e4e4e;
                 margin: 35px 50px 0 50px;
-                border: 2px solid #0084ff;
+                border-top: 2px solid #0084ff;
+                border-bottom: 2px solid #0084ff;
                 background-color: #f5f8fa;
                 padding: 10px 15px;
-                border-radius: 3px;
             }
             form {
                 width: 70%;

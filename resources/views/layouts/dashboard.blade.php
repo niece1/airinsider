@@ -26,7 +26,7 @@
             <div class="menu-wrapper">
                 <div class="logo">
                     <a href="{{ url('/') }}">
-                        aviation<span class="logo-span">closeup</span>
+                        airways<span class="logo-span">media</span>
                     </a>
                 </div>
                 <!-- Navigation -->
@@ -163,7 +163,7 @@
             </svg>
             <div class="dashboard-footer-wrapper">
                 <p>
-                    <a href="{{ url('/') }}">Aviationcloseup.</a>
+                    <a href="{{ url('/') }}">Airways Media.</a>
                     Made with
                     <button class="iconbutton">
                         <svg class="icon icon--heart">
