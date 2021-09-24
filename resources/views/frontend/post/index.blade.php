@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', 'The airways news')
+@section('title', 'Airways Media - Aviation news')
 
 @section('content')
 

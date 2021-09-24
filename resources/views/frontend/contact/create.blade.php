@@ -20,11 +20,10 @@
             <p>
                 We are here to answer any question related to our subject or help you.
             </p>
-            <h5>social</h5>
+            <h4>social</h4>
             <p class="contact-social">
-                <a href="#" id="facebook">fb</a>
-                <a href="#" id="twitter">tw</a>
-                <a href="#">pt</a>
+                <a href="#">facebook</a>
+                <a href="#">twitter</a>
             </p>
         </div>
         <div class="contact-form">
