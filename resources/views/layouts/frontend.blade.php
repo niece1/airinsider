@@ -281,7 +281,7 @@
                     </symbol>
                     </svg>
                     <div class="footer_copyright">
-                        <p>&#169;{{ date('Y') }} - news airways - Made with 
+                        <p>&#169;{{ date('Y') }} - airways media - Made with 
                             <button class="iconbutton">
                                 <svg class="icon icon--heart">
                                 <use xlink:href="#icon-heart"></use>

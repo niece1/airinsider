@@ -1,14 +1,13 @@
 /* Error pages styles */
-
 .error-page {
     width: 100%;
     .error-page-wrapper {
         width: 90%;
         margin: 60px auto;
         text-align: center;
-        h1 {
+        h1, h2 {
             font-weight: normal;
-            font-size: 4rem;
+            font-size: 3.9rem;
         }
         h6 {
             text-transform: uppercase;
@@ -22,10 +21,10 @@
         }
         a.button {
             border: 2px solid #f75679;
-            padding: 14px 22px 12px 22px;
+            padding: 8px 15px;
             display: inline-block;
             margin: 0 0 20px 0;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 1px;
             border-radius: 3px;

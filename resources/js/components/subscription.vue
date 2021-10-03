@@ -91,8 +91,8 @@ form.input-wrapper {
             cursor: pointer;
             color: #0084ff;
             .envelope {
-                width: 3rem;
-                height: 3rem;
+                width: 2.8rem;
+                height: 2.8rem;
             }
         }
         .disabledButton {

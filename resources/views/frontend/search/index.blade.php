@@ -1,13 +1,13 @@
 @extends('layouts.frontend')
 
-@section('title', 'Поиск')
+@section('title', 'Search')
 
 @section('content')
 
 <!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
-        <h1>Поиск</h1>
+        <h1>Search</h1>
     </div>
 </section>
 <!-- /.Title jumbotron -->
@@ -44,17 +44,14 @@
                 @endif
                 <p>
                     <i class="fas fa-clock"></i>
-                    Время чтения: {{ $post_item->time_to_read }} мин.
-                </p>
-                <p class="item-blog-comment">
-                    Комментарии: {{ $post_item->comments->count() }}
+                    {{ $post_item->time_to_read }} minutes to read
                 </p>
                 <p class="item-blog-date">{{ $post_item->date }}</p>                
                 <div class="blog-line">
                 </div>
                 <div class="item-blog-bottom">
                     <a href="{{ route('post.show', [$post_item->slug]) }}" class="button">
-                        Читать
+                        Read more
                     </a>
                     @if ($post_item->category)
                     <p>
@@ -68,7 +65,7 @@
             </div>
         </div>
         @empty
-        <h1>По Вашему запросу ничего не найдено.</h1>
+        <h3>Temporarily unavailable</h3>
         @endforelse
     </div>
 </section>

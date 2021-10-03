@@ -30,7 +30,7 @@
                         <th>Reply</th>	
                         <th></th>				
                     </tr>
-                    @foreach ($comments as $comment)
+                    @forelse ($comments as $comment)
                     <tr>
                         <td>{{ $comment->id }}</td>						
                         <td>
@@ -56,8 +56,12 @@
                             </form>
                             @endcan
                         </td>
-                    </tr>				
-                    @endforeach
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="6">No comments found</td>
+                    </tr>
+                    @endforelse
                 </table>
                 <!-- /.Table -->
             </div>

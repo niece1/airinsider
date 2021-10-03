@@ -31,7 +31,7 @@
                         <th>Permissions</th>	
                         <th></th>					
                     </tr>
-                    @foreach ($roles as $role)
+                    @forelse ($roles as $role)
                     <tr>
                         <td>{{ $role->id }}</td>						
                         <td>{{ $role->title }}</td>
@@ -56,8 +56,12 @@
                             </form>
                             @endcan
                         </td>
-                    </tr>				
-                    @endforeach
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="4">No roles found</td>
+                    </tr>
+                    @endforelse
                 </table>
                 <!-- /.Table -->
             </div>

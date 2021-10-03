@@ -1,13 +1,13 @@
 @extends('layouts.frontend')
 
-@section('title', 'Ошибка 404')
+@section('title', 'Page not found')
 
 @section('content')
 
 <!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
-        <h1>Страница не найдена</h1>
+        <h1>Page not found</h1>
     </div>
 </section>
 <!-- /.Title jumbotron -->
@@ -15,12 +15,12 @@
 <!-- Error page -->
 <section class="error-page">
     <div class="error-page-wrapper">
-        <h1>404</h1>
-        <h6>Страница не найдена</h6>
+        <h2>404</h2>
+        <h6>Page not found</h6>
         <p>
-            Страница, которую вы ищете не существует. Возможно, она была удалена или перемещена.
+            The page details you entered may be incorrect or the page was removed.
         </p>
-        <a href="{{ url('/') }}" class="button">На главную</a>
+        <a href="{{ url('/') }}" class="button">Home page</a>
     </div>
 </section>
 <!-- /.Error page -->
