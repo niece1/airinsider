@@ -1,5 +1,4 @@
-/* Index page styles */
-
+/* Jumbotron index page styles */
 .jumbothron {
     width: 100%;
     min-height: 350px;
@@ -21,7 +20,7 @@
                 grid-area: 2/1/3/2;
                 margin: 0 0 50px 0;
             }
-            h1 {
+            h2 {
                 font-weight: normal;
                 margin: 0 0 10px 0;
             }
@@ -30,10 +29,10 @@
             }
             a.button {
                 border: 2px solid #f75679;
-                padding: 12px 20px;
+                padding: 8px 15px;
                 display: inline-block;
                 margin: 20px 0 20px 0;
-                font-size: 1.3rem;
+                font-size: 1.2rem;
                 text-transform: uppercase;
                 letter-spacing: 1px;
                 border-radius: 3px;
@@ -70,8 +69,7 @@
     }
 }
 
-/* News section */
-
+/* Latest news section */
 .news {
     width: 100%;
     h1 {
@@ -184,10 +182,10 @@
                 .item-blog-bottom {
                     a.button {
                         border: 2px solid #f75679;
-                        padding: 12px 20px;
+                        padding: 8px 15px;
                         display: inline-block;
                         margin: 0 0 20px 0;
-                        font-size: 1.3rem;
+                        font-size: 1.2rem;
                         text-transform: uppercase;
                         letter-spacing: 1px;
                         border-radius: 3px;
@@ -207,10 +205,8 @@
                     }
                     p {
                         float: right;
-                        padding: 14px 0;
                         a {
                             color: #0084ff;
-                            font-weight: 600;
                             &:hover {
                                 color: #f75679;
                                 transition: all 0.3s ease-in-out;
@@ -228,7 +224,6 @@
 }
 
 /* Newsletter widget */
-
 .newsletter {
     width: 100%;
     background-color: hsl(204, 33%, 97%);
@@ -259,8 +254,7 @@
     }
 }
 
-/* Slick slider */
-
+/* Read next section (slick slider) */
 .slider {
     width: 100%;
     height: auto;
@@ -368,10 +362,10 @@
                     .item-blog-bottom {
                         a.button {
                             border: 2px solid #f75679;
-                            padding: 12px 20px;
+                            padding: 8px 15px;
                             display: inline-block;
                             margin: 0 0 20px 0;
-                            font-size: 1.3rem;
+                            font-size: 1.2rem;
                             text-transform: uppercase;
                             letter-spacing: 1px;
                             border-radius: 3px;
@@ -391,10 +385,8 @@
                         }
                         p {
                             float: right;
-                            padding: 14px 0;
                             a {
                                 color: #0084ff;
-                                font-weight: 600;
                                 &:hover {
                                     color: #f75679;
                                     transition: all 0.3s ease-in-out;

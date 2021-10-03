@@ -34,7 +34,7 @@
                         <th>Category</th>
                         <th></th>
                     </tr>
-                    @foreach ($posts as $post)
+                    @forelse ($posts as $post)
                     <tr>
                         <td>{{ $post->id }}</td>
                         <td>
@@ -73,8 +73,12 @@
                             </form>
                             @endcan
                         </td>
-                    </tr>				
-                    @endforeach
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="7">No posts found</td>
+                    </tr>
+                    @endforelse
                 </table>
                 <!-- /.Table -->
             </div>

@@ -9,7 +9,7 @@
     @if ($featured)
     <div class="jumbothron-wrapper">
         <div class="content">            
-            <h1>{{ $featured->title }}</h1>
+            <h2>{{ $featured->title }}</h2>
             <p>
                 {{ $featured->featured_description }}{{ $featured->featured_three_dots }}
             </p>
@@ -85,7 +85,7 @@
             </div>
         </div>
         @empty
-        <h1>Temporarily unavailable</h1>
+        <h3>Temporarily unavailable</h3>
         @endforelse
     </div>
 </section>

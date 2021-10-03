@@ -30,7 +30,7 @@
                         <th>Title</th>	
                         <th></th>					
                     </tr>
-                    @foreach ($tags as $tag)
+                    @forelse ($tags as $tag)
                     <tr>
                         <td>{{ $tag->id }}</td>						
                         <td>{{ $tag->title }}</td>						
@@ -50,8 +50,12 @@
                             </form>
                             @endcan
                         </td>
-                    </tr>				
-                    @endforeach
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="3">No tags found</td>
+                    </tr>
+                    @endforelse
                 </table>
                 <!-- /.Table -->
             </div>

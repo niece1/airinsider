@@ -33,7 +33,7 @@
                         <th>Roles</th>
                         <th></th>
                     </tr>
-                    @foreach ($users as $user)
+                    @forelse ($users as $user)
                     <tr>
                         <td>{{ $user->id }}</td>
                         <td>{{ $user->name }}</td>
@@ -67,8 +67,12 @@
                             </form>
                             @endcan
                         </td>
-                    </tr>				
-                    @endforeach
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="9">No users found</td>
+                    </tr>
+                    @endforelse
                 </table>
                 <!-- /.Table -->
             </div>

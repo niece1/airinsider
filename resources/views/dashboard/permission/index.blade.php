@@ -30,7 +30,7 @@
                         <th>Title</th>	
                         <th></th>					
                     </tr>
-                    @foreach ($permissions as $permission)
+                    @forelse ($permissions as $permission)
                     <tr>
                         <td>{{ $permission->id }}</td>						
                         <td>{{ $permission->title }}</td>						
@@ -45,8 +45,12 @@
                             </form>
                             @endcan
                         </td>
-                    </tr>				
-                    @endforeach
+                    </tr>
+                    @empty
+                    <tr>
+                        <td colspan="3">No permissions found</td>
+                    </tr>
+                    @endforelse
                 </table>
                 <!-- /.Table -->
             </div>

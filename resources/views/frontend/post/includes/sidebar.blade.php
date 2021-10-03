@@ -1,7 +1,7 @@
 <aside class="sidebar">
     <!-- Related posts -->
     <div class="related-posts-widget">
-        <h2>Read next</h2>
+        <h4>Read next</h4>
         @foreach ($related as $post)
         <ul class="related">
             <li>
@@ -30,7 +30,7 @@
     
     <!-- Tag widget -->
     <div class="tag-widget">
-        <h2>Our tags</h2>
+        <h4>Our tags</h4>
         <div class="tag-cloud">
             @foreach ($tags as $tag)
             <a href="{{ $tag->slug }}">{{ $tag->title }}</a>
@@ -41,7 +41,7 @@
     
     <!-- Category widget -->
     <div class="category-widget">
-        <h2>Categories</h2>
+        <h4>Categories</h4>
         @foreach ($categories as $category)
         <ul class="category-list">
             <li>

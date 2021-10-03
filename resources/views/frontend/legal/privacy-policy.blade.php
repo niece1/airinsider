@@ -114,7 +114,7 @@
                 Data backup and security
             </li>
             <li>
-                Advertising, direct marketing, and lead generation
+                Advertising, direct marketing and lead generation
             </li>
             <li>
                 Web analytics

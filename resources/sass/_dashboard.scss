@@ -1,5 +1,4 @@
 /* Dashboard styles */
-
 .dashboard {
     width: 100%;
     height: auto;
@@ -359,7 +358,6 @@
 }
 
 /* Dashboard footer styles */
-
 footer#dashboard-footer {
     min-height: initial;
     width: 100%;
@@ -377,4 +375,9 @@ footer#dashboard-footer {
             }
         }
     }
+}
+
+/* Sweet Alert styles */
+.swal2-toast {
+    font-size: 20px !important;
 }

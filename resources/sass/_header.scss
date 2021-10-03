@@ -1,9 +1,7 @@
 /* Variables */
-
 @import "variables";
 
 /* Header and Navigation styles */
-
 header {
     top: 0;
     left: 0;
@@ -20,7 +18,7 @@ header {
         .logo {
             height: 75px;
             line-height: 75px;
-            font-size: 2.2rem;
+            font-size: 2rem;
             float: left;
             a {
                 color: #000;
@@ -70,7 +68,6 @@ header {
 }
 
 /* Hamburger icon */
-
 .menu-toggle {
     display: none;
     float: right;
@@ -126,7 +123,6 @@ header {
 }
 
 /* Sticky and Mobile Navigation */
-
 .fixed {
     position: fixed;
     animation: navbar-slide 0.7s;
@@ -140,15 +136,18 @@ header {
         transform: translateY(0);
     }
 }
+
 header .menu-wrapper nav ul li.active ul {
     display: block;
 }
+
 header .menu-wrapper nav ul li.sub-menu:before {
     content: "▾";
     line-height: 75px;
     position: absolute;
     right: 5px;
 }
+
 header .menu-wrapper nav ul li.active.sub-menu:before {
     content: "▴";
     position: absolute;
