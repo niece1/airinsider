@@ -6468,7 +6468,7 @@ footer .footer_wrapper_down .footer_copyright {
 }
 
 footer .footer_wrapper_down .footer_copyright p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
 }
 
@@ -6783,6 +6783,10 @@ footer .footer_wrapper_down .footer_copyright p {
 .news .news-wrapper .item .item-content .item-blog-bottom p a:not(:hover) {
   color: #0084ff;
   transition: all 0.3s ease-in-out;
+}
+
+.news .news-wrapper h3 {
+  font-weight: normal;
 }
 
 /* Newsletter widget */
@@ -7239,7 +7243,7 @@ footer .footer_wrapper_down .footer_copyright p {
   display: inline-block;
   margin: 0 5px 5px 0;
   border: 1px solid #f75679;
-  padding: 2px 10px;
+  padding: 2px 8px;
 }
 
 .news-show .news-show-wrapper aside.sidebar .tag-widget .tag-cloud a:hover {
@@ -7776,10 +7780,10 @@ footer .footer_wrapper_down .footer_copyright p {
 
 .login-register .login-register-wrapper form button.button {
   border: 2px solid #f75679;
-  padding: 12px 20px;
+  padding: 8px 15px;
   cursor: pointer;
   margin-top: 3rem;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   outline: none;
   letter-spacing: 1px;
@@ -7845,10 +7849,10 @@ footer .footer_wrapper_down .footer_copyright p {
 
 .dashboard .dashboard-wrapper a.button {
   border: 2px solid #f75679;
-  padding: 14px 25px 12px 25px;
+  padding: 8px 15px;
   display: inline-block;
   margin: 0 0 20px 0;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   border-radius: 3px;
@@ -7871,10 +7875,10 @@ footer .footer_wrapper_down .footer_copyright p {
 
 .dashboard .dashboard-wrapper a.back {
   border: 2px solid #0084ff;
-  padding: 14px 25px 12px 25px;
+  padding: 8px 15px;
   display: inline-block;
   margin: 20px 0;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   border-radius: 3px;
@@ -7897,9 +7901,9 @@ footer .footer_wrapper_down .footer_copyright p {
 
 .dashboard .dashboard-wrapper button.delete-show-page {
   border: 2px solid #f75679;
-  padding: 14px 25px 12px 25px;
+  padding: 8px 15px;
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   outline: none;
@@ -8025,9 +8029,9 @@ footer .footer_wrapper_down .footer_copyright p {
 
 .dashboard button.button {
   border: 2px solid #f75679;
-  padding: 14px 25px 12px 25px;
+  padding: 8px 15px;
   cursor: pointer;
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   border-radius: 3px;
@@ -9280,7 +9284,7 @@ ul {
 
 .title-jumbotron .parallax-text h1 {
   font-weight: normal;
-  font-size: 3.9rem;
+  font-size: 3.4rem;
   margin: 0 30px;
   padding: 0;
 }

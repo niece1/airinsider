@@ -8,7 +8,9 @@
                 <h6>{{ reply.user.name }}</h6>
                 <p>{{ reply.body }}</p>
             </div>
-            <likes :default_likes="reply.likes" :entity_id="reply.id" :entity_owner="reply.user.id"></likes>
+            <div class="reply-likes">
+                <likes :default_likes="reply.likes" :entity_id="reply.id" :entity_owner="reply.user.id"></likes>
+             </div>
         </div>
         <div v-if="comment.repliesCount > 0 && replies.next_page_url" class="load-replies">
             <button @click="fetchReplies" class="button">Load replies</button>
@@ -54,13 +56,25 @@ export default {
 .reply .reply-itself {
     margin: 20px 0 10px 65px;
 }
+
 .reply .reply-itself .avatar-label {
     float: left;
     margin-right: 10px;
 }
+
 .reply .reply-itself .reply-body h6 {
     font-weight: normal;
+    font-size: 1.6rem;
 }
+
+.reply .reply-itself .reply-body p {
+    font-size: 1.4rem;
+}
+
+.reply .reply-itself .reply-likes {
+    margin: 5px 0 0 45px;
+}
+
 .reply .load-replies button.button {
     cursor: pointer;
     color: #f75679;
@@ -71,6 +85,7 @@ export default {
     margin: 10px 0 0 0;
     outline: none;
 }
+
 .reply .load-replies button.button:hover {
     color: #0084ff;
     transition: all 0.3s ease-in-out;

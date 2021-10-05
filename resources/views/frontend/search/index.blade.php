@@ -65,7 +65,7 @@
             </div>
         </div>
         @empty
-        <h3>Temporarily unavailable</h3>
+        <h3>No results match your search criteria</h3>
         @endforelse
     </div>
 </section>

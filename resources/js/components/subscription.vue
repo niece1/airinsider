@@ -162,6 +162,7 @@ form.input-wrapper {
         }
     }
 }
+
 .sent-success {
     font-weight: normal;
     color: #000;

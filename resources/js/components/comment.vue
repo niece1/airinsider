@@ -90,15 +90,23 @@ export default {
     width: 100%;
     margin: 30px 0;
 }
+
 .comment .comment-itself h6 {
     font-weight: normal;
+    font-size: 1.6rem;
 }
+
+.comment .comment-itself p {
+    font-size: 1.4rem;
+}
+
 .comment .replies {
     margin-top: 7px;
 }
+
 .comment .replies button.add-reply-button {
     cursor: pointer;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     border: none;
@@ -106,18 +114,22 @@ export default {
     outline: none;
     color: #0084ff;
 }
+
 .comment .replies button.add-reply-button:hover {
     color: #f75679;
     transition: all 0.3s ease-in-out;
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
 }
+
 .comment .replies .add-reply {
     margin: 40px 0 0 0;
 }
+
 .comment .replies .login-to-answer {
     color: #f75679;
 }
+
 .comment .replies .add-reply textarea {
     margin: 0 0 0 65px;
     border: none;
@@ -127,15 +139,17 @@ export default {
     font-size: 1.6rem;
     font-family: "Open Sans", sans-serif;
 }
+
 .comment .replies .comment-likes {
     margin: 0 10px 0 0;
     float: left;
 }
+
 .comment .replies .add-reply button.button {
     border: 2px solid #f75679;
-    padding: 12px 20px;
+    padding: 8px 15px;
     cursor: pointer;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 3px;
@@ -143,6 +157,7 @@ export default {
     color: #000;
     margin: 10px 0 20px 65px;
 }
+
 .comment .replies .add-reply button.button:hover {
     background-color: #f75679;
     color: #fff;
@@ -151,6 +166,7 @@ export default {
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
 }
+
 .comment .comment-itself .avatar-label {
     float: left;
     margin-right: 15px;

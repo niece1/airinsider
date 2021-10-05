@@ -139,9 +139,11 @@ export default {
     cursor: pointer;
     fill: currentColor;
 }
+
 .thumbs-down {
     margin-left: 10px;
 }
+
 .thumbs-up-active,
 .thumbs-down-active {
     color: #0084ff;

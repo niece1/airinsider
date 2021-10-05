@@ -15,7 +15,7 @@
 <!-- Posts by tag section -->
 <section class="news">
     <div class="news-wrapper">
-        @foreach ($posts_by_tag as $post_item)
+        @forelse ($posts_by_tag as $post_item)
         <div class="item">
             @if ($post_item->photo)
             <div class="image-holder">
@@ -64,7 +64,9 @@
                 </div>
             </div>
         </div>
-        @endforeach
+        @empty
+        <h3>Temporarily unavailable</h3>
+        @endforelse
     </div>
 </section>
 <!-- /.Posts by tag section -->
