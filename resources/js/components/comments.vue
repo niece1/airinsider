@@ -79,6 +79,7 @@ export default {
 .comments p.auth-condition {
     color: #f75679;
 }
+
 .comments .comments-form textarea {
     border: none;
     border-bottom: 1px solid #000;
@@ -87,20 +88,23 @@ export default {
     font-size: 1.6rem;
     font-family: "Open Sans", sans-serif;
 }
+
 .comments .comments-form textarea::placeholder {
     color: #4e4e4e;
     font-size: 1.6rem;
     opacity: 1;
 }
+
 .comments .comments-form textarea::-webkit-input-placeholder {
     color: #4e4e4e;
     font-size: 1.6rem;
 }
+
 .comments .comments-form button.button {
     border: 2px solid #f75679;
-    padding: 12px 20px;
+    padding: 8px 15px;
     cursor: pointer;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 3px;
@@ -109,6 +113,7 @@ export default {
     outline: none;
     margin: 10px 0 20px 0;
 }
+
 .comments .comments-form button.button:hover {
     background-color: #f75679;
     color: #fff;
@@ -117,11 +122,13 @@ export default {
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
 }
+
 .comments .comments-form button.button:not(:hover) {
     background-color: transparent;
     color: #000;
     transition: all 0.3s ease-in-out;
 }
+
 .comments .more-comments button.button {
     cursor: pointer;
     border: 2px solid #f75679;
@@ -135,6 +142,7 @@ export default {
     color: #000;
     margin: 5px 0;
 }
+
 .comments .more-comments button.button:hover {
     background-color: #f75679;
     color: #fff;
@@ -143,6 +151,7 @@ export default {
     -webkit-transition: all 0.3s ease-in-out;
     -o-transition: all 0.3s ease-in-out;
 }
+
 .comments .comments-form .invalid-feedback {
     color: #f75679;
     font-size: 1.2rem;

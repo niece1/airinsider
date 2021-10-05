@@ -24,7 +24,7 @@ class CategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'bail|required|min:2|max:10|regex:/^[a-z]+$/',
+            'title' => 'bail|required|min:2|max:10|regex:/^[a-zA-Z]+$/',
         ];
     }
 }
