@@ -102,7 +102,7 @@ export default {
 
 .comments .comments-form button.button {
     border: 2px solid #f75679;
-    padding: 8px 15px;
+    padding: 8px 20px;
     cursor: pointer;
     font-size: 1.2rem;
     text-transform: uppercase;

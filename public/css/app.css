@@ -6442,6 +6442,12 @@ footer .footer_wrapper_upper .footer_links ul li a:hover {
   color: #000;
 }
 
+@media screen and (max-width: 900px) {
+  footer .footer_wrapper_upper .footer_links ul li a {
+    font-size: 1.6rem;
+  }
+}
+
 footer .footer_wrapper_down {
   width: 90%;
   margin: 50px auto 5px;
@@ -6557,7 +6563,7 @@ footer .footer_wrapper_down .footer_copyright p {
 
 .jumbothron .jumbothron-wrapper .content a.button {
   border: 2px solid #f75679;
-  padding: 8px 15px;
+  padding: 8px 20px;
   display: inline-block;
   margin: 20px 0 20px 0;
   font-size: 1.2rem;
@@ -6743,7 +6749,7 @@ footer .footer_wrapper_down .footer_copyright p {
 
 .news .news-wrapper .item .item-content .item-blog-bottom a.button {
   border: 2px solid #f75679;
-  padding: 8px 15px;
+  padding: 8px 20px;
   display: inline-block;
   margin: 0 0 20px 0;
   font-size: 1.2rem;
@@ -6955,7 +6961,7 @@ footer .footer_wrapper_down .footer_copyright p {
 
 .slider .contact-slider .contact-slider-wrapper .item .item-content .item-blog-bottom a.button {
   border: 2px solid #f75679;
-  padding: 8px 15px;
+  padding: 8px 20px;
   display: inline-block;
   margin: 0 0 20px 0;
   font-size: 1.2rem;
@@ -7591,7 +7597,7 @@ footer .footer_wrapper_down .footer_copyright p {
 
 .contact-page .contact-page-wrapper .contact-form form button.button {
   border: 2px solid #f75679;
-  padding: 8px 15px;
+  padding: 8px 20px;
   cursor: pointer;
   font-size: 1.2rem;
   text-transform: uppercase;
@@ -7780,7 +7786,7 @@ footer .footer_wrapper_down .footer_copyright p {
 
 .login-register .login-register-wrapper form button.button {
   border: 2px solid #f75679;
-  padding: 8px 15px;
+  padding: 8px 20px;
   cursor: pointer;
   margin-top: 3rem;
   font-size: 1.2rem;
@@ -7849,7 +7855,7 @@ footer .footer_wrapper_down .footer_copyright p {
 
 .dashboard .dashboard-wrapper a.button {
   border: 2px solid #f75679;
-  padding: 8px 15px;
+  padding: 8px 20px;
   display: inline-block;
   margin: 0 0 20px 0;
   font-size: 1.2rem;
@@ -7875,7 +7881,7 @@ footer .footer_wrapper_down .footer_copyright p {
 
 .dashboard .dashboard-wrapper a.back {
   border: 2px solid #0084ff;
-  padding: 8px 15px;
+  padding: 8px 20px;
   display: inline-block;
   margin: 20px 0;
   font-size: 1.2rem;
@@ -7901,7 +7907,7 @@ footer .footer_wrapper_down .footer_copyright p {
 
 .dashboard .dashboard-wrapper button.delete-show-page {
   border: 2px solid #f75679;
-  padding: 8px 15px;
+  padding: 8px 20px;
   cursor: pointer;
   font-size: 1.2rem;
   text-transform: uppercase;
@@ -8029,7 +8035,7 @@ footer .footer_wrapper_down .footer_copyright p {
 
 .dashboard button.button {
   border: 2px solid #f75679;
-  padding: 8px 15px;
+  padding: 8px 20px;
   cursor: pointer;
   font-size: 1.2rem;
   text-transform: uppercase;
@@ -8312,7 +8318,7 @@ footer#dashboard-footer .dashboard-footer-wrapper p a {
 
 .error-page .error-page-wrapper a.button {
   border: 2px solid #f75679;
-  padding: 8px 15px;
+  padding: 8px 20px;
   display: inline-block;
   margin: 0 0 20px 0;
   font-size: 1.2rem;
@@ -9137,7 +9143,6 @@ span.page-link {
 }
 
 .legal .legal-wrapper p {
-  font-size: 1.8rem;
   line-height: 3.5rem;
   margin-bottom: 1rem;
 }
@@ -9169,7 +9174,8 @@ span.page-link {
 
 .legal .legal-wrapper ul {
   list-style-type: square;
-  font-size: 1.8rem;
+  line-height: 3.5rem;
+  font-size: 1.6rem;
 }
 
 .legal .legal-wrapper ul li {
@@ -9182,7 +9188,8 @@ span.page-link {
 
 .legal .legal-wrapper ol {
   list-style-position: inside;
-  font-size: 1.8rem;
+  line-height: 3.5rem;
+  font-size: 1.6rem;
 }
 
 .legal .legal-wrapper ol li {
@@ -9356,7 +9363,7 @@ ul {
 
 .cookie-consent .consent a.button {
   border: 2px solid #f75679;
-  padding: 8px 15px;
+  padding: 8px 20px;
   display: inline-block;
   font-size: 1.2rem;
   text-transform: uppercase;
