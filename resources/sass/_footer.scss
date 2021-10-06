@@ -55,11 +55,13 @@ footer {
                         &:hover {
                             color: #000;
                         }
+                        @media screen and (max-width: 900px) {
+                            font-size: 1.6rem;
+                        }
                     }
                 }
             }
         }
-
     }
     .footer_wrapper_down {
         width: 90%;
