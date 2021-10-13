@@ -186,7 +186,7 @@
             processing grounds other than consent. If you are a resident in the European Economic Area and you believe we
             are unlawfully processing your personal information, you also have the right to complain to your local data
             protection supervisory authority. You can find their contact details here:
-            <a href="http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm">
+            <a href="http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm" target="_blank">
                 http://ec.europa.eu/justice/data-protection/bodies/authorities/index_en.htm.
             </a>
         </p>

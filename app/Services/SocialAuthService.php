@@ -4,6 +4,7 @@ namespace App\Services;
 
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 use App\Models\User;
 
 /**
@@ -19,8 +20,11 @@ class SocialAuthService
      * @param $provider
      * @return void
      */
-    public function store($provider)
+    public function store($provider, Request $request)
     {
+        if (!$request->has('code') || $request->has('denied')) {
+            return redirect()->route('login');
+        }
         if ($provider == 'google') {
             $socialUser = Socialite::driver($provider)->stateless()->user();
         }

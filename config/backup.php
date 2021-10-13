@@ -132,10 +132,10 @@ return [
         'notifiable' => \Spatie\Backup\Notifications\Notifiable::class,
 
         'mail' => [
-            'to' => 'niece@ukr.net',
+            'to' => 'mediaairways@gmail.com',
 
             'from' => [
-                'address' => env('MAIL_FROM_ADDRESS', 'airinsider@info.com'),
+                'address' => env('MAIL_FROM_ADDRESS', 'niece@ukr.net'),
                 'name' => env('MAIL_FROM_NAME', 'Airinsider'),
             ],
         ],

@@ -102,7 +102,7 @@ export default {
 
 .comments .comments-form button.button {
     border: 2px solid #f75679;
-    padding: 8px 20px;
+    padding: 7px 16px;
     cursor: pointer;
     font-size: 1.2rem;
     text-transform: uppercase;
@@ -132,7 +132,7 @@ export default {
 .comments .more-comments button.button {
     cursor: pointer;
     border: 2px solid #f75679;
-    padding: 14px 25px 12px 25px;
+    padding: 14px 25px 12px;
     font-size: 1.3rem;
     outline: none;
     text-transform: uppercase;
