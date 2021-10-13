@@ -147,7 +147,7 @@ export default {
 
 .comment .replies .add-reply button.button {
     border: 2px solid #f75679;
-    padding: 8px 20px;
+    padding: 7px 16px;
     cursor: pointer;
     font-size: 1.2rem;
     text-transform: uppercase;

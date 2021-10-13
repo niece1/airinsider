@@ -19,7 +19,7 @@
             @if ($post->photo)
             <div class="thumbnail">
                 <img class="lazyload"
-                    src="data:image/gif;base64,R0lGODlhBAADAIAAAP///wAAACH5BAEAAAEALAAAAAAEAAMAAAIDjI9WADs="
+                    src="data:image/gif;base64,R0lGODlhAwACAIAAAP///wAAACH5BAEAAAEALAAAAAADAAIAAAICjF8AOw=="
                     data-src="{{ asset('storage/' . $post->photo->path) }}" alt="Photo">
             </div>
             @if ($post->photo_source)
