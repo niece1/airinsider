@@ -62,9 +62,10 @@ class LoginController extends Controller
      */
     public function handleProviderCallback(
         $provider,
-        SocialAuthService $socialAuthService
+        SocialAuthService $socialAuthService,
+        Request $request
     ) {
-        $socialAuthService->store($provider);
+        $socialAuthService->store($provider, $request);
         return redirect()->intended('/');
     }
 
