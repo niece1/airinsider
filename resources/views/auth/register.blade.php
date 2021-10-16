@@ -57,7 +57,7 @@
                     <a href="{{ route('privacy-policy') }}">Privacy Policy.</a>
                 </small>
             </div>
-           <!--@captcha-->
+           @captcha
             <button type="submit" class="button">
                 Sign up
             </button>

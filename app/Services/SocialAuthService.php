@@ -23,7 +23,7 @@ class SocialAuthService
     public function store($provider, Request $request)
     {
         if (!$request->has('code') || $request->has('denied')) {
-            return redirect('/login#');
+            return redirect('/login');
         }
         if ($provider == 'google') {
             $socialUser = Socialite::driver($provider)->stateless()->user();

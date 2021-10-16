@@ -66,9 +66,6 @@ class LoginController extends Controller
         Request $request
     ) {
         $socialAuthService->store($provider, $request);
-        if ($provider == 'facebook') {
-            return redirect()->intended('/#');
-        }
         return redirect()->intended('/');
     }
 

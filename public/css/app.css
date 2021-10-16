@@ -6608,6 +6608,7 @@ footer .footer_wrapper_down .footer_copyright p {
   width: 100%;
   height: auto;
   object-fit: cover;
+  border-radius: 5px;
 }
 
 /* Latest news section */
