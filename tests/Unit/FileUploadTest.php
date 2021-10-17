@@ -55,7 +55,7 @@ class FileUploadTest extends TestCase
         $this->createPost($file);
         Storage::disk('public')->assertMissing('posts/' . $file->hashName());
         $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['image'][0], 'The image must be an image.');
+        $this->assertEquals($messages['image'][0], 'The image must be a file of type: jpg, jpeg, png, webp.');
     }
 
     /** @test */
