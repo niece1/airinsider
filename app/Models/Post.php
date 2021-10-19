@@ -32,6 +32,17 @@ class Post extends Model
         'time_to_read',
         'publish_time',
     ];
+    
+    /**
+     * The attributes that should be mutated to dates.
+     *
+     * @var array
+     */
+    protected $dates = [
+        'created_at',
+        'updated_at',
+        'publish_time'
+    ];
 
     /**
      * Get photo associated with specified post.
@@ -88,7 +99,7 @@ class Post extends Model
      */
     public function getDateAttribute()
     {
-        return is_null($this->updated_at) ? '' : $this->updated_at->diffForHumans();
+        return is_null($this->publish_time) ? '' : $this->publish_time->diffForHumans();
     }
 
     /**

@@ -7,7 +7,7 @@
 <!-- Title jumbotron -->
 <section class="title-jumbotron">
     <div class="parallax-text">
-        <h1>{{ $post->title }}</h1>
+        <div class="heading">Read more</div>
     </div>
 </section>
 <!-- /.Title jumbotron -->

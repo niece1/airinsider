@@ -30,7 +30,7 @@
     
     <!-- Tag widget -->
     <div class="tag-widget">
-        <h4>Our tags</h4>
+        <h4>Read by tags</h4>
         <div class="tag-cloud">
             @foreach ($tags as $tag)
             <a href="{{ $tag->slug }}">{{ $tag->title }}</a>
@@ -41,7 +41,7 @@
     
     <!-- Category widget -->
     <div class="category-widget">
-        <h4>Categories</h4>
+        <h4>Subjects</h4>
         @foreach ($categories as $category)
         <ul class="category-list">
             <li>
