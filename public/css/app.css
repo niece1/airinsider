@@ -7070,13 +7070,38 @@ footer .footer_wrapper_down .footer_copyright p {
   font-size: 3.2rem;
 }
 
+.news-show .news-show-wrapper .item-itself h2 {
+  padding: 15px 0;
+  font-weight: normal;
+}
+
+.news-show .news-show-wrapper .item-itself h3 {
+  padding: 12px 0;
+  font-weight: normal;
+}
+
+.news-show .news-show-wrapper .item-itself h4 {
+  padding: 10px 0;
+  font-weight: normal;
+}
+
+.news-show .news-show-wrapper .item-itself h5 {
+  padding: 8px 0;
+  font-weight: normal;
+}
+
+.news-show .news-show-wrapper .item-itself h6 {
+  padding: 7px 0;
+  font-weight: normal;
+}
+
 .news-show .news-show-wrapper .item-itself p.photo-source {
   text-transform: initial;
   font-size: 1.6rem;
 }
 
 .news-show .news-show-wrapper .item-itself p.meta {
-  line-height: 3rem;
+  padding: 3px 0;
   color: #000;
   position: relative;
   text-transform: uppercase;
@@ -7124,11 +7149,6 @@ footer .footer_wrapper_down .footer_copyright p {
 .news-show .news-show-wrapper .item-itself .meta-right {
   float: right;
   color: #000;
-}
-
-.news-show .news-show-wrapper .item-itself h4 {
-  margin: 50px 0 20px 0;
-  font-weight: normal;
 }
 
 @media screen and (max-width: 950px) {
@@ -7189,7 +7209,6 @@ footer .footer_wrapper_down .footer_copyright p {
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .post-content p {
   display: block;
   margin-bottom: 5px;
-  padding: 10px 0 0 0;
 }
 
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .post-content p a {
@@ -9297,21 +9316,21 @@ ul {
   padding: 0;
 }
 
-@media screen and (max-width: 800px) {
-  .title-jumbotron .parallax-text h1 {
-    font-size: 3.5rem;
-  }
-}
-
 @media screen and (max-width: 600px) {
   .title-jumbotron .parallax-text h1 {
     font-size: 2.5rem;
   }
 }
 
-@media screen and (max-width: 460px) {
-  .title-jumbotron .parallax-text h1 {
-    font-size: 2rem;
+.title-jumbotron .parallax-text .heading {
+  font-size: 3.4rem;
+  margin: 0 30px;
+  padding: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .title-jumbotron .parallax-text .heading {
+    font-size: 2.5rem;
   }
 }
 
