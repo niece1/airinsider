@@ -120,50 +120,50 @@
     <h2>Read next</h2>
     <div class="contact-slider">
         <div class="contact-slider-wrapper">
-            @foreach ($random_posts as $posts_item)
+            @foreach ($random_posts as $post_item)
             <div class="item">
-                @if ($posts_item->photo)
+                @if ($post_item->photo)
                 <div class="image-holder">
-                    <a href="{{ route('post.show', [$posts_item->slug]) }}">
+                    <a href="{{ route('post.show', [$post_item->slug]) }}">
                         <img class="lazyload" 
                             src="data:image/gif;base64,R0lGODlhAwACAIAAAP///wAAACH5BAEAAAEALAAAAAADAAIAAAICjF8AOw=="
-                            data-src="{{ asset('storage/' . $posts_item->photo->path) }}" alt="Photo">
+                            data-src="{{ asset('storage/' . $post_item->photo->path) }}" alt="Photo">
                         <div class="image-overlay"></div>
                     </a>
                 </div>
                 @endif
                 <div class="item-content">
-                    <a href="{{ route('post.show', [$posts_item->slug]) }}">
-                        <h6>{{ $posts_item->title }}</h6>
+                    <a href="{{ route('post.show', [$post_item->slug]) }}">
+                        <h6>{{ $post_item->title }}</h6>
                     </a>
                     <p class="item-blog-text">
-                        {{ $posts_item->description }}{{ $posts_item->three_dots }}
+                        {{ $post_item->description }}{{ $post_item->three_dots }}
                     </p>
-                    @if ($posts_item->user)
+                    @if ($post_item->user)
                     <p class="item-blog-author">
                         <i class="fas fa-user-edit"></i>
                         <a href="{{ $post_item->user->slug }}">
-                            {{ $posts_item->user->name }}
+                            {{ $post_item->user->name }}
                         </a>
                     </p>
                     @endif
                     <p>
                         <i class="fas fa-clock"></i>
-                        {{ $posts_item->time_to_read }} minutes to read
+                        {{ $post_item->time_to_read }} minutes to read
                     </p>
                     <p class="item-blog-date">
-                        {{ $posts_item->date }}
+                        {{ $post_item->date }}
                     </p>
                     <div class="blog-line"></div>
                     <div class="item-blog-bottom">
-                        <a href="{{ route('post.show', [$posts_item->slug]) }}" class="button">
+                        <a href="{{ route('post.show', [$post_item->slug]) }}" class="button">
                             Read more
                         </a>
-                        @if ($posts_item->category)
+                        @if ($post_item->category)
                         <p>
                             <i class="fas fa-tags"></i>
                             <a href="{{ $post_item->category->slug }}">
-                                {{ $posts_item->category->title }}
+                                {{ $post_item->category->title }}
                             </a>
                         </p>
                         @endif
