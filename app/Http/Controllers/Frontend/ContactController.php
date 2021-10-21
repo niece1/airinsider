@@ -24,7 +24,7 @@ class ContactController extends Controller
     {
         $data = $request->all();
         //dispatch(new SendContactMailJob($data));
-        Mail::to('mediaairways@gmail.com')->send(new ContactMail($data));
+        Mail::to('vzhonchuk@gmail.com')->send(new ContactMail($data));
 
         return redirect('contact')->withSuccess('Your message send successfully.');
     }
