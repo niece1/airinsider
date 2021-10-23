@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Requests\ContactFormRequest;
 use App\Jobs\SendContactMailJob;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactMail;
 
 class ContactController extends Controller
 {
@@ -23,8 +21,7 @@ class ContactController extends Controller
     public function store(ContactFormRequest $request)
     {
         $data = $request->all();
-        //dispatch(new SendContactMailJob($data));
-        Mail::to('vzhonchuk@gmail.com')->send(new ContactMail($data));
+        dispatch(new SendContactMailJob($data));
 
         return redirect('contact')->withSuccess('Your message send successfully.');
     }
