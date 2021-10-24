@@ -32,7 +32,7 @@ class Post extends Model
         'time_to_read',
         'publish_time',
     ];
-    
+
     /**
      * The attributes that should be mutated to dates.
      *
