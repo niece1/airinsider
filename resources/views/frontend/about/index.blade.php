@@ -17,7 +17,7 @@
     <div class="about-page-wrapper">
         <div class="thumbnail">
             <img class="lazyload"
-                src="data:image/gif;base64,R0lGODlhAwACAIAAAP///wAAACH5BAEAAAEALAAAAAADAAIAAAICjF8AOw=="
+                src="data:image/gif;base64,R0lGODlhAgABAIAAAP///wAAACH5BAEAAAEALAAAAAACAAEAAAICTAoAOw=="
                 data-src="{{ asset('images/takeoff.jpg') }}" alt="Photo">
         </div>
         <div class="about-content">
@@ -31,7 +31,7 @@
         </div>
         <div class="thumbnail">
             <img class="lazyload"
-                src="data:image/gif;base64,R0lGODlhAwACAIAAAP///wAAACH5BAEAAAEALAAAAAADAAIAAAICjF8AOw=="
+                src="data:image/gif;base64,R0lGODlhAgABAIAAAP///wAAACH5BAEAAAEALAAAAAACAAEAAAICTAoAOw=="
                 data-src="{{ asset('images/cargolux.jpg') }}" alt="Photo">
         </div>
         <div class="about-content">

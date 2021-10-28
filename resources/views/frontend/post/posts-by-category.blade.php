@@ -21,7 +21,7 @@
             <div class="image-holder">
                 <a href="{{ route('post.show', [$post_item->slug]) }}">
                     <img class="lazyload"
-                        src="data:image/gif;base64,R0lGODlhAwACAIAAAP///wAAACH5BAEAAAEALAAAAAADAAIAAAICjF8AOw=="
+                        src="data:image/gif;base64,R0lGODlhAgABAIAAAP///wAAACH5BAEAAAEALAAAAAACAAEAAAICTAoAOw=="
                         data-src="{{ asset('storage/' . $post_item->photo->path) }}" alt="Photo">
                     <div class="image-overlay"></div>
                 </a>
