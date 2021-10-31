@@ -7055,6 +7055,7 @@ footer .footer_wrapper_down .footer_copyright p {
   display: block;
   overflow: hidden;
   background: #cccccc;
+  border-radius: 5px;
 }
 
 .news-show .news-show-wrapper .item-itself .thumbnail img {
@@ -7133,6 +7134,7 @@ footer .footer_wrapper_down .footer_copyright p {
 .news-show .news-show-wrapper .item-itself p.show-body {
   line-height: 2.6rem;
   color: #4e4e4e;
+  margin: 15px 0;
 }
 
 .news-show .news-show-wrapper .item-itself .item-line {
@@ -7192,9 +7194,10 @@ footer .footer_wrapper_down .footer_copyright p {
   display: block;
   overflow: hidden;
   float: left;
-  width: 92px;
-  height: 69px;
+  width: 100px;
+  height: 50px;
   margin: 0 15px 15px 0;
+  border-radius: 5px;
 }
 
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .image-holder a img {
@@ -7202,8 +7205,8 @@ footer .footer_wrapper_down .footer_copyright p {
   display: block;
   object-fit: cover;
   overflow: hidden;
-  width: 92px;
-  height: 69px;
+  width: 100px;
+  height: 50px;
 }
 
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .post-content p {
@@ -7994,6 +7997,10 @@ footer .footer_wrapper_down .footer_copyright p {
   padding: 15px;
 }
 
+.dashboard .dashboard-wrapper .well .well-content table td img {
+  border-radius: 5px;
+}
+
 .dashboard .dashboard-wrapper .well .well-content table td .badge {
   background-color: #17a2b8;
   margin: 3px;
@@ -8149,6 +8156,7 @@ footer .footer_wrapper_down .footer_copyright p {
   width: auto;
   height: 150px;
   display: block;
+  border-radius: 5px;
 }
 
 .dashboard form.create-update .form-wrapper .post-image .post-image-overlay {

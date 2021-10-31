@@ -15,6 +15,7 @@
                 display: block;
                 overflow: hidden;
                 background: #cccccc;
+                border-radius: 5px;
                 img {
                     width: 100%;
                     display: block;
@@ -79,6 +80,7 @@
             p.show-body {              
                 line-height: 2.6rem;
                 color: #4e4e4e;
+                margin: 15px 0;
             }
             .item-line {
                 width: 100%;
@@ -123,17 +125,18 @@
                             display: block;
                             overflow: hidden;
                             float: left;
-                            width: 92px;
-                            height: 69px;
+                            width: 100px;
+                            height: 50px;
                             margin: 0 15px 15px 0;
+                            border-radius: 5px;
                             a {
                                 img {
                                     width: 100%;                                   
                                     display: block;
                                     object-fit: cover;
                                     overflow: hidden;
-                                    width: 92px;
-                                    height: 69px;
+                                    width: 100px;
+                                    height: 50px;
                                 }
                             }
                         }                       
