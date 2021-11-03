@@ -7099,6 +7099,17 @@ footer .footer_wrapper_down .footer_copyright p {
   padding: 7px 0;
 }
 
+.news-show .news-show-wrapper .item-itself ul {
+  list-style: square inside;
+  font-size: 1.6rem;
+  color: #4e4e4e;
+}
+
+.news-show .news-show-wrapper .item-itself ol {
+  font-size: 1.6rem;
+  color: #4e4e4e;
+}
+
 .news-show .news-show-wrapper .item-itself p.photo-source {
   text-transform: initial;
   font-size: 1.6rem;
@@ -8026,6 +8037,14 @@ footer .footer_wrapper_down .footer_copyright p {
 .dashboard .dashboard-wrapper .well .well-content table td.table-body h5,
 .dashboard .dashboard-wrapper .well .well-content table td.table-body h6 {
   font-weight: normal;
+}
+
+.dashboard .dashboard-wrapper .well .well-content table td.table-body ul {
+  list-style: square inside;
+}
+
+.dashboard .dashboard-wrapper .well .well-content table td.table-body ol {
+  font-size: 1.6rem;
 }
 
 .dashboard a.action-button-green {

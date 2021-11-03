@@ -45,6 +45,15 @@
             h6 {
                 padding: 7px 0;
             }
+            ul {
+                list-style: square inside;
+                font-size: 1.6rem;
+                color: #4e4e4e;
+            }
+            ol {
+                font-size: 1.6rem;
+                color: #4e4e4e;
+            }
             p.photo-source {
                 text-transform: initial;
                 font-size: 1.6rem;
