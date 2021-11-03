@@ -116,21 +116,6 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
     }
 
     /**
-     * Get cached specified category from the database.
-     *
-     * @param \App\Category  $category
-     * @return \App\Category
-     */
-    public function getCategory($category)
-    {
-        return Cache::remember(
-            'category',
-            now()->addSeconds(config('app.cache')),
-            fn() => parent::getCategory($category)
-        );
-    }
-
-    /**
      * Fetch all cached posts associated with specified tag.
      *
      * @param  \App\Tag  $tag
@@ -146,21 +131,6 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
     }
 
     /**
-     * Get cached specified tag from the database.
-     *
-     * @param \App\Tag  $tag
-     * @return \App\Tag
-     */
-    public function getTag($tag)
-    {
-        return Cache::remember(
-            'tag',
-            now()->addSeconds(config('app.cache')),
-            fn() => parent::getTag($tag)
-        );
-    }
-
-    /**
      * Fetch all cached posts associated with specified user.
      *
      * @param  \App\User  $user
@@ -172,21 +142,6 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
             'post_by_user',
             now()->addSeconds(config('app.cache')),
             fn() => parent::getAllByUser($user)
-        );
-    }
-
-    /**
-     * Get cached specified user from the database.
-     *
-     * @param \App\User  $user
-     * @return \App\User
-     */
-    public function getUser($user)
-    {
-        return Cache::remember(
-            'user',
-            now()->addSeconds(config('app.cache')),
-            fn() => parent::getUser($user)
         );
     }
 
