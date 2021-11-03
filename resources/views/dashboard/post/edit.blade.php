@@ -9,15 +9,15 @@
 <script>
     tinymce.init({
         selector: '#mytextarea',
-        plugins: "link image",
+        plugins: 'link autolink image lists emoticons',
+        toolbar: 'numlist bullist emoticons link image',
         formats: {
-            h1: { block: 'h1', styles: { 'font-weight': 'normal', 'font-size': '2.8rem' } },
-            h2: { block: 'h2', styles: { 'font-weight': 'normal', 'font-size': '2.5rem' } },
-            h3: { block: 'h3', styles: { 'font-weight': 'normal', 'font-size': '2.3rem' } },
-            h4: { block: 'h4', styles: { 'font-weight': 'normal', 'font-size': '2.1rem' } },
+            h1: { block: 'h1', styles: { 'font-weight': 'normal', 'font-size': '2.3rem' } },
+            h2: { block: 'h2', styles: { 'font-weight': 'normal', 'font-size': '2.2rem' } },
+            h3: { block: 'h3', styles: { 'font-weight': 'normal', 'font-size': '2.1rem' } },
+            h4: { block: 'h4', styles: { 'font-weight': 'normal', 'font-size': '2rem' } },
             h5: { block: 'h5', styles: { 'font-weight': 'normal', 'font-size': '1.9rem' } },
             h6: { block: 'h6', styles: { 'font-weight': 'normal', 'font-size': '1.7rem' } },
-            p: { block: 'p', styles: { 'font-size': '1.6rem' } },
         },
         setup: function (editor) {
             editor.on('change', function () {

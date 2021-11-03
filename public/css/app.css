@@ -7055,6 +7055,7 @@ footer .footer_wrapper_down .footer_copyright p {
   display: block;
   overflow: hidden;
   background: #cccccc;
+  border-radius: 5px;
 }
 
 .news-show .news-show-wrapper .item-itself .thumbnail img {
@@ -7064,48 +7065,63 @@ footer .footer_wrapper_down .footer_copyright p {
   object-fit: cover;
 }
 
-.news-show .news-show-wrapper .item-itself h1 {
+.news-show .news-show-wrapper .item-itself h1,
+.news-show .news-show-wrapper .item-itself h2,
+.news-show .news-show-wrapper .item-itself h3,
+.news-show .news-show-wrapper .item-itself h4,
+.news-show .news-show-wrapper .item-itself h5,
+.news-show .news-show-wrapper .item-itself h6 {
   font-weight: normal;
+}
+
+.news-show .news-show-wrapper .item-itself h1 {
   margin: 20px 0;
   font-size: 3.2rem;
 }
 
 .news-show .news-show-wrapper .item-itself h2 {
   padding: 15px 0;
-  font-weight: normal;
 }
 
 .news-show .news-show-wrapper .item-itself h3 {
   padding: 12px 0;
-  font-weight: normal;
 }
 
 .news-show .news-show-wrapper .item-itself h4 {
   padding: 10px 0;
-  font-weight: normal;
 }
 
 .news-show .news-show-wrapper .item-itself h5 {
   padding: 8px 0;
-  font-weight: normal;
 }
 
 .news-show .news-show-wrapper .item-itself h6 {
   padding: 7px 0;
-  font-weight: normal;
+}
+
+.news-show .news-show-wrapper .item-itself ul {
+  list-style: square inside;
+  font-size: 1.6rem;
+  color: #4e4e4e;
+}
+
+.news-show .news-show-wrapper .item-itself ol {
+  font-size: 1.6rem;
+  color: #4e4e4e;
 }
 
 .news-show .news-show-wrapper .item-itself p.photo-source {
   text-transform: initial;
   font-size: 1.6rem;
+  margin: 0;
 }
 
 .news-show .news-show-wrapper .item-itself p.meta {
-  padding: 3px 0;
   color: #000;
   position: relative;
   text-transform: uppercase;
   font-size: 1.3rem;
+  margin: 0;
 }
 
 .news-show .news-show-wrapper .item-itself p.meta a.show-category {
@@ -7130,9 +7146,10 @@ footer .footer_wrapper_down .footer_copyright p {
   transition: all 0.4s ease-in-out;
 }
 
-.news-show .news-show-wrapper .item-itself p.show-body {
+.news-show .news-show-wrapper .item-itself p {
   line-height: 2.6rem;
   color: #4e4e4e;
+  margin: 12px 0;
 }
 
 .news-show .news-show-wrapper .item-itself .item-line {
@@ -7192,9 +7209,10 @@ footer .footer_wrapper_down .footer_copyright p {
   display: block;
   overflow: hidden;
   float: left;
-  width: 92px;
-  height: 69px;
+  width: 100px;
+  height: 50px;
   margin: 0 15px 15px 0;
+  border-radius: 5px;
 }
 
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .image-holder a img {
@@ -7202,8 +7220,8 @@ footer .footer_wrapper_down .footer_copyright p {
   display: block;
   object-fit: cover;
   overflow: hidden;
-  width: 92px;
-  height: 69px;
+  width: 100px;
+  height: 50px;
 }
 
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .post-content p {
@@ -7994,6 +8012,10 @@ footer .footer_wrapper_down .footer_copyright p {
   padding: 15px;
 }
 
+.dashboard .dashboard-wrapper .well .well-content table td img {
+  border-radius: 5px;
+}
+
 .dashboard .dashboard-wrapper .well .well-content table td .badge {
   background-color: #17a2b8;
   margin: 3px;
@@ -8001,6 +8023,28 @@ footer .footer_wrapper_down .footer_copyright p {
   display: inline-block;
   border-radius: 5px;
   padding: 0 3px;
+}
+
+.dashboard .dashboard-wrapper .well .well-content table td.table-body p {
+  line-height: 2.6rem;
+  margin: 10px 0;
+}
+
+.dashboard .dashboard-wrapper .well .well-content table td.table-body h1,
+.dashboard .dashboard-wrapper .well .well-content table td.table-body h2,
+.dashboard .dashboard-wrapper .well .well-content table td.table-body h3,
+.dashboard .dashboard-wrapper .well .well-content table td.table-body h4,
+.dashboard .dashboard-wrapper .well .well-content table td.table-body h5,
+.dashboard .dashboard-wrapper .well .well-content table td.table-body h6 {
+  font-weight: normal;
+}
+
+.dashboard .dashboard-wrapper .well .well-content table td.table-body ul {
+  list-style: square inside;
+}
+
+.dashboard .dashboard-wrapper .well .well-content table td.table-body ol {
+  font-size: 1.6rem;
 }
 
 .dashboard a.action-button-green {
@@ -8149,6 +8193,7 @@ footer .footer_wrapper_down .footer_copyright p {
   width: auto;
   height: 150px;
   display: block;
+  border-radius: 5px;
 }
 
 .dashboard form.create-update .form-wrapper .post-image .post-image-overlay {

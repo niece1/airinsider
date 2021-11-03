@@ -58,7 +58,7 @@
 @endcan
 <div class="form-wrapper">
     <label for="time_to_read">Time to read</label>
-    <input type="number" name="time_to_read" value="{{ old('time_to_read') ?? $post->time_to_read }}" min="1" max="10" class="form-input">
+    <input type="number" name="time_to_read" value="{{ old('time_to_read') ?? $post->time_to_read }}" min="2" max="10" class="form-input">
     <div class="form-error">{{ $errors->first('time_to_read') }}</div>
 </div>
 <div class="form-wrapper">

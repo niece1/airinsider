@@ -35,7 +35,7 @@
                         <td>Image</td>
                         <td>
                             @if ($post_item->photo)
-                            <img src="{{ asset('storage/'.$post_item->photo->path) }}" height="60" width="90" alt="Photo">
+                            <img src="{{ asset('storage/'.$post_item->photo->path) }}" height="50" width="100" alt="Photo">
                             @endif
                         </td>
                     </tr>
@@ -45,7 +45,7 @@
                     </tr>									
                     <tr>
                         <td>Body</td>
-                        <td>{{ $post_item->dashboard_show_body }}</td>						
+                        <td class="table-body">{!! clean($post_item->body) !!}</td>						
                     </tr>
                     <tr>
                         <td>Slug</td>
