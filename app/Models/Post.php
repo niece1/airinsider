@@ -114,16 +114,6 @@ class Post extends Model
     }
 
     /**
-     * Get body attribute, safe to publish.
-     *
-     * @return string
-     */
-    public function getDashboardShowBodyAttribute()
-    {
-        return $this->body ? strip_tags(html_entity_decode($this->body)) : null;
-    }
-
-    /**
      * Get description.
      *
      * @return string

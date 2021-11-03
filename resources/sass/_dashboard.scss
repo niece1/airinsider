@@ -118,6 +118,16 @@
                             padding: 0 3px;
                         }
                     }
+                    td.table-body {
+                        p {              
+                            line-height: 2.6rem;
+                            color: #4e4e4e;
+                            margin: 10px 0;
+                        }
+                        h1,h2,h3,h4,h5,h6 {
+                            font-weight: normal;
+                        }
+                    }
                 }
             }
         }

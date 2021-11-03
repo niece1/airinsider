@@ -45,7 +45,7 @@
                     </tr>									
                     <tr>
                         <td>Body</td>
-                        <td>{{ $post_item->dashboard_show_body }}</td>						
+                        <td class="table-body">{!! clean($post_item->body) !!}</td>						
                     </tr>
                     <tr>
                         <td>Slug</td>

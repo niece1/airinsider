@@ -40,7 +40,7 @@
                 @endif
             </p>
             <h1>{{ $post->title }}</h1>
-            <p class="show-body">{!! clean($post->body) !!}</p>
+            <p>{!! clean($post->body) !!}</p>
             <div class="item-line"></div>
             <!-- Go to www.addthis.com/dashboard to customize your tools -->
             <div class="addthis_inline_share_toolbox add-this-position"></div>
