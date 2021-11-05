@@ -15,11 +15,9 @@
                 </div>
                 @endif
                 <div class="post-content">
-                    <p>
-                        <a href="{{ route('post.show', [$post->slug]) }}">
-                            {{ $post->title }}
-                        </a>
-                    </p>
+                    <a href="{{ route('post.show', [$post->slug]) }}">
+                        <h5>{{ $post->title }}</h5>
+                    </a>
                     <small>{{ $post->date }}</small>
                 </div>
             </li>
