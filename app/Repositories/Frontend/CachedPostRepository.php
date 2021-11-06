@@ -43,36 +43,6 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
     }
 
     /**
-     * Get cached specified post from the database.
-     *
-     * @param \App\Post  $slug
-     * @return \App\Post
-     */
-    public function getOne($slug)
-    {
-        return Cache::remember(
-            'post_show',
-            now()->addSeconds(config('app.cache')),
-            fn() => parent::getOne($slug)
-        );
-    }
-
-    /**
-     * Fetch 5 cached posts associated with the category one's viewing now.
-     *
-     * @param  \App\Post  $post
-     * @return \App\Post[]
-     */
-    public function getRelated($post)
-    {
-        return Cache::remember(
-            'post_related',
-            now()->addSeconds(config('app.cache')),
-            fn() => parent::getRelated($post)
-        );
-    }
-
-    /**
      * Fetch all cached categories from the database.
      *
      * @return \App\Category[]
@@ -146,7 +116,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
     }
 
     /**
-     * Fetch 5 cached posts in random order published within last 20 days.
+     * Fetch 5 cached posts in random order published within last 30 days.
      *
      * @return \App\Post[]
      */

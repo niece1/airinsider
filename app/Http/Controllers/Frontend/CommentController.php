@@ -6,28 +6,10 @@ use App\Http\Requests\CommentRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Comment;
-use App\Contracts\Frontend\CommentRepositoryContract;
+use App\Repositories\Frontend\CommentRepository;
 
 class CommentController extends Controller
 {
-    /**
-     * CommentRepository instance.
-     *
-     * @var type object
-     */
-    private $commentRepository;
-
-    /**
-     * Create a new instance.
-     *
-     * @param  \App\Contracts\Frontend\CommentRepositoryContract  $commentRepository
-     * @return void
-     */
-    public function __construct(CommentRepositoryContract $commentRepository)
-    {
-        $this->commentRepository = $commentRepository;
-    }
-
     /**
      * Show comments associated with specific post.
      *
@@ -36,7 +18,7 @@ class CommentController extends Controller
      */
     public function index(Post $post)
     {
-        return $this->commentRepository->getAll($post);
+        return CommentRepository::getAll($post);
     }
 
     /**
@@ -48,7 +30,7 @@ class CommentController extends Controller
      */
     public function store(CommentRequest $request, Post $post)
     {
-        return $this->commentRepository->save($request, $post);
+        return CommentRepository::save($request, $post);
     }
 
     /**
@@ -59,6 +41,6 @@ class CommentController extends Controller
      */
     public function showReplies(Comment $comment)
     {
-        return $this->commentRepository->getReplies($comment);
+        return CommentRepository::getReplies($comment);
     }
 }
