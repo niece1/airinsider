@@ -11,7 +11,7 @@ class SubscriptionTest extends TestCase
     use RefreshDatabase;
 
     /** @test */
-    public function aUserCanSubscribeForTheNews()
+    public function aUserCanSubscribeForTheNewsletterEmail()
     {
         $this->post('/subscriptions', [
             'email' => 'airinsider@gmail.com',

@@ -24,7 +24,7 @@ class SubscriptionRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'bail|required|email|unique:subscriptions,email|max:20',
+            'email' => 'bail|required|email|unique:subscriptions,email|max:30',
         ];
     }
 }

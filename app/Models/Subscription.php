@@ -14,5 +14,5 @@ class Subscription extends Model
      *
      * @var array
      */
-    protected $fillable = ['email'];
+    protected $fillable = ['email', 'remember_token'];
 }

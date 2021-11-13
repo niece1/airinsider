@@ -20,14 +20,12 @@ class SendNewsletterJob implements ShouldQueue
     /**
      * Posts to be send.
      *
-     * @var array
      */
     public $posts;
 
     /**
      * Subscribers to receive newsletter mail.
      *
-     * @var array
      */
     public $subscriptions;
 
@@ -52,7 +50,7 @@ class SendNewsletterJob implements ShouldQueue
     public function handle()
     {
         foreach ($this->subscriptions as $subscription) {
-            Mail::to($subscription->email)->send(new NewsletterMail($this->posts));
+            Mail::to($subscription->email)->send(new NewsletterMail($this->posts, $subscription));
         }
     }
 }

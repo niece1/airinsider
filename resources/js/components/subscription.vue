@@ -24,7 +24,7 @@
                 </label>
             </div>
         </form>
-        <h2 v-if="sent" class="sent-success">You are subscribed!</h2>
+        <h6 v-if="sent" class="sent-success">You are subscribed!</h6>
     </div>
 </template>
 

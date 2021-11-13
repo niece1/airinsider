@@ -9269,6 +9269,62 @@ span.page-link {
   margin: 1rem 0;
 }
 
+/* Unsubscribe pages styles */
+
+.unsubscribe-page {
+  width: 100%;
+}
+
+.unsubscribe-page .unsubscribe-page-wrapper {
+  width: 90%;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.unsubscribe-page .unsubscribe-page-wrapper h1,
+.unsubscribe-page .unsubscribe-page-wrapper h2 {
+  font-weight: normal;
+  font-size: 3.9rem;
+}
+
+.unsubscribe-page .unsubscribe-page-wrapper h4 {
+  text-transform: uppercase;
+  margin: 35px auto 15px auto;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
+.unsubscribe-page .unsubscribe-page-wrapper p {
+  color: #4e4e4e;
+  margin-bottom: 20px;
+}
+
+.unsubscribe-page .unsubscribe-page-wrapper a.button {
+  border: 2px solid #f75679;
+  padding: 7px 16px;
+  display: inline-block;
+  margin: 0 0 20px 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  background-color: transparent;
+  color: #000;
+}
+
+.unsubscribe-page .unsubscribe-page-wrapper a.button:hover {
+  background-color: #f75679;
+  color: #fff;
+  border: 2px solid #f75679;
+  transition: all 0.3s ease-in-out;
+}
+
+.unsubscribe-page .unsubscribe-page-wrapper a.button:not(:hover) {
+  background-color: transparent;
+  color: #000;
+  transition: all 0.3s ease-in-out;
+}
+
 /* General styles */
 
 * {

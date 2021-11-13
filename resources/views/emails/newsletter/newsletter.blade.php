@@ -1,16 +1,25 @@
 @component('mail::message')
-# Редакция Авиаинсайдера
 
-Приветствуем!
-Как всегда в четверг подборка новостей из мира гражданской авиации.
-Приятного просмотра!
+## Hello! Now, let's get to this week issue!
 
 @foreach ($posts as $post_item)
-<a href="{{ route('post.show', [$post_item->slug]) }}">
-<h2>{{ $post_item->title }}</h2>
-</a>
+<ul>
+    <li class="item-holder">
+        <a href="{{ route('post.show', [$post_item->slug]) }}">
+            <img src="{{ asset('storage/' . $post_item->photo->path) }}" alt="Photo">
+            <h3>{{ $post_item->title }}</h3>
+        </a>
+    </li>
+</ul>
 @endforeach
 
-С уважением,<br>
-{{ config('app.name') }}
+<div class="regards">
+Regards,<br>
+{{ config('app.name') }} team
+</div>
+
+<a href="{{ route('subscription.destroy', ['remember_token' => $subscription->remember_token]) }}">
+<small>Unsubscribe</small>
+</a>
+
 @endcomponent

@@ -25,9 +25,18 @@ blockquote {
     line-height: 1.4;
     text-align: left;
 }
+a {
+    color: #0084ff;
+    text-decoration: none;
+}
 
 a img {
     border: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
 }
 
 /* Typography */
@@ -42,7 +51,7 @@ h1 {
 
 h2 {
     font-size: 16px;
-    font-weight: bold;
+    font-weight: normal;
     margin-top: 0;
     text-align: left;
 }
@@ -67,6 +76,12 @@ p.sub {
 
 img {
     max-width: 100%;
+}
+
+small {
+    font-size: 12px;
+    color: #000;
+    text-decoration: underline;
 }
 
 /* Layout */
@@ -118,8 +133,6 @@ img {
     -premailer-cellspacing: 0;
     -premailer-width: 100%;
     background-color: hsl(204, 33%, 97%);
-    border-bottom: 1px solid #edf2f7;
-    border-top: 1px solid #edf2f7;
     margin: 0;
     padding: 0;
     width: 100%;
@@ -259,4 +272,32 @@ a.button {
 
 .break-all {
     word-break: break-all;
+}
+
+/* News list*/
+
+ul li.item-holder {
+    clear: left;
+}
+
+ul li.item-holder a img {
+    display: block;
+    object-fit: cover;
+    overflow: hidden;
+    width: 120px;
+    height: 60px;
+    float: left;
+    margin: 0 15px 15px 0;
+    border-radius: 3px;
+}
+
+ul li.item-holder a h3 {
+    padding-bottom: 5px;
+}
+
+/* Regards*/
+
+.regards {
+    clear: left;
+    margin-bottom: 10px;
 }
