@@ -140,7 +140,6 @@
                             border-radius: 3px;
                             a {
                                 img {
-                                    width: 100%;                                   
                                     display: block;
                                     object-fit: cover;
                                     overflow: hidden;
@@ -158,7 +157,7 @@
                                     padding-bottom: 5px;
                                 }
                                 &:hover {
-                                    color: #f75679;
+                                    color: #0084ff;
                                     transition: all 0.4s ease-in-out;
                                 }
                             }

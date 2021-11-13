@@ -6530,7 +6530,7 @@ footer .footer_wrapper_down .footer_copyright p {
   width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 50% 30%;
+  grid-template-columns: 50% 35%;
   grid-gap: 50px;
   justify-content: space-between;
 }
@@ -6542,7 +6542,7 @@ footer .footer_wrapper_down .footer_copyright p {
 }
 
 .jumbothron .jumbothron-wrapper .content {
-  margin: 75px 0 0 0;
+  margin: 65px 0 0 0;
 }
 
 @media screen and (max-width: 950px) {
@@ -6588,7 +6588,7 @@ footer .footer_wrapper_down .footer_copyright p {
 }
 
 .jumbothron .jumbothron-wrapper .photo {
-  margin: 75px 0;
+  margin: 65px 0;
 }
 
 @media screen and (max-width: 950px) {
@@ -7222,7 +7222,6 @@ footer .footer_wrapper_down .footer_copyright p {
 }
 
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .image-holder a img {
-  width: 100%;
   display: block;
   object-fit: cover;
   overflow: hidden;
@@ -7241,7 +7240,7 @@ footer .footer_wrapper_down .footer_copyright p {
 }
 
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .post-content a:hover {
-  color: #f75679;
+  color: #0084ff;
   transition: all 0.4s ease-in-out;
 }
 
