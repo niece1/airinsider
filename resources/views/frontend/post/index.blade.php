@@ -49,7 +49,7 @@
             @endif
             <div class="item-content">
                 <a href="{{ route('post.show', [$post_item->slug]) }}">
-                    <h6>{{ $post_item->title }}</h6>
+                    <h2>{{ $post_item->title }}</h2>
                 </a>
                 <p class="item-blog-text">
                     {{ $post_item->description }}{{ $post_item->three_dots }}
@@ -103,7 +103,7 @@
 <section class="newsletter">
     <div class="newsletter-wrapper">
         <div class="newsletter-info">
-            <h2>Stay in the know</h2>
+            <h3>Stay in the know</h3>
             <p>Get updates on industry events and latest news: subscribe to our newsletters.</p>
             <p>Issued weekly.</p>
         </div>
@@ -117,7 +117,7 @@
 
 <!-- Random posts slider -->
 <section class="slider">
-    <h2>Read next</h2>
+    <h3>Read next</h3>
     <div class="contact-slider">
         <div class="contact-slider-wrapper">
             @foreach ($random_posts as $post_item)
@@ -134,7 +134,7 @@
                 @endif
                 <div class="item-content">
                     <a href="{{ route('post.show', [$post_item->slug]) }}">
-                        <h6>{{ $post_item->title }}</h6>
+                        <h2>{{ $post_item->title }}</h2>
                     </a>
                     <p class="item-blog-text">
                         {{ $post_item->description }}{{ $post_item->three_dots }}

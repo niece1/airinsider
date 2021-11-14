@@ -20,7 +20,7 @@
             <p>
                 We are here to answer any question related to our subject or help you.
             </p>
-            <h4>social</h4>
+            <h3>social</h3>
             <p class="contact-social">
                 <a href="#">facebook</a>
                 <a href="#">twitter</a>

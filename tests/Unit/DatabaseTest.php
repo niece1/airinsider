@@ -149,7 +149,8 @@ class DatabaseTest extends TestCase
     {
         $this->assertTrue(Schema::hasColumns('subscriptions', [
             'id',
-            'email'
+            'email',
+            'remember_token'
         ]), 1);
     }
 

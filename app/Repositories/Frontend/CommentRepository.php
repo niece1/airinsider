@@ -4,7 +4,6 @@ namespace App\Repositories\Frontend;
 
 use App\Models\Post;
 use App\Models\Comment;
-use App\Contracts\Frontend\CommentRepositoryContract;
 use App\Http\Requests\CommentRequest;
 
 /**
@@ -12,7 +11,7 @@ use App\Http\Requests\CommentRequest;
  *
  * @author Volodymyr Zhonchuk
  */
-class CommentRepository implements CommentRepositoryContract
+class CommentRepository
 {
     /**
      * Fetch comments from the database.
@@ -20,7 +19,7 @@ class CommentRepository implements CommentRepositoryContract
      * @param  \App\Post  $post
      * @return \App\Comment[]
      */
-    public function getAll(Post $post)
+    public static function getAll(Post $post)
     {
         return $post->comments()->with(['replies'])->paginate(10);
     }
@@ -32,7 +31,7 @@ class CommentRepository implements CommentRepositoryContract
      * @param  \App\Post  $post
      * @return \App\Comment
      */
-    public function save(CommentRequest $request, Post $post)
+    public static function save(CommentRequest $request, Post $post)
     {
         return auth()->user()->comments()->create([
             'body' => $request->body,
@@ -47,7 +46,7 @@ class CommentRepository implements CommentRepositoryContract
      * @param  \App\Comment  $comment
      * @return \App\Comment[]
      */
-    public function getReplies(Comment $comment)
+    public static function getReplies(Comment $comment)
     {
         return $comment->replies()->paginate(10);
     }

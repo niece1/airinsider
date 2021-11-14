@@ -29,7 +29,7 @@
             @endif
             <div class="item-content">
                 <a href="{{ route('post.show', [$post_item->slug]) }}">
-                    <h6>{{ $post_item->title }}</h6>
+                    <h2>{{ $post_item->title }}</h2>
                 </a>
                 <p class="item-blog-text">
                     {{ $post_item->description }}{{ $post_item->three_dots }}

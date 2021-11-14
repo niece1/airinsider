@@ -171,7 +171,7 @@ class PostRepository implements PostRepositoryContract
     }
 
     /**
-     * Fetch 5 posts in random order published within last 20 days.
+     * Fetch 5 posts in random order published within last 30 days.
      *
      * @return Post[]
      */

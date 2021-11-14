@@ -107,14 +107,14 @@
                         text-align: left;
                         padding: 15px;
                         img {
-                            border-radius: 5px;
+                            border-radius: 3px;
                         }
                         .badge {
                             background-color: #17a2b8;
                             margin: 3px;
                             color: #fff;
                             display: inline-block;
-                            border-radius: 5px;
+                            border-radius: 3px;
                             padding: 0 3px;
                         }
                     }
@@ -260,7 +260,7 @@
                     width: auto;
                     height: 150px;
                     display: block;
-                    border-radius: 5px;
+                    border-radius: 3px;
                 }
                 .post-image-overlay {
                     position: absolute;
@@ -381,13 +381,13 @@ footer#dashboard-footer {
     min-height: initial;
     width: 100%;
     text-align: center;
-    background-color: #000;
+    background-color: #f5f8fa;
     .dashboard-footer-wrapper {
         width: 90%;
         margin: auto;
         p {
             font-size: 1.6rem;
-            color: #9c9c9c;
+            color: #3d3d4e;
             padding: 15px 0;
             a {
                 color: #f75679;

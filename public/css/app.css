@@ -6530,7 +6530,7 @@ footer .footer_wrapper_down .footer_copyright p {
   width: 90%;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 50% 30%;
+  grid-template-columns: 50% 35%;
   grid-gap: 50px;
   justify-content: space-between;
 }
@@ -6542,7 +6542,7 @@ footer .footer_wrapper_down .footer_copyright p {
 }
 
 .jumbothron .jumbothron-wrapper .content {
-  margin: 75px 0 0 0;
+  margin: 65px 0 0 0;
 }
 
 @media screen and (max-width: 950px) {
@@ -6588,7 +6588,7 @@ footer .footer_wrapper_down .footer_copyright p {
 }
 
 .jumbothron .jumbothron-wrapper .photo {
-  margin: 75px 0;
+  margin: 65px 0;
 }
 
 @media screen and (max-width: 950px) {
@@ -6698,8 +6698,9 @@ footer .footer_wrapper_down .footer_copyright p {
   color: #000;
 }
 
-.news .news-wrapper .item .item-content a h6 {
+.news .news-wrapper .item .item-content a h2 {
   margin: 10px 0 0 0;
+  font-size: 1.7rem;
 }
 
 .news .news-wrapper .item .item-content p {
@@ -6824,9 +6825,10 @@ footer .footer_wrapper_down .footer_copyright p {
   }
 }
 
-.newsletter .newsletter-wrapper .newsletter-info h2 {
+.newsletter .newsletter-wrapper .newsletter-info h3 {
   font-weight: normal;
   margin-bottom: 10px;
+  font-size: 2.5rem;
 }
 
 @media screen and (max-width: 1100px) {
@@ -6843,9 +6845,10 @@ footer .footer_wrapper_down .footer_copyright p {
   margin-top: 40px;
 }
 
-.slider h2 {
+.slider h3 {
   font-weight: normal;
   text-align: center;
+  font-size: 2.5rem;
 }
 
 .slider .contact-slider {
@@ -6910,8 +6913,9 @@ footer .footer_wrapper_down .footer_copyright p {
   color: #000;
 }
 
-.slider .contact-slider .contact-slider-wrapper .item .item-content a h6 {
+.slider .contact-slider .contact-slider-wrapper .item .item-content a h2 {
   margin: 10px 0 0 0;
+  font-size: 1.7rem;
 }
 
 .slider .contact-slider .contact-slider-wrapper .item .item-content p {
@@ -7114,6 +7118,7 @@ footer .footer_wrapper_down .footer_copyright p {
   text-transform: initial;
   font-size: 1.6rem;
   margin: 0;
+  line-height: initial;
 }
 
 .news-show .news-show-wrapper .item-itself p.meta {
@@ -7122,6 +7127,7 @@ footer .footer_wrapper_down .footer_copyright p {
   text-transform: uppercase;
   font-size: 1.3rem;
   margin: 0;
+  line-height: initial;
 }
 
 .news-show .news-show-wrapper .item-itself p.meta a.show-category {
@@ -7168,7 +7174,7 @@ footer .footer_wrapper_down .footer_copyright p {
   color: #000;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1160px) {
   .news-show .news-show-wrapper .item-itself {
     width: 100%;
   }
@@ -7182,7 +7188,7 @@ footer .footer_wrapper_down .footer_copyright p {
   padding: 0;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1160px) {
   .news-show .news-show-wrapper aside.sidebar {
     float: left;
     margin: 40px 0 0 0;
@@ -7212,11 +7218,10 @@ footer .footer_wrapper_down .footer_copyright p {
   width: 100px;
   height: 50px;
   margin: 0 15px 15px 0;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .image-holder a img {
-  width: 100%;
   display: block;
   object-fit: cover;
   overflow: hidden;
@@ -7224,23 +7229,24 @@ footer .footer_wrapper_down .footer_copyright p {
   height: 50px;
 }
 
-.news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .post-content p {
-  display: block;
-  margin-bottom: 5px;
-}
-
-.news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .post-content p a {
+.news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .post-content a {
   color: #000;
 }
 
-.news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .post-content p a:hover {
-  color: #f75679;
+.news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .post-content a h5 {
+  font-weight: normal;
+  font-size: 1.2rem;
+  padding-bottom: 5px;
+}
+
+.news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .post-content a:hover {
+  color: #0084ff;
   transition: all 0.4s ease-in-out;
 }
 
 .news-show .news-show-wrapper aside.sidebar .related-posts-widget ul.related li .post-content small {
   color: #4e4e4e;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .news-show .news-show-wrapper aside.sidebar .category-widget {
@@ -7512,9 +7518,10 @@ footer .footer_wrapper_down .footer_copyright p {
   line-height: 2.6rem;
 }
 
-.contact-page .contact-page-wrapper .contact-us h4 {
+.contact-page .contact-page-wrapper .contact-us h3 {
   margin: 40px 0 25px;
   font-weight: normal;
+  font-size: 2.1rem;
 }
 
 .contact-page .contact-page-wrapper .contact-us a {
@@ -8013,7 +8020,7 @@ footer .footer_wrapper_down .footer_copyright p {
 }
 
 .dashboard .dashboard-wrapper .well .well-content table td img {
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .dashboard .dashboard-wrapper .well .well-content table td .badge {
@@ -8021,7 +8028,7 @@ footer .footer_wrapper_down .footer_copyright p {
   margin: 3px;
   color: #fff;
   display: inline-block;
-  border-radius: 5px;
+  border-radius: 3px;
   padding: 0 3px;
 }
 
@@ -8193,7 +8200,7 @@ footer .footer_wrapper_down .footer_copyright p {
   width: auto;
   height: 150px;
   display: block;
-  border-radius: 5px;
+  border-radius: 3px;
 }
 
 .dashboard form.create-update .form-wrapper .post-image .post-image-overlay {
@@ -8327,7 +8334,7 @@ footer#dashboard-footer {
   min-height: initial;
   width: 100%;
   text-align: center;
-  background-color: #000;
+  background-color: #f5f8fa;
 }
 
 footer#dashboard-footer .dashboard-footer-wrapper {
@@ -8337,7 +8344,7 @@ footer#dashboard-footer .dashboard-footer-wrapper {
 
 footer#dashboard-footer .dashboard-footer-wrapper p {
   font-size: 1.6rem;
-  color: #9c9c9c;
+  color: #3d3d4e;
   padding: 15px 0;
 }
 
@@ -9259,6 +9266,62 @@ span.page-link {
 
 .legal .legal-wrapper ol li {
   margin: 1rem 0;
+}
+
+/* Unsubscribe pages styles */
+
+.unsubscribe-page {
+  width: 100%;
+}
+
+.unsubscribe-page .unsubscribe-page-wrapper {
+  width: 90%;
+  margin: 60px auto;
+  text-align: center;
+}
+
+.unsubscribe-page .unsubscribe-page-wrapper h1,
+.unsubscribe-page .unsubscribe-page-wrapper h2 {
+  font-weight: normal;
+  font-size: 3.9rem;
+}
+
+.unsubscribe-page .unsubscribe-page-wrapper h4 {
+  text-transform: uppercase;
+  margin: 35px auto 15px auto;
+  font-weight: normal;
+  letter-spacing: 2px;
+}
+
+.unsubscribe-page .unsubscribe-page-wrapper p {
+  color: #4e4e4e;
+  margin-bottom: 20px;
+}
+
+.unsubscribe-page .unsubscribe-page-wrapper a.button {
+  border: 2px solid #f75679;
+  padding: 7px 16px;
+  display: inline-block;
+  margin: 0 0 20px 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  background-color: transparent;
+  color: #000;
+}
+
+.unsubscribe-page .unsubscribe-page-wrapper a.button:hover {
+  background-color: #f75679;
+  color: #fff;
+  border: 2px solid #f75679;
+  transition: all 0.3s ease-in-out;
+}
+
+.unsubscribe-page .unsubscribe-page-wrapper a.button:not(:hover) {
+  background-color: transparent;
+  color: #000;
+  transition: all 0.3s ease-in-out;
 }
 
 /* General styles */

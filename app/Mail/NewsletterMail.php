@@ -15,18 +15,26 @@ class NewsletterMail extends Mailable implements ShouldQueue
     /**
      * Posts to send to subscribers.
      *
-     * @var type array
      */
     public $posts;
 
     /**
+     * Distinct subscription to make unsubscribe.
+     *
+     */
+    public $subscription;
+
+    /**
      * Create a new message instance.
      *
+     * @param $posts
+     * @param $subscription
      * @return void
      */
-    public function __construct($posts)
+    public function __construct($posts, $subscription)
     {
         $this->posts = $posts;
+        $this->subscription = $subscription;
     }
 
     /**

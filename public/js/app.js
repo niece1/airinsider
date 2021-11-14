@@ -22424,7 +22424,7 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     _vm.sent
-      ? _c("h2", { staticClass: "sent-success" }, [
+      ? _c("h6", { staticClass: "sent-success" }, [
           _vm._v("You are subscribed!")
         ])
       : _vm._e()
