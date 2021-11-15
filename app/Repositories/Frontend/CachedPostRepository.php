@@ -71,51 +71,6 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
     }
 
     /**
-     * Fetch all cached posts associated with specified category.
-     *
-     * @param  \App\Category  $category
-     * @return \App\Post[]
-     */
-    public function getAllByCategory($category)
-    {
-        return Cache::remember(
-            'post_by_category',
-            now()->addSeconds(config('app.cache')),
-            fn() => parent::getAllByCategory($category)
-        );
-    }
-
-    /**
-     * Fetch all cached posts associated with specified tag.
-     *
-     * @param  \App\Tag  $tag
-     * @return \App\Post[]
-     */
-    public function getAllByTag($tag)
-    {
-        return Cache::remember(
-            'post_by_tag',
-            now()->addSeconds(config('app.cache')),
-            fn() => parent::getAllByTag($tag)
-        );
-    }
-
-    /**
-     * Fetch all cached posts associated with specified user.
-     *
-     * @param  \App\User  $user
-     * @return \App\Post[]
-     */
-    public function getAllByUser($user)
-    {
-        return Cache::remember(
-            'post_by_user',
-            now()->addSeconds(config('app.cache')),
-            fn() => parent::getAllByUser($user)
-        );
-    }
-
-    /**
      * Fetch 5 cached posts in random order published within last 30 days.
      *
      * @return \App\Post[]
