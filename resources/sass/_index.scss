@@ -22,10 +22,16 @@
             }
             h2 {
                 font-weight: normal;
-                margin: 0 0 10px 0;
+                margin: 10px 0;
+                @media screen and (max-width: 950px) {
+                    margin: 0 0 10px 0;
+                }
             }
             p {
                 font-size: 1.8rem;
+                @media screen and (max-width: 1200px) and (min-width: 950px) {
+                    font-size: 1.6rem;
+                }
             }
             a.button {
                 border: 2px solid #f75679;
