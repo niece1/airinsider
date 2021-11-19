@@ -58,19 +58,27 @@
         </form>
         <!-- /.Form -->
         
+        <!-- Form divider -->
+        <div class="form-divider">
+            <span>Or</span>
+        </div>
+        <!-- /.Form divider -->
+        
         <!-- Social login -->
-        <p class="social-proceed">Proceed with your social network</p>
-        <p>
-            <a href="{{ url('login/facebook') }}">
-                <i class="fab fa-facebook-f"></i>
+        <div class="social-login">
+            <a href="{{ url('login/facebook') }}" class="social-link">
+                <i class="fab fa-facebook" id="facebook"></i>
+                Sign in with Facebook
             </a>
-            <a href="{{ url('login/google') }}">
-                <i class="fab fa-google"></i>
+            <a href="{{ url('login/github') }}" class="social-link">
+                <i class="fab fa-github" id="github"></i>
+                Sign in with Github
             </a>
-            <a href="{{ url('login/github') }}">
-                <i class="fab fa-github"></i>
+            <a href="{{ url('login/google') }}" class="social-link">
+                <i class="fab fa-google" id="google"></i>
+                Sign in with Google
             </a>
-        </p>
+        </div>
         <!-- /.Social login -->
     </div>
 </section>

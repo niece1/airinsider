@@ -111,7 +111,7 @@
         aside.sidebar {
             float: right;
             display: block;
-            width: 23%;
+            width: 25%;
             margin: 0;
             padding: 0;
             @media screen and (max-width: 1160px) {
@@ -134,8 +134,8 @@
                             display: block;
                             overflow: hidden;
                             float: left;
-                            width: 100px;
-                            height: 50px;
+                            width: 110px;
+                            height: 55px;
                             margin: 0 15px 15px 0;
                             border-radius: 3px;
                             a {
@@ -143,8 +143,8 @@
                                     display: block;
                                     object-fit: cover;
                                     overflow: hidden;
-                                    width: 100px;
-                                    height: 50px;
+                                    width: 110px;
+                                    height: 55px;
                                 }
                             }
                         }                       
@@ -153,8 +153,8 @@
                                 color: #000;
                                 h5 {
                                     font-weight: normal;
-                                    font-size: 1.2rem;
-                                    padding-bottom: 5px;
+                                    font-size: 1.3rem;
+                                    padding-bottom: 4px;
                                 }
                                 &:hover {
                                     color: #0084ff;
@@ -181,6 +181,7 @@
                         margin: 10px 0;
                         a {
                             display: inline-block;
+                            font-size: 1.3rem;
                             color: #000;
                             &:hover {
                                 color: #f75679;
@@ -202,6 +203,7 @@
                         display: inline-block;
                         margin: 0 5px 5px 0;
                         border: 1px solid #f75679;
+                        font-size: 1.3rem;
                         padding: 2px 8px;
                         &:hover {
                             color: #fff;
