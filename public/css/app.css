@@ -7719,25 +7719,25 @@ footer .footer_wrapper_down .footer_copyright p {
 }
 
 .login-register .login-register-wrapper form {
-  width: 40%;
+  width: 450px;
   margin: auto;
 }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 650px) {
   .login-register .login-register-wrapper form {
-    width: 60%;
+    width: 400px;
   }
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 500px) {
   .login-register .login-register-wrapper form {
-    width: 80%;
+    width: 300px;
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 380px) {
   .login-register .login-register-wrapper form {
-    width: 90%;
+    width: 250px;
   }
 }
 
@@ -7881,12 +7881,124 @@ footer .footer_wrapper_down .footer_copyright p {
   transition: all 0.3s ease-in-out;
 }
 
-.login-register .login-register-wrapper p.social-proceed {
-  margin: 50px 0 10px 0;
+.login-register .login-register-wrapper .form-divider {
+  margin: 30px 0 0 0;
+  padding-top: 0;
+  overflow-x: hidden;
+  font-size: 1.6rem;
 }
 
-.login-register .login-register-wrapper i {
-  margin: 0 15px;
+.login-register .login-register-wrapper .form-divider span {
+  position: relative;
+}
+
+.login-register .login-register-wrapper .form-divider span:before {
+  right: 100%;
+  margin: -1px 15px 0 0;
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 200px;
+  border-bottom: 1px solid #cccccc;
+  top: 50%;
+}
+
+@media screen and (max-width: 650px) {
+  .login-register .login-register-wrapper .form-divider span:before {
+    width: 175px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .login-register .login-register-wrapper .form-divider span:before {
+    width: 125px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .login-register .login-register-wrapper .form-divider span:before {
+    width: 100px;
+  }
+}
+
+.login-register .login-register-wrapper .form-divider span:after {
+  left: 100%;
+  margin: -1px 0 0 15px;
+  content: "";
+  position: absolute;
+  height: 1px;
+  width: 200px;
+  border-bottom: 1px solid #cccccc;
+  top: 50%;
+}
+
+@media screen and (max-width: 650px) {
+  .login-register .login-register-wrapper .form-divider span:after {
+    width: 175px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .login-register .login-register-wrapper .form-divider span:after {
+    width: 125px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .login-register .login-register-wrapper .form-divider span:after {
+    width: 100px;
+  }
+}
+
+.login-register .login-register-wrapper .social-login {
+  margin: 40px auto 0 auto;
+  width: 450px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  grid-gap: 10px;
+}
+
+@media screen and (max-width: 650px) {
+  .login-register .login-register-wrapper .social-login {
+    width: 400px;
+    grid-template-columns: auto;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .login-register .login-register-wrapper .social-login {
+    width: 300px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .login-register .login-register-wrapper .social-login {
+    width: 250px;
+  }
+}
+
+.login-register .login-register-wrapper .social-login .social-link {
+  background-color: #f5f8fa;
+  border-radius: 3px;
+  padding: 10px 0;
+  color: #3d3d4e;
+  font-size: 1.2rem;
+}
+
+.login-register .login-register-wrapper .social-login .social-link i {
+  color: #000;
+  margin: 0 5px 0 0;
+}
+
+.login-register .login-register-wrapper .social-login .social-link i#facebook {
+  color: #0075fb;
+}
+
+.login-register .login-register-wrapper .social-login .social-link i#google {
+  color: #dd4835;
+}
+
+.login-register .login-register-wrapper .social-login .social-link i#github {
   color: #000;
 }
 
