@@ -57,12 +57,32 @@
                     <a href="{{ route('privacy-policy') }}">Privacy Policy.</a>
                 </small>
             </div>
-           @captcha
+            @captcha
+            <div class="submit-button">
             <button type="submit" class="button">
                 Sign up
             </button>
+                <span class="proceed-social">Or proceed with social</span>
+            </div>
         </form>
         <!-- /.Form -->
+        
+        <!-- Social login -->
+        <div class="social-login">
+            <a href="{{ url('login/facebook') }}" class="social-link">
+                <i class="fab fa-facebook" id="facebook"></i>
+                Sign up with Facebook
+            </a>
+            <a href="{{ url('login/github') }}" class="social-link">
+                <i class="fab fa-github" id="github"></i>
+                Sign up with Github
+            </a>
+            <a href="{{ url('login/google') }}" class="social-link">
+                <i class="fab fa-google" id="google"></i>
+                Sign up with Google
+            </a>
+        </div>
+        <!-- /.Social login -->
     </div>
 </section>
 <!-- /.Register page -->

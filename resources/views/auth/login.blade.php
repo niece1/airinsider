@@ -45,7 +45,7 @@
                 </label>
             </div>
             @captcha
-            <div class="form-group">
+            <div class="submit-button">
                 <button type="submit" class="button">
                     Sign in
                 </button>

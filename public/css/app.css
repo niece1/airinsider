@@ -7718,6 +7718,11 @@ footer .footer_wrapper_down .footer_copyright p {
   color: #f75679;
 }
 
+.login-register .login-register-wrapper p a:hover {
+  color: #0084ff;
+  transition: all 0.3s ease-in-out;
+}
+
 .login-register .login-register-wrapper form {
   width: 450px;
   margin: auto;
@@ -7825,13 +7830,23 @@ footer .footer_wrapper_down .footer_copyright p {
   transform: rotate(45deg);
 }
 
+.login-register .login-register-wrapper form .submit-button {
+  text-align: left;
+}
+
+.login-register .login-register-wrapper form .submit-button span.proceed-social {
+  margin-left: 15px;
+  font-size: 1.4rem;
+  line-height: 3.8rem;
+}
+
 .login-register .login-register-wrapper form .confirm-password {
   margin-bottom: 4px;
 }
 
 .login-register .login-register-wrapper form .policy-consent {
   text-align: left;
-  margin-top: 4px;
+  margin: 4px 0 30px;
 }
 
 .login-register .login-register-wrapper form .policy-consent small {
@@ -7843,11 +7858,15 @@ footer .footer_wrapper_down .footer_copyright p {
   color: #0084ff;
 }
 
+.login-register .login-register-wrapper form .policy-consent small a:hover {
+  color: #f75679;
+  transition: all 0.3s ease-in-out;
+}
+
 .login-register .login-register-wrapper form button.button {
   border: 2px solid #f75679;
   padding: 7px 16px;
   cursor: pointer;
-  margin-top: 3rem;
   font-size: 1.2rem;
   text-transform: uppercase;
   outline: none;
@@ -7871,9 +7890,10 @@ footer .footer_wrapper_down .footer_copyright p {
 }
 
 .login-register .login-register-wrapper a.reset-link {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #f75679;
   margin: 0 0 0 10px;
+  line-height: 3.8rem;
 }
 
 .login-register .login-register-wrapper a.reset-link:hover {
