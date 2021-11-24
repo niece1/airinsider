@@ -62,7 +62,7 @@
             <button type="submit" class="button">
                 Sign up
             </button>
-                <span class="proceed-social">Or proceed with social</span>
+                <span class="proceed-social">Or proceed social</span>
             </div>
         </form>
         <!-- /.Form -->
