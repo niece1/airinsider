@@ -22,14 +22,26 @@
         form {
             width: 450px;
             margin: auto;
-            @media screen and (max-width: 650px) {
+            @media screen and (max-width: 510px) {
+                width: 420px;
+            }
+            @media screen and (max-width: 480px) {
                 width: 400px;
             }
-            @media screen and(max-width: 500px) {
-                width: 300px;
+            @media screen and (max-width: 455px) {
+                width: 380px;
             }
-            @media screen and(max-width: 380px) {
-                width: 250px;
+            @media screen and (max-width: 430px) {
+                width: 360px;
+            }
+            @media screen and (max-width: 410px) {
+                width: 340px;
+            }
+            @media screen and (max-width: 390px) {
+                width: 320px;
+            }
+            @media screen and (max-width: 370px) {
+                width: 300px;
             }
             .form-group {
                 margin: 40px 0;
@@ -180,14 +192,26 @@
                     width: 200px;
                     border-bottom: 1px solid #cccccc;
                     top: 50%;
-                    @media screen and (max-width: 650px) {
+                    @media screen and (max-width: 510px) {
+                        width: 185px;
+                    }
+                    @media screen and (max-width: 480px) {
                         width: 175px;
                     }
-                    @media screen and(max-width: 500px) {
-                        width: 125px;
+                    @media screen and (max-width: 455px) {
+                        width: 165px;
                     }
-                    @media screen and(max-width: 380px) {
-                        width: 100px;
+                    @media screen and (max-width: 430px) {
+                        width: 155px;
+                    }
+                    @media screen and (max-width: 410px) {
+                        width: 145px;
+                    }
+                    @media screen and (max-width: 390px) {
+                        width: 135px;
+                    }
+                    @media screen and (max-width: 370px) {
+                        width: 125px;
                     }
                 }
                 &:after {
@@ -199,14 +223,26 @@
                     width: 200px;
                     border-bottom: 1px solid #cccccc;
                     top: 50%;
-                    @media screen and (max-width: 650px) {
+                    @media screen and (max-width: 510px) {
+                        width: 185px;
+                    }
+                    @media screen and (max-width: 480px) {
                         width: 175px;
                     }
-                    @media screen and(max-width: 500px) {
-                        width: 125px;
+                    @media screen and (max-width: 455px) {
+                        width: 165px;
                     }
-                    @media screen and(max-width: 380px) {
-                        width: 100px;
+                    @media screen and (max-width: 430px) {
+                        width: 155px;
+                    }
+                    @media screen and (max-width: 410px) {
+                        width: 145px;
+                    }
+                    @media screen and (max-width: 390px) {
+                        width: 135px;
+                    }
+                    @media screen and (max-width: 370px) {
+                        width: 125px;
                     }
                 }
             }
@@ -217,15 +253,29 @@
             display: grid;
             grid-template-columns: auto auto auto;
             grid-gap: 10px;
-            @media screen and (max-width: 650px) {
-                width: 400px;
+            @media screen and (max-width: 600px) {
                 grid-template-columns: auto;
             }
-            @media screen and(max-width: 500px) {
-                width: 300px;
+            @media screen and (max-width: 510px) {
+                width: 420px;
             }
-            @media screen and(max-width: 380px) {
-                width: 250px;
+            @media screen and (max-width: 480px) {
+                width: 400px;
+            }
+            @media screen and (max-width: 455px) {
+                width: 380px;
+            }
+            @media screen and (max-width: 430px) {
+                width: 360px;
+            }
+            @media screen and (max-width: 410px) {
+                width: 340px;
+            }
+            @media screen and (max-width: 390px) {
+                width: 320px;
+            }
+            @media screen and (max-width: 370px) {
+                width: 300px;
             }
             .social-link {
                 background-color: #f5f8fa;

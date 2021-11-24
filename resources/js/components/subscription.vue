@@ -91,13 +91,13 @@ form.input-wrapper {
             cursor: pointer;
             color: #0084ff;
             .envelope {
-                width: 2.8rem;
-                height: 2.8rem;
+                width: 2.6rem;
+                height: 2.6rem;
             }
         }
         .disabledButton {
             cursor: not-allowed;
-            color: #4e4e4e;
+            color: #cccccc;
         }
     }
     .invalid-feedback {
