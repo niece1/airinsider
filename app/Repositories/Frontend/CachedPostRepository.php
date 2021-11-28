@@ -43,20 +43,6 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
     }
 
     /**
-     * Fetch all cached categories from the database.
-     *
-     * @return \App\Category[]
-     */
-    public function getCategories()
-    {
-        return Cache::remember(
-            'categories',
-            now()->addSeconds(config('app.cache')),
-            fn() => parent::getCategories()
-        );
-    }
-
-    /**
      * Fetch all cached tags from the database.
      *
      * @return \App\Tag[]

@@ -73,16 +73,6 @@ class PostRepository implements PostRepositoryContract
     }
 
     /**
-     * Fetch all categories from the database.
-     *
-     * @return Category[]
-     */
-    public function getCategories()
-    {
-        return Category::all();
-    }
-
-    /**
      * Fetch all tags from the database.
      *
      * @return Tag[]

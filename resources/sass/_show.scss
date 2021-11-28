@@ -56,12 +56,12 @@
             ul {
                 list-style: square inside;
                 font-size: 1.6rem;
-                color: #4e4e4e;
+                color: #000;
                 line-height: 2.6rem;
             }
             ol {
                 font-size: 1.6rem;
-                color: #4e4e4e;
+                color: #000;
                 line-height: 2.6rem;
             }
             p.photo-source {
@@ -69,7 +69,7 @@
                 font-size: 1.6rem;
                 margin: 0;
                 line-height: initial;
-                color: #000;
+                color: #4e4e4e;
             }
             p.meta {
                 color: #000;
@@ -99,7 +99,6 @@
             }
             p {              
                 line-height: 2.6rem;
-                color: #4e4e4e;
                 margin: 12px 0;
             }
             .item-line {
@@ -136,6 +135,7 @@
                     font-weight: normal;
                     padding: 0;
                     margin: 0 0 30px 0;
+                    color: #4e4e4e;
                 }
                 ul.related {
                     li {
@@ -166,6 +166,9 @@
                                     font-weight: normal;
                                     font-size: 1.3rem;
                                     padding-bottom: 4px;
+                                    @media screen and (max-width: 1220px) and (min-width: 1160px) {
+                                        padding-top: 4px;
+                                    }
                                 }
                                 &:hover {
                                     color: #0084ff;
@@ -175,27 +178,9 @@
                             small {
                                 color: #4e4e4e;
                                 font-size: 1rem;
-                            }
-                        }
-                    }
-                }
-            }
-            .category-widget {
-                margin: 30px 0;
-                h4 {
-                    font-weight: normal;
-                    margin-bottom: 20px;
-                }
-                ul.category-list {
-                    font-size: 1.6rem;
-                    li {
-                        margin: 10px 0;
-                        a {
-                            display: inline-block;
-                            font-size: 1.4rem;
-                            color: #000;
-                            &:hover {
-                                color: #f75679;
+                                @media screen and (max-width: 1220px) and (min-width: 1160px) {
+                                    display: none;
+                                }
                             }
                         }
                     }
@@ -207,6 +192,7 @@
                 h4 {
                     font-weight: normal;
                     margin-bottom: 20px;
+                    color: #4e4e4e;
                 }
                 .tag-cloud {
                     font-size: 1.6rem;

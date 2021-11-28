@@ -15,7 +15,7 @@
         top: 15px;
         right: 45px;
         cursor: pointer;
-        font-size: 6rem;
+        font-size: 4rem;
         color: #9c9c9c;
         &:hover {
             color: #f75679;
@@ -35,11 +35,11 @@
             width: 100%;
             &:after {
                 content: attr(data-text);
-                font-size: 4rem;
+                font-size: 2.3rem;
                 line-height: 0;
                 height: 0;
                 max-width: 100%;
-                border-bottom: 3px solid #f75679;
+                border-bottom: 3px solid #0084ff;
                 position: absolute;
                 left: 0;
                 bottom: 0;
@@ -56,17 +56,17 @@
                 color: #9c9c9c;
                 padding: 0;
                 padding-bottom: 5px;
-                font-size: 4rem;
+                font-size: 2.5rem;
                 overflow: hidden;
                 width: 100%;
                 &::placeholder {
                     color: #9c9c9c;
-                    font-size: 4rem;
+                    font-size: 2.5rem;
                     opacity: 1;
                 }
                 &::-webkit-input-placeholder {
                     color: #9c9c9c;
-                    font-size: 4rem;
+                    font-size: 2.5rem;
                     opacity: 1;
                 }
             }
