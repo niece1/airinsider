@@ -29,6 +29,7 @@
             }
             p {
                 font-size: 1.8rem;
+                color: #4e4e4e;
                 @media screen and (max-width: 1200px) and (min-width: 950px) {
                     font-size: 1.6rem;
                 }
@@ -350,7 +351,7 @@
                             margin: 0 10px 0 0;
                         }
                         a {
-                            color: #4e4e4e;
+                            color: #000;
                             &:hover {
                                 color: #f75679;
                                 transition: all 0.3s ease-in-out;
