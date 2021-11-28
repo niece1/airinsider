@@ -36,19 +36,4 @@
         </div>
     </div>
     <!-- /.Tag widget -->
-    
-    <!-- Category widget -->
-    <div class="category-widget">
-        <h4>Subjects</h4>
-        @foreach ($categories as $category)
-        <ul class="category-list">
-            <li>
-                <a href="{{ $category->slug }}">
-                    {{ $category->title }}
-                </a>
-            </li>
-        </ul>
-        @endforeach
-    </div>
-    <!-- /.Category widget -->
 </aside>

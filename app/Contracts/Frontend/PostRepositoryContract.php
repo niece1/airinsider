@@ -44,13 +44,6 @@ interface PostRepositoryContract
     public function getCategory($category);
 
     /**
-     * Fetch all categories from the database
-     *
-     * @return \App\Category[]
-     */
-    public function getCategories();
-
-    /**
      * Fetch all posts associated with specified category.
      *
      * @param  \App\Category  $category

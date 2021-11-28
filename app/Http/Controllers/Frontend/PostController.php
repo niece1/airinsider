@@ -51,11 +51,10 @@ class PostController extends Controller
     {
         $post = $this->postRepository->getOne($slug);
         $related = $this->postRepository->getRelated($post);
-        $categories = $this->postRepository->getCategories();
         $tags = $this->postRepository->getTags();
         $viewCountService->postViewCount($post);
 
-        return view('frontend.post.show', compact('post', 'categories', 'tags', 'related'));
+        return view('frontend.post.show', compact('post', 'tags', 'related'));
     }
 
     /**
