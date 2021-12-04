@@ -310,7 +310,7 @@
                 }
             }
         </script>
-        <script src="{{ asset('js/jquery.min.js') }}" defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="{{ asset('js/lazyload.min.js') }}" defer></script>
         @stack('scripts')
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.1.1/gsap.min.js"></script>
