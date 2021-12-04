@@ -67,8 +67,8 @@
 @push('scripts')
 
 <!-- Scripts -->
-<script type="text/javascript" src="{{ asset('js/sticky-kit.min.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/sticky-kit_users.js') }}"></script>
+<script type="text/javascript" src="{{ asset('js/sticky-kit.min.js') }}" defer></script>
+<script type="text/javascript" src="{{ asset('js/sticky-kit_users.js') }}" defer></script>
 <!-- Go to www.addthis.com/dashboard to customize your tools -->
 <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5de3d2128881893a"></script>
 <!-- /.Scripts -->
