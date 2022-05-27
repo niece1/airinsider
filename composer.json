@@ -21,6 +21,7 @@
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.0",
         "league/flysystem-aws-s3-v3": "^1.0",
+        "lukeraymonddowning/honey": "^0.4.0",
         "maatwebsite/excel": "^3.1.31",
         "mews/purifier": "^3.3.5",
         "predis/predis": "^1.1.7",

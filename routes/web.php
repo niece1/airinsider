@@ -47,7 +47,7 @@ Route::get('tags/{tag}', [PostController::class, 'postByTag'])->name('posts.by.t
 Route::get('users/{user}', [PostController::class, 'postByUser'])->name('posts.by.user');
 //Contact
 Route::get('contact', [ContactController::class, 'create'])->name('contact');
-Route::post('contact', [ContactController::class, 'store']);
+Route::post('contact', [ContactController::class, 'store'])->middleware(['honey']);
 //About
 Route::get('about', AboutController::class)->name('about');
 //Comments

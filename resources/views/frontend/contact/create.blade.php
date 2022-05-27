@@ -55,7 +55,7 @@
                         </small>
                     </div>
                 </div>
-                @captcha
+                <x-honey recaptcha/>
                 <button type="submit" class="button">Send</button>
                 @csrf
             </form>
