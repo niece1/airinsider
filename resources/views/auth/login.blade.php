@@ -44,7 +44,6 @@
                     <span class="checkmark"></span>
                 </label>
             </div>
-            @captcha
             <div class="submit-button">
                 <button type="submit" class="button">
                     Sign in
