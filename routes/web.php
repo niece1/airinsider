@@ -25,7 +25,7 @@ use App\Http\Controllers\Auth\ForgotPasswordController;
 use App\Http\Controllers\Auth\ResetPasswordController;
 
 //Auth
-Route::post('register', [RegisterController::class, 'register']);
+Route::post('register', [RegisterController::class, 'register'])->middleware(['honey']);
 Route::get('register', [RegisterController::class, 'showRegistrationForm'])->name('register');
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::post('login', [LoginController::class, 'login']);
