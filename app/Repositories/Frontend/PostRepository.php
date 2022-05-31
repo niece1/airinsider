@@ -168,7 +168,7 @@ class PostRepository implements PostRepositoryContract
     public function getRandom()
     {
         return Post::with(['photo', 'category', 'user', 'comments', 'comments.replies'])
-                ->whereDate('publish_time', '>', Carbon::now()->sub(30, 'days'))
+                ->whereDate('publish_time', '>', Carbon::now()->sub(365, 'days'))
                 ->where('published', 1)
                 ->inRandomOrder()
                 ->limit(5)
