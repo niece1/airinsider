@@ -88,6 +88,6 @@ class RoleTest extends TestCase
         $this->assertCount(2, Role::all());
         $this->delete('/dashboard/roles/' . $role->id);
         $this->assertCount(1, Role::all());
-        $this->assertDeleted($role);
+        $this->assertModelMissing($role);
     }
 }

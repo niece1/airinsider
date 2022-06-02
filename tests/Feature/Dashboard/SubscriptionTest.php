@@ -23,6 +23,6 @@ class SubscriptionTest extends TestCase
         $subscription = Subscription::first();
         $this->delete('/dashboard/subscriptions/' . $subscription->id);
         $this->assertCount(0, Subscription::all());
-        $this->assertDeleted($subscription);
+        $this->assertModelMissing($subscription);
     }
 }

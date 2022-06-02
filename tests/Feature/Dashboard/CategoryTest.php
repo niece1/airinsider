@@ -86,6 +86,6 @@ class CategoryTest extends TestCase
         $this->assertCount(1, Category::all());
         $this->delete('/dashboard/categories/' . $category->id);
         $this->assertCount(0, Category::all());
-        $this->assertDeleted($category);
+        $this->assertModelMissing($category);
     }
 }
