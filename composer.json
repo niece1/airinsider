@@ -9,8 +9,8 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
-        "aws/aws-sdk-php": "^3.199",
-        "bugsnag/bugsnag-laravel": "^2.22.1",
+        "aws/aws-sdk-php": "^3.224",
+        "bugsnag/bugsnag-laravel": "^2.24",
         "fruitcake/laravel-cors": "^2.0.5",
         "guzzlehttp/guzzle": "^7.2",
         "laravel/framework": "^9.11",
