@@ -80,6 +80,6 @@ class TagTest extends TestCase
         $this->assertCount(1, Tag::all());
         $this->delete('/dashboard/tags/' . $tag->id);
         $this->assertCount(0, Tag::all());
-        $this->assertDeleted($tag);
+        $this->assertModelMissing($tag);
     }
 }

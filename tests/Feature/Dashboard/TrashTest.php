@@ -25,7 +25,7 @@ class TrashTest extends TestCase
     {
         $post = Post::factory()->create();
         $post->forceDelete('/dashboard/posts/' . $post->id);
-        $this->assertDeleted($post);
+        $this->assertModelMissing($post);
     }
 
     /** @test */
