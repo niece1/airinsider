@@ -5113,16 +5113,16 @@
         },
         {
             "name": "spatie/laravel-cookie-consent",
-            "version": "3.2.1",
+            "version": "3.2.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-cookie-consent.git",
-                "reference": "e0f1fe0b79617fa30a550cfa17f570b37302cc73"
+                "reference": "c7a9d87397bce8b1834d90fb5124bea036ff7358"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-cookie-consent/zipball/e0f1fe0b79617fa30a550cfa17f570b37302cc73",
-                "reference": "e0f1fe0b79617fa30a550cfa17f570b37302cc73",
+                "url": "https://api.github.com/repos/spatie/laravel-cookie-consent/zipball/c7a9d87397bce8b1834d90fb5124bea036ff7358",
+                "reference": "c7a9d87397bce8b1834d90fb5124bea036ff7358",
                 "shasum": ""
             },
             "require": {
@@ -5178,7 +5178,7 @@
                 "spatie"
             ],
             "support": {
-                "source": "https://github.com/spatie/laravel-cookie-consent/tree/3.2.1"
+                "source": "https://github.com/spatie/laravel-cookie-consent/tree/3.2.2"
             },
             "funding": [
                 {
@@ -5186,7 +5186,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2022-04-22T08:16:57+00:00"
+            "time": "2022-06-03T08:33:36+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",
