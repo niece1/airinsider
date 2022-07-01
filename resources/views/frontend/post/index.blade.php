@@ -2,6 +2,8 @@
 
 @section('title', 'Airways Media - Aviation news')
 
+@section('meta', 'An authoritative source of aviation news and international travel affairs from the experts')
+
 @section('content')
 
 <!-- Jumbotron section -->
@@ -11,7 +13,7 @@
         <div class="content">            
             <h2>{{ $featured->title }}</h2>
             <p>
-                {{ $featured->featured_description }}{{ $featured->featured_three_dots }}
+                {{ $featured->featured_excerpt }}{{ $featured->featured_three_dots }}
             </p>
             <a href="{{ route('post.show', [$featured->slug]) }}" class="button">
                 Read more
@@ -52,7 +54,7 @@
                     <h2>{{ $post_item->title }}</h2>
                 </a>
                 <p class="item-blog-text">
-                    {{ $post_item->description }}{{ $post_item->three_dots }}
+                    {{ $post_item->excerpt }}{{ $post_item->three_dots }}
                 </p>
                 @if ($post_item->user)
                 <p class="item-blog-author">

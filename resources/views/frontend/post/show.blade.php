@@ -2,6 +2,8 @@
 
 @section('title', $post->title)
 
+@section('meta', $post->description)
+
 @section('content')
 
 <!-- Title jumbotron -->
@@ -40,7 +42,8 @@
                 @endif
             </p>
             <h1>{{ $post->title }}</h1>
-            <p>{!! clean($post->body) !!}</p>
+            <p>{{ $post->description }}</p>
+            {!! clean($post->body) !!}
             <div class="item-line"></div>
             <!-- Go to www.addthis.com/dashboard to customize your tools -->
             <div class="addthis_inline_share_toolbox add-this-position"></div>

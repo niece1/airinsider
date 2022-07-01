@@ -16,6 +16,7 @@ class DatabaseTest extends TestCase
         $this->assertTrue(Schema::hasColumns('posts', [
             'id',
             'title',
+            'description',
             'body',
             'slug',
             'published',

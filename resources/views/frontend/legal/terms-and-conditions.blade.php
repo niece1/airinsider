@@ -2,6 +2,8 @@
 
 @section('title', 'Terms and conditions')
 
+@section('meta', 'Airways Media - Terms and conditions')
+
 @section('content')
 
 <!-- Title jumbotron -->

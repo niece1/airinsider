@@ -26,6 +26,7 @@ class StorePostRequest extends FormRequest
         return [
             'title' => 'bail|required|min:2|unique:posts,title',
             'body' => 'required',
+            'description' => 'required|max:500',
             'time_to_read' => 'required',
             'photo_source' => 'max:200',
             'published' => '',

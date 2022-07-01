@@ -60,6 +60,16 @@ class PostTest extends TestCase
                 ->assertSessionHasErrors('title');
         $this->assertCount(0, Post::all());
     }
+    
+    /** @test */
+    public function validationDescriptionIsRequired()
+    {
+        $this->post('/dashboard/posts', array_merge($this->createPostAttributes(), [
+            'description' => '',
+        ]))
+                ->assertSessionHasErrors('description');
+        $this->assertCount(0, Post::all());
+    }
 
     /** @test */
     public function validationBodyIsRequired()
@@ -132,6 +142,7 @@ class PostTest extends TestCase
                 ->assertRedirect('/dashboard/posts/');
         $this->assertEquals('New Title', Post::first()->title);
         $this->assertEquals('New body', Post::first()->body);
+        $this->assertEquals('New description', Post::first()->description);
         $this->assertEquals(session('success_message'), 'Updated Successfully!');
         $this->assertDatabaseMissing('posts', $post->toArray());
         $this->assertDatabaseHas('posts', ['title' => 'New Title']);
@@ -156,6 +167,7 @@ class PostTest extends TestCase
     {
         return [
             'title' => 'New Title',
+            'description' => 'New description',
             'body' => 'New body',
             'time_to_read' => 1,
             'category_id' => 1,

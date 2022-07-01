@@ -32,6 +32,14 @@
                         <td>{{ $post_item->title }}</td>
                     </tr>
                     <tr>
+                        <td>Description</td>
+                        <td>{{ $post_item->description }}</td>
+                    </tr>								
+                    <tr>
+                        <td>Body</td>
+                        <td class="table-body">{!! clean($post_item->body) !!}</td>						
+                    </tr>
+                    <tr>
                         <td>Image</td>
                         <td>
                             @if ($post_item->photo)
@@ -42,10 +50,6 @@
                     <tr>
                         <td>Photo source</td>
                         <td>{{ $post_item->photo_source }}</td>
-                    </tr>									
-                    <tr>
-                        <td>Body</td>
-                        <td class="table-body">{!! clean($post_item->body) !!}</td>						
                     </tr>
                     <tr>
                         <td>Slug</td>
