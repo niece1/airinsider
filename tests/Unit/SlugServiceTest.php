@@ -19,6 +19,7 @@ class SlugServiceTest extends TestCase
         Category::factory()->create();
         $this->post('/dashboard/posts', [
             'title' => 'New Title',
+            'description' => 'New description',
             'body' => 'New body',
             'time_to_read' => 1,
             'category_id' => 1,

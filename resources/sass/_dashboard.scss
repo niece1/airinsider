@@ -121,16 +121,22 @@
                     td.table-body {
                         p {              
                             line-height: 2.6rem;
-                            margin: 10px 0;
+                            margin: 7px 0;
                         }
                         h1,h2,h3,h4,h5,h6 {
                             font-weight: normal;
+                            padding: 10px 0;
                         }
                         ul {
                             list-style: square inside;
+                            margin: 10px 0;
                         }
                         ol {
                             font-size: 1.6rem;
+                            margin: 10px 0;
+                        }
+                        table {
+                            margin: 10px 0;
                         }
                     }
                 }
@@ -221,6 +227,21 @@
                 display: block;
                 font-size: 1.6rem;
                 width: 100%;
+                padding: 10px 5px;
+                border: 2px solid #e3e6f0;
+                border-radius: 5px;
+                outline: 0;
+                &:focus {
+                    border-color: #bac8f3;
+                    box-shadow: 0 0 0 0.3rem rgba(78, 115, 223, 0.25);
+                    outline: 0;
+                }
+            }
+            textarea {
+                display: block;
+                max-width: 100%;
+                min-width: 100%;
+                font-size: 1.6rem;
                 padding: 10px 5px;
                 border: 2px solid #e3e6f0;
                 border-radius: 5px;

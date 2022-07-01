@@ -25,6 +25,7 @@ class PostFactory extends Factory
     {
         return [
             'title' => $this->faker->unique()->text(20),
+            'description' => $this->faker->text(100),
             'body' => $this->faker->text(7000),
             'slug' => $this->faker->text(20),
             'published' => true,

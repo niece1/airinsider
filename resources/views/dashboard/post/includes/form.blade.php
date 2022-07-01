@@ -4,8 +4,13 @@
     <div class="form-error">{{ $errors->first('title') }}</div>
 </div>
 <div class="form-wrapper">
+    <label for="description">Description</label>
+    <textarea name="description" >{{ old('description') ?? $post->description }}</textarea>
+    <div class="form-error">{{ $errors->first('description') }}</div>
+</div>
+<div class="form-wrapper">
     <label for="body">Body</label>
-    <textarea name="body" id="mytextarea">{{ old('body') ?? $post->body }}</textarea>
+    <textarea name="body">{{ old('body') ?? $post->body }}</textarea>
     <div class="form-error">{{ $errors->first('body') }}</div>
 </div>
 <div class="form-wrapper">

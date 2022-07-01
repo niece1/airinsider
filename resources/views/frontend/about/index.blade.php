@@ -2,6 +2,8 @@
 
 @section('title', 'About')
 
+@section('meta', 'Airways Media - Who we are')
+
 @section('content')
 
 <!-- Title jumbotron -->

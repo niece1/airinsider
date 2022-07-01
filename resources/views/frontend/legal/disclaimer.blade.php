@@ -2,6 +2,8 @@
 
 @section('title', 'Disclaimer')
 
+@section('meta', 'Airways Media - Disclaimer')
+
 @section('content')
 
 <!-- Title jumbotron -->

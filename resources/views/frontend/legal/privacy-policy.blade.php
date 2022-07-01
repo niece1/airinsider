@@ -2,6 +2,8 @@
 
 @section('title', 'Privacy policy')
 
+@section('meta', 'Airways Media - Privacy policy')
+
 @section('content')
 
 <!-- Title jumbotron -->

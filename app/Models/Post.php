@@ -23,6 +23,7 @@ class Post extends Model
      */
     protected $fillable = [
         'title',
+        'description',
         'body',
         'slug',
         'user_id',
@@ -118,9 +119,9 @@ class Post extends Model
      *
      * @return string
      */
-    public function getDescriptionAttribute()
+    public function getExcerptAttribute()
     {
-        return $this->body ? substr(strip_tags(html_entity_decode($this->body)), 0, 95) : null;
+        return $this->description ? substr(strip_tags(html_entity_decode($this->description)), 0, 95) : null;
     }
 
     /**
@@ -128,9 +129,9 @@ class Post extends Model
      *
      * @return string
      */
-    public function getFeaturedDescriptionAttribute()
+    public function getFeaturedExcerptAttribute()
     {
-        return $this->body ? substr(strip_tags(html_entity_decode($this->body)), 0, 185) : null;
+        return $this->description ? substr(strip_tags(html_entity_decode($this->description)), 0, 185) : null;
     }
 
     /**
@@ -140,7 +141,7 @@ class Post extends Model
      */
     public function getThreeDotsAttribute()
     {
-        return strlen(strip_tags(html_entity_decode($this->body))) > 85 ? " ..." : "";
+        return strlen(strip_tags(html_entity_decode($this->description))) > 85 ? " ..." : "";
     }
 
     /**
@@ -150,7 +151,7 @@ class Post extends Model
      */
     public function getFeaturedThreeDotsAttribute()
     {
-        return strlen(strip_tags(html_entity_decode($this->body))) > 185 ? " ..." : "";
+        return strlen(strip_tags(html_entity_decode($this->description))) > 185 ? " ..." : "";
     }
 
     /**

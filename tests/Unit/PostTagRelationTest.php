@@ -25,6 +25,7 @@ class PostTagRelationTest extends TestCase
         $this->post('/dashboard/posts', [
             'title' => 'New Title',
             'body' => 'New body',
+            'description' => 'New description',
             'time_to_read' => 1,
             'category_id' => 1,
             'tag_id' => $tag->id,

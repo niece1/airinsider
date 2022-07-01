@@ -64,6 +64,24 @@
                 color: #000;
                 line-height: 2.6rem;
             }
+            table {
+                font-size: 1.6rem;
+                color: #000;
+                border-collapse: collapse;
+                width: 100%;
+                th {
+                    border: 1px solid #e3e6f0;
+                    border-top: 2px solid #e3e6f0;
+                    border-bottom: 3px solid #e3e6f0;
+                    text-align: left;
+                    padding: 15px;
+                }
+                td {
+                    border: 1px solid #e3e6f0;
+                    text-align: left;
+                    padding: 15px;
+                }
+            }
             p.photo-source {
                 text-transform: initial;
                 font-size: 1.6rem;
