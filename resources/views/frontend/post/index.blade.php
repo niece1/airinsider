@@ -139,7 +139,7 @@
                         <h2>{{ $post_item->title }}</h2>
                     </a>
                     <p class="item-blog-text">
-                        {{ $post_item->description }}{{ $post_item->three_dots }}
+                        {{ $post_item->excerpt }}{{ $post_item->three_dots }}
                     </p>
                     @if ($post_item->user)
                     <p class="item-blog-author">
