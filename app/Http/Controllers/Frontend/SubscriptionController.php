@@ -2,24 +2,12 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Requests\SubscriptionRequest;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Repositories\Frontend\SubscriptionRepository;
 
 class SubscriptionController extends Controller
 {
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\SubscriptionRequest  $request
-     * @return void
-     */
-    public function store(SubscriptionRequest $request)
-    {
-        SubscriptionRepository::subscribe($request);
-    }
-
     /**
      * Unsubscribe from newsletter mail.
      *
