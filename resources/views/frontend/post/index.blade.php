@@ -101,21 +101,9 @@
 </section>
 <!-- /.Pagination section -->
 
-<!-- Newsletter widget -->
-<section class="newsletter">
-    <div class="newsletter-wrapper">
-        <div class="newsletter-info">
-            <h3>Stay in the know</h3>
-            <p>Get updates on industry events and latest news: subscribe to our newsletters.</p>
-            <p>Issued weekly.</p>
-        </div>
-        <div class="newsletter-widget">
-            <!-- Vue component -->
-            <subscription></subscription>
-        </div>
-    </div>
-</section>
-<!-- /.Newsletter widget -->
+<!-- Newsletter livewire component widget -->
+<livewire:subscriptions />
+<!-- /.Newsletter livewire component widget -->
 
 <!-- Random posts slider -->
 <section class="slider">

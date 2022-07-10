@@ -20,6 +20,7 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^3.4.6",
         "league/flysystem-aws-s3-v3": "^3.0",
+        "livewire/livewire": "^2.10",
         "lukeraymonddowning/honey": "^0.4.0",
         "maatwebsite/excel": "^3.1.40",
         "mews/purifier": "^3.3.7",

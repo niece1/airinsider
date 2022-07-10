@@ -3,43 +3,45 @@
 namespace Tests\Feature\Frontend;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Models\Subscription;
+use Livewire\Livewire;
+use App\Http\Livewire\Subscriptions;
 use Tests\TestCase;
 
 class SubscriptionTest extends TestCase
 {
     use RefreshDatabase;
+    
+    /** @test */
+    public function mainPageContainsSubscriptionFormLivewireComponent()
+    {
+        $this->get('/')
+            ->assertSeeLivewire('subscriptions');
+    }
 
     /** @test */
     public function aUserCanSubscribeForTheNewsletterEmail()
     {
-        $this->post('/subscriptions', [
-            'email' => 'airinsider@gmail.com',
-        ]);
-        $this->assertCount(1, Subscription::all());
+        Livewire::test(Subscriptions::class)
+            ->set('email', 'airinsider@gmail.com')
+            ->call('store')
+            ->assertSet('email', 'airinsider@gmail.com');
     }
 
     /** @test */
     public function toSubscribeYouNeedToEnterAValidEmail()
     {
-        $this->post('/subscriptions', [
-            'email' => 'airinsider.gmail.com',
-        ])
-                ->assertSessionHas('errors')
-                ->assertStatus(302);
-        $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['email'][0], 'The email must be a valid email address.');
+        Livewire::test(Subscriptions::class)
+            ->set('email', 'airinsider')
+            ->call('store')
+            ->assertHasErrors(['email' => 'email']);
     }
 
     /** @test */
     public function toSubscribeAnEmailFieldIsRequired()
     {
-        $this->post('/subscriptions', [
-            'email' => '',
-        ])
-                ->assertSessionHas('errors')
-                ->assertStatus(302);
-        $messages = session('errors')->getMessages();
-        $this->assertEquals($messages['email'][0], 'The email field is required.');
+        Livewire::test(Subscriptions::class)
+            ->set('email', '')
+            ->call('store')
+            ->assertHasErrors(['email' => 'required']);
     }
 }

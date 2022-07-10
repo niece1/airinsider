@@ -56,8 +56,6 @@ Route::get('comments/{comment}/replies', [CommentController::class, 'showReplies
 Route::post('comments/{post}', [CommentController::class, 'store'])->middleware(['auth']);
 //Likes
 Route::post('likes/{entityId}/{type}', [LikeController::class, 'like'])->middleware(['auth']);
-//Subscription vue component
-Route::post('subscriptions', [SubscriptionController::class, 'store']);
 //Displays unsubscribe redirect page when you click unsubscribe link that present in every newsletter email
 Route::get('unsubscribe/{remember_token}', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe');
 //Delete email from subscription list via link in newsletter email
