@@ -254,11 +254,6 @@
                                 </form>
                             </li>
                             @endauth
-                            <li>
-                                <a href="javascript:void(0)" style="cursor: not-allowed;">
-                                    <span>Search</span>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                     <!--Popular posts-->
