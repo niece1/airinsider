@@ -11,17 +11,17 @@ use Lukeraymonddowning\Honey\Traits\WithHoney;
 class Subscriptions extends Component
 {
     use WithHoney;
-    
+
     /**
      * Input field in subscriptions component.
      */
     public $email;
-    
+
     /**
      * Checkbox boolean field.
      */
     public $confirmTerms;
-    
+
     /**
      * Display subscriptions component.
      *
