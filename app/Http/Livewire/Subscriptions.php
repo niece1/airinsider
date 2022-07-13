@@ -12,10 +12,21 @@ class Subscriptions extends Component
 {
     use WithHoney;
 
+    /**
+     * Input field in subscriptions component.
+     */
     public $email;
 
+    /**
+     * Checkbox boolean field.
+     */
     public $confirmTerms;
 
+    /**
+     * Display subscriptions component.
+     *
+     * @return view livewire component
+     */
     public function render()
     {
         return view('livewire.subscriptions');
