@@ -52,16 +52,16 @@
                         border: none;
                         background: transparent;
                         outline: none;
-                        cursor: pointer;
-                        color: #0084ff;
+                        cursor: not-allowed;
+                        color: #cccccc;
                         .envelope {
                             width: 2.6rem;
                             height: 2.6rem;
                         }
                     }
-                    .disabledButton {
-                        cursor: not-allowed;
-                        color: #cccccc;
+                    .activeButton {
+                        cursor: pointer;
+                        color: #0084ff;
                     }
                 }
                 .invalid-feedback {
