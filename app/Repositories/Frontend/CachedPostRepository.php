@@ -20,11 +20,12 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
      */
     public function getFeatured()
     {
-        return Cache::remember(
-            'post_featured',
-            now()->addSeconds(config('app.cache')),
-            fn() => parent::getFeatured()
-        );
+        return Cache::tags('posts')
+                ->remember(
+                    'post_featured',
+                    now()->addSeconds(config('app.cache')),
+                    fn() => parent::getFeatured()
+                );
     }
 
     /**
@@ -35,11 +36,12 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
      */
     public function getAll($featured)
     {
-        return Cache::remember(
-            'post_home_page',
-            now()->addSeconds(config('app.cache')),
-            fn() => parent::getAll($featured)
-        );
+        return Cache::tags('posts')
+                ->remember(
+                    'post_home_page_' . request('page', 1),
+                    now()->addSeconds(config('app.cache')),
+                    fn() => parent::getAll($featured)
+                );
     }
 
     /**
