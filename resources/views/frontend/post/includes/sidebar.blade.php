@@ -1,6 +1,7 @@
 <aside class="sidebar">
     <!-- Related posts -->
     <div class="related-posts-widget">
+        @if (count($related))
         <h4>Read next</h4>
         @foreach ($related as $post)
         <ul class="related">
@@ -23,6 +24,9 @@
             </li>
         </ul>
         @endforeach
+        @else
+        <h4>Related coming soon...</h4>
+        @endif
     </div>
     <!-- /.Related posts -->
     

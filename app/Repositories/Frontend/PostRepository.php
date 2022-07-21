@@ -66,8 +66,9 @@ class PostRepository implements PostRepositoryContract
     public function getRelated($post)
     {
         return Post::with(['photo'])
-                ->where('category_id', $post->category_id)
                 ->where('published', 1)
+                ->where('category_id', $post->category_id)
+                ->where('id', '<>', $post->id)
                 ->limit(5)
                 ->get();
     }
