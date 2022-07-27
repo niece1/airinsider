@@ -111,7 +111,7 @@ class Post extends Model
     public function getPublishDateTimeAttribute()
     {
         setlocale(LC_TIME, config('app.locale'));
-        return is_null($this->publish_time) ? '' : strftime('%B %d, %G, %H:%M', strtotime($this->publish_time));
+        return is_null($this->publish_time) ? '' : date('F j, G:i', strtotime($this->publish_time));
     }
 
     /**

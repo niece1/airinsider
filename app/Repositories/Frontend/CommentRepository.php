@@ -21,7 +21,7 @@ class CommentRepository
      */
     public static function getAll(Post $post)
     {
-        return $post->comments()->with(['replies'])->paginate(10);
+        return $post->comments()->with(['replies', 'likes', 'replies.likes'])->paginate(10);
     }
 
     /**

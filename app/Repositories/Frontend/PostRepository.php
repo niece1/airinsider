@@ -37,7 +37,7 @@ class PostRepository implements PostRepositoryContract
      */
     public function getAll($featured)
     {
-        return Post::with(['photo', 'category', 'user', 'comments', 'comments.replies'])
+        return Post::with(['photo', 'category', 'user'])
                 ->where('published', 1)
                 ->when($featured, function ($query, $featured) {
                         return $query->where('id', '<>', $featured->id);
@@ -91,7 +91,7 @@ class PostRepository implements PostRepositoryContract
      */
     public function getAllByCategory($category)
     {
-        return Post::with(['photo', 'category', 'user', 'comments', 'comments.replies'])
+        return Post::with(['photo', 'category', 'user'])
                 ->where('category_id', $category)
                 ->orderBy('publish_time', 'desc')
                 ->where('published', 1)
@@ -118,7 +118,7 @@ class PostRepository implements PostRepositoryContract
     public function getAllByTag($tag)
     {
         return Tag::find($tag)->posts()
-                ->with(['photo', 'category', 'user', 'comments', 'comments.replies'])
+                ->with(['photo', 'category', 'user'])
                 ->where('published', 1)
                 ->orderBy('publish_time', 'desc')
                 ->paginate(12);
@@ -143,7 +143,7 @@ class PostRepository implements PostRepositoryContract
      */
     public function getAllByUser($user)
     {
-        return Post::with(['photo', 'user', 'category', 'comments', 'comments.replies'])
+        return Post::with(['photo', 'user', 'category'])
                 ->where('user_id', $user)
                 ->where('published', 1)
                 ->orderBy('publish_time', 'desc')
@@ -168,7 +168,7 @@ class PostRepository implements PostRepositoryContract
      */
     public function getRandom()
     {
-        return Post::with(['photo', 'category', 'user', 'comments', 'comments.replies'])
+        return Post::with(['photo', 'category', 'user'])
                 ->whereDate('publish_time', '>', Carbon::now()->sub(365, 'days'))
                 ->where('published', 1)
                 ->inRandomOrder()
