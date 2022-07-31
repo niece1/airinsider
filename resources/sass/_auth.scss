@@ -247,15 +247,9 @@
                 }
             }
         }
-        .social-login {
+        .social-auth {
             margin: 40px auto 0 auto;
             width: 450px;
-            display: grid;
-            grid-template-columns: auto auto auto;
-            grid-gap: 10px;
-            @media screen and (max-width: 600px) {
-                grid-template-columns: auto;
-            }
             @media screen and (max-width: 510px) {
                 width: 420px;
             }
@@ -277,15 +271,23 @@
             @media screen and (max-width: 370px) {
                 width: 300px;
             }
-            .social-link {
+            a.social-link {
                 background-color: #f5f8fa;
                 border-radius: 3px;
-                padding: 10px 0;
+                padding: 14px 0;
                 color: #3d3d4e;
                 font-size: 1.2rem;
+                width: 100%;
+                display: block;
+                margin: 10px 0;
+                text-align: center;
+                position: relative;
                 i {
                     color: #000;
-                    margin: 0 5px 0 0;
+                    top: 15px;
+                    left: 20px;
+                    position: absolute;
+                    font-size: 16px;
                 }
                 i#facebook {
                     color: #0075fb;

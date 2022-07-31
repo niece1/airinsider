@@ -7,9 +7,6 @@
             </div>
             <button class="button" @click="addComment">Add comment</button>
         </div>
-        <div v-else>
-            <p class="auth-condition">Sign in to comment</p>
-        </div>
         <!-- Comment Vue Component -->
         <comment v-for="comment in comments.data" :key="comment.id" :comment="comment" :post="post"></comment>
         <div class="more-comments">
@@ -76,10 +73,6 @@ export default {
 </script>
 
 <style scoped>
-.comments p.auth-condition {
-    color: #f75679;
-}
-
 .comments .comments-form textarea {
     border: none;
     border-bottom: 1px solid #000;
@@ -111,7 +104,7 @@ export default {
     background-color: transparent;
     color: #000;
     outline: none;
-    margin: 10px 0 20px 0;
+    margin: 10px 0;
 }
 
 .comments .comments-form button.button:hover {

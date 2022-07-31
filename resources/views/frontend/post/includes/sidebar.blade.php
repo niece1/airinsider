@@ -12,6 +12,7 @@
                         <img class="lazyload"
                             src="data:image/gif;base64,R0lGODlhAgABAIAAAP///wAAACH5BAEAAAEALAAAAAACAAEAAAICTAoAOw=="
                             data-src="{{ asset('storage/' . $post->photo->path) }}" alt="Photo">
+                        <div class="image-overlay"></div>
                     </a>
                 </div>
                 @endif
@@ -35,7 +36,7 @@
         <h4>Read by tags</h4>
         <div class="tag-cloud">
             @foreach ($tags as $tag)
-            <a href="{{ $tag->slug }}">{{ $tag->title }}</a>
+            <a href="{{ $tag->slug }}">#{{ lcfirst($tag->title) }}</a>
             @endforeach
         </div>
     </div>

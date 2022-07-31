@@ -16,12 +16,12 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if ($this->app->environment('local', 'testing')) {
+        if ($this->app->environment('local', 'testing', 'production')) {
             $this->app->bind(PostRepositoryContract::class, fn () => new PostRepository());
         }
-        if ($this->app->environment('production')) {
+        /*if ($this->app->environment('production')) {
             $this->app->bind(PostRepositoryContract::class, fn () => new CachedPostRepository());
-        }
+        }*/
     }
 
     /**
@@ -31,8 +31,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        if ($this->app->environment('production')) {
-            $this->app['request']->server->set('HTTPS', 'on');
-        }
+        //
     }
 }

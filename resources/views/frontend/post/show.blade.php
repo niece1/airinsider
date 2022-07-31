@@ -45,15 +45,22 @@
             <p>{{ $post->description }}</p>
             {!! clean($post->body) !!}
             <div class="item-line"></div>
-            <!-- Go to www.addthis.com/dashboard to customize your tools -->
-            <div class="addthis_inline_share_toolbox add-this-position"></div>
-            <p class="meta-right">
-            <!-- Likes Vue Component -->
-            <likes :default_likes="{{ $post->likes }}" :entity_id="{{ $post->id }}" 
-                   :entity_owner="{{ $post->user_id }}">
-            </likes>
-            </p>
-
+            <div class="meta-bottom">
+                <div class="post-tags">
+                    @foreach ($post->tags as $tag)
+                    <a href="{{ $tag->slug }}" class="button">#{{ lcfirst($tag->title) }}</a>
+                    @endforeach
+                </div>
+                <div class="votes">
+                    <!-- Likes Vue Component -->
+                    <likes :default_likes="{{ $post->likes }}" :entity_id="{{ $post->id }}" 
+                           :entity_owner="{{ $post->user_id }}">
+                    </likes>
+                </div>
+            </div>
+            @guest
+            <a href="{{ route('login') }}" class="auth-condition">Sign in to comment</a>
+            @endguest
             <!-- Comments Vue Component -->
             <comments :post="{{ $post }}"></comments>
         </div>
@@ -72,8 +79,6 @@
 <!-- Scripts -->
 <script type="text/javascript" src="{{ asset('js/sticky-kit.min.js') }}" defer></script>
 <script type="text/javascript" src="{{ asset('js/sticky-kit_users.js') }}" defer></script>
-<!-- Go to www.addthis.com/dashboard to customize your tools -->
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5de3d2128881893a"></script>
 <!-- /.Scripts -->
 
 @endpush

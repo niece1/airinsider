@@ -27,9 +27,9 @@ class EventServiceProvider extends ServiceProvider
      *
      * @var array
      */
-    protected $observers = [
+    /*protected $observers = [
         Post::class => [PostObserver::class],
-    ];
+    ];*/
 
     /**
      * Register any events for your application.

@@ -64,7 +64,7 @@
         <!-- /.Form divider -->
         
         <!-- Social login -->
-        <div class="social-login">
+        <div class="social-auth">
             <a href="{{ url('login/facebook') }}" class="social-link">
                 <i class="fab fa-facebook" id="facebook"></i>
                 Sign in with Facebook
