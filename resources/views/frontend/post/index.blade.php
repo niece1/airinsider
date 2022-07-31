@@ -20,11 +20,12 @@
             </a>            
         </div>
         @if ($featured->photo)
-        <div class="photo">
+        <div class="image-holder">
             <a href="{{ route('post.show', [$featured->slug]) }}">
                 <img class="lazyload" 
                     src="data:image/gif;base64,R0lGODlhAgABAIAAAP///wAAACH5BAEAAAEALAAAAAACAAEAAAICTAoAOw=="
                     data-src="{{ asset('storage/' . $featured->photo->path) }}" alt="News">
+                <div class="image-overlay"></div>
             </a>
         </div>
         @endif        

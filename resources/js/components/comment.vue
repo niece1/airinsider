@@ -88,6 +88,9 @@ export default {
 <style scoped>
 .comment {
     width: 100%;
+}
+
+.comment .comment-itself {
     margin: 30px 0;
 }
 

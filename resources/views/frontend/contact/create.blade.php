@@ -23,9 +23,9 @@
                 We are here to answer any question related to our subject or help you.
             </p>
             <h3>social</h3>
-            <p class="contact-social">
-                <a href="#">facebook</a>
-                <a href="#">twitter</a>
+            <p>
+                <span class="contact-social">facebook</span>
+                <span class="contact-social">twitter</span>
             </p>
         </div>
         <div class="contact-form">
