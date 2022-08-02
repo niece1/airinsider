@@ -39,12 +39,15 @@
                         <td>{{ $post->id }}</td>
                         <td>
                             @if ($post->photo)
-                            <img src="{{ asset('storage/' . $post->photo->path) }}" height="50" width="100" alt="Photo">
+                            <img src="{{ asset('storage/' . $post->photo->path) }}" height="50" width="100"
+                                 alt="{{ $post->title }}">
                             @endif
                         </td>
                         <td>
                             @can('post_view')
-                            <a href="/dashboard/posts/{{ $post->id }}">{{ $post->title }}</a>
+                            <a href="/dashboard/posts/{{ $post->id }}" title="{{ $post->title }}">
+                                {{ $post->title }}
+                            </a>
                             @endcan
                             @cannot('post_view')
                             <p>{{ $post->title }}</p>

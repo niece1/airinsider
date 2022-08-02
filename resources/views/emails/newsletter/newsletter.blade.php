@@ -6,7 +6,7 @@
 <ul>
     <li class="item-holder">
         <a href="{{ route('post.show', [$post_item->slug]) }}">
-            <img src="{{ asset('storage/' . $post_item->photo->path) }}" alt="Photo">
+            <img src="{{ asset('storage/' . $post_item->photo->path) }}" alt="{{ $post_item->title }}">
             <h3>{{ $post_item->title }}</h3>
         </a>
     </li>

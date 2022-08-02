@@ -33,7 +33,7 @@
 @if ($post->photo)
 <div class="form-wrapper">
     <div class="post-image">	
-        <img src="{{ asset('storage/' . $post->photo->path) }}"  alt="Photo">
+        <img src="{{ asset('storage/' . $post->photo->path) }}"  alt="{{ $post->title }}">
         <div class="post-image-overlay">
             <a href="{{ route('photo.delete', ['id' => $post->photo->id]) }}" class="action-button-delete">
                 Delete

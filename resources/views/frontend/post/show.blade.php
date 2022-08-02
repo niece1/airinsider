@@ -22,7 +22,7 @@
             <div class="thumbnail">
                 <img class="lazyload"
                     src="data:image/gif;base64,R0lGODlhAgABAIAAAP///wAAACH5BAEAAAEALAAAAAACAAEAAAICTAoAOw=="
-                    data-src="{{ asset('storage/' . $post->photo->path) }}" alt="Photo">
+                    data-src="{{ asset('storage/' . $post->photo->path) }}" alt="{{ $post->title }}">
             </div>
             @if ($post->photo_source)
             <p class="photo-source">{{ $post->photo_source }}</p>
@@ -36,7 +36,7 @@
                 @endif
                 {{ $post->publish_date_time }}
                 @if ($post->user)
-                <a href="{{ $post->user->slug }}" class="show-author">
+                <a href="{{ $post->user->slug }}" class="show-author" title="Posts by {{ $post->user->name }}">
                     {{ $post->user->name }}
                 </a>
                 @endif

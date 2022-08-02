@@ -24,13 +24,13 @@
                 <a href="{{ route('post.show', [$post_item->slug]) }}">
                     <img class="lazyload"
                         src="data:image/gif;base64,R0lGODlhAgABAIAAAP///wAAACH5BAEAAAEALAAAAAACAAEAAAICTAoAOw=="
-                        data-src="{{ asset('storage/' . $post_item->photo->path) }}" alt="Photo">
+                        data-src="{{ asset('storage/' . $post_item->photo->path) }}" alt="{{ $post_item->title }}">
                     <div class="image-overlay"></div>
                 </a>
             </div>
             @endif
             <div class="item-content">
-                <a href="{{ route('post.show', [$post_item->slug]) }}">
+                <a href="{{ route('post.show', [$post_item->slug]) }}" title="{{ $post_item->title }}">
                     <h2>{{ $post_item->title }}</h2>
                 </a>
                 <p class="item-blog-text">
@@ -43,7 +43,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8
                             0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                     </svg>
-                    <a href="{{ $post_item->user->slug }}">
+                    <a href="{{ $post_item->user->slug }}" title="Posts by {{ $post_item->user->name }}">
                         {{ $post_item->user->name }}
                     </a>
                 </div>
