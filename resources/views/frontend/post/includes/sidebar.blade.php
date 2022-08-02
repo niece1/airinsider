@@ -11,13 +11,13 @@
                     <a href="{{ route('post.show', [$post->slug]) }}">
                         <img class="lazyload"
                             src="data:image/gif;base64,R0lGODlhAgABAIAAAP///wAAACH5BAEAAAEALAAAAAACAAEAAAICTAoAOw=="
-                            data-src="{{ asset('storage/' . $post->photo->path) }}" alt="Photo">
+                            data-src="{{ asset('storage/' . $post->photo->path) }}" alt="{{ $post->title }}">
                         <div class="image-overlay"></div>
                     </a>
                 </div>
                 @endif
                 <div class="post-content">
-                    <a href="{{ route('post.show', [$post->slug]) }}">
+                    <a href="{{ route('post.show', [$post->slug]) }}" title="{{ $post->title }}">
                         <h5>{{ $post->title }}</h5>
                     </a>
                     <small>{{ $post->date }}</small>

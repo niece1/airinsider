@@ -58,7 +58,7 @@ h2 {
 
 h3 {
     font-size: 14px;
-    font-weight: bold;
+    font-weight: normal;
     margin-top: 0;
     text-align: left;
 }
@@ -229,11 +229,11 @@ small {
 }
 
 a.button {
-    border: 2px solid #e71d43;
-    padding: 14px 22px 12px 22px;
+    border: 2px solid #f75679;
+    padding: 7px 16px;
     display: inline-block;
     margin: 0 0 20px 0;
-    font-size: 12px;
+    font-size: 1.2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     border-radius: 3px;

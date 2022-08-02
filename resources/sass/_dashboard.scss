@@ -123,6 +123,18 @@
                             line-height: 2.6rem;
                             margin: 7px 0;
                         }
+                        p.quote-field {
+                            background-color: #f5f8fa;
+                            padding: 20px;
+                            display: block;
+                            border-bottom-right-radius: 3px;
+                            border-top-right-radius: 3px;
+                            border-left: 5px solid #0084ff;
+                            font-style: italic;
+                        }
+                        a {
+                            color: #0084ff;
+                        }
                         h1,h2,h3,h4,h5,h6 {
                             font-weight: normal;
                             padding: 10px 0;
