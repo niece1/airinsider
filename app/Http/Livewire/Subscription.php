@@ -3,12 +3,12 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Http\Requests\SubscriptionRequest;
-use App\Models\Subscription;
+use App\Models\Subscription as SubscriptionModel;
 use Illuminate\Support\Str;
 use Lukeraymonddowning\Honey\Traits\WithHoney;
+use App\Jobs\SendSubscriptionConfirmationMailJob;
 
-class Subscriptions extends Component
+class Subscription extends Component
 {
     use WithHoney;
 
@@ -20,16 +20,24 @@ class Subscriptions extends Component
     /**
      * Checkbox boolean field.
      */
-    public $confirmTerms;
+    public $terms;
 
     /**
-     * Display subscriptions component.
+     * Validation rules.
+     */
+    protected $rules = [
+        'email' => 'required|email|unique:subscriptions,email|max:30',
+        'terms' => 'required',
+    ];
+
+    /**
+     * Display subscription component.
      *
      * @return view livewire component
      */
     public function render()
     {
-        return view('livewire.subscriptions');
+        return view('livewire.subscription');
     }
 
     /**
@@ -39,13 +47,14 @@ class Subscriptions extends Component
      */
     public function store()
     {
-        $this->validate((new SubscriptionRequest())->rules());
+        $this->validate();
         if ($this->honeyPasses()) {
-            Subscription::create([
+            $subscription = SubscriptionModel::create([
                 'email' => $this->email,
                 'remember_token' => Str::random(16)
             ]);
-            session()->flash('success', 'You are subscribed!');
+            dispatch(new SendSubscriptionConfirmationMailJob($subscription));
+            session()->flash('success', 'We just sent you a confirmation email. Proceed to confirm');
         }
     }
 }

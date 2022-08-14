@@ -1,6 +1,6 @@
 @component('mail::message')
 
-## Hello! Now, let's get to this week issue!
+# Hello! Now, let's get to this week issue!
 
 @foreach ($posts as $post_item)
 <ul>

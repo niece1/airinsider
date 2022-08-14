@@ -117,9 +117,9 @@
 </section>
 <!-- /.Pagination section -->
 
-<!-- Newsletter livewire component widget -->
-<livewire:subscriptions />
-<!-- /.Newsletter livewire component widget -->
+<!-- Subscription livewire component widget -->
+<livewire:subscription />
+<!-- /.Subscription livewire component widget -->
 
 <!-- Random posts slider -->
 <section class="slider">

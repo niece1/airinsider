@@ -34,6 +34,19 @@ a img {
     border: none;
 }
 
+a.button {
+    padding: 7px 16px;
+    display: inline-block;
+    margin: 0 0 15px 0;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 3px;
+    background-color: #f75679;
+    color: #fff;
+    text-decoration: none;
+}
+
 ul {
     list-style: none;
     padding: 0;
@@ -226,20 +239,6 @@ small {
     padding: 0;
     text-align: center;
     width: 100%;
-}
-
-a.button {
-    border: 2px solid #f75679;
-    padding: 7px 16px;
-    display: inline-block;
-    margin: 0 0 20px 0;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 3px;
-    background-color: transparent;
-    color: #000;
-    text-decoration: none;
 }
 
 /* Panels */

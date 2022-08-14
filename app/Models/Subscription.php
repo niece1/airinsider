@@ -14,5 +14,15 @@ class Subscription extends Model
      *
      * @var array
      */
-    protected $fillable = ['email', 'remember_token'];
+    protected $fillable = ['email', 'remember_token', 'subscribed'];
+
+    /**
+     * Add 'yes' if true and 'no' if false.
+     *
+     * @return string
+     */
+    public function getIfConfirmedAttribute()
+    {
+        return $this->subscribed == 0 ? 'No' : 'Yes';
+    }
 }

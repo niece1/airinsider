@@ -27,14 +27,16 @@
                 <!-- Table -->
                 <table>
                     <tr>
-                        <th>ID</th>						
-                        <th>Email</th>	
-                        <th></th>					
+                        <th>ID</th>
+                        <th>Email</th>
+                        <th>Confirmed</th>
+                        <th></th>
                     </tr>
                     @forelse ($subscriptions as $subscription)
                     <tr>
-                        <td>{{ $subscription->id }}</td>						
-                        <td>{{ $subscription->email }}</td>						
+                        <td>{{ $subscription->id }}</td>
+                        <td>{{ $subscription->email }}</td>
+                        <td>{{ $subscription->if_confirmed }}</td>
                         <td>
                             @can('subscription_delete')
                             <form action="{{ route('subscriptions.destroy', $subscription->id) }}" method="POST" onsubmit="return confirm('Delete subscription?')">
