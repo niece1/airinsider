@@ -4,7 +4,7 @@ namespace Tests\Feature\Frontend;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
-use App\Http\Livewire\Subscriptions;
+use App\Http\Livewire\Subscription;
 use Tests\TestCase;
 
 class SubscriptionTest extends TestCase
@@ -15,13 +15,13 @@ class SubscriptionTest extends TestCase
     public function mainPageContainsSubscriptionFormLivewireComponent()
     {
         $this->get('/')
-            ->assertSeeLivewire('subscriptions');
+            ->assertSeeLivewire('subscription');
     }
 
     /** @test */
     public function aUserCanSubscribeForTheNewsletterEmail()
     {
-        Livewire::test(Subscriptions::class)
+        Livewire::test(Subscription::class)
             ->set('email', 'airinsider@gmail.com')
             ->call('store')
             ->assertSet('email', 'airinsider@gmail.com');
@@ -30,7 +30,7 @@ class SubscriptionTest extends TestCase
     /** @test */
     public function toSubscribeYouNeedToEnterAValidEmail()
     {
-        Livewire::test(Subscriptions::class)
+        Livewire::test(Subscription::class)
             ->set('email', 'airinsider')
             ->call('store')
             ->assertHasErrors(['email' => 'email']);
@@ -39,7 +39,7 @@ class SubscriptionTest extends TestCase
     /** @test */
     public function toSubscribeAnEmailFieldIsRequired()
     {
-        Livewire::test(Subscriptions::class)
+        Livewire::test(Subscription::class)
             ->set('email', '')
             ->call('store')
             ->assertHasErrors(['email' => 'required']);

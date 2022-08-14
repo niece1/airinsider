@@ -56,10 +56,6 @@ Route::get('comments/{comment}/replies', [CommentController::class, 'showReplies
 Route::post('comments/{post}', [CommentController::class, 'store'])->middleware(['auth']);
 //Likes
 Route::post('likes/{entityId}/{type}', [LikeController::class, 'like'])->middleware(['auth']);
-//Displays unsubscribe redirect page when you click unsubscribe link that present in every newsletter email
-Route::get('unsubscribe/{remember_token}', [SubscriptionController::class, 'unsubscribe'])->name('unsubscribe');
-//Delete email from subscription list via link in newsletter email
-Route::get('subscription/unsubscribe', [SubscriptionController::class, 'destroy'])->name('subscription.destroy');
 //Search
 Route::get('search', [SearchController::class, 'search'])->name('search.index');
 //Legal
@@ -67,6 +63,18 @@ Route::view('privacy-policy', 'frontend.legal.privacy-policy')->name('privacy-po
 Route::view('terms-and-conditions', 'frontend.legal.terms-and-conditions')->name('terms-and-conditions');
 Route::view('disclaimer', 'frontend.legal.disclaimer')->name('disclaimer');
 Route::view('cookie-policy', 'frontend.legal.cookie-policy')->name('cookie-policy');
+
+//Subscription
+Route::group(['prefix' => 'subscription'], function () {
+    //Redirect to subscribed page by clicking confirm link in subscription-confirmation mail
+    Route::get('subscribed', [SubscriptionController::class, 'subscribed'])->name('subscribed');
+    //Redirect to unsubscribed page by clicking unsubscribe link
+    Route::get('unsubscribed', [SubscriptionController::class, 'unsubscribed'])->name('unsubscribed');
+    //Update subscribed status by clicking confirm link in subscription confirmation mail
+    Route::get('subscribe', [SubscriptionController::class, 'update'])->name('subscription.update');
+    //Delete email from subscription list via link in the newsletter mail
+    Route::get('unsubscribe', [SubscriptionController::class, 'destroy'])->name('subscription.destroy');
+});
 
 //Dashboard
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
