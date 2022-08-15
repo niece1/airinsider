@@ -4,7 +4,6 @@ namespace App\Repositories\Dashboard;
 
 use App\Models\Post;
 use App\Models\Photo;
-use Carbon\Carbon;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 
@@ -127,18 +126,5 @@ class PostRepository
             ->orWhere('body', 'like', "%$keyword%")
             ->limit(4)
             ->get();
-    }
-
-    /**
-     * Fetch posts for the last 7 days to send newsletter.
-     *
-     * @return \App\Post[]
-     */
-    public static function getForNewsletters()
-    {
-        return Post::with(['photo', 'category', 'user'])
-                ->whereDate('publish_time', '>', Carbon::now()->sub(7, 'days'))
-                ->where('published', 1)
-                ->get();
     }
 }

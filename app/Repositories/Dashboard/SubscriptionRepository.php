@@ -23,16 +23,6 @@ class SubscriptionRepository
     }
 
     /**
-     * Fetch all subscriptions from the database.
-     *
-     * @return \App\Subscription[]
-     */
-    public static function getforNewsletters()
-    {
-        return Subscription::all();
-    }
-
-    /**
      * Delete subscription instance from the database.
      *
      * @param  \App\Subscription  $subscription
