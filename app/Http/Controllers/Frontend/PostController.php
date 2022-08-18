@@ -37,7 +37,7 @@ class PostController extends Controller
         $posts = $this->postRepository->getAll($featured);
         $random_posts = $this->postRepository->getRandom();
 
-        return view('frontend.post.index', compact('featured', 'posts', 'random_posts'));
+        return view('index', compact('featured', 'posts', 'random_posts'));
     }
 
     /*
