@@ -1,0 +1,100 @@
+version: '3.7'
+        
+services:
+    php:
+        build:
+            args:
+                user: test
+                uid: 1000
+            context: .
+            dockerfile: Dockerfile
+        container_name: php
+        volumes:
+            - .:/var/www/html
+        ports:
+            - 9000:9000
+        restart: unless-stopped
+        networks:
+            - laravel
+
+    nginx:
+        image: nginx:stable-alpine
+        container_name: nginx
+        ports:
+            - 8088:80
+        volumes:
+            - .:/var/www/html:delegated
+            - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+        depends_on:
+            - php
+            - mysql
+            - redis
+            - mailhog
+        restart: unless-stopped
+        networks:
+            - laravel
+
+    mysql:
+        image: mysql:latest
+        container_name: mysql
+        ports:
+            - 4306:3306
+        volumes:
+            - ./mysql:/var/lib/mysql
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+            MYSQL_DATABASE: "${DB_DATABASE}"
+            MYSQL_USER: "${DB_USERNAME}"
+            MYSQL_PASSWORD: "${DB_PASSWORD}"
+            MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+            SERVICE_TAGS: dev
+            SERVICE_NAME: mysql
+        restart: unless-stopped
+        tty: true
+        networks:
+            - laravel
+
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        ports:
+            - 8081:80
+        environment:
+            PMA_HOST: mysql
+            MYSQL_ROOT_PASSWORD: "${DB_PASSWORD}"
+        depends_on:
+            - mysql
+        restart: always
+        networks:
+            - laravel
+
+    npm:
+        image: node:latest
+        container_name: npm
+        volumes:
+            - .:/var/www/html
+        working_dir: /var/www/html
+        entrypoint: ['npm']
+        networks:
+            - laravel
+
+    redis:
+        image: redis:alpine
+        container_name: redis
+        ports:
+            - 6378:6379
+        restart: unless-stopped
+        networks:
+            - laravel
+
+    mailhog:
+        image: mailhog/mailhog:latest
+        container_name: mailhog
+        ports:
+            - 1025:1025
+            - 8025:8025
+        networks:
+            - laravel
+
+networks:
+    laravel:

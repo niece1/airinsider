@@ -3,8 +3,7 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use App\Repositories\Dashboard\PostRepository;
-use App\Repositories\Dashboard\SubscriptionRepository;
+use App\Repositories\Frontend\NewsletterRepository;
 use App\Jobs\SendNewsletterJob;
 
 class SendNewsletter extends Command
@@ -40,8 +39,8 @@ class SendNewsletter extends Command
      */
     public function handle()
     {
-        $posts = PostRepository::getForNewsletters();
-        $subscriptions = SubscriptionRepository::getforNewsletters();
+        $posts = NewsletterRepository::getPosts();
+        $subscriptions = NewsletterRepository::getSubscriptions();
         if (!sizeof($posts) == 0 && !sizeof($subscriptions) == 0) {
             dispatch(new SendNewsletterJob($posts, $subscriptions));
             $this->info('Newsletter emails are sent!');
