@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Requests\ContactFormRequest;
-use App\Jobs\SendContactMailJob;
+use App\Http\Requests\Frontend\ContactFormRequest;
+use App\Jobs\SendContactFormMailJob;
 use App\Http\Controllers\Controller;
 
-class ContactController extends Controller
+class ContactFormController extends Controller
 {
     public function create()
     {
@@ -20,8 +20,8 @@ class ContactController extends Controller
      */
     public function store(ContactFormRequest $request)
     {
-        $data = $request->all();
-        dispatch(new SendContactMailJob($data));
+        $data = $request->getDto();
+        dispatch(new SendContactFormMailJob($data));
 
         return redirect('contact')->withSuccess('Your message send successfully.');
     }

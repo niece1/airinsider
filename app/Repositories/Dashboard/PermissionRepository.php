@@ -3,7 +3,6 @@
 namespace App\Repositories\Dashboard;
 
 use App\Models\Permission;
-use App\Http\Requests\PermissionRequest;
 
 /**
  * Permission entity database query class.
@@ -25,11 +24,11 @@ class PermissionRepository
     /**
      * Save permission instance to the database.
      *
-     * @param \App\Http\Requests\PermissionRequest  $request
+     * @param $request
      */
-    public static function save(PermissionRequest $request)
+    public static function save($request)
     {
-        Permission::create($request->all());
+        Permission::create($request->getDto());
     }
 
     /**

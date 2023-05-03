@@ -22,6 +22,7 @@ class SlugServiceTest extends TestCase
             'description' => 'New description',
             'body' => 'New body',
             'time_to_read' => 1,
+            'published' => true,
             'category_id' => 1,
             'user_id' => 1,
         ]);

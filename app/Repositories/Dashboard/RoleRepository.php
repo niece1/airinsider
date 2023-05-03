@@ -3,7 +3,6 @@
 namespace App\Repositories\Dashboard;
 
 use App\Models\Role;
-use App\Http\Requests\RoleRequest;
 
 /**
  * Role entity database query class.
@@ -25,23 +24,23 @@ class RoleRepository
     /**
      * Save role instance to the database.
      *
-     * @param \App\Http\Requests\RoleRequest  $request
+     * @param $request
      * @return \App\Role
      */
-    public static function save(RoleRequest $request)
+    public static function save($request)
     {
-        return Role::create($request->all());
+        return Role::create($request->getDto());
     }
 
     /**
      * Update role instance in the database.
      *
-     * @param \App\Http\Requests\RoleRequest  $request
-     * @param  \App\Role  $role
+     * @param $request
+     * @param \App\Role $role
      */
-    public static function update(RoleRequest $request, Role $role)
+    public static function update($request, Role $role)
     {
-        $role->update($request->all());
+        $role->update($request->getDto());
     }
 
     /**

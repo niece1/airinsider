@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Category;
 use App\Repositories\Dashboard\CategoryRepository;
-use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\Dashboard\CategoryRequest;
 use Illuminate\Support\Facades\Gate;
 
 class CategoryController extends DashboardController

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Tag;
-use App\Http\Requests\TagRequest;
+use App\Http\Requests\Dashboard\TagRequest;
 use App\Repositories\Dashboard\TagRepository;
 use Illuminate\Support\Facades\Gate;
 

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Frontend;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Dto\Frontend\Factories\CommentDataFactory;
 
 class CommentRequest extends FormRequest
 {
@@ -25,6 +26,22 @@ class CommentRequest extends FormRequest
     {
         return [
             'body' => 'bail|min:2|max:300',
+        ];
+    }
+
+    /**
+     * Get a valid array of data.
+     *
+     * @return array
+     */
+    public function getDto()
+    {
+        $factory = new CommentDataFactory();
+        $dto = $factory->createDto($this);
+
+        return [
+            'body' => $dto->getBody(),
+            'comment_id' => $dto->getCommentId()
         ];
     }
 }

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Permission;
-use App\Http\Requests\PermissionRequest;
+use App\Http\Requests\Dashboard\PermissionRequest;
 use App\Repositories\Dashboard\PermissionRepository;
 use Illuminate\Support\Facades\Gate;
 

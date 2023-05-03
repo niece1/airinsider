@@ -27,6 +27,7 @@ class PostTagRelationTest extends TestCase
             'body' => 'New body',
             'description' => 'New description',
             'time_to_read' => 1,
+            'published' => true,
             'category_id' => 1,
             'tag_id' => $tag->id,
         ]);

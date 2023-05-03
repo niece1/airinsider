@@ -3,7 +3,6 @@
 namespace App\Repositories\Dashboard;
 
 use App\Models\Tag;
-use App\Http\Requests\TagRequest;
 
 /**
  * Tag entity database query class.
@@ -25,22 +24,22 @@ class TagRepository
     /**
      * Save tag instance to the database.
      *
-     * @param \App\Http\Requests\TagRequest  $request
+     * @param $request
      */
-    public static function save(TagRequest $request)
+    public static function save($request)
     {
-        Tag::create($request->all());
+        Tag::create($request->getDto());
     }
 
     /**
      * Update tag instance in the database.
      *
-     * @param \App\Http\Requests\TagRequest  $request
+     * @param $request
      * @param  \App\Tag  $tag
      */
-    public static function update(TagRequest $request, Tag $tag)
+    public static function update($request, Tag $tag)
     {
-        $tag->update($request->all());
+        $tag->update($request->getDto());
     }
 
     /**

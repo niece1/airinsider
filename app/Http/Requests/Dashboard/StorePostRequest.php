@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Dashboard;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Dto\Dashboard\Factories\PostDataFactory;
 
 class StorePostRequest extends FormRequest
 {
@@ -32,7 +33,28 @@ class StorePostRequest extends FormRequest
             'published' => '',
             'category_id' => 'required',
             'publish_time' => 'required_if:published,1',
-            'image' => 'sometimes|file|mimes:jpg,jpeg,png,webp|max:5000',
+            'image' => 'sometimes|file|mimes:jpg,jpeg,png,webp|max:5000'
+        ];
+    }
+
+    /**
+     * Get a valid array of data.
+     *
+     * @return array
+     */
+    public function getDto()
+    {
+        $factory = new PostDataFactory();
+        $dto = $factory->createDto($this);
+
+        return [
+            'title' => $dto->getTitle(),
+            'body' => $dto->getBody(),
+            'description' => $dto->getDescription(),
+            'time_to_read' => $dto->getTimeToRead(),
+            'photo_source' => $dto->getPhotoSource(),
+            'published' => $dto->getPublished(),
+            'category_id' => $dto->getCategoryId()
         ];
     }
 }
