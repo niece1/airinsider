@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Post;
-use App\Http\Requests\StorePostRequest;
-use App\Http\Requests\UpdatePostRequest;
+use App\Http\Requests\Dashboard\StorePostRequest;
+use App\Http\Requests\Dashboard\UpdatePostRequest;
 use App\Services\SlugService;
 use App\Services\PostPhotoUploadService;
 use App\Repositories\Dashboard\PostRepository;

@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Dashboard;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Dto\Dashboard\Factories\RoleDataFactory;
 
-class PermissionRequest extends FormRequest
+class RoleRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,6 +26,21 @@ class PermissionRequest extends FormRequest
     {
         return [
             'title' => 'bail|required|min:2|max:30',
+        ];
+    }
+
+    /**
+     * Get a valid array of data.
+     *
+     * @return array
+     */
+    public function getDto(): array
+    {
+        $factory = new RoleDataFactory();
+        $dto = $factory->createDto($this);
+
+        return [
+            'title' => $dto->getTitle()
         ];
     }
 }

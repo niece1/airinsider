@@ -3,7 +3,7 @@
 use App\Http\Controllers\Frontend\PostController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\CommentController;
-use App\Http\Controllers\Frontend\ContactController;
+use App\Http\Controllers\Frontend\ContactFormController;
 use App\Http\Controllers\Frontend\LikeController;
 use App\Http\Controllers\Frontend\SearchController;
 use App\Http\Controllers\Frontend\SubscriptionController;
@@ -46,8 +46,8 @@ Route::get('categories/{category}', [PostController::class, 'postByCategory'])->
 Route::get('tags/{tag}', [PostController::class, 'postByTag'])->name('posts.by.tag');
 Route::get('users/{user}', [PostController::class, 'postByUser'])->name('posts.by.user');
 //Contact
-Route::get('contact', [ContactController::class, 'create'])->name('contact');
-Route::post('contact', [ContactController::class, 'store'])->middleware(['honey']);
+Route::get('contact', [ContactFormController::class, 'create'])->name('contact');
+Route::post('contact', [ContactFormController::class, 'store'])->middleware(['honey']);
 //About
 Route::get('about', AboutController::class)->name('about');
 //Comments

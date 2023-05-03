@@ -8,9 +8,9 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\ContactMail;
+use App\Mail\ContactFormMail;
 
-class SendContactMailJob implements ShouldQueue
+class SendContactFormMailJob implements ShouldQueue
 {
     use Dispatchable;
     use InteractsWithQueue;
@@ -42,6 +42,7 @@ class SendContactMailJob implements ShouldQueue
      */
     public function handle()
     {
-        Mail::to('vzhonchuk@gmail.com')->send(new ContactMail($this->data));
+        Mail::to(config('mail.contact_form_mail_receiver'))
+                ->send(new ContactFormMail($this->data));
     }
 }

@@ -132,5 +132,13 @@ return [
     */
 
     'log_channel' => env('MAIL_LOG_CHANNEL'),
+    
+    /*
+    |--------------------------------------------------------------------------
+    |Email address who receives contact form mail
+    |--------------------------------------------------------------------------
+     */
+    
+    'contact_form_mail_receiver' => env('CONTACT_FORM_MAIL_RECEIVER', 'hello@example.com'),
 
 ];

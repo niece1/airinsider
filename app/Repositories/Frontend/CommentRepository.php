@@ -4,7 +4,6 @@ namespace App\Repositories\Frontend;
 
 use App\Models\Post;
 use App\Models\Comment;
-use App\Http\Requests\CommentRequest;
 
 /**
  * Comment entity database query class.
@@ -27,17 +26,19 @@ class CommentRepository
     /**
      * Save comment instance to the database.
      *
-     * @param \App\Http\Requests\CommentRequest  $request
+     * @param $request
      * @param  \App\Post  $post
      * @return \App\Comment
      */
-    public static function save(CommentRequest $request, Post $post)
+    public static function save($request, Post $post)
     {
-        return auth()->user()->comments()->create([
-            'body' => $request->body,
-            'post_id' => $post->id,
-            'comment_id' => $request->comment_id
-        ])->fresh();
+        return auth()
+                ->user()
+                ->comments()
+                ->create(array_merge($request->getDto(), [
+                    'post_id' => $post->id
+                ]))
+                ->fresh();
     }
 
     /**

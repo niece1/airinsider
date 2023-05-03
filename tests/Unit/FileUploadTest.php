@@ -81,6 +81,7 @@ class FileUploadTest extends TestCase
             'description' => 'New description',
             'body' => 'New body',
             'time_to_read' => 1,
+            'published' => true,
             'category_id' => 1,
             'image' => $file,
         ]);

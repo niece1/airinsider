@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Requests\CommentRequest;
+use App\Http\Requests\Frontend\CommentRequest;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Comment;
@@ -24,7 +24,7 @@ class CommentController extends Controller
     /**
      * Store comment instance.
      *
-     * @param \App\Http\Requests\CommentRequest  $request
+     * @param \App\Http\Requests\Frontend\CommentRequest  $request
      * @param  \App\Post  $post
      * @return \App\Comment
      */

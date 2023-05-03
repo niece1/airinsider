@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Role;
-use App\Http\Requests\RoleRequest;
+use App\Http\Requests\Dashboard\RoleRequest;
 use App\Repositories\Dashboard\RoleRepository;
 use App\Repositories\Dashboard\PermissionRepository;
 use Illuminate\Support\Facades\Gate;

@@ -3,7 +3,6 @@
 namespace App\Repositories\Dashboard;
 
 use App\Models\Category;
-use App\Http\Requests\CategoryRequest;
 
 /**
  * Category entity database query class.
@@ -25,22 +24,22 @@ class CategoryRepository
     /**
      * Save category instance to the database.
      *
-     * @param \App\Http\Requests\CategoryRequest  $request
+     * @param $request
      */
-    public static function save(CategoryRequest $request)
+    public static function save($request)
     {
-        Category::create($request->all());
+        Category::create($request->getDto());
     }
 
     /**
      * Update category instance in the database.
      *
-     * @param \App\Http\Requests\CategoryRequest  $request
+     * @param $request
      * @param  \App\Category  $category
      */
-    public static function update(CategoryRequest $request, Category $category)
+    public static function update($request, Category $category)
     {
-        $category->update($request->all());
+        $category->update($request->getDto());
     }
 
     /**

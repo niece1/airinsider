@@ -4,8 +4,6 @@ namespace App\Repositories\Dashboard;
 
 use App\Models\Post;
 use App\Models\Photo;
-use App\Http\Requests\StorePostRequest;
-use App\Http\Requests\UpdatePostRequest;
 
 /**
  * Post entity database query class.
@@ -32,9 +30,9 @@ class PostRepository
      * @param StorePostRequest  $request
      * @return \App\Post
      */
-    public static function save(StorePostRequest $request)
+    public static function save($request)
     {
-        return Post::create($request->all());
+        return Post::create($request->getDto());
     }
 
     /**
@@ -55,9 +53,9 @@ class PostRepository
      * @param UpdatePostRequest  $request
      * @param Post  $post
      */
-    public static function update(UpdatePostRequest $request, Post $post)
+    public static function update($request, Post $post)
     {
-        $post->update($request->all());
+        $post->update($request->getDto());
     }
 
     /**
