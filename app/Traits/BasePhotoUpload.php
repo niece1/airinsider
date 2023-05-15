@@ -26,6 +26,6 @@ trait BasePhotoUpload
      */
     private function deletePhotoFromStorageFolder(Photo $photo)
     {
-        return Storage::disk('public')->delete($photo->original_path);
+        return Storage::delete($photo->original_path);
     }
 }

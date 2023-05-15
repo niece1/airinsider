@@ -3,11 +3,10 @@
 namespace App\Services;
 
 use App\Models\Photo;
-use Illuminate\Http\Request;
 use App\Traits\DeletePhoto;
 
 /**
- * Save file to \storage\app\public\photos
+ * Save file to s3 bucket.
  *
  * @author Volodymyr Zhonchuk
  */
@@ -16,9 +15,9 @@ abstract class PhotoUploadService
     use DeletePhoto;
 
     /**
-     * Model instance.
+     * Model to deal with.
      *
-     * @var object
+     * @var string
      */
     protected $model;
 
@@ -42,14 +41,16 @@ abstract class PhotoUploadService
     /*
      * Store photo while creating/updating post/user entity
      *
-     * @param  Illuminate\Http\Request $request
+     * @param  $request
      * @param  $model
      * @return void
      */
-    public function store(Request $request, $model)
+    public function store($request, $model)
     {
         if ($request->hasFile('image')) {
-            $path = $request->file('image')->store('photos', 'public');
+            $file = $request->file('image');
+            $fileName = time() . $file->hashName();
+            $path = $file->storeAs("images/{$this->getSubfolder()}", $fileName);
             if ($model->photo) {
                 $this->deletePhoto($model->photo->id);
             }
@@ -57,5 +58,15 @@ abstract class PhotoUploadService
             $photo->path = $path;
             $model->photo()->save($photo);
         }
+    }
+
+    /*
+     * Get model name subfolder.
+     *
+     * @return string
+     */
+    private function getSubfolder()
+    {
+        return strtolower(class_basename($this->getModelClass()));
     }
 }
