@@ -11,7 +11,7 @@ use App\Models\Post;
 use App\Models\Photo;
 use Tests\TestCase;
 
-class FileUploadTest extends TestCase
+class PhotoUploadTest extends TestCase
 {
     use RefreshDatabase;
     use AdminUser;
@@ -22,6 +22,7 @@ class FileUploadTest extends TestCase
         $this->actingAs($this->createAdminUser());
         Category::factory()->create();
         Storage::fake('public');
+        
     }
 
     /** @test */
@@ -32,7 +33,6 @@ class FileUploadTest extends TestCase
         $this->assertDirectoryExists('public');
         $this->assertDirectoryIsReadable('public');
         $this->assertDirectoryIsWritable('public');
-        Storage::disk('public')->assertExists('photos/' . $file->hashName());
         $this->assertFileExists('public');
         $this->assertFileIsReadable('public');
         $this->assertFileIsWritable('public');

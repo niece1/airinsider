@@ -37,7 +37,7 @@
                         <td>{{ $post->id }}</td>
                         <td>
                             @if ($post->photo)
-                            <img src="{{ asset('storage/' . $post->photo->path) }}" height="50" width="100"
+                            <img src="{{ Storage::url($post->photo->path) }}" height="50" width="100"
                                  alt="{{ $post->title }}">
                             @endif
                         </td>
