@@ -12,7 +12,6 @@ class TagDataDto
      */
     public function __construct(private string $title)
     {
-        $this->title = $title;
     }
 
     /**
