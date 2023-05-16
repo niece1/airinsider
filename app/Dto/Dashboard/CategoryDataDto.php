@@ -12,7 +12,6 @@ class CategoryDataDto
      */
     public function __construct(private string $title)
     {
-        $this->title = $title;
     }
 
     /**
