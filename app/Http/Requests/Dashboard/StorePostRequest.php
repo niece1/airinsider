@@ -54,7 +54,8 @@ class StorePostRequest extends FormRequest
             'time_to_read' => $dto->getTimeToRead(),
             'photo_source' => $dto->getPhotoSource(),
             'published' => $dto->getPublished(),
-            'category_id' => $dto->getCategoryId()
+            'category_id' => $dto->getCategoryId(),
+            'publish_time' => $dto->getPublishTime(),
         ];
     }
 }

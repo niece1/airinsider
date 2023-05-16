@@ -106,7 +106,7 @@ class PostTest extends TestCase
     {
         $this->post('/dashboard/posts', array_merge($this->createPostAttributes(), [
             'published' => 1,
-            'publish_time' => '',
+            'publish_time' => null,
         ]))
                 ->assertSessionHasErrors('publish_time');
         $this->assertCount(0, Post::all());
@@ -117,7 +117,7 @@ class PostTest extends TestCase
     {
         $this->post('/dashboard/posts', array_merge($this->createPostAttributes(), [
             'published' => 0,
-            'publish_time' => '',
+            'publish_time' => null,
         ]))
                 ->assertStatus(302)
                 ->assertSessionHas('success_message');
@@ -172,6 +172,7 @@ class PostTest extends TestCase
             'time_to_read' => 1,
             'published' => true,
             'category_id' => 1,
+            'publish_time' => '2020-05-16 17:09:00'
         ];
     }
 }

@@ -22,6 +22,7 @@ class PostDataFactory
             photo_source: $request->get('photo_source'),
             published: $request->get('published'),
             category_id: $request->get('category_id'),
+            publish_time: $request->get('publish_time'),
         );
     }
 }

@@ -14,6 +14,7 @@ class PostDataDto
      * @param $photo_source
      * @param $published
      * @param $category_id
+     * @param $publish_time
      * @return void
      */
     public function __construct(
@@ -23,15 +24,9 @@ class PostDataDto
         private int $time_to_read,
         private ?string $photo_source,
         private bool $published,
-        private int $category_id
+        private int $category_id,
+        private ?string $publish_time
     ) {
-        $this->title = $title;
-        $this->body = $body;
-        $this->description = $description;
-        $this->time_to_read = $time_to_read;
-        $this->photo_source = $photo_source;
-        $this->published = $published;
-        $this->category_id = $category_id;
     }
 
     /**
@@ -102,5 +97,15 @@ class PostDataDto
     public function getCategoryId(): int
     {
         return $this->category_id;
+    }
+
+    /**
+     * Get a post's publish time.
+     *
+     * @return mixed
+     */
+    public function getPublishTime(): ?string
+    {
+        return $this->publish_time;
     }
 }
