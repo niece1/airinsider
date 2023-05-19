@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Post;
-use App\Http\Requests\Dashboard\StorePostRequest;
-use App\Http\Requests\Dashboard\UpdatePostRequest;
+use App\Http\Requests\Dashboard\PostRequest;
+use App\Http\Requests\Dashboard\PostPhotoRequest;
 use App\Services\SlugService;
 use App\Services\PostPhotoUploadService;
 use App\Repositories\Dashboard\PostRepository;
@@ -45,20 +45,22 @@ class PostController extends DashboardController
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePostRequest  $request
+     * @param  \App\Http\Requests\PostRequest  $postRequest
+     * @param  \App\Http\Requests\PostPhotoRequest $postPhotoRequest
      * @param  \App\Services\SlugService  $slugService
      * @param  \App\Services\PostPhotoUploadService  $postPhotoUploadService
      * @return \Illuminate\Http\Response
      */
     public function store(
-        StorePostRequest $request,
+        PostRequest $postRequest,
+        PostPhotoRequest $postPhotoRequest,
         SlugService $slugService,
         PostPhotoUploadService $postPhotoUploadService
     ) {
-        $post = PostRepository::save($request);
-        $slugService->generateSlug($request, $post);
+        $post = PostRepository::save($postRequest);
+        $slugService->generateSlug($postRequest, $post);
         $post->saveUserWithPost($post);
-        $postPhotoUploadService->store($request, $post);
+        $postPhotoUploadService->store($postPhotoRequest, $post);
         $post->syncTags($post);
 
         return redirect('dashboard/posts')->withSuccessMessage('Created Successfully!');
@@ -96,21 +98,23 @@ class PostController extends DashboardController
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePostRequest  $request
+     * @param  \App\Http\Requests\PostRequest  $postRequest
+     * @param  \App\Http\Requests\PostPhotoRequest $postPhotoRequest
      * @param  \App\Post  $post
      * @param  \App\Services\SlugService  $slugService
      * @param  \App\Services\PostPhotoUploadService  $postPhotoUploadService
      * @return \Illuminate\Http\Response
      */
     public function update(
-        UpdatePostRequest $request,
+        PostRequest $postRequest,
+        PostPhotoRequest $postPhotoRequest,
         Post $post,
         SlugService $slugService,
         PostPhotoUploadService $postPhotoUploadService
     ) {
-        PostRepository::update($request, $post);
-        $postPhotoUploadService->store($request, $post);
-        $slugService->generateSlug($request, $post);
+        PostRepository::update($postRequest, $post);
+        $postPhotoUploadService->store($postPhotoRequest, $post);
+        $slugService->generateSlug($postRequest, $post);
         $post->saveUserWithPost($post);
         $post->syncTags($post);
 
