@@ -5,7 +5,7 @@ namespace App\Http\Requests\Dashboard;
 use Illuminate\Foundation\Http\FormRequest;
 use App\Dto\Dashboard\Factories\PostDataFactory;
 
-class UpdatePostRequest extends FormRequest
+class PostRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,6 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|unique:posts,title,' . request()->route('post')->id,
             'body' => 'required',
             'description' => 'required|max:800',
             'time_to_read' => 'required',
@@ -33,7 +32,31 @@ class UpdatePostRequest extends FormRequest
             'published' => '',
             'category_id' => 'required',
             'publish_time' => 'required_if:published,1',
-            'image' => 'sometimes|file|mimes:jpg,jpeg,png,webp|max:5000'
+        ] +
+        ($this->getMethod() == 'POST' ? $this->store() : $this->update());
+    }
+
+    /**
+     * Get the validation rules for the POST request.
+     *
+     * @return array
+     */
+    public function store()
+    {
+        return [
+            'title' => 'bail|required|min:2|unique:posts,title'
+        ];
+    }
+
+    /**
+     * Get the validation rules for the PUT/PATCH request.
+     *
+     * @return array
+     */
+    public function update()
+    {
+        return [
+            'title' => 'required|unique:posts,title,' . request()->route('post')->id
         ];
     }
 
@@ -54,7 +77,8 @@ class UpdatePostRequest extends FormRequest
             'time_to_read' => $dto->getTimeToRead(),
             'photo_source' => $dto->getPhotoSource(),
             'published' => $dto->getPublished(),
-            'category_id' => $dto->getCategoryId()
+            'category_id' => $dto->getCategoryId(),
+            'publish_time' => $dto->getPublishTime(),
         ];
     }
 }

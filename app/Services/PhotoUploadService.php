@@ -51,9 +51,11 @@ abstract class PhotoUploadService
             $file = $request->file('image');
             $fileName = time() . $file->hashName();
             $path = $file->storeAs("images/{$this->getSubfolder()}", $fileName);
+
             if ($model->photo) {
                 $this->deletePhoto($model->photo->id);
             }
+
             $photo = new Photo();
             $photo->path = $path;
             $model->photo()->save($photo);
