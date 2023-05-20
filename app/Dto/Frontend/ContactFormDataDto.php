@@ -17,9 +17,6 @@ class ContactFormDataDto
         private string $email,
         private string $message,
     ) {
-        $this->name = $name;
-        $this->email = $email;
-        $this->message = $message;
     }
 
     /**
