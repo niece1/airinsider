@@ -15,8 +15,6 @@ class CommentDataDto
         private string $body,
         private ?int $comment_id
     ) {
-        $this->body = $body;
-        $this->comment_id = $comment_id;
     }
 
     /**

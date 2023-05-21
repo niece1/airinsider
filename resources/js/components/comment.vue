@@ -144,7 +144,7 @@ export default {
 }
 
 .comment .replies .comment-likes {
-    margin: 0 10px 0 0;
+    margin: 0 10px 0 65px;
     float: left;
 }
 
