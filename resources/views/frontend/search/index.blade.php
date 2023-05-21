@@ -56,27 +56,20 @@
                     </svg>
                     {{ $post_item->time_to_read }} minutes to read
                 </div>
-                <p class="item-blog-date">{{ $post_item->date }}</p>                
-                <div class="blog-line">
-                </div>
-                <div class="item-blog-bottom">
-                    <a href="{{ route('post.show', [$post_item->slug]) }}" class="button">
-                        Read more
+                @if ($post_item->category)
+                <div class="item-blog-tag">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon-category"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512
+                            0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994
+                            1.994 0 013 12V7a4 4 0 014-4z" />
+                    </svg>
+                    <a href="{{ $post_item->category->slug }}">
+                        {{ $post_item->category->title }}
                     </a>
-                    @if ($post_item->category)
-                    <div class="item-blog-tag">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="icon-category"
-                            fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512
-                                0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994
-                                1.994 0 013 12V7a4 4 0 014-4z" />
-                        </svg>
-                        <a href="{{ $post_item->category->slug }}">
-                            {{ $post_item->category->title }}
-                        </a>
-                    </div>
-                    @endif
                 </div>
+                @endif
+                <p class="item-blog-date">{{ $post_item->date }}</p>
             </div>
         </div>
         @empty

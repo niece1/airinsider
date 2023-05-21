@@ -215,63 +215,32 @@
                 p.item-blog-text {
                     color: #4e4e4e;
                 }
-                p.item-blog-date {
-                    margin-left: 35px;
-                }
-                .blog-line {
-                    margin: 20px 20px 20px 0;
-                    background-color: #dedede;
-                    width: 100%;
-                    height: 2px;
-                }
-                .item-blog-bottom {
-                    a.button {
-                        border: 2px solid #f75679;
-                        padding: 7px 16px;
-                        display: inline-block;
-                        margin: 0 0 20px 0;
-                        font-size: 1.2rem;
-                        text-transform: uppercase;
-                        letter-spacing: 1px;
-                        border-radius: 3px;
-                        background-color: transparent;
+                .item-blog-tag {
+                    display: flex;
+                    align-items: center;
+                    margin: 15px 0;
+                    .icon-category {
+                        width: 2rem;
+                        height: 2rem;
+                        color: #4e4e4e;
+                        margin-right: 15px;
+                    }
+                    a {
                         color: #000;
+                        font-size: 1.6rem;
                         &:hover {
-                            background-color: #f75679;
-                            color: #fff;
-                            border: 2px solid #f75679;
+                            color: #f75679;
                             transition: all 0.3s ease-in-out;
                         }
                         &:not(:hover) {
-                            background-color: transparent;
                             color: #000;
                             transition: all 0.3s ease-in-out;
                         }
                     }
-                    .item-blog-tag {
-                        float: right;
-                        display: flex;
-                        align-items: center;
-                        margin-top: 7px;
-                        .icon-category {
-                            width: 2rem;
-                            height: 2rem;
-                            color: #4e4e4e;
-                            margin-right: 10px;
-                        }
-                        a {
-                            color: #0084ff;
-                            font-size: 1.6rem;
-                            &:hover {
-                                color: #f75679;
-                                transition: all 0.3s ease-in-out;
-                            }
-                            &:not(:hover) {
-                                color: #0084ff;
-                                transition: all 0.3s ease-in-out;
-                            }
-                        }
-                    }
+                }
+                p.item-blog-date {
+                    margin: 0 0 25px 35px;
+                    color: #0084ff;
                 }
             }
         }
@@ -386,63 +355,32 @@
                     p.item-blog-text {
                         color: #4e4e4e;
                     }
-                    p.item-blog-date {
-                        margin-left: 35px;
-                    }
-                    .blog-line {
-                        margin: 20px 20px 20px 0;
-                        background-color: #dedede;
-                        width: 100%;
-                        height: 2px;
-                    }
-                    .item-blog-bottom {
-                        a.button {
-                            border: 2px solid #f75679;
-                            padding: 7px 16px;
-                            display: inline-block;
-                            margin: 0 0 20px 0;
-                            font-size: 1.2rem;
-                            text-transform: uppercase;
-                            letter-spacing: 1px;
-                            border-radius: 3px;
-                            background-color: transparent;
+                    .item-blog-tag {
+                        display: flex;
+                        align-items: center;
+                        margin: 15px 0;
+                        .icon-category {
+                            width: 2rem;
+                            height: 2rem;
+                            color: #4e4e4e;
+                            margin-right: 15px;
+                        }
+                        a {
                             color: #000;
+                            font-size: 1.6rem;
                             &:hover {
-                                background-color: #f75679;
-                                color: #fff;
-                                border: 2px solid #f75679;
+                                color: #f75679;
                                 transition: all 0.3s ease-in-out;
                             }
                             &:not(:hover) {
-                                background-color: transparent;
                                 color: #000;
                                 transition: all 0.3s ease-in-out;
                             }
                         }
-                        .item-blog-tag {
-                            float: right;
-                            display: flex;
-                            align-items: center;
-                            margin-top: 7px;
-                            .icon-category {
-                                width: 2rem;
-                                height: 2rem;
-                                color: #4e4e4e;
-                                margin-right: 10px;
-                            }
-                            a {
-                                color: #0084ff;
-                                font-size: 1.6rem;
-                                &:hover {
-                                    color: #f75679;
-                                    transition: all 0.3s ease-in-out;
-                                }
-                                &:not(:hover) {
-                                    color: #0084ff;
-                                    transition: all 0.3s ease-in-out;
-                                }
-                            }
-                        }
+                    }
+                    p.item-blog-date {
+                        margin: 0 0 25px 35px;
+                        color: #0084ff;
                     }
                 }
             }
