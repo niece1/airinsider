@@ -4,15 +4,19 @@ namespace App\Repositories\Frontend;
 
 use Illuminate\Support\Facades\Cache;
 use App\Contracts\Frontend\PostRepositoryContract;
-use App\Repositories\Frontend\PostRepository;
 
-/**
- * Cached post entity query class.
- *
- * @author Volodymyr Zhonchuk
- */
-class CachedPostRepository extends PostRepository implements PostRepositoryContract
+class CachedPostRepository implements PostRepositoryContract
 {
+    /**
+     * Create a new instance.
+     *
+     * @param App\Contracts\Frontend\PostRepositoryContract $next
+     */
+    public function __construct(
+        private PostRepositoryContract $next
+    ) {
+    }
+
     /**
      * Get cached last published post from the database.
      *
@@ -24,7 +28,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
                 ->remember(
                     'post_featured',
                     now()->addSeconds(config('app.cache')),
-                    fn() => parent::getFeatured()
+                    fn() => $this->next->getFeatured()
                 );
     }
 
@@ -40,7 +44,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
                 ->remember(
                     'post_home_page_' . request('page', 1),
                     now()->addSeconds(config('app.cache')),
-                    fn() => parent::getAll($featured)
+                    fn() => $this->next->getAll($featured)
                 );
     }
 
@@ -54,7 +58,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
         return Cache::remember(
             'tags',
             now()->addSeconds(config('app.cache')),
-            fn() => parent::getTags()
+            fn() => $this->next->getTags()
         );
     }
 
@@ -68,7 +72,7 @@ class CachedPostRepository extends PostRepository implements PostRepositoryContr
         return Cache::remember(
             'post_random',
             now()->addSeconds(config('app.cache')),
-            fn() => parent::getRandom()
+            fn() => $this->next->getRandom()
         );
     }
 }

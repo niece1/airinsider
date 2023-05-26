@@ -2,7 +2,6 @@
 
 namespace App\Observers;
 
-use App\Models\Post;
 use Illuminate\Support\Facades\Cache;
 
 class PostObserver
@@ -10,10 +9,9 @@ class PostObserver
     /**
      * Handle the Post "created" event.
      *
-     * @param  \App\Models\Post  $post
      * @return void
      */
-    public function created(Post $post)
+    public function created()
     {
         $this->clearCache();
     }
@@ -21,10 +19,9 @@ class PostObserver
     /**
      * Handle the Post "updated" event.
      *
-     * @param  \App\Models\Post  $post
      * @return void
      */
-    public function updated(Post $post)
+    public function updated()
     {
         $this->clearCache();
     }
@@ -32,10 +29,9 @@ class PostObserver
     /**
      * Handle the Post "deleted" event.
      *
-     * @param  \App\Models\Post  $post
      * @return void
      */
-    public function deleted(Post $post)
+    public function deleted()
     {
         $this->clearCache();
     }
@@ -43,23 +39,11 @@ class PostObserver
     /**
      * Handle the Post "restored" event.
      *
-     * @param  \App\Models\Post  $post
      * @return void
      */
-    public function restored(Post $post)
+    public function restored()
     {
         $this->clearCache();
-    }
-
-    /**
-     * Handle the Post "force deleted" event.
-     *
-     * @param  \App\Models\Post  $post
-     * @return void
-     */
-    public function forceDeleted(Post $post)
-    {
-        //
     }
 
     /**
