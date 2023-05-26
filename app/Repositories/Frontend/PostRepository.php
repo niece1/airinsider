@@ -162,14 +162,14 @@ class PostRepository implements PostRepositoryContract
     }
 
     /**
-     * Fetch 5 posts in random order published within last 30 days.
+     * Fetch 5 posts in random order published within last 500 days.
      *
      * @return Post[]
      */
     public function getRandom()
     {
         return Post::with(['photo', 'category', 'user'])
-                ->whereDate('publish_time', '>', Carbon::now()->sub(365, 'days'))
+                ->whereDate('publish_time', '>', Carbon::now()->sub(500, 'days'))
                 ->where('published', 1)
                 ->inRandomOrder()
                 ->limit(5)

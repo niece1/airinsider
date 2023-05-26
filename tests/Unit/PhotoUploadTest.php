@@ -21,15 +21,16 @@ class PhotoUploadTest extends TestCase
         parent::setUp();
         $this->actingAs($this->createAdminUser());
         Category::factory()->create();
-        Storage::fake('public');
-        
+        Storage::fake();
     }
 
     /** @test */
     public function postPhotoUploadedSuccessfully()
     {
         $file = UploadedFile::fake()->image('logo.jpg');
+        $fileName = time() . $file->hashName();
         $this->createPost($file);
+        Storage::disk()->assertExists('images/post/' . $fileName);
         $this->assertDirectoryExists('public');
         $this->assertDirectoryIsReadable('public');
         $this->assertDirectoryIsWritable('public');
@@ -43,7 +44,7 @@ class PhotoUploadTest extends TestCase
     {
         $file = UploadedFile::fake()->image('logo.jpg')->size(6000);
         $this->createPost($file);
-        Storage::disk('public')->assertMissing('posts/' . $file->hashName());
+        Storage::disk()->assertMissing('posts/' . $file->hashName());
         $messages = session('errors')->getMessages();
         $this->assertEquals($messages['image'][0], 'The image may not be greater than 5000 kilobytes.');
     }
@@ -53,7 +54,7 @@ class PhotoUploadTest extends TestCase
     {
         $file = UploadedFile::fake()->image('logo.pdf');
         $this->createPost($file);
-        Storage::disk('public')->assertMissing('posts/' . $file->hashName());
+        Storage::disk()->assertMissing('posts/' . $file->hashName());
         $messages = session('errors')->getMessages();
         $this->assertEquals($messages['image'][0], 'The image must be a file of type: jpg, jpeg, png, webp.');
     }
@@ -61,8 +62,8 @@ class PhotoUploadTest extends TestCase
     /** @test */
     public function aPostMorphsOnePhoto()
     {
-        $photo = UploadedFile::fake()->image('logo.jpg');
-        $this->createPost($photo);
+        $file = UploadedFile::fake()->image('logo.jpg');
+        $this->createPost($file);
         $post = Post::first();
         $this->assertInstanceOf(Photo::class, $post->photo);
         $this->assertTrue($post->photo()->exists());
