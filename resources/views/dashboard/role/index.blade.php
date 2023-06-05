@@ -15,7 +15,7 @@
 <!-- Dashboard -->
 <section class="dashboard">
     <div class="dashboard-wrapper">
-        @can('role_create')
+        @can('create', \App\Models\Role::class)
         <a href="/dashboard/roles/create" class="button">Add Role</a>
         @endcan
         <div class="well">
@@ -41,12 +41,12 @@
                             @endforeach
                         </td>
                         <td>
-                            @can('role_edit')
+                            @can('update', \App\Models\Role::class)
                             <a href="/dashboard/roles/{{ $role->id }}/edit" class="action-button-green">
                                 Edit
                             </a>
                             @endcan
-                            @can('role_delete')
+                            @can('delete', \App\Models\Role::class)
                             <form action="{{ route('roles.destroy', $role->id) }}" method="POST" onsubmit="return confirm('Delete role?')">
                                 @method('DELETE')
                                 @csrf

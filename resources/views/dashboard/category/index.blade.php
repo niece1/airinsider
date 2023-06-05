@@ -15,7 +15,7 @@
 <!-- Dashboard -->
 <section class="dashboard">
     <div class="dashboard-wrapper">
-        @can('category_create')
+        @can('create', \App\Models\Category::class)
         <a href="/dashboard/categories/create" class="button">Add Category</a>
         @endcan
         <div class="well">
@@ -35,12 +35,12 @@
                         <td>{{ $category->id }}</td>						
                         <td>{{ $category->title }}</td>						
                         <td>
-                            @can('category_edit')
+                            @can('update', \App\Models\Category::class)
                             <a href="/dashboard/categories/{{ $category->id }}/edit" class="action-button-green">
                                 Edit
                             </a>
                             @endcan
-                            @can('category_delete')
+                            @can('delete', \App\Models\Category::class)
                             <form action="{{ route('categories.destroy', $category->id) }}" method="POST" onsubmit="return confirm('Delete category?')">
                                 @method('DELETE')
                                 @csrf

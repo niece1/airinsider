@@ -10,7 +10,6 @@ use App\Services\PostPhotoUploadService;
 use App\Repositories\Dashboard\PostRepository;
 use App\Repositories\Dashboard\CategoryRepository;
 use App\Repositories\Dashboard\TagRepository;
-use Illuminate\Support\Facades\Gate;
 
 class PostController extends DashboardController
 {
@@ -21,7 +20,7 @@ class PostController extends DashboardController
      */
     public function index()
     {
-        abort_unless(Gate::allows('dashboard_access'), 403);
+        $this->authorize('viewAny', Post::class);
         $posts = PostRepository::getAll();
 
         return view('dashboard.post.index', compact('posts'));
@@ -34,7 +33,7 @@ class PostController extends DashboardController
      */
     public function create()
     {
-        abort_unless(Gate::allows('post_create'), 403);
+        $this->authorize('create', Post::class);
         $categories = CategoryRepository::getAll();
         $tags = TagRepository::getAll();
         $post = new Post();
@@ -74,7 +73,7 @@ class PostController extends DashboardController
      */
     public function show(Post $post)
     {
-        abort_unless(Gate::allows('post_view'), 403);
+        $this->authorize('view', Post::class);
         $post_item = PostRepository::show($post);
 
         return view('dashboard.post.show', compact('post_item'));
@@ -88,7 +87,7 @@ class PostController extends DashboardController
      */
     public function edit(Post $post)
     {
-        abort_unless(Gate::allows('post_edit'), 403);
+        $this->authorize('update', $post);
         $categories = CategoryRepository::getAll();
         $tags = TagRepository::getAll();
 
@@ -129,7 +128,7 @@ class PostController extends DashboardController
      */
     public function destroy(Post $post)
     {
-        abort_unless(Gate::allows('post_trash'), 403);
+        $this->authorize('delete', $post);
         PostRepository::removeToTrash($post);
 
         return redirect('dashboard/posts')->withSuccessMessage('Trashed Successfully!');

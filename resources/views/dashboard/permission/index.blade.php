@@ -15,7 +15,7 @@
 <!-- Dashboard -->
 <section class="dashboard">
     <div class="dashboard-wrapper">
-        @can('permission_create')
+        @can('create', \App\Models\Permission::class)
         <a href="/dashboard/permissions/create" class="button">Add Permission</a>
         @endcan
         <div class="well">
@@ -35,7 +35,7 @@
                         <td>{{ $permission->id }}</td>						
                         <td>{{ $permission->title }}</td>						
                         <td>
-                            @can('permission_delete')
+                            @can('delete', \App\Models\Permission::class)
                             <form action="{{ route('permissions.destroy', $permission->id) }}" method="POST" onsubmit="return confirm('Delete permission?')">
                                 @method('DELETE')
                                 @csrf

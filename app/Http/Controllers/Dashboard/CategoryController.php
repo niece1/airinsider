@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Category;
 use App\Repositories\Dashboard\CategoryRepository;
 use App\Http\Requests\Dashboard\CategoryRequest;
-use Illuminate\Support\Facades\Gate;
 
 class CategoryController extends DashboardController
 {
@@ -16,7 +15,7 @@ class CategoryController extends DashboardController
      */
     public function index()
     {
-        abort_unless(Gate::allows('category_access'), 403);
+        $this->authorize('viewAny', Category::class);
         $categories = CategoryRepository::getAll();
 
         return view('dashboard.category.index', compact('categories'));
@@ -29,7 +28,7 @@ class CategoryController extends DashboardController
      */
     public function create()
     {
-        abort_unless(Gate::allows('category_create'), 403);
+        $this->authorize('create', Category::class);
         $category = new Category();
 
         return view('dashboard.category.create', compact('category'));
@@ -43,6 +42,7 @@ class CategoryController extends DashboardController
      */
     public function store(CategoryRequest $request)
     {
+        $this->authorize('create', Category::class);
         CategoryRepository::save($request);
 
         return redirect('dashboard/categories')->withSuccessMessage('Category Created Successfully!');
@@ -56,7 +56,7 @@ class CategoryController extends DashboardController
      */
     public function edit(Category $category)
     {
-        abort_unless(Gate::allows('category_edit'), 403);
+        $this->authorize('update', Category::class);
 
         return view('dashboard.category.edit', compact('category'));
     }
@@ -70,6 +70,7 @@ class CategoryController extends DashboardController
      */
     public function update(CategoryRequest $request, Category $category)
     {
+        $this->authorize('update', Category::class);
         CategoryRepository::update($request, $category);
 
         return redirect('dashboard/categories')->withSuccessMessage('Category Updated Successfully!');
@@ -83,7 +84,7 @@ class CategoryController extends DashboardController
      */
     public function destroy(Category $category)
     {
-        abort_unless(Gate::allows('category_delete'), 403);
+        $this->authorize('delete', Category::class);
         CategoryRepository::delete($category);
 
         return redirect('dashboard/categories')->withSuccessMessage('Category Deleted Successfully!');

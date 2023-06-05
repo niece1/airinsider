@@ -50,7 +50,7 @@
                             @endif
                         </td>
                         <td>
-                            @can('post_restore')
+                            @can('restore', \App\Models\Post::class)
                             <form action="{{ route('trash.restore', $post->id) }}" method="POST">							
                                 @csrf
                                 <button type="submit" class="action-button-green">
@@ -58,7 +58,7 @@
                                 </button>
                             </form>
                             @endcan
-                            @can('post_delete')
+                            @can('forceDelete', \App\Models\Post::class)
                             <form action="{{ route('trash.destroy', $post->id) }}" method="POST" onsubmit="return confirm('Delete post?')">
                                 @method('DELETE')
                                 @csrf

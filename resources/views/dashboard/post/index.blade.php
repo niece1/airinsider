@@ -15,7 +15,7 @@
 <!-- Dashboard -->
 <section class="dashboard">
     <div class="dashboard-wrapper">
-        @can('post_create')
+        @can('create', \App\Models\Post::class)
         <a href="/dashboard/posts/create" class="button">Add Post</a>
         @endcan
         <div class="well">
@@ -44,12 +44,12 @@
                             @endif
                         </td>
                         <td>
-                            @can('post_view')
+                            @can('view', \App\Models\Post::class)
                             <a href="/dashboard/posts/{{ $post->id }}" title="{{ $post->title }}">
                                 {{ $post->title }}
                             </a>
                             @endcan
-                            @cannot('post_view')
+                            @cannot('view', \App\Models\Post::class)
                             <p>{{ $post->title }}</p>
                             @endcannot
                         </td>
@@ -61,12 +61,12 @@
                             @endif
                         </td>
                         <td>
-                            @can('post_edit')
+                            @can('update', $post)
                             <a href="/dashboard/posts/{{ $post->id }}/edit" class="action-button-green">
                                 Edit
                             </a>
                             @endcan
-                            @can('post_trash')
+                            @can('delete', $post)
                             <form action="{{ route('posts.destroy', $post->id) }}" method="POST">
                                 @method('DELETE')
                                 @csrf

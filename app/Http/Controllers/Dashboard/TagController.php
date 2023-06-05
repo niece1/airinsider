@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Tag;
 use App\Http\Requests\Dashboard\TagRequest;
 use App\Repositories\Dashboard\TagRepository;
-use Illuminate\Support\Facades\Gate;
 
 class TagController extends DashboardController
 {
@@ -16,7 +15,7 @@ class TagController extends DashboardController
      */
     public function index()
     {
-        abort_unless(Gate::allows('tag_access'), 403);
+        $this->authorize('viewAny', Tag::class);
         $tags = TagRepository::getAll();
 
         return view('dashboard.tag.index', compact('tags'));
@@ -29,7 +28,7 @@ class TagController extends DashboardController
      */
     public function create()
     {
-        abort_unless(Gate::allows('tag_create'), 403);
+        $this->authorize('create', Tag::class);
         $tag = new Tag();
 
         return view('dashboard.tag.create', compact('tag'));
@@ -43,6 +42,7 @@ class TagController extends DashboardController
      */
     public function store(TagRequest $request)
     {
+        $this->authorize('create', Tag::class);
         TagRepository::save($request);
 
         return redirect('dashboard/tags')->withSuccessMessage('Tag Created Successfully!');
@@ -56,7 +56,7 @@ class TagController extends DashboardController
      */
     public function edit(Tag $tag)
     {
-        abort_unless(Gate::allows('tag_edit'), 403);
+        $this->authorize('update', Tag::class);
 
         return view('dashboard.tag.edit', compact('tag'));
     }
@@ -70,6 +70,7 @@ class TagController extends DashboardController
      */
     public function update(TagRequest $request, Tag $tag)
     {
+        $this->authorize('update', Tag::class);
         TagRepository::update($request, $tag);
 
         return redirect('dashboard/tags')->withSuccessMessage('Tag Updated Successfully!');
@@ -83,7 +84,7 @@ class TagController extends DashboardController
      */
     public function destroy(Tag $tag)
     {
-        abort_unless(Gate::allows('tag_delete'), 403);
+        $this->authorize('delete', Tag::class);
         TagRepository::delete($tag);
 
         return redirect('dashboard/tags')->withSuccessMessage('Tag Deleted Successfully!');

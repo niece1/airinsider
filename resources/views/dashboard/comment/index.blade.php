@@ -46,7 +46,7 @@
                         <td>{{ $comment->body }}</td>
                         <td>{{ $comment->if_reply }}</td>
                         <td>
-                            @can('comment_delete')
+                            @can('delete', \App\Models\Comment::class)
                             <form action="{{ route('comments.destroy', $comment->id) }}" method="POST" onsubmit="return confirm('Delete comment?')">
                                 @method('DELETE')
                                 @csrf

@@ -35,28 +35,28 @@
                         <li class="sub-menu">
                             <a href="javascript:void(0)">User board</a>
                             <ul>
-                                @can('user_access')
+                                @can('viewAny', \App\Models\User::class)
                                 <li>
                                     <a href="/dashboard/users" class="sub-item">
                                         <span>Users</span>
                                     </a>
                                 </li>
                                 @endcan
-                                @can('role_access')
+                                @can('viewAny', \App\Models\Role::class)
                                 <li>
                                     <a href="/dashboard/roles" class="sub-item">
                                         <span>Roles</span>
                                     </a>
                                 </li>
                                 @endcan
-                                @can('permission_access')
+                                @can('viewAny', \App\Models\Permission::class)
                                 <li>
                                     <a href="/dashboard/permissions" class="sub-item">
                                         <span>Permissions</span>
                                     </a>
                                 </li>
                                 @endcan
-                                @can('subscription_access')
+                                @can('viewAny', \App\Models\Subscription::class)
                                 <li>
                                     <a href="/dashboard/subscriptions" class="sub-item">
                                         <span>Subscriptions</span>
@@ -68,28 +68,28 @@
                         <li class="sub-menu">
                             <a href="javascript:void(0)">Post board</a>
                             <ul>
-                                @can('dashboard_access')
+                                @can('viewAny', \App\Models\Post::class)
                                 <li>
                                     <a href="/dashboard/posts" class="sub-item">
                                         <span>Posts</span>
                                     </a>
                                 </li>
                                 @endcan
-                                @can('category_access')
+                                @can('viewAny', \App\Models\Category::class)
                                 <li>
                                     <a href="/dashboard/categories" class="sub-item">
                                         <span>Categories</span>
                                     </a>
                                 </li>
                                 @endcan
-                                @can('tag_access')
+                                @can('viewAny', \App\Models\Tag::class)
                                 <li>
                                     <a href="/dashboard/tags" class="sub-item">
                                         <span>Tags</span>
                                     </a>
                                 </li>
                                 @endcan
-                                @can('comment_access')
+                                @can('viewAny', \App\Models\Comment::class)
                                 <li>
                                     <a href="/dashboard/comments" class="sub-item">
                                         <span>Comments</span>
@@ -98,9 +98,9 @@
                                 @endcan
                             </ul>
                         </li>
-                        @can('post_trash_list')
+                        @can('viewTrashList', \App\Models\Post::class)
                         <li>
-                            <a href="/dashboard/trash">Trash</a>
+                            <a href="/dashboard/trash">Post trash</a>
                         </li>
                         @endcan
                         @auth

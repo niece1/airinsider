@@ -137,7 +137,7 @@
                                             @csrf
                                         </form>
                                     </li>
-                                    @can('dashboard_access')
+                                    @can('viewAny', \App\Models\Post::class)
                                     <li>
                                         <a href="/dashboard/posts" class="sub-item">
                                             <span>Dashboard</span>

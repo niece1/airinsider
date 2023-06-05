@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Dashboard;
 use App\Exports\SubscriptionExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Gate;
 
 class ExportController extends Controller
 {
@@ -16,7 +15,7 @@ class ExportController extends Controller
      */
     public function exportExcel()
     {
-        abort_unless(Gate::allows('subscription_export'), 403);
+        $this->authorize('export', Subscription::class);
 
         return Excel::download(new SubscriptionExport(), 'subscriptions.xlsx');
     }
@@ -28,7 +27,7 @@ class ExportController extends Controller
      */
     public function exportCsv()
     {
-        abort_unless(Gate::allows('subscription_export'), 403);
+        $this->authorize('export', Subscription::class);
 
         return Excel::download(new SubscriptionExport(), 'subscriptions.csv');
     }

@@ -6,7 +6,6 @@ use App\Models\Role;
 use App\Http\Requests\Dashboard\RoleRequest;
 use App\Repositories\Dashboard\RoleRepository;
 use App\Repositories\Dashboard\PermissionRepository;
-use Illuminate\Support\Facades\Gate;
 
 class RoleController extends DashboardController
 {
@@ -17,7 +16,7 @@ class RoleController extends DashboardController
      */
     public function index()
     {
-        abort_unless(Gate::allows('role_access'), 403);
+        $this->authorize('viewAny', Role::class);
         $roles = RoleRepository::getAll();
 
         return view('dashboard.role.index', compact('roles'));
@@ -30,7 +29,7 @@ class RoleController extends DashboardController
      */
     public function create()
     {
-        abort_unless(Gate::allows('role_create'), 403);
+        $this->authorize('create', Role::class);
         $role = new Role();
         $permissions = PermissionRepository::getAll();
 
@@ -45,6 +44,7 @@ class RoleController extends DashboardController
      */
     public function store(RoleRequest $request)
     {
+        $this->authorize('create', Role::class);
         $role = RoleRepository::save($request);
         $role->syncPermissions($role);
 
@@ -59,7 +59,7 @@ class RoleController extends DashboardController
      */
     public function edit(Role $role)
     {
-        abort_unless(Gate::allows('role_edit'), 403);
+        $this->authorize('update', Role::class);
         $permissions = PermissionRepository::getAll();
 
         return view('dashboard.role.edit', compact('role', 'permissions'));
@@ -74,6 +74,7 @@ class RoleController extends DashboardController
      */
     public function update(RoleRequest $request, Role $role)
     {
+        $this->authorize('update', Role::class);
         RoleRepository::update($request, $role);
         $role->syncPermissions($role);
 
@@ -88,7 +89,7 @@ class RoleController extends DashboardController
      */
     public function destroy(Role $role)
     {
-        abort_unless(Gate::allows('role_delete'), 403);
+        $this->authorize('delete', Role::class);
         RoleRepository::delete($role);
 
         return redirect('dashboard/roles')->withSuccessMessage('Role Deleted Successfully!');

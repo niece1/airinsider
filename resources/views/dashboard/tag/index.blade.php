@@ -15,7 +15,7 @@
 <!-- Dashboard -->
 <section class="dashboard">
     <div class="dashboard-wrapper">
-        @can('tag_create')
+        @can('create', \App\Models\Tag::class)
         <a href="/dashboard/tags/create" class="button">Add Tag</a>
         @endcan
         <div class="well">
@@ -35,12 +35,12 @@
                         <td>{{ $tag->id }}</td>						
                         <td>{{ $tag->title }}</td>						
                         <td>
-                            @can('tag_edit')
+                            @can('update', \App\Models\Tag::class)
                             <a href="/dashboard/tags/{{ $tag->id }}/edit" class="action-button-green">
                                 Edit
                             </a>
                             @endcan
-                            @can('tag_delete')
+                            @can('delete', \App\Models\Tag::class)
                             <form action="{{ route('tags.destroy', $tag->id) }}" method="POST" onsubmit="return confirm('Delete tag?')">
                                 @method('DELETE')
                                 @csrf

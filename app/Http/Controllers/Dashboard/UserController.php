@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\User;
 use App\Repositories\Dashboard\RoleRepository;
 use App\Repositories\Dashboard\UserRepository;
-use Illuminate\Support\Facades\Gate;
 
 class UserController extends DashboardController
 {
@@ -16,7 +15,7 @@ class UserController extends DashboardController
      */
     public function index()
     {
-        abort_unless(Gate::allows('user_access'), 403);
+        $this->authorize('viewAny', User::class);
         $users = UserRepository::getAll();
 
         return view('dashboard.user.index', compact('users'));
@@ -30,7 +29,7 @@ class UserController extends DashboardController
      */
     public function edit(User $user)
     {
-        abort_unless(Gate::allows('user_edit'), 403);
+        $this->authorize('update', User::class);
         $roles = RoleRepository::getAll();
 
         return view('dashboard.user.edit', compact('user', 'roles'));
@@ -44,6 +43,7 @@ class UserController extends DashboardController
      */
     public function update(User $user)
     {
+        $this->authorize('update', User::class);
         $user->syncRoles($user);
 
         return redirect('dashboard/users')->withSuccessMessage('User Updated Successfully!');
@@ -57,7 +57,7 @@ class UserController extends DashboardController
      */
     public function destroy(User $user)
     {
-        abort_unless(Gate::allows('user_delete'), 403);
+        $this->authorize('delete', User::class);
         UserRepository::delete($user);
 
         return redirect('dashboard/users')->withSuccessMessage('User Deleted Successfully!');

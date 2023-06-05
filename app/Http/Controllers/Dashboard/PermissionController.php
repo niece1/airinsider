@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Permission;
 use App\Http\Requests\Dashboard\PermissionRequest;
 use App\Repositories\Dashboard\PermissionRepository;
-use Illuminate\Support\Facades\Gate;
 
 class PermissionController extends DashboardController
 {
@@ -16,7 +15,7 @@ class PermissionController extends DashboardController
      */
     public function index()
     {
-        abort_unless(Gate::allows('permission_access'), 403);
+        $this->authorize('viewAny', Permission::class);
         $permissions = PermissionRepository::getAll();
 
         return view('dashboard.permission.index', compact('permissions'));
@@ -29,7 +28,7 @@ class PermissionController extends DashboardController
      */
     public function create()
     {
-        abort_unless(Gate::allows('permission_create'), 403);
+        $this->authorize('create', Permission::class);
         $permission = new Permission();
 
         return view('dashboard.permission.create', compact('permission'));
@@ -43,6 +42,7 @@ class PermissionController extends DashboardController
      */
     public function store(PermissionRequest $request)
     {
+        $this->authorize('create', Permission::class);
         PermissionRepository::save($request);
 
         return redirect('dashboard/permissions')->withSuccessMessage('Permission Created Successfully!');
@@ -56,7 +56,7 @@ class PermissionController extends DashboardController
      */
     public function destroy(Permission $permission)
     {
-        abort_unless(Gate::allows('permission_delete'), 403);
+        $this->authorize('delete', Permission::class);
         PermissionRepository::delete($permission);
 
         return redirect('dashboard/permissions')->withSuccessMessage('Permission Deleted Successfully!');

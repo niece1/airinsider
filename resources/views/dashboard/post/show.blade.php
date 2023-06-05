@@ -109,12 +109,14 @@
                 </table>
                 <!-- /.Table -->
             </div>
-        </div>				
+        </div>
+        @can('delete', $post_item)
         <form action="{{ route('posts.destroy', $post_item->id) }}" method="POST">
             @method('DELETE')
             @csrf
             <button type="submit" class="delete-show-page">Delete</button>
         </form>
+        @endcan
     </div>
 </section>
 <!-- /.Dashboard -->
