@@ -119,4 +119,16 @@ class User extends Authenticatable
     {
         return url("users/{$this->id}-" . Str::slug($this->name));
     }
+
+    /**
+     * Check if user has administrator rights.
+     */
+    public function getIsAdminAttribute()
+    {
+        foreach ($this->roles as $role) {
+            if ($role->title === 'Admin') {
+                return true;
+            }
+        }
+    }
 }

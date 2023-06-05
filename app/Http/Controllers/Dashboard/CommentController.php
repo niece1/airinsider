@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Comment;
 use App\Repositories\Dashboard\CommentRepository;
-use Illuminate\Support\Facades\Gate;
 
 class CommentController extends DashboardController
 {
@@ -15,7 +14,7 @@ class CommentController extends DashboardController
      */
     public function index()
     {
-        abort_unless(Gate::allows('comment_access'), 403);
+        $this->authorize('viewAny', Comment::class);
         $comments = CommentRepository::getAll();
 
         return view('dashboard.comment.index', compact('comments'));
@@ -29,7 +28,7 @@ class CommentController extends DashboardController
      */
     public function destroy(Comment $comment)
     {
-        abort_unless(Gate::allows('comment_delete'), 403);
+        $this->authorize('delete', Comment::class);
         CommentRepository::delete($comment);
 
         return redirect('dashboard/comments')->withSuccessMessage('Deleted Successfully!');

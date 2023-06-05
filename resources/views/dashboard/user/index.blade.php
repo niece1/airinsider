@@ -52,12 +52,12 @@
                             @endforeach
                         </td>
                         <td>
-                            @can('user_edit')
+                            @can('update', \App\Models\User::class)
                             <a href="/dashboard/users/{{ $user->id }}/edit" class="action-button-green">
                                 Edit
                             </a>
                             @endcan
-                            @can('user_delete')
+                            @can('delete', \App\Models\User::class)
                             <form action="{{ route('users.destroy', $user->id) }}" method="POST" onsubmit="return confirm('Delete user?')">
                                 @method('DELETE')
                                 @csrf

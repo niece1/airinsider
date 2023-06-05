@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Models\Subscription;
 use App\Repositories\Dashboard\SubscriptionRepository;
-use Illuminate\Support\Facades\Gate;
 
 class SubscriptionController extends DashboardController
 {
@@ -15,7 +14,7 @@ class SubscriptionController extends DashboardController
      */
     public function index()
     {
-        abort_unless(Gate::allows('subscription_access'), 403);
+        $this->authorize('viewAny', Subscription::class);
         $subscriptions = SubscriptionRepository::getAll();
 
         return view('dashboard.subscription.index', compact('subscriptions'));
@@ -29,7 +28,7 @@ class SubscriptionController extends DashboardController
      */
     public function destroy(Subscription $subscription)
     {
-        abort_unless(Gate::allows('subscription_delete'), 403);
+        $this->authorize('delete', Subscription::class);
         SubscriptionRepository::delete($subscription);
 
         return redirect('dashboard/subscriptions')->withSuccessMessage('Email Deleted Successfully!');

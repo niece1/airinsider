@@ -47,20 +47,21 @@
     <input type="text" name="photo_source" value="{{ old('photo_source') ?? $post->photo_source }}" class="form-input">
     <div class="form-error">{{ $errors->first('photo_source') }}</div>
 </div>
-@can('post_publish')
+
 <div class="form-wrapper">
     <label>Select status</label>
     <label class="radio-container">Unpublished
         <input type="radio" name="published" class="form-radio" value="0"@if(old('published',$post->published)=="0") checked @endif>
         <span class="radio-checkmark"></span>
     </label>
+    @can('publish', \App\Models\Post::class)
     <label class="radio-container">Published
         <input type="radio" name="published" class="form-radio" value="1"@if(old('published',$post->published)=="1") checked @endif>
         <span class="radio-checkmark"></span>
     </label>
+    @endcan
     <div class="form-error">{{ $errors->first('published') }}</div>
 </div>
-@endcan
 <div class="form-wrapper">
     <label for="time_to_read">Time to read</label>
     <input type="number" name="time_to_read" value="{{ old('time_to_read') ?? $post->time_to_read }}" min="2" max="10" class="form-input">

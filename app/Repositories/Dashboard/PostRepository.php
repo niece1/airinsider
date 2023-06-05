@@ -15,7 +15,7 @@ class PostRepository
     /**
      * Fetch all posts from the database.
      *
-     * @return \App\Post[]
+     * @return \App\Models\Post[]
      */
     public static function getAll()
     {
@@ -27,8 +27,8 @@ class PostRepository
     /**
      * Save post instance to the database.
      *
-     * @param StorePostRequest  $request
-     * @return \App\Post
+     * @param $request
+     * @return \App\Models\Post
      */
     public static function save($request)
     {
@@ -38,8 +38,8 @@ class PostRepository
     /**
      * Get the specified resource from the database.
      *
-     * @param Post  $post
-     * @return \App\Post
+     * @param \App\Models\Post $post
+     * @return \App\Models\Post
      */
     public static function show(Post $post)
     {
@@ -50,8 +50,8 @@ class PostRepository
     /**
      * Update post instance in the database.
      *
-     * @param UpdatePostRequest  $request
-     * @param Post  $post
+     * @param $request
+     * @param \App\Models\Post $post
      */
     public static function update($request, Post $post)
     {
@@ -61,7 +61,7 @@ class PostRepository
     /**
      * Remove post instance to trash.
      *
-     * @param Post  $post
+     * @param \App\Models\Post $post
      */
     public static function removeToTrash(Post $post)
     {
@@ -71,7 +71,7 @@ class PostRepository
     /**
      * Fetch all trashed posts from the database.
      *
-     * @return \App\Post[]
+     * @return \App\Models\Post[]
      */
     public static function getAllTrashed()
     {
@@ -83,8 +83,8 @@ class PostRepository
     /**
      * Delete post instance from the database.
      *
-     * @param  Post  $id
-     * @param  Photo  $photo
+     * @param  \App\Models\Post $id
+     * @param  \App\Models\Photo $photo
      */
     public static function expunge($id, Photo $photo)
     {
@@ -100,8 +100,8 @@ class PostRepository
     /**
      * Return post from trash.
      *
-     * @param  Post  $id
-     * @return \App\Post
+     * @param  \App\Models\Post $id
+     * @return \App\Models\Post
      */
     public static function returnFromTrash($id)
     {

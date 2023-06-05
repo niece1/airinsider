@@ -15,7 +15,7 @@
 <!-- Dashboard -->
 <section class="dashboard">
     <div class="dashboard-wrapper">
-        @can('subscription_export')
+        @can('export', \App\Models\Subscription::class)
         <a href="{{ route('export.csv') }}" class="button">Csv</a>
         <a href="{{ route('export.excel') }}" class="back">Excel</a>
         @endcan
@@ -38,7 +38,7 @@
                         <td>{{ $subscription->email }}</td>
                         <td>{{ $subscription->if_confirmed }}</td>
                         <td>
-                            @can('subscription_delete')
+                            @can('delete', \App\Models\Subscription::class)
                             <form action="{{ route('subscriptions.destroy', $subscription->id) }}" method="POST" onsubmit="return confirm('Delete subscription?')">
                                 @method('DELETE')
                                 @csrf
