@@ -116,7 +116,6 @@ class PostController extends DashboardController
         PostRepository::update($postRequest, $post);
         $postPhotoUploadService->store($postPhotoRequest, $post);
         $slugService->generateSlug($postRequest, $post);
-        $post->saveUserWithPost($post);
         $post->syncTags($post);
 
         return redirect('dashboard/posts')->withSuccessMessage('Updated Successfully!');
