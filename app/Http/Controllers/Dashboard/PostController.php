@@ -56,6 +56,7 @@ class PostController extends DashboardController
         SlugService $slugService,
         PostPhotoUploadService $postPhotoUploadService
     ) {
+        $this->authorize('create', Post::class);
         $post = PostRepository::save($postRequest);
         $slugService->generateSlug($postRequest, $post);
         $post->saveUserWithPost($post);
@@ -111,10 +112,10 @@ class PostController extends DashboardController
         SlugService $slugService,
         PostPhotoUploadService $postPhotoUploadService
     ) {
+        $this->authorize('update', $post);
         PostRepository::update($postRequest, $post);
         $postPhotoUploadService->store($postPhotoRequest, $post);
         $slugService->generateSlug($postRequest, $post);
-        $post->saveUserWithPost($post);
         $post->syncTags($post);
 
         return redirect('dashboard/posts')->withSuccessMessage('Updated Successfully!');
