@@ -7,9 +7,9 @@
             <p id="test">Issued weekly.</p>
         </div>
         <div class="subscription-widget">
-            <form class="input-wrapper" wire:submit.prevent="store">
+            <form class="input-wrapper" wire:submit="store">
                 <div class="form-group">
-                    <input id="subscription" wire:model.defer="email" type="email" placeholder="Your email" required />
+                    <input id="subscription" wire:model="email" type="email" placeholder="Your email" required />
                         <x-honey/>
                         <button type="submit" class="{{ $terms ? 'activeButton' : ''}}" wire:target="terms" {{ $terms ? '' : 'disabled'}}>
                             <svg xmlns="http://www.w3.org/2000/svg" class="envelope" viewBox="0 0 20 20" fill="currentColor">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="policy-consent">
                     <label class="checkbox-container">
-                        <input wire:model="terms" type="checkbox">
+                        <input wire:model.live="terms" type="checkbox">
                             <span class="checkmark"></span>
                             <small>
                                 By sending email you accept the <a href="/terms-and-conditions">Terms and Conditions</a> 

@@ -6,7 +6,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\Models\Subscription as SubscriptionModel;
 use Tests\Traits\AdminUser;
 use Livewire\Livewire;
-use App\Http\Livewire\Subscription;
+use App\Livewire\Subscription;
 use Illuminate\Support\Str;
 use Tests\TestCase;
 
