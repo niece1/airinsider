@@ -35,14 +35,14 @@ class Post extends Model
     ];
 
     /**
-     * The attributes that should be mutated to dates.
+     * The attributes that should be cast to dates.
      *
      * @var array
      */
-    protected $dates = [
-        'created_at',
-        'updated_at',
-        'publish_time'
+    protected $casts = [
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
+        'publish_time' => 'datetime',
     ];
 
     /**

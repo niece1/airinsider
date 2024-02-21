@@ -4,7 +4,7 @@ namespace Tests\Feature\Frontend;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Livewire\Livewire;
-use App\Http\Livewire\Subscription;
+use App\Livewire\Subscription;
 use Tests\TestCase;
 
 class SubscriptionTest extends TestCase
