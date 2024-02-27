@@ -110,9 +110,21 @@
 </section>
 <!-- /.Pagination section -->
 
-<!-- Subscription livewire component widget -->
-<livewire:subscription />
-<!-- /.Subscription livewire component widget -->
+<!-- Subscription vue component -->
+<section class="subscription">
+    <div class="subscription-wrapper">
+        <div class="subscription-info">
+            <h3>Stay in the know</h3>
+            <p>Get updates on industry events and latest news: subscribe to our newsletters.</p>
+            <p>Issued weekly.</p>
+        </div>
+        <div class="subscription-widget">
+            <!-- Vue component -->
+            <subscription></subscription>
+        </div>
+    </div>
+</section>
+<!-- /.Subscription vue component -->
 
 <!-- Random posts slider -->
 <section class="slider">

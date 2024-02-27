@@ -21,7 +21,6 @@
         <meta name="description" content="@yield('meta', config('app.name'))">
         <meta name="robots" content="index, follow">
         <!-- Styles -->
-        @livewireStyles
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>   
     <!-- /.Head -->
@@ -324,7 +323,6 @@
                 }
             }
         </script>
-        @livewireScripts
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script src="{{ asset('js/lazyload.min.js') }}" defer></script>
         @stack('scripts')

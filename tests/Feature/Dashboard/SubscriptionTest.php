@@ -3,11 +3,8 @@
 namespace Tests\Feature\Dashboard;
 
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\Models\Subscription as SubscriptionModel;
+use App\Models\Subscription;
 use Tests\Traits\AdminUser;
-use Livewire\Livewire;
-use App\Livewire\Subscription;
-use Illuminate\Support\Str;
 use Tests\TestCase;
 
 class SubscriptionTest extends TestCase
@@ -18,16 +15,15 @@ class SubscriptionTest extends TestCase
     /** @test */
     public function subscriptionCanBeDeleted()
     {
-        Livewire::test(Subscription::class)
-            ->set('email', 'airinsider@gmail.com')
-            ->set('terms', true)
-            ->call('store')
-            ->assertSet('email', 'airinsider@gmail.com');
+         $this->post('/subscriptions', [
+            'email' => 'airinsider@gmail.com',
+        ]);
+        $this->assertCount(1, Subscription::all());
         
         $this->actingAs($this->createAdminUser());
-        $subscription = SubscriptionModel::first();
+        $subscription = Subscription::first();
         $this->delete('/dashboard/subscriptions/' . $subscription->id);
-        $this->assertCount(0, SubscriptionModel::all());
+        $this->assertCount(0, Subscription::all());
         $this->assertModelMissing($subscription);
     }
 }
