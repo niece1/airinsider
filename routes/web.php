@@ -76,6 +76,9 @@ Route::group(['prefix' => 'subscription'], function () {
     Route::get('unsubscribe', [SubscriptionController::class, 'destroy'])->name('subscription.destroy');
 });
 
+//Subscription vue component
+Route::post('subscriptions', [SubscriptionController::class, 'store']);
+
 //Dashboard
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     //Resource
